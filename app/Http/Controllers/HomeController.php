@@ -46,6 +46,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('index');
+    }
+    public function justcompress()
+    {
+        return view('compress');
+    }
+    public function checkresponsiveness()
+    {
+        return view('responsiveness');
     }
 }
