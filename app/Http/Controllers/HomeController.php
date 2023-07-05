@@ -26,9 +26,12 @@ class HomeController extends Controller
     
         // Return the downloadable link for the converted image
         return response()->json([
+            'success' => true,
             'url' => asset('converted/'.$filename),
+            'filename' => $filename,
         ]);
     }
+    
     /**
      * Create a new controller instance.
      *

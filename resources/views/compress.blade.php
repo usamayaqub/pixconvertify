@@ -78,10 +78,10 @@
                                 <div class="progress-bar">
                                     <div class="progress" style="width: 0%;"></div>
                                 </div>
-                                <p class="process-percentage">0%</p>
+                                <p class="process-percentage">100%</p>
                             </div>
                             <div class="processing-and-download-and-delete">
-                                <button class="processing waves-effect waves-light">Processing</button>
+                                <button class="processing waves-effect waves-light">DOne</button>
                                 <button class="downloading-btn waves-effect waves-light d-none">
                                     <img src="./assets/images/download-arrow.svg" alt="">
                                     <span>
@@ -108,10 +108,10 @@
                                 <div class="progress-bar">
                                     <div class="progress" style="width: 70%;"></div>
                                 </div>
-                                <p class="process-percentage">70%</p>
+                                <p class="process-percentage">100%</p>
                             </div>
                             <div class="processing-and-download-and-delete">
-                                <button class="processing waves-effect waves-light d-none">Processing</button>
+                                <button class="processing waves-effect waves-light d-none">Processed</button>
                                 <button class="downloading-btn waves-effect waves-light">
                                     <img src="./assets/images/download-arrow.svg" alt="">
                                     <span>
