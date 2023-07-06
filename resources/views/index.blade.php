@@ -356,9 +356,12 @@ $(document).ready(function() {
     if (!conversionInProgress) {
       handleFiles(e.target.files);
     } else {
-      // Otherwise, add the new files to a separate array
-      var newFiles = Array.from(e.target.files);
-      files = files.concat(newFiles);
+        var newFiles = Array.from(e.target.files).filter(function(file) {
+      return !convertedFiles.some(function(convertedFile) {
+        return convertedFile.filename === file.name;
+      });
+    });
+    files = files.concat(newFiles);
     }
   });
 
@@ -434,14 +437,26 @@ $(document).ready(function() {
 
 
 function convertImages(files) {
-
-    conversionInProgress = true;
+  conversionInProgress = true;
 
   $('.convert-file').attr('disabled', 'disabled'); // Disable convert button
   $('.delete-button').attr('disabled', 'disabled'); // Disable delete buttons
 
   var format = $('#selectedConvertTo').text(); // Get the selected format
   $.each(files, function(index, file) {
+    // Check if the file has already been converted
+    if (convertedFiles.some(function(convertedFile) {
+      return convertedFile.data === file;
+    })) {
+      // Skip the conversion for already converted files
+      if (index === files.length - 1) {
+        // Enable delete buttons
+        $('.delete-button').removeAttr('disabled');
+      }
+      updateConvertButtonState();
+      return true;
+    }
+
     var formData = new FormData();
     formData.append('image', file);
     formData.append('format', format);
@@ -454,13 +469,13 @@ function convertImages(files) {
     var $processPercentage = $item.find('.process-percentage');
     var $processingBtn = $item.find('.processing');
     var $downloadBtn = $item.find('.downloading-btn');
-
     $progress.css('width', '0%');
     $processPercentage.text('0%');
     $progressWrap.removeClass('d-none');
     $progressBar.removeClass('d-none');
     $progress.removeClass('d-none');
     $processPercentage.removeClass('d-none');
+
     $processingBtn.removeClass('d-none');
     $downloadBtn.addClass('d-none');
 
@@ -491,25 +506,29 @@ function convertImages(files) {
           $item.find('.check-button').removeClass('d-none');
 
           convertedFiles.push({
+            data: file,
             url: response.url,
             filename: response.filename
           });
 
           // Add a click event listener to the download button
           $downloadBtn.on('click', function(e) {
-            e.preventDefault();
-            var downloadUrl = $(this).attr('href');
-            var downloadFilename = $(this).attr('download');
+            if (!(e.target.getAttribute('downloaded'))) {
+              var downloadUrl = e.target.getAttribute('href');
+              var downloadFilename = e.target.getAttribute('download');
 
-            // Create a temporary link element and set its attributes
-            var link = document.createElement('a');
-            link.href = downloadUrl;
-            link.download = downloadFilename;
+              // Create a temporary link element and set its attributes
+              var link = document.createElement('a');
+              link.href = downloadUrl;
+              link.download = downloadFilename;
 
-            // Programmatically trigger the download
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
+              // Programmatically trigger the download
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+
+              e.target.setAttribute('downloaded', 'true');
+            }
           });
         }
       },
@@ -517,25 +536,26 @@ function convertImages(files) {
         console.error(xhr.responseText);
       },
       complete: function() {
+        if (index === files.length - 1) {
+          // Enable delete buttons
+          $('.delete-button').removeAttr('disabled');
+        }
+        updateConvertButtonState();
         conversionInProgress = false;
         files = []; // Empty the files array
-        updateConvertButtonState();
-        if (index === files.length - 1) {
-        // Enable delete buttons
-        $('.delete-button').removeAttr('disabled');
-        }
       }
     });
   });
 }
 
-// function updateConvertButtonState() {
-//     if (files.length > 0) {
-//       $('.convert-file').removeAttr('disabled'); // Enable convert button
-//     } else {
-//       $('.convert-file').attr('disabled', 'disabled'); // Disable convert button
-//     }
-//   }
+
+function updateConvertButtonState() {
+    if (files.length > 0) {
+      $('.convert-file').removeAttr('disabled'); // Enable convert button
+    } else {
+      $('.convert-file').attr('disabled', 'disabled'); // Disable convert button
+    }
+  }
 
 
 
@@ -565,8 +585,6 @@ function convertImages(files) {
     });
   }
 });
-
-
 
 </script>
 
