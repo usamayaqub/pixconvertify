@@ -12,18 +12,18 @@
                     <p class="links_title">Images Conversation</p>
                     <div class="links_wrap">
                         <ul>
-                            <li><a href="#">JPEG to PDF</a></li>
-                            <li><a href="#">GIF to PNG</a></li>
-                            <li><a href="#">PNG to TIFF</a></li>
-                            <li><a href="#">BMP to ICO</a></li>
-                            <li><a href="#">TIFF to PNG</a></li>
+                            <li><a href="{{ route('base', ['format' => 'jpeg-to-pdf']) }}">JPEG to PDF</a></li>
+                            <li><a href="{{ route('base', ['format' => 'gif-to-png']) }}">GIF to PNG</a></li>
+                            <li><a href="{{ route('base', ['format' => 'png-to-tiff']) }}">PNG to TIFF</a></li>
+                            <li><a href="{{ route('base', ['format' => 'bmp-to-ico']) }}">BMP to ICO</a></li>
+                            <li><a href="{{ route('base', ['format' => 'tiff-to-png']) }}">TIFF to PNG</a></li>
                         </ul>
                         <ul>
-                            <li><a href="#">BMP to GIF</a></li>
-                            <li><a href="#">ICO to PNG</a></li>
-                            <li><a href="#">WEBP to TIFF</a></li>
-                            <li><a href="#">PDF to ICO</a></li>
-                            <li><a href="#">DOC to JPEG</a></li>
+                            <li><a href="{{ route('base', ['format' => 'bmp-to-gif']) }}">BMP to GIF</a></li>
+                            <li><a href="{{ route('base', ['format' => 'ico-to-png']) }}">ICO to PNG</a></li>
+                            <li><a href="{{ route('base', ['format' => 'webp-to-tiff']) }}">WEBP to TIFF</a></li>
+                            <li><a href="{{ route('base', ['format' => 'jpeg-to-webp']) }}">JPEG to WEBP</a></li>
+                            <li><a href="{{ route('base', ['format' => 'png-to-webp']) }}">PNG to WEBP</a></li>
                         </ul>
                     </div>
                 </div>

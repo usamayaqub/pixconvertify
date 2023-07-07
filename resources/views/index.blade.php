@@ -19,6 +19,15 @@
                     <div class="banner-badge">
                         <p>Convert your files to any format</p>
                     </div>
+                    @if(!empty($format) && $format == 'png-to-webp')
+                    <h1>
+                       PNG TO WEBP
+                        <span>converter</span>
+                    </h1>
+                    <p class="banner-message">
+                        Securely convert Up to 20 files from PNG to WEBP at a single time.
+                    </p>
+                    @else
                     <h1>
                         Free online file
                         <span>converter</span>
@@ -27,6 +36,7 @@
                         Securely convert Up to 20 files at a single time. Lots of media and document formats are
                         supported.
                     </p>
+                    @endif
                     <div class="shape">
                         <img src="./assets/images/shape.svg" class="obj_fit_contain" alt="">
                     </div>
