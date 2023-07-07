@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+
+    public function checkresponsiveness()
+    {
+        return view('responsiveness');
+    }
+
     public function convertImage(Request $request)
     {
         // Get the uploaded image file
@@ -55,8 +61,5 @@ class HomeController extends Controller
     {
         return view('compress');
     }
-    public function checkresponsiveness()
-    {
-        return view('responsiveness');
-    }
+ 
 }

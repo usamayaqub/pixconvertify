@@ -15,19 +15,16 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
+Route::get('/compress', [HomeController::class, 'justcompress'])->name('get-justcompress');
+Route::get('/checkresponsivness', [HomeController::class, 'checkresponsiveness'])->name('get-checkrespo');
+
 Route::get('/{format?}', function ($format = null) {
     return view('index',compact('format'));
 })->name('base');
 
 
-Route::get('/compress', [HomeController::class, 'justcompress'])->name('get-justcompress');
-Route::get('/checkresponsivness', [HomeController::class, 'checkresponsiveness'])->name('get-checkrespo');
 
 
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 

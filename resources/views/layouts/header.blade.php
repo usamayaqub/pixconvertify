@@ -8,10 +8,10 @@
                 </a>
                 <ul class="site-header-links">
                     <li>
-                        <a href="#">Compress files</a>
+                        <a href="{{route('get-justcompress')}}">Compress files</a>
                     </li>
                     <li>
-                        <a href="#">Check Responsiveness</a>
+                        <a href="{{route('get-checkrespo')}}">Check Responsiveness</a>
                     </li>
                     <li>
                         <a href="#">Support</a>
@@ -34,8 +34,8 @@
     </div>
     <div class="sidebar_menu">
         <ul>
-            <li><a href="#">Compress files</a></li>
-            <li><a href="#">Check Responsiveness</a></li>
+            <li><a href="{{route('get-justcompress')}}">Compress files</a></li>
+            <li><a href="{{route('get-checkrespo')}}">Check Responsiveness</a></li>
             <li><a href="#">Support</a></li>
         </ul>
         <li class="logout">
