@@ -425,16 +425,52 @@ $(document).ready(function() {
         var $downloadBtn = $('<button class="downloading-btn waves-effect waves-light d-none">').append($('<img src="./assets/images/download-arrow.svg" alt="">')).append($('<span>').text('Download File'));
         var $deleteBtn = $('<button class="delete-button d-none">').append($('<img src="./assets/images/dustbin.svg" alt="">'));
         var $checkBtn = $('<div class="check-button d-none">').append($('<img src="./assets/images/checkbox-icon.svg" alt="">'));
-        
+        var $dropdown = $('<div class="converter-section-selection">')
+                        .append($('<p class="converter-text">Convert</p>'))
+                        .append($('<div class="converter-dropdown-wrap">')
+                        .append($('<div class="converter-selection_box">')
+                        .append($('<p class="convert-from">')
+                        .append($('<span class="selectedConvertFrom">').text('...'))
+                        .append($('<img src="./assets/images/arrow-down.svg" alt="">')))
+                        .append($('<div class="selection-dropdown">')
+                        .append($('<div class="selection-dropdown_inner">')
+                        .append($('<div class="format_wrap">')
+                        .append($('<span>').text('PNG'))
+                        .append($('<span>').text('JPEG'))
+                        .append($('<span>').text('JPG'))
+                        .append($('<span>').text('WEBP'))
+                        .append($('<span>').text('GIF'))
+                        .append($('<span>').text('BMP'))
+                        .append($('<span>').text('ICO'))
+                        .append($('<span>').text('TIFF')))
+                        )
+                        )
+                        )
+                        );
+
         $img.attr('src', e.target.result);
         $itemContent.append($img).append($('<div>').append($fileName).append($fileSize));
         $progressBar.append($progress);
         $progressWrap.append($progressBar).append($processPercentage);
-        $item.append($itemContent).append($progressWrap).append($('<div class="processing-and-download-and-delete">').append($processingBtn).append($downloadBtn).append($deleteBtn).append($checkBtn));
+        $item.append($itemContent).append($progressWrap).append($dropdown).append($('<div class="processing-and-download-and-delete">').append($processingBtn).append($downloadBtn).append($deleteBtn).append($checkBtn));
         
         // Append the new converter item
         $('.converter_section_listing ul').append($item);
         $('.converter_section_bottom').show();
+
+        $dropdown.on('click', function() {
+      $(this).find('.selection-dropdown').toggleClass('open');
+    });
+
+    $dropdown.find('.format_wrap span').on('click', function() {
+      var selectedFormat = $(this).text();
+      $dropdown.find('.selectedConvertFrom').text(selectedFormat);
+    });
+
+    // Pre-select the format based on the value of selectedConvertTo
+    var preselectedFormat = $('#selectedConvertTo').text();
+    $dropdown.find('.selectedConvertFrom').text(preselectedFormat);
+
 
         files.push(file); // Add the file to the files array
       };
@@ -452,8 +488,15 @@ function convertImages(files) {
   $('.convert-file').attr('disabled', 'disabled'); // Disable convert button
   $('.delete-button').attr('disabled', 'disabled'); // Disable delete buttons
 
-  var format = $('#selectedConvertTo').text(); // Get the selected format
+//   var format = $('#selectedConvertTo').text(); // Get the selected format
   $.each(files, function(index, file) {
+
+    var $item = $('.converter_item').eq(index);
+    var $dropdown = $item.find('.converter-section-selection');
+    var selectedFormat = $dropdown.find('.selectedConvertFrom').text(); 
+    console.log(selectedFormat);
+    $dropdown.addClass('d-none');
+
     // Check if the file has already been converted
     if (convertedFiles.some(function(convertedFile) {
       return convertedFile.data === file;
@@ -469,7 +512,7 @@ function convertImages(files) {
 
     var formData = new FormData();
     formData.append('image', file);
-    formData.append('format', format);
+    formData.append('format', selectedFormat);
 
     // Find the corresponding item in the list
     var $item = $('.converter_item').eq(index);
