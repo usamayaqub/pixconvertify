@@ -66,10 +66,10 @@
                         </div>
                         <div class="converter_section_right">
                             <div class="converter_section_selection">
-                                <p class="converter-text">Convert</p>
+                                <p class="converter-text">Convert To</p>
                                 <div class="converter-dropdown-wrap">
                                     <div class="converter-selection_box">
-                                        <p class="convert-from">
+                                        <p class="convert-from d-none">
                                             <span id="selectedConvertFrom">...</span>
                                             <img src="./assets/images/arrow-down.svg" alt="">
                                         </p>
@@ -180,115 +180,6 @@
                     </div>
                     <div class="converter_section_listing">
                         <ul class="file-item-list">
-                            <!-- <div class="converter_item">
-                                <div class="converter_item_name_size">
-                                    <img src="./assets/images/defualt-img-icon.svg" class="defualt-img" alt="">
-                                    <div>
-                                        <p class="file-name">Tech design requirements.jpeg</p>
-                                        <span class="file-size">200 KB</span>
-                                    </div>
-                                </div>
-                                <div class="converter-dropdown-wrap ml-0">
-                                    <p class="converter-text">Convert</p>
-                                    <div class="converter-selection_box">
-                                        <p class="convert-from">
-                                            <span>...</span>
-                                            <img src="./assets/images/arrow-down.svg" alt="">
-                                        </p>
-                                        <div class="selection-dropdown">
-                                            <div class="selection-dropdown_inner">
-                                                <div class="search-format-bar">
-                                                    <div>
-                                                        <img src="./assets/images/search-icon.svg" alt="">
-                                                    </div>
-                                                    <input type="search" class="search-format">
-                                                </div>
-                                                <div class="tabz row format-tabs">
-                                                    <div class="col s12 px-0">
-                                                        <ul class="tab-nav">
-                                                            <li class="tab col s6 px-0 active">
-                                                                <a class="gernal-btn">Images</a>
-                                                            </li>
-                                                            <li class="tab col s6 px-0">
-                                                                <a class="gernal-btn">Document</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="tab-content">
-                                                        <div class="tab-pane active col s12 px-0">
-                                                            <div class="format_wrap">
-                                                                <span>PNG</span>
-                                                                <span>JPEG</span>
-                                                                <span>PDF</span>
-                                                                <span>WEBP</span>
-                                                                <span>GIF</span>
-                                                                <span>DOC</span>
-                                                                <span>BMP</span>
-                                                                <span>ICO</span>
-                                                                <span>TIFF</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="tab-pane col s12 px-0">
-                                                            <div class="format_wrap">
-                                                                <span>WORD</span>
-                                                                <span>EXCEL</span>
-                                                                <span>PDF</span>
-                                                                <span>DOC</span>
-                                                                <span>CSV</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="processing-and-download-and-delete">
-                                    <button class="processing waves-effect waves-light d-none">Processing</button>
-                                    <button class="downloading-btn waves-effect waves-light">
-                                        <img src="./assets/images/download-arrow.svg" alt="">
-                                        <span>
-                                            Download File
-                                        </span>
-                                    </button>
-                                    <button class="delete-button d-none">
-                                        <img src="./assets/images/dustbin.svg" alt="">
-                                    </button>
-                                    <div class="check-button">
-                                        <img src="./assets/images/checkbox-icon.svg" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="converter_item">
-                                <div class="converter_item_name_size">
-                                    <img src="./assets/images/defualt-img-icon.svg" class="defualt-img" alt="">
-                                    <div>
-                                        <p class="file-name">Tech design requirements.jpeg</p>
-                                        <span class="file-size">200 KB</span>
-                                    </div>
-                                </div>
-                                <div class="progress_wrap">
-                                    <div class="progress-bar">
-                                        <div class="progress" style="width: 70%;"></div>
-                                    </div>
-                                    <p class="process-percentage">70%</p>
-                                </div>
-                                <div class="processing-and-download-and-delete">
-                                    <button class="processing waves-effect waves-light d-none">Processing</button>
-                                    <button class="downloading-btn waves-effect waves-light">
-                                        <img src="./assets/images/download-arrow.svg" alt="">
-                                        <span>
-                                            Download File
-                                        </span>
-                                    </button>
-                                    <button class="delete-button d-none">
-                                        <img src="./assets/images/dustbin.svg" alt="">
-                                    </button>
-                                    <div class="check-button">
-                                        <img src="./assets/images/checkbox-icon.svg" alt="">
-                                    </div>
-                                </div>
-                            </div> -->
                         </ul>
                         <div class="converter_section_bottom">
                             <div class="converter_section_inner">
@@ -297,18 +188,11 @@
                                     <span>Add More File</span>
                                     <input type="file" title="">
                                 </button>
-                                <div class="">
+                                <div class="footer_btn_wrap">
                                     <button id="convertButton" type="submit" class="convert-file waves-effect waves-light">
                                         <img src="./assets/images/convert-icon.svg" alt="">
                                         <span>Convert</span>
                                     </button>
-                                    <div class="converter_item">
-                                        <div class="converter_item_name_size">
-                                        </div>
-                                        <div class="processing-and-download-and-delete">
-                                        </div>
-                                    </div>
-                                    <div id="downloadLinkContainer"></div>
                                     <button class="download-all-files waves-effect waves-light">
                                         <img src="./assets/images/download-arrow.svg" alt="">
                                         <span>Download All</span>
@@ -362,6 +246,24 @@ $(document).ready(function() {
 
   // Handle file selection
   $('input[type=file]').change(function(e) {
+     var selectedFormat = $('#selectedConvertTo').text();
+     console.log(selectedFormat);
+  if (selectedFormat === '...') {
+      Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Please select a format first',
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000
+        });
+
+        // var beepSound = new Audio('assets/images/alert.mp3'); 
+        // beepSound.play();
+        return;
+  }
+
     // If conversion is not in progress, handle the files immediately
     if (!conversionInProgress) {
       handleFiles(e.target.files);
@@ -394,7 +296,14 @@ $(document).ready(function() {
 
   // Convert image on button click
   $('.convert-file').click(function() {
+    var selectedFormat = $('.selectedConvertFrom').text();
+  if (selectedFormat === '...') {
+    // Show toaster or error message indicating the need to select a format
+    alert('Please select a format first.');
+    return;
+  }
     convertImages(files);
+
   });
 
   // Download all converted images as a zip file
@@ -423,10 +332,10 @@ $(document).ready(function() {
         var $processPercentage = $('<p class="process-percentage d-none">');
         var $processingBtn = $('<button class="processing waves-effect waves-light d-none">Processing</button>');
         var $downloadBtn = $('<button class="downloading-btn waves-effect waves-light d-none">').append($('<img src="./assets/images/download-arrow.svg" alt="">')).append($('<span>').text('Download File'));
-        var $deleteBtn = $('<button class="delete-button d-none">').append($('<img src="./assets/images/dustbin.svg" alt="">'));
+        var $deleteBtn = $('<button class="delete-button">').append($('<img src="./assets/images/dustbin.svg" alt="">'));
         var $checkBtn = $('<div class="check-button d-none">').append($('<img src="./assets/images/checkbox-icon.svg" alt="">'));
         var $dropdown = $('<div class="converter-section-selection">')
-                        .append($('<p class="converter-text">Convert</p>'))
+                        .append($('<p class="converter-text">Convert To</p>'))
                         .append($('<div class="converter-dropdown-wrap">')
                         .append($('<div class="converter-selection_box">')
                         .append($('<p class="convert-from">')
@@ -448,7 +357,7 @@ $(document).ready(function() {
                         )
                         );
 
-        $img.attr('src', e.target.result);
+        $img.attr('src','./assets/images/defualt-img-icon.svg');
         $itemContent.append($img).append($('<div>').append($fileName).append($fileSize));
         $progressBar.append($progress);
         $progressWrap.append($progressBar).append($processPercentage);
@@ -458,8 +367,14 @@ $(document).ready(function() {
         $('.converter_section_listing ul').append($item);
         $('.converter_section_bottom').show();
 
-        $dropdown.on('click', function() {
+    $dropdown.on('click', function() {
       $(this).find('.selection-dropdown').toggleClass('open');
+    });
+
+    $deleteBtn.on('click', function() {
+    var index = $('.delete-button').index(this);
+    files.splice(index, 1); 
+    $(this).closest('.converter_item').remove(); 
     });
 
     $dropdown.find('.format_wrap span').on('click', function() {
@@ -487,7 +402,7 @@ function convertImages(files) {
 
   $('.convert-file').attr('disabled', 'disabled'); // Disable convert button
   $('.delete-button').attr('disabled', 'disabled'); // Disable delete buttons
-
+  $('.delete-button').addClass('d-none');
 //   var format = $('#selectedConvertTo').text(); // Get the selected format
   $.each(files, function(index, file) {
 
@@ -582,38 +497,17 @@ function convertImages(files) {
           });
         }
       },
-          // Add a click event listener to the download button
-    //       $downloadBtn.on('click', function(e) {
-    //         if (!(e.target.getAttribute('downloaded'))) {
-    //           var downloadUrl = e.target.getAttribute('href');
-    //           var downloadFilename = e.target.getAttribute('download');
 
-    //           // Create a temporary link element and set its attributes
-    //           var link = document.createElement('a');
-    //           link.href = downloadUrl;
-    //           link.download = downloadFilename;
-
-    //           // Programmatically trigger the download
-    //           document.body.appendChild(link);
-    //           link.click();
-    //           document.body.removeChild(link);
-
-    //           e.target.setAttribute('downloaded', 'true');
-    //         }
-    //       });
-    //     }
-    //   },
       error: function(xhr, status, error) {
         console.error(xhr.responseText);
       },
       complete: function() {
         if (index === files.length - 1) {
-          // Enable delete buttons
           $('.delete-button').removeAttr('disabled');
         }
         updateConvertButtonState();
         conversionInProgress = false;
-        files = []; // Empty the files array
+        files = [];
       }
     });
   });
