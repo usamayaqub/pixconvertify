@@ -649,7 +649,7 @@ function updateConvertButtonState() {
         downloadCount++;
         if (downloadCount === convertedFiles.length) {
           zip.generateAsync({ type: 'blob' }).then(function(content) {
-            saveAs(content, 'converted_images.zip');
+            saveAs(content, 'PixConvertify.zip');
           });
         }
       });

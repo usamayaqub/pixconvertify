@@ -21,10 +21,11 @@ class HomeController extends Controller
         $format = $request->input('format');
     
         // Compress and convert the image
-        $convertedImage = Image::make($imageFile)->encode($format, 75);
+        $convertedImage = Image::make($imageFile)->encode($format, 90);
     
         // Generate a unique filename
-        $filename = uniqid().'.'.$format;
+        $img_name = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+        $filename = $img_name . '-' . time() . '.' . $format;
     
         // Save the converted image to the public disk
         $convertedImagePath = public_path('converted/'.$filename);
