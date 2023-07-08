@@ -61,7 +61,7 @@
                                 <img src="./assets/images/drop-icon.svg" alt="">
                                 <h2 class="drop_file-text mt-0">Drag or Drop file here</h2>
                                 <p class="restriction-text">Up to 20 files at a single time, max 20 MB each.</p>
-                                <input type="file" name="image" id="image" accept="image/*">
+                                <input title="" type="file" name="image" id="image" accept="image/*">
                             </div>
                         </div>
                         <div class="converter_section_right">
@@ -173,7 +173,7 @@
                                 <button class="select-file waves-effect waves-light">
                                     <img src="./assets/images/file-icon.svg" alt="">
                                     <span>Select File</span>
-                                    <input type="file">
+                                    <input type="file" title="">
                                 </button>
                             </div>
                         </div>
@@ -295,7 +295,7 @@
                                 <button class="add-more-file select-file waves-effect waves-light ml-0">
                                     <img src="./assets/images/file-icon.svg" alt="">
                                     <span>Add More File</span>
-                                    <input type="file">
+                                    <input type="file" title="">
                                 </button>
                                 <div class="">
                                     <button id="convertButton" type="submit" class="convert-file waves-effect waves-light">
