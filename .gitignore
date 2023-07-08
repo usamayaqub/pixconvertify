@@ -5,6 +5,7 @@
 /public/converted
 /storage/*.key
 /vendor
+/public/converted
 .env
 .env.backup
 .env.production
