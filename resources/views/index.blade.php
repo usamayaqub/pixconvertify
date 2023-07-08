@@ -564,27 +564,45 @@ function convertImages(files) {
             filename: response.filename
           });
 
-          // Add a click event listener to the download button
+
           $downloadBtn.on('click', function(e) {
-            if (!(e.target.getAttribute('downloaded'))) {
-              var downloadUrl = e.target.getAttribute('href');
-              var downloadFilename = e.target.getAttribute('download');
+            e.preventDefault();
+            var downloadUrl = $(this).attr('href');
+            var downloadFilename = $(this).attr('download');
 
-              // Create a temporary link element and set its attributes
-              var link = document.createElement('a');
-              link.href = downloadUrl;
-              link.download = downloadFilename;
+            // Create a temporary link element and set its attributes
+            var link = document.createElement('a');
+            link.href = downloadUrl;
+            link.download = downloadFilename;
 
-              // Programmatically trigger the download
-              document.body.appendChild(link);
-              link.click();
-              document.body.removeChild(link);
-
-              e.target.setAttribute('downloaded', 'true');
-            }
+            // Programmatically trigger the download
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
           });
         }
       },
+          // Add a click event listener to the download button
+    //       $downloadBtn.on('click', function(e) {
+    //         if (!(e.target.getAttribute('downloaded'))) {
+    //           var downloadUrl = e.target.getAttribute('href');
+    //           var downloadFilename = e.target.getAttribute('download');
+
+    //           // Create a temporary link element and set its attributes
+    //           var link = document.createElement('a');
+    //           link.href = downloadUrl;
+    //           link.download = downloadFilename;
+
+    //           // Programmatically trigger the download
+    //           document.body.appendChild(link);
+    //           link.click();
+    //           document.body.removeChild(link);
+
+    //           e.target.setAttribute('downloaded', 'true');
+    //         }
+    //       });
+    //     }
+    //   },
       error: function(xhr, status, error) {
         console.error(xhr.responseText);
       },
