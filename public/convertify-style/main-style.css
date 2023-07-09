@@ -433,6 +433,9 @@ p {
     line-height: 23px;
     color: var(--text-color);
 }
+.converter-text-listed{
+    margin-right: 10px;
+}
 .select-file {
     cursor: pointer;
     width: 180px;
