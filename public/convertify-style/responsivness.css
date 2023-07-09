@@ -117,6 +117,14 @@
     .converter-selection_box p{
         width: 80px;
     }
+    .converter_section_inner{
+        flex-direction: column;
+    }
+    .footer_btn_wrap{
+        display: flex;
+        justify-content: end;
+        gap: 7px;
+    }
 }
 @media only screen and (max-width:768px){
     .site-menu{
@@ -182,11 +190,15 @@
     .how-its-work_wrap .how-its-work_item{
         margin-bottom: 30px;
     }
+    .how-its-work_item{
+        width: 100%;
+    }
 }
 @media only screen and (max-width:600px){
     .converter_section_selection{
-        flex-direction: column;
+        flex-wrap: wrap;
         gap: 15px;
+        justify-content: center;
     }
     .converter-dropdown-wrap{
         margin-left: 0;
@@ -204,6 +216,9 @@
     }
     .site-footer_right .links_wrap ul{
         width: 100%;
+    }
+    .how-its-work h2{
+        font-size: 30px;
     }
 }
 @media only screen and (max-width:490px){
@@ -328,6 +343,7 @@
     }
     .how-its-work{
       width: 90%;
+      margin: 0 auto;
     }
 }
 @media (max-width: 768px){

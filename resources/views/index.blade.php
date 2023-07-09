@@ -230,6 +230,12 @@
         </div>
     </section>
 
+    <div class="drag-and-drop_overlay">
+    <div>
+      <img src="./assets/images/droping-file.svg" alt="">
+    </div>
+</div>
+
 </main>
 
 <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
@@ -282,17 +288,31 @@ $(document).ready(function() {
   });
 
   // Handle file drag and drop
-  $('.converter_section').on('dragover', function(e) {
+  var isDragging = false; // Track dragging state
+
+  $('body').on('dragover', function(e) {
     e.preventDefault();
-    $(this).addClass('dragover');
+    if (!isDragging) {
+      $(this).addClass('dragover');
+      isDragging = true;
+    }
   });
 
-  $('.converter_section').on('dragleave', function(e) {
+  $('body').on('dragleave', function(e) {
     e.preventDefault();
-    $(this).removeClass('dragover');
+    var target = e.target;
+    var rect = target.getBoundingClientRect();
+    var x = e.clientX;
+    var y = e.clientY;
+    
+    // Check if the mouse cursor is outside the target element
+    if (x < rect.left || x >= rect.right || y < rect.top || y >= rect.bottom) {
+      $(this).removeClass('dragover');
+      isDragging = false;
+    }
   });
 
-  $('.converter_section').on('drop', function(e) {
+  $('body').on('drop', function(e) {
     e.preventDefault();
     $(this).removeClass('dragover');
     var selectedFormat = $('#selectedConvertTo').text();
@@ -318,6 +338,18 @@ $(document).ready(function() {
       return;
     }
     handleFiles(e.originalEvent.dataTransfer.files);
+  });
+
+  // Add overlay when dragging starts
+  $('body').on('dragenter', function(e) {
+    e.preventDefault();
+    $(this).addClass('dragover');
+  });
+
+  // Remove overlay when dragging ends
+  $('body').on('dragend', function(e) {
+    e.preventDefault();
+    $(this).removeClass('dragover');
   });
 
   // Convert image on button click
