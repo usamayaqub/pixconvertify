@@ -295,6 +295,28 @@ $(document).ready(function() {
   $('.converter_section').on('drop', function(e) {
     e.preventDefault();
     $(this).removeClass('dragover');
+    var selectedFormat = $('#selectedConvertTo').text();
+    console.log(selectedFormat);
+    if (selectedFormat === '...') {
+      var Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+    Toast.fire({
+        icon: 'error',
+        title: "Oops! Please select a format first"
+    })
+        var beepSound = new Audio('assets/sounds/error.mp3'); 
+        beepSound.play();
+      return;
+    }
     handleFiles(e.originalEvent.dataTransfer.files);
   });
 
