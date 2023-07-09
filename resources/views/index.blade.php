@@ -101,7 +101,7 @@
                                                             <span>GIF</span>
                                                             <span>DOC</span>
                                                             <span>BMP</span>
-                                                            <span>ICO</span>
+                                                            <span>AVIF</span>
                                                             <span>TIFF</span>
                                                         </div>
                                                     </div>
@@ -152,7 +152,7 @@
                                                             <span>GIF</span>
                                                             <span>DOC</span>
                                                             <span>BMP</span>
-                                                            <span>ICO</span>
+                                                            <span>AVIF</span>
                                                             <span>TIFF</span>
                                                         </div>
                                                     </div>
@@ -347,7 +347,19 @@ $(document).ready(function() {
   function handleFiles(selectedFiles) {
   for (var i = 0; i < selectedFiles.length; i++) {
     var file = selectedFiles[i];
-    var fileSize = (file.size / 1024).toFixed(2) + ' KB';
+    // var fileSize = (file.size / 1024).toFixed(2) + ' KB';
+    var fileSize;
+    var fileSizeKB = file.size / 1024;
+
+    if (fileSizeKB >= 1024) {
+      var fileSizeMB = fileSizeKB / 1024;
+      fileSize = fileSizeMB.toFixed(2) + ' MB';
+    } else {
+      fileSize = fileSizeKB.toFixed(2) + ' KB';
+    }
+
+console.log(fileSize);
+
     var reader = new FileReader();
 
     reader.onload = (function(file) {
@@ -366,7 +378,7 @@ $(document).ready(function() {
         var $deleteBtn = $('<button class="delete-button">').append($('<img src="./assets/images/dustbin.svg" alt="">'));
         var $checkBtn = $('<div class="check-button d-none">').append($('<img src="./assets/images/checkbox-icon.svg" alt="">'));
         var $dropdown = $('<div class="converter-section-selection">')
-                        .append($('<p class="converter-text">Convert To</p>'))
+                        .append($('<p class="converter-text converter-text-listed">Convert To</p>'))
                         .append($('<div class="converter-dropdown-wrap">')
                         .append($('<div class="converter-selection_box">')
                         .append($('<p class="convert-from">')
@@ -381,7 +393,7 @@ $(document).ready(function() {
                         .append($('<span>').text('WEBP'))
                         .append($('<span>').text('GIF'))
                         .append($('<span>').text('BMP'))
-                        .append($('<span>').text('ICO'))
+                        .append($('<span>').text('AVIF'))
                         .append($('<span>').text('TIFF')))
                         )
                         )

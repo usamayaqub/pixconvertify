@@ -57,6 +57,7 @@
     .converter_item{
         flex-direction: column;
         gap: 15px;
+        align-items: end;
     }
     .converter_item_name_size{
         width: 100%;
@@ -247,6 +248,10 @@
     }
     .converter_dropbox{
         border-radius: 5px;
+    }
+    .file-name{
+        font-size: 13px;
+        line-height: 17px;
     }
 }
 @media only screen and (max-width:450px){
