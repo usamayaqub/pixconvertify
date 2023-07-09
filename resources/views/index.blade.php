@@ -61,7 +61,7 @@
                                 <img src="./assets/images/drop-icon.svg" alt="">
                                 <h2 class="drop_file-text mt-0">Drag or Drop file here</h2>
                                 <p class="restriction-text">Up to 20 files at a single time, max 20 MB each.</p>
-                                <input title="" type="file" name="image" id="image" accept="image/*">
+                                <input title="" type="file" name="image" id="image" accept="image/*" multiple>
                             </div>
                         </div>
                         <div class="converter_section_right">
@@ -173,7 +173,7 @@
                                 <button class="select-file waves-effect waves-light">
                                     <img src="./assets/images/file-icon.svg" alt="">
                                     <span>Select File</span>
-                                    <input type="file" title="">
+                                    <input type="file" title="" multiple>
                                 </button>
                             </div>
                         </div>
@@ -186,7 +186,7 @@
                                 <button class="add-more-file select-file waves-effect waves-light ml-0">
                                     <img src="./assets/images/file-icon.svg" alt="">
                                     <span>Add More File</span>
-                                    <input type="file" title="">
+                                    <input type="file" title="" multiple>
                                 </button>
                                 <div class="footer_btn_wrap">
                                     <button id="convertButton" type="submit" class="convert-file waves-effect waves-light">
@@ -247,20 +247,24 @@ $(document).ready(function() {
   // Handle file selection
   $('input[type=file]').change(function(e) {
      var selectedFormat = $('#selectedConvertTo').text();
-     console.log(selectedFormat);
   if (selectedFormat === '...') {
-      Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'Please select a format first',
-          toast: true,
-          position: 'top-end',
-          showConfirmButton: false,
-          timer: 3000
-        });
-
-        // var beepSound = new Audio('assets/images/alert.mp3'); 
-        // beepSound.play();
+    var Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+    Toast.fire({
+        icon: 'error',
+        title: "Oops! Please select a format first"
+    })
+        var beepSound = new Audio('assets/sounds/error.mp3'); 
+        beepSound.play();
         return;
   }
 
@@ -311,6 +315,11 @@ $(document).ready(function() {
     if (convertedFiles.length > 0) {
       downloadAsZip(convertedFiles);
     }
+  });
+
+  $('.converter-dropdown-wrap').on('click', '.format_wrap span', function() {
+    var selectedFormat = $(this).text();
+    $('.selectedConvertFrom').text(selectedFormat);
   });
 
   function handleFiles(selectedFiles) {
@@ -384,7 +393,7 @@ $(document).ready(function() {
 
     // Pre-select the format based on the value of selectedConvertTo
     var preselectedFormat = $('#selectedConvertTo').text();
-    $dropdown.find('.selectedConvertFrom').text(preselectedFormat);
+      $dropdown.find('.selectedConvertFrom').text(preselectedFormat);
 
 
         files.push(file); // Add the file to the files array
