@@ -51,7 +51,7 @@ p {
     display: none;
 }
 .container {
-    max-width: 1320px;
+    max-width: 1275px;
     margin: 0 auto;
 }
 .ml-0 {
@@ -118,7 +118,7 @@ p {
     align-items: center;
     justify-content: space-between;
     height: 100%;
-    max-width: 1320px;
+    max-width: 1275px;
     margin: 0 auto;
 }
 .site_logo {
@@ -237,7 +237,7 @@ p {
     z-index: 1;
 }
 .site-banner_container {
-    max-width: 1320px;
+    max-width: 1275px;
     margin: 0 auto;
 }
 .site-banner-wrap {
@@ -424,7 +424,6 @@ p {
     align-items: center;
     justify-content: center;
     gap: 18px;
-    margin-left: 10px;
 }
 .converter-text {
     font-family: "Roboto";
