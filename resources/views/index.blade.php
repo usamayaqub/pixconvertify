@@ -265,6 +265,7 @@ $(document).ready(function() {
     })
         var beepSound = new Audio('assets/sounds/error.mp3'); 
         beepSound.play();
+        $(this).val('');
         return;
   }
 
