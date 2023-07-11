@@ -11,15 +11,15 @@ function datasubmit(event){
     var iframe_laptop_screen = document.getElementById('iframe_laptop_screen');
     var iframe_tablet_screen = document.getElementById('iframe_tablet_screen');
     var iframe_mobile_screen = document.getElementById('iframe_mobile_screen');
-    var input_field =document.getElementById('input-field').value;
+    var site_url_input_field = document.getElementById("site-url-input-field").value;
     var obj={
-        input_field,
+        site_url_input_field,
     };
     // arr.push(obj);
     arr[0]=obj;
     var inputnew=localStorage.setItem("url", JSON.stringify(arr))
     var mydata = JSON.parse (localStorage.getItem("url"))
-    var iframeUrl =mydata[0].input_field
+    var iframeUrl =mydata[0].site_url_input_field
     console.log("URL" , iframeUrl) ;
     iframe_large_screen.src= iframeUrl;
     iframe_laptop_screen.src=iframeUrl;

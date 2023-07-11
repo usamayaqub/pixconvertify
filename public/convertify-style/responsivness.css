@@ -110,6 +110,11 @@
         width: 230px;
     }
 }
+@media only screen and (max-width:800px){
+    .search_wrap{
+        width: 100%;
+    }
+}
 @media only screen and (max-width:700px){
     .select-file{
         width: 100%;
@@ -124,6 +129,12 @@
         display: flex;
         justify-content: end;
         gap: 7px;
+    }
+    .search_wrap input {
+        width: calc(100% - 280px);
+    }
+    .search_wrap button{
+        width:  280px;
     }
 }
 @media only screen and (max-width:768px){
@@ -219,6 +230,19 @@
     }
     .how-its-work h2{
         font-size: 30px;
+    }
+    .search_wrap{
+        flex-direction: column;
+    }
+    .search_wrap input{
+        height: 50px !important;
+    } 
+    .search_wrap .theme-btn{
+        width: 100%;
+        height: 55px;
+    }
+    .search_wrap{
+        width: 90%;
     }
 }
 @media only screen and (max-width:490px){

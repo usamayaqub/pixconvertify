@@ -10,18 +10,36 @@
 <meta name="twitter:image" content="" />
 @section('content')
 
-  <div class="sidebar_overlay"></div>
-  <div class="" id="next">
-    <div class="print">
-      <div class="p-inner">
-        <div class="pp-inner">
-        </div>
-      </div>
-      <div class="b-1">
+<section class="site-banner p-0 banner-height">
+  <div class="site-banner_container">
+      <div class="site-banner_wrapper">
+         <div class="site-banner-left">
+            <div class="banner-badge">
+              <p>Check your website Responsiveness</p>
+            </div>
+          <h1>Responsiveness
+            <span>Checker</span>        
+          </h1>
+          <p class="banner-message">
+            Check you site Responsiveness in all devices at one time
+          </p>
+          <div class="shape">
+            <img src="./assets/images/shape.svg" class="obj_fit_contain" alt="">
+          </div>
+          <div class="search_wrap">
+            <input id="site-url-input-field" type="url" class="form-control" placeholder="https://pixconvertify.com"
+              pattern="[Hh][Tt][Tt][Pp][Ss]?:\/\/(?:(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)(?:\.(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)*(?:\.(?:[a-zA-Z\u00a1-\uffff]{2,}))(?::\d{2,5})?(?:\/[^\s]*)?"
+              aria-label="Recipient's username" aria-describedby="basic-addon2" required>
+            <button id="basic-addon2" class="theme-btn waves-effect waves-light" onclick="datasubmit()">Check Now</button>
+          </div>
       </div>
     </div>
-    <div>
-      <div class="sc-ad6c1f1a-2 LoXwz">
+  </div>
+</section>
+
+
+  <div class="responsiveness_container-wrap" id="next">
+      <div class="sc-ad6c1f1a-2 responsiveness_wrap">
         <div class="wrapper">
           <section class="display">
             <div class="mobile">
@@ -39,18 +57,8 @@
               <iframe id="iframe_large_screen" src=""></iframe>
             </div>
           </section>
-          <div class="col-md-4 mx-auto">
-            <div class="search">
-              <i class="fa fa-search"></i>
-              <input id="input-field" type="url" class="form-control" placeholder="https://bytes.dev"
-                pattern="[Hh][Tt][Tt][Pp][Ss]?:\/\/(?:(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)(?:\.(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)*(?:\.(?:[a-zA-Z\u00a1-\uffff]{2,}))(?::\d{2,5})?(?:\/[^\s]*)?"
-                aria-label="Recipient's username" aria-describedby="basic-addon2" required>
-              <button id="basic-addon2" class="btn" onclick="datasubmit()">Go</button>
-            </div>
-          </div>
         </div>
       </div>
-    </div>
   </div>
 
 @endsection
