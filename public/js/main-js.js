@@ -54,6 +54,10 @@ $(document).ready(function() {
 
 $(document).ready(function() {
     $(".converter-selection_box .convert-to").click(function() {
+      if ($('#selectedConvertTo').hasClass('disabled-dropdown')) {
+        e.stopPropagation();
+        return false;
+      }
       var currentDropdown = $(this).siblings(".selection-dropdown");
       $(".selection-dropdown").not(currentDropdown).removeClass("open");
       currentDropdown.toggleClass("open");
