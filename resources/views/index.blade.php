@@ -124,8 +124,8 @@
                                             <span id="selectedConvertTo">...</span>
                                             <img src="./assets/images/arrow-down.svg" alt="">
                                         </p>
-                                        <div class="selection-dropdown">
-                                            <div class="selection-dropdown_inner">
+                                        <div class="selection-dropdown convertTO">
+                                            <div class="selection-dropdown_inner convert_to">
                                                 <div class="search-format-bar">
                                                     <div>
                                                         <img src="./assets/images/search-icon.svg" alt="">
@@ -193,7 +193,7 @@
                                         <img src="./assets/images/convert-icon.svg" alt="">
                                         <span>Convert</span>
                                     </button>
-                                    <button class="download-all-files waves-effect waves-light">
+                                    <button class="download-all-files waves-effect waves-light d-none">
                                         <img src="./assets/images/download-arrow.svg" alt="">
                                         <span>Download All</span>
                                     </button>
@@ -250,9 +250,65 @@ $(document).ready(function() {
   var convertedFiles = []; // Store the converted files
   var conversionInProgress = false;
 
+  var urlPath = window.location.pathname;
+var allowedFormats = urlPath.split('/').filter(function(segment) {
+  return segment !== '';
+});
+
+var allowedInputFormat, allowedConversionFormat;
+
+if (allowedFormats.length === 1) {
+  var formatParts = allowedFormats[0].split('-to-');
+  if (formatParts.length === 2) {
+    var allowedInputFormat = formatParts[0];
+    var allowedConversionFormat = formatParts[1];
+    console.log('Allowed Input Format:', allowedInputFormat);
+    console.log('Allowed Conversion Format:', allowedConversionFormat);
+    $('#selectedConvertTo').text(allowedConversionFormat);
+    $("#selectedConvertTo").addClass('disabled-dropdown');
+  } else {
+    console.log('Invalid URL format');
+  }
+} else {
+  console.log('Invalid URL format');
+}
+
   // Handle file selection
   $('input[type=file]').change(function(e) {
      var selectedFormat = $('#selectedConvertTo').text();
+
+     if(allowedInputFormat && allowedConversionFormat){
+      var selectedFiles = e.target.files;
+      for (var i = 0; i < selectedFiles.length; i++) {
+      var file = selectedFiles[i];
+      var selectedExtension = file.name.split('.').pop();
+
+    if (allowedInputFormat && selectedExtension.toLowerCase() !== allowedInputFormat.toLowerCase()) {  
+        // Show an error message indicating the allowed input format
+        var Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+    Toast.fire({
+        icon: 'error',
+        title: 'Please select files in ' + allowedInputFormat + ' format only.'
+    })
+        var beepSound = new Audio('assets/sounds/error.mp3'); 
+        beepSound.play();
+        $(this).val('');
+        return;
+      }
+    }
+  }
+     
+
   if (selectedFormat === '...') {
     var Toast = Swal.mixin({
         toast: true,
@@ -271,6 +327,7 @@ $(document).ready(function() {
     })
         var beepSound = new Audio('assets/sounds/error.mp3'); 
         beepSound.play();
+        $(this).val('');
         return;
   }
 
@@ -442,9 +499,11 @@ console.log(fileSize);
         $('.converter_section_listing ul').append($item);
         $('.converter_section_bottom').show();
 
-    $dropdown.on('click', function() {
-      $(this).find('.selection-dropdown').toggleClass('open');
-    });
+        $dropdown.on('click', function() {
+        if(!allowedInputFormat && !allowedConversionFormat){
+        $(this).find('.selection-dropdown').toggleClass('open');
+        }
+        });
 
     $deleteBtn.on('click', function() {
     var index = $('.delete-button').index(this);
@@ -478,6 +537,8 @@ function convertImages(files) {
   $('.convert-file').attr('disabled', 'disabled'); // Disable convert button
   $('.delete-button').attr('disabled', 'disabled'); // Disable delete buttons
   $('.delete-button').addClass('d-none');
+
+  var successfulConversions = 0; 
 //   var format = $('#selectedConvertTo').text(); // Get the selected format
   $.each(files, function(index, file) {
 
@@ -522,26 +583,30 @@ function convertImages(files) {
     $processingBtn.removeClass('d-none');
     $downloadBtn.addClass('d-none');
 
+    // Simulated progress increase
+    var progress = 0;
+    var progressInterval = setInterval(function() {
+      if (progress < 80) {
+        progress += 5;
+        $progress.css('width', progress + '%');
+        $processPercentage.text(progress + '%');
+      }
+    }, 500); // Adjust the interval as needed
+
     $.ajax({
       url: '/api/convert-image', // Replace with the actual URL for your Laravel route
       type: 'POST',
       data: formData,
       processData: false,
       contentType: false,
-      xhr: function() {
-        var xhr = new window.XMLHttpRequest();
-        xhr.upload.addEventListener('progress', function(e) {
-          if (e.lengthComputable) {
-            var percentage = Math.round((e.loaded / e.total) * 100);
-            $progress.css('width', percentage + '%');
-            $processPercentage.text(percentage + '%');
-          }
-        });
-        return xhr;
-      },
       success: function(response) {
+        clearInterval(progressInterval);
         if (response.success) {
           console.log('Conversion success:', response);
+          $progress.css('width', '100%');
+          $processPercentage.text('100%');
+          successfulConversions++;
+
           $downloadBtn.attr('href', response.url);
           $downloadBtn.attr('download', response.filename); // Set the download attribute
           $downloadBtn.removeClass('d-none');
@@ -579,6 +644,10 @@ function convertImages(files) {
       complete: function() {
         if (index === files.length - 1) {
           $('.delete-button').removeAttr('disabled');
+          if (successfulConversions === files.length) {
+            // If all files have been successfully converted
+            $('.download-all-files').removeClass('d-none'); // Show the "Download All" button
+          }
         }
         updateConvertButtonState();
         conversionInProgress = false;
