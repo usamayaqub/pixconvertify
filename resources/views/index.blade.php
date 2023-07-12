@@ -38,13 +38,13 @@
                     </p>
                     @endif
                     <div class="shape">
-                        <img src="./assets/images/shape.svg" class="obj_fit_contain" alt="">
+                        <img src="{{asset('./assets/images/shape.svg')}}" class="obj_fit_contain" alt="">
                     </div>
                 </div>
                 <div class="site-banner-right">
-                    <img src="./assets/images/banner-imag.svg" class="banner_img" alt="">
+                    <img src="{{asset('./assets/images/banner-imag.svg')}}" class="banner_img" alt="">
                     <div class="blur">
-                        <img src="./assets/images/shape.svg" class="obj_fit_contain" alt="">
+                        <img src="{{asset('./assets/images/shape.svg')}}" class="obj_fit_contain" alt="">
                     </div>
                 </div>
             </div>
@@ -212,17 +212,17 @@
             <h2>How does it work?</h2>
             <div class="how-its-work_wrap">
                 <div class="how-its-work_item">
-                    <img src="./assets/images/file.svg" alt="">
+                    <img src="{{asset('./assets/images/file.svg')}}" alt="">
                     <h3>Step 1</h3>
                     <p>Select a file from your devices.</p>
                 </div>
                 <div class="how-its-work_item">
-                    <img src="./assets/images/format.svg" class="icons-image" alt="">
+                    <img src="{{asset('./assets/images/format.svg')}}" class="icons-image" alt="">
                     <h3>Step 2</h3>
                     <p>Choose a destination format.</p>
                 </div>
                 <div class="how-its-work_item">
-                    <img src="./assets/images/download.svg" alt="">
+                    <img src="{{asset('./assets/images/download.svg')}}" alt="">
                     <h3>Step 3</h3>
                     <p>Download your converted file immediately.</p>
                 </div>
