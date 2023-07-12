@@ -231,10 +231,10 @@
     </section>
 
     <div class="drag-and-drop_overlay">
-    <div>
-      <img src="./assets/images/droping-file.svg" alt="">
+      <div>
+        <h3>Please Drop Your file Here</h3>
+      </div>
     </div>
-</div>
 
 </main>
 

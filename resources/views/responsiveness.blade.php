@@ -26,12 +26,11 @@
           <div class="shape">
             <img src="./assets/images/shape.svg" class="obj_fit_contain" alt="">
           </div>
-          <div class="search_wrap">
-            <input id="site-url-input-field" type="url" class="form-control" placeholder="https://pixconvertify.com"
-              pattern="[Hh][Tt][Tt][Pp][Ss]?:\/\/(?:(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)(?:\.(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)*(?:\.(?:[a-zA-Z\u00a1-\uffff]{2,}))(?::\d{2,5})?(?:\/[^\s]*)?"
-              aria-label="Recipient's username" aria-describedby="basic-addon2" required>
-            <button id="basic-addon2" class="theme-btn waves-effect waves-light" onclick="datasubmit()">Check Now</button>
-          </div>
+<div class="search_wrap">
+  <input id="site-url-input-field" type="url" class="form-control" placeholder="https://pixconvertify.com" required>
+  <button id="submit-btn" class="theme-btn waves-effect waves-light">Check Now</button>
+</div>
+
       </div>
     </div>
   </div>
@@ -39,7 +38,7 @@
 
 
   <div class="responsiveness_container-wrap" id="next">
-      <div class="sc-ad6c1f1a-2 responsiveness_wrap">
+      <div class="responsiveness_wrap">
         <div class="wrapper">
           <section class="display">
             <div class="mobile">

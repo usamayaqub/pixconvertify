@@ -4,28 +4,72 @@ $(document).ready(function(){
 
 
 // RESPONSIVENESS JS
-var arr=[];
-function datasubmit(event){
-    // event.preventDefault();
-    var iframe_large_screen = document.getElementById('iframe_large_screen');
-    var iframe_laptop_screen = document.getElementById('iframe_laptop_screen');
-    var iframe_tablet_screen = document.getElementById('iframe_tablet_screen');
-    var iframe_mobile_screen = document.getElementById('iframe_mobile_screen');
-    var site_url_input_field = document.getElementById("site-url-input-field").value;
-    var obj={
-        site_url_input_field,
-    };
-    // arr.push(obj);
-    arr[0]=obj;
-    var inputnew=localStorage.setItem("url", JSON.stringify(arr))
-    var mydata = JSON.parse (localStorage.getItem("url"))
-    var iframeUrl =mydata[0].site_url_input_field
-    console.log("URL" , iframeUrl) ;
-    iframe_large_screen.src= iframeUrl;
-    iframe_laptop_screen.src=iframeUrl;
-    iframe_tablet_screen.src=iframeUrl;
-    iframe_mobile_screen.src=iframeUrl;
-}
+$(document).ready(function () {
+    // Function to check if the URL input field is empty
+    function checkInputField() {
+        var site_url_input_field = $("#site-url-input-field").val();
+        if (site_url_input_field === "") {
+            $("#submit-btn").prop("disabled", true); // Disable the button
+            $("#submit-btn").addClass("disabled"); // Add the "disabled" class to change the button color
+        } else {
+            $("#submit-btn").prop("disabled", false); // Enable the button
+            $("#submit-btn").removeClass("disabled"); // Remove the "disabled" class to revert the button color
+        }
+    }
+
+    // Call the checkInputField function on page load
+    checkInputField();
+
+    // Call the checkInputField function whenever the input field value changes
+    $("#site-url-input-field").on("input", function () {
+        checkInputField();
+    });
+
+    $("#submit-btn").click(function (event) {
+        event.preventDefault();
+        submitForm();
+    });
+
+    // Function to submit the form
+    function submitForm() {
+        var iframe_large_screen = $("#iframe_large_screen");
+        var iframe_laptop_screen = $("#iframe_laptop_screen");
+        var iframe_tablet_screen = $("#iframe_tablet_screen");
+        var iframe_mobile_screen = $("#iframe_mobile_screen");
+        var site_url_input_field = $("#site-url-input-field").val();
+
+        console.log("URL", site_url_input_field);
+
+        iframe_large_screen.attr("src", site_url_input_field);
+        iframe_laptop_screen.attr("src", site_url_input_field);
+        iframe_tablet_screen.attr("src", site_url_input_field);
+        iframe_mobile_screen.attr("src", site_url_input_field);
+
+        // Scroll to the next section
+        var nextSection = $(".responsiveness_container-wrap");
+        $("html, body").animate(
+            {
+                scrollTop: nextSection.offset().top,
+            },
+            1000
+        );
+    }
+
+    // Submit the form when Enter key is pressed in the URL input field
+    $("#site-url-input-field").on("keydown", function (event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            if (!$("#submit-btn").prop("disabled")) {
+                submitForm();
+            }
+        }
+    });
+});
+
+
+
+
+
 
 
 // Convert from
