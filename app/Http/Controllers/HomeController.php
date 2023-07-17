@@ -107,5 +107,11 @@ class HomeController extends Controller
     {
         return view('compress');
     }
+    public function login()
+    {
+        return view('login');
+    }
+
+    
  
 }

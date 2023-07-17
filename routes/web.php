@@ -18,6 +18,9 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/compress', [HomeController::class, 'justcompress'])->name('get-justcompress');
 Route::get('/checkresponsivness', [HomeController::class, 'checkresponsiveness'])->name('get-checkrespo');
 
+Route::get('/login', [HomeController::class, 'login'])->name('get-login');
+
+
 Route::get('/{format?}', function ($format = null) {
     return view('index',compact('format'));
 })->name('base');
