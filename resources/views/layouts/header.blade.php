@@ -3,7 +3,7 @@
     <nav>
         <div class="site-header_inner-wrap">
             <div class="site-header_link-wrap">
-                <a href="#" class="site_logo">
+                <a href="{{route('base')}}" class="site_logo">
                     <img src="./assets/images/site-logo.svg" alt="">
                 </a>
                 <ul class="site-header-links">

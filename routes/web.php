@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/compress', [HomeController::class, 'justcompress'])->name('get-justcompress');
+
 Route::get('/checkresponsivness', [HomeController::class, 'checkresponsiveness'])->name('get-checkrespo');
 
 Route::get('/{format?}', function ($format = null) {

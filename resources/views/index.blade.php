@@ -102,7 +102,7 @@
                                                             <span>DOC</span>
                                                             <span>BMP</span>
                                                             <span>AVIF</span>
-                                                            <span>TIFF</span>
+                                                            <span>TIF</span>
                                                         </div>
                                                     </div>
                                                     <div id="documents" class="col s12 px-0">
@@ -153,7 +153,7 @@
                                                             <span>DOC</span>
                                                             <span>BMP</span>
                                                             <span>AVIF</span>
-                                                            <span>TIFF</span>
+                                                            <span>TIF</span>
                                                         </div>
                                                     </div>
                                                     <div id="documents2" class="col s12 px-0">
@@ -451,7 +451,7 @@ console.log(fileSize);
                         .append($('<span>').text('GIF'))
                         .append($('<span>').text('BMP'))
                         .append($('<span>').text('AVIF'))
-                        .append($('<span>').text('TIFF')))
+                        .append($('<span>').text('TIF')))
                         )
                         )
                         )
@@ -506,6 +506,7 @@ function convertImages(files) {
   $('.delete-button').attr('disabled', 'disabled'); // Disable delete buttons
   $('.delete-button').addClass('d-none');
 
+  var totalFiles = files.length;
   var successfulConversions = 0; 
 //   var format = $('#selectedConvertTo').text(); // Get the selected format
   $.each(files, function(index, file) {
@@ -587,6 +588,12 @@ function convertImages(files) {
             filename: response.filename
           });
 
+          if (successfulConversions === totalFiles) {
+            // If all files have been successfully converted
+            $('.download-all-files').removeClass('d-none');
+              showShareButton();
+             // Show the "Download All" button
+          }
 
           $downloadBtn.on('click', function(e) {
             e.preventDefault();
@@ -610,12 +617,12 @@ function convertImages(files) {
         console.error(xhr.responseText);
       },
       complete: function() {
+        console.log(successfulConversions);
+        console.log(files.length);
+
         if (index === files.length - 1) {
           $('.delete-button').removeAttr('disabled');
-          if (successfulConversions === files.length) {
-            // If all files have been successfully converted
-            $('.download-all-files').removeClass('d-none'); // Show the "Download All" button
-          }
+         
         }
         updateConvertButtonState();
         conversionInProgress = false;
@@ -624,7 +631,20 @@ function convertImages(files) {
     });
   });
 }
+  
+function validateEmail(email) {
+  // Regular expression pattern to validate email format
+  var pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return pattern.test(email);
+}
 
+  function showShareButton() {
+    var $shareButton = $('<div> <button class="share-button waves-effect waves-light">Share</button> </div>');
+    $('.download-all-files').after($shareButton);
+    $shareButton.click(function() {
+      showSharePopup();
+    });
+  }
 
 function updateConvertButtonState() {
     if (files.length > 0) {
@@ -634,6 +654,63 @@ function updateConvertButtonState() {
     }
   }
 
+
+  function showSharePopup() {
+  Swal.fire({
+    title: 'Share Converted Images',
+    html: '<input type="email" id="email-input" class="swal2-input" placeholder="Enter your email address">',
+    showCancelButton: true,
+    confirmButtonText: 'Share',
+    allowOutsideClick: true,
+    didOpen: function() {
+      var emailInput = document.getElementById('email-input');
+      emailInput.addEventListener('input', function(event) {
+        Swal.enableButtons(); // Enable confirm and cancel buttons
+        Swal.resetValidationMessage();
+      });
+    },
+    preConfirm: function() {
+      var email = document.getElementById('email-input').value;
+      if (validateEmail(email)) {
+        return email;
+      } else {
+        Swal.showValidationMessage('Invalid email address');
+        return false;
+      }
+    }
+  }).then(function(result) {
+    if (result.isConfirmed && result.value) {
+      sendEmailWithImages(result.value);
+    }
+  });
+}
+
+
+
+  function sendEmailWithImages(email) {
+    var convertedImagePaths = [];
+  convertedFiles.forEach(function(convertedFile) {
+    convertedImagePaths.push(convertedFile.url); // Assuming each converted file has a 'url' property storing the file path or URL
+  });
+
+    $.ajax({
+      url: '/api/send-email-with-images', // Replace with the actual URL for your Laravel route
+      method: 'POST',
+      data: {
+        email: email,
+        converted_images: convertedImagePaths
+      },
+      success: function(response) {
+        console.log(response)
+        // Handle the success response from the controller
+        Swal.fire('Email Sent', 'The converted images have been sent to your email address.', 'success');
+      },
+      error: function(xhr, status, error) {
+        // Handle the error response from the controller
+        Swal.fire('Error', 'Failed to send email.', 'error');
+      }
+    });
+  }
 
 
   function downloadAsZip(convertedFiles) {

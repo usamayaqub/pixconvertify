@@ -636,6 +636,22 @@ p {
     text-align: center;
     cursor: pointer;
 }
+
+.share-button {
+    background-color: var(--btn-bg-red);
+    color: var(--text-color-white);
+    width: 120px;
+    height: 48px;
+    border-radius: 6px;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    cursor: pointer;
+}
+
 .converter_section_inner {
     display: flex;
     justify-content: space-between;

@@ -15,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::post('/convert-image', [HomeController::class, 'convertImage'])->name('convert.image');
+Route::post('/compress-image', [HomeController::class, 'compressImage'])->name('compress.image');
+Route::post('/send-email-with-images', [HomeController::class, 'sendEmail'])->name('send.email');
+Route::get('/yt', [HomeController::class, 'download']);
+
+
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

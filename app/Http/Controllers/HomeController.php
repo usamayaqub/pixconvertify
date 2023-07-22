@@ -1,10 +1,17 @@
 <?php
 
 namespace App\Http\Controllers;
-use Intervention\Image\Facades\Image;
 
+use App\Mail\ConvertedImagesEmail;
+use Intervention\Image\Facades\Image;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Process\Process;
 use TCPDF;
+use GuzzleHttp\Client;
+use FFMpeg\FFMpeg;
 
 
 class HomeController extends Controller
@@ -17,6 +24,9 @@ class HomeController extends Controller
 
     public function convertImage(Request $request)
     {
+        error_reporting(E_ALL);
+        ini_set('memory_limit', '1024M');
+
         // Get the uploaded image file
         $imageFile = $request->file('image');
         // Define the desired image format
@@ -25,15 +35,24 @@ class HomeController extends Controller
          $img_name = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
          $filename = $img_name . '-' . time() . '.' . $format;
 
-         $allowedImageFormats = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp'];
+         $allowedImageFormats = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp','docx'];
          $fileExtension = strtolower($imageFile->getClientOriginalExtension());
          $convertedImagePath = public_path('converted/'.$filename);
+
+         $fileSize = $imageFile->getSize();
+         $maximumFileSize = 5 * 1024 * 1024;
          
          if ((in_array($format, $allowedImageFormats)) && (in_array($fileExtension,$allowedImageFormats))) {
-            // Compress and convert the image
-            $convertedImage = Image::make($imageFile)->encode($format, 90);
-            // Save the converted image to the public disk
+           if($fileSize > $maximumFileSize){
+            $convertedImage = Image::make($imageFile)->encode($format, 60);
             $convertedImage->save($convertedImagePath);
+           }
+           else{
+                // Compress and convert the image
+                $convertedImage = Image::make($imageFile)->encode($format, 80);
+                // // Save the converted image to the public disk
+                $convertedImage->save($convertedImagePath);
+            }
          }
          elseif ($format == 'pdf' && (in_array($fileExtension,$allowedImageFormats)) || $fileExtension == 'docx'){
                     // Create a new TCPDF instance
@@ -83,6 +102,57 @@ class HomeController extends Controller
             'filename' => $filename,
         ]);
     }
+
+
+    public function compressImage(Request $request)
+    {
+
+        // Get the uploaded image file
+        $imageFile = $request->file('image');
+        $ext = strtolower($imageFile->getClientOriginalExtension());
+
+         // Generate a unique filename
+         $img_name = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+         $filename = $img_name . '-' . time() . '.' . $ext;
+
+         $convertedImagePath = public_path('compressed/'.$filename);
+
+         $fileSize = $imageFile->getSize();
+         $maximumFileSize = 5 * 1024 * 1024;
+         
+         $convertedImage = Image::make($imageFile->getRealPath());
+
+         if ($fileSize > $maximumFileSize) {
+            // Large file, apply higher compression
+        $convertedImage->save($convertedImagePath,50,'webp');
+ 
+        } else {
+            // Smaller file, apply lower compression
+        $convertedImage->save($convertedImagePath,70,'webp');
+        }
+       
+
+        return response()->json([
+            'success' => true,
+            'url' => asset('compressed/'.$filename),
+            'filename' => $filename,
+        ]);
+    }
+
+
+    public function sendEmail(Request $request)
+    {
+        $email = $request->input('email');
+        $convertedImages = $request->input('converted_images');
+        // try {
+            Mail::to($email)->send(new ConvertedImagesEmail($convertedImages));
+        // } catch (\Exception $e) {
+            // Handle any exception occurred during email sending
+            // return response()->json(['success' => false, 'message' => 'Failed to send email.']);
+        // }
+        return response()->json(['success' => true, 'message' => 'Email sent successfully.']);
+    }
+
     
     /**
      * Create a new controller instance.
