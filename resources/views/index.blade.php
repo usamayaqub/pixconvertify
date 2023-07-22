@@ -38,13 +38,13 @@
                     </p>
                     @endif
                     <div class="shape">
-                        <img src="./assets/images/shape.svg" class="obj_fit_contain" alt="">
+                        <img src="{{asset('./assets/images/shape.svg')}}" class="obj_fit_contain" alt="">
                     </div>
                 </div>
                 <div class="site-banner-right">
-                    <img src="./assets/images/banner-imag.svg" class="banner_img" alt="">
+                    <img src="{{asset('./assets/images/banner-imag.svg')}}" class="banner_img" alt="">
                     <div class="blur">
-                        <img src="./assets/images/shape.svg" class="obj_fit_contain" alt="">
+                        <img src="{{asset('./assets/images/shape.svg')}}" class="obj_fit_contain" alt="">
                     </div>
                 </div>
             </div>
@@ -212,23 +212,29 @@
             <h2>How does it work?</h2>
             <div class="how-its-work_wrap">
                 <div class="how-its-work_item">
-                    <img src="./assets/images/file.svg" alt="">
+                    <img src="{{asset('./assets/images/file.svg')}}" alt="">
                     <h3>Step 1</h3>
                     <p>Select a file from your devices.</p>
                 </div>
                 <div class="how-its-work_item">
-                    <img src="./assets/images/format.svg" class="icons-image" alt="">
+                    <img src="{{asset('./assets/images/format.svg')}}" class="icons-image" alt="">
                     <h3>Step 2</h3>
                     <p>Choose a destination format.</p>
                 </div>
                 <div class="how-its-work_item">
-                    <img src="./assets/images/download.svg" alt="">
+                    <img src="{{asset('./assets/images/download.svg')}}" alt="">
                     <h3>Step 3</h3>
                     <p>Download your converted file immediately.</p>
                 </div>
             </div>
         </div>
     </section>
+
+    <div class="drag-and-drop_overlay">
+      <div>
+        <h3>Please Drop Your file Here</h3>
+      </div>
+    </div>
 
 </main>
 
@@ -339,17 +345,31 @@ if (allowedFormats.length === 1) {
   });
 
   // Handle file drag and drop
-  $('.converter_section').on('dragover', function(e) {
+  var isDragging = false; // Track dragging state
+
+  $('body').on('dragover', function(e) {
     e.preventDefault();
-    $(this).addClass('dragover');
+    if (!isDragging) {
+      $(this).addClass('dragover');
+      isDragging = true;
+    }
   });
 
-  $('.converter_section').on('dragleave', function(e) {
+  $('body').on('dragleave', function(e) {
     e.preventDefault();
-    $(this).removeClass('dragover');
+    var target = e.target;
+    var rect = target.getBoundingClientRect();
+    var x = e.clientX;
+    var y = e.clientY;
+    
+    // Check if the mouse cursor is outside the target element
+    if (x < rect.left || x >= rect.right || y < rect.top || y >= rect.bottom) {
+      $(this).removeClass('dragover');
+      isDragging = false;
+    }
   });
 
-  $('.converter_section').on('drop', function(e) {
+  $('body').on('drop', function(e) {
     e.preventDefault();
     $(this).removeClass('dragover');
     var selectedFormat = $('#selectedConvertTo').text();
@@ -375,6 +395,18 @@ if (allowedFormats.length === 1) {
       return;
     }
     handleFiles(e.originalEvent.dataTransfer.files);
+  });
+
+  // Add overlay when dragging starts
+  $('body').on('dragenter', function(e) {
+    e.preventDefault();
+    $(this).addClass('dragover');
+  });
+
+  // Remove overlay when dragging ends
+  $('body').on('dragend', function(e) {
+    e.preventDefault();
+    $(this).removeClass('dragover');
   });
 
   // Convert image on button click
