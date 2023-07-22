@@ -18,11 +18,35 @@
                     </li>
                 </ul>
             </div>
-            <ul class="site-header-signup">
-                <li><a class="theme-btn site_login" href="#">Login</a></li>
-                <li><a class="theme-btn site_signin waves-effect waves-light" href="#">Sign Up</a></li>
+            <div>
+                @if (Route::has('login'))
+                    <ul class="site-header-signup">
+                        @auth
+                            <a class='dropdown-trigger user-profile-dropdown' href="{{ url('/home') }}" data-target='dropdown1'>
+                                <img src="{{asset('assets/images/user-circle.svg')}}" alt="">
+                                {{ucfirst(Str::before(auth()->user()->name, ' ') )}}
+                                <img src="{{asset('assets/images/arrow-down.svg')}}" alt="">
+                            </a>
+                            <ul id='dropdown1' class='dropdown-content'>
+                            <li>
+                                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <img src="{{asset('assets/images/sign_out.svg')}}" alt="">
+                                    Logout
+                                </a>
+                            </li>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                        @else
+                            <li><a class="theme-btn site_login" href="{{ route('login') }}">Login</a></li>
+                            @if (Route::has('register'))
+                            <li><a class="theme-btn site_signin waves-effect waves-light" href="{{ route('register') }}">Sign Up</a></li>
+                            @endif
+                        @endauth
+                    </div>
+                @endif
                 <img class="site-menu" src="./assets/images/toggle.svg" alt="toggle menu">
-            </ul>
+            </div>
         </div>
     </nav>
 </header>

@@ -4,7 +4,7 @@
         <div class="site-footer_wrap">
             <div class="site-footer_left">
                 <div class="footer-site-logo">
-                    <img src="./assets/images/Pixconvertify.svg" class="" alt="">
+                    <img src="{{asset('assets/images/Pixconvertify.svg')}}" class="" alt="">
                 </div>
             </div>
             <div class="site-footer_right">

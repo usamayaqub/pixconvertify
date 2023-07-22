@@ -1,7 +1,7 @@
-$(document).ready(function(){
-    $('.tabs').tabs();
+$(document).ready(function () {
+    $(".tabs").tabs();
+    $(".dropdown-trigger").dropdown();
 });
-
 
 // RESPONSIVENESS JS
 $(document).ready(function () {
@@ -66,99 +66,91 @@ $(document).ready(function () {
     });
 });
 
-
-
-
-
-
-
 // Convert from
-$(document).ready(function() {
-    $(".converter-selection_box .convert-from").click(function() {
-      var currentDropdown = $(this).siblings(".selection-dropdown");
-      $(".selection-dropdown").not(currentDropdown).removeClass("open");
-      currentDropdown.toggleClass("open");
+$(document).ready(function () {
+    $(".converter-selection_box .convert-from").click(function () {
+        var currentDropdown = $(this).siblings(".selection-dropdown");
+        $(".selection-dropdown").not(currentDropdown).removeClass("open");
+        currentDropdown.toggleClass("open");
     });
-  
-    $(".format_wrap span").click(function() {
-      var selectedValue = $(this).text();
-      $(this).closest(".converter-selection_box").find(".convert-from span").text(selectedValue);
-      $(".selection-dropdown").removeClass("open");
-    });
-  
-    $(document).click(function(event) {
-      var target = $(event.target);
-      if (!target.closest(".converter-selection_box").length) {
+
+    $(".format_wrap span").click(function () {
+        var selectedValue = $(this).text();
+        $(this)
+            .closest(".converter-selection_box")
+            .find(".convert-from span")
+            .text(selectedValue);
         $(".selection-dropdown").removeClass("open");
-      }
+    });
+
+    $(document).click(function (event) {
+        var target = $(event.target);
+        if (!target.closest(".converter-selection_box").length) {
+            $(".selection-dropdown").removeClass("open");
+        }
     });
 });
 
 // convert to
 
-$(document).ready(function() {
-    $(".converter-selection_box .convert-to").click(function() {
-      if ($('#selectedConvertTo').hasClass('disabled-dropdown')) {
-        e.stopPropagation();
-        return false;
-      }
-      var currentDropdown = $(this).siblings(".selection-dropdown");
-      $(".selection-dropdown").not(currentDropdown).removeClass("open");
-      currentDropdown.toggleClass("open");
+$(document).ready(function () {
+    $(".converter-selection_box .convert-to").click(function () {
+        if ($("#selectedConvertTo").hasClass("disabled-dropdown")) {
+            e.stopPropagation();
+            return false;
+        }
+        var currentDropdown = $(this).siblings(".selection-dropdown");
+        $(".selection-dropdown").not(currentDropdown).removeClass("open");
+        currentDropdown.toggleClass("open");
     });
-  
-    $(".format_wrap span").click(function() {
-      var selectedValue = $(this).text();
-      $(this).closest(".converter-selection_box").find(".convert-to span").text(selectedValue);
-      $(".selection-dropdown").removeClass("open");
-    });
-  
-    $(document).click(function(event) {
-      var target = $(event.target);
-      if (!target.closest(".converter-selection_box").length) {
+
+    $(".format_wrap span").click(function () {
+        var selectedValue = $(this).text();
+        $(this)
+            .closest(".converter-selection_box")
+            .find(".convert-to span")
+            .text(selectedValue);
         $(".selection-dropdown").removeClass("open");
-      }
+    });
+
+    $(document).click(function (event) {
+        var target = $(event.target);
+        if (!target.closest(".converter-selection_box").length) {
+            $(".selection-dropdown").removeClass("open");
+        }
     });
 });
 
-
-
-$(document).ready(function() {
+$(document).ready(function () {
     // Handle tab navigation click
-    $('.tabz .tab-nav li').click(function() {
-      // Remove active class from all tabz
-      $('.tabz .tab-nav li').removeClass('active');
-      $('.tabz .tab-pane').removeClass('active');
-  
-      // Add active class to the clicked tab
-      $(this).addClass('active');
-  
-      // Show the corresponding tab content
-      var index = $(this).index();
-      $('.tabz .tab-pane').eq(index).addClass('active');
+    $(".tabz .tab-nav li").click(function () {
+        // Remove active class from all tabz
+        $(".tabz .tab-nav li").removeClass("active");
+        $(".tabz .tab-pane").removeClass("active");
+
+        // Add active class to the clicked tab
+        $(this).addClass("active");
+
+        // Show the corresponding tab content
+        var index = $(this).index();
+        $(".tabz .tab-pane").eq(index).addClass("active");
     });
-  });
-  
-
-  
-  
-  
-
+});
 
 $(document).ready(function () {
-    $('.site-menu').click(function(){
-        $('.sidebar').toggleClass('appear');
-        $('.sidebar_overlay').show();
-        $('body').css('position', 'fixed');
-    })
-    $('.sidebar_overlay').click(function () {
-        $('.sidebar').removeClass('appear');
+    $(".site-menu").click(function () {
+        $(".sidebar").toggleClass("appear");
+        $(".sidebar_overlay").show();
+        $("body").css("position", "fixed");
+    });
+    $(".sidebar_overlay").click(function () {
+        $(".sidebar").removeClass("appear");
         $(this).hide();
-        $('body').css('position', 'unset');
-    })
-})
+        $("body").css("position", "unset");
+    });
+});
 
-// 
+//
 // $(document).ready(function() {
 //   // Handle file selection
 //   $('input[type=file]').change(function(e) {
@@ -210,4 +202,3 @@ $(document).ready(function () {
 //     }
 //   }
 // });
-

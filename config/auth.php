@@ -69,6 +69,9 @@ return [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
+        'features' => [
+            'email_verification' => true,
+        ],
     ],
 
     /*

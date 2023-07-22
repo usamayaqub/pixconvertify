@@ -50,13 +50,10 @@
 </head>
 
 <body>
-    @if (!Request::is('login')) 
+
     @include('layouts.header')
-    @endif
     @yield('content')
-    @if (!Request::is('login')) 
     @include('layouts.footer')
-    @endif
     @yield('footer_scripts')
     @stack('scripts')
 

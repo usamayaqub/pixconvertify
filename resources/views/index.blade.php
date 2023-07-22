@@ -10,6 +10,41 @@
 <meta name="twitter:image" content="" />
 @section('content')
 
+<style>
+.swal2-toast.swal2-error {
+  background-color: #ff4d4d;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+.swal2-toast.swal2-error .swal2-title {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.swal2-toast.swal2-error .swal2-content {
+  margin-top: 10px;
+}
+
+/* Footer link styling */
+.swal2-toast.swal2-error .swal2-footer {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.swal2-toast.swal2-error .swal2-footer a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.swal2-toast.swal2-error .swal2-footer a:hover {
+  text-decoration: none;
+}
+</style>
 <main id="main">
     <!-- BANNER SECTION -->
     <section class="site-banner">
@@ -251,9 +286,9 @@ $(document).ready(function() {
   var conversionInProgress = false;
 
   var urlPath = window.location.pathname;
-var allowedFormats = urlPath.split('/').filter(function(segment) {
-  return segment !== '';
-});
+  var allowedFormats = urlPath.split('/').filter(function(segment) {
+    return segment !== '';
+  });
 
 var allowedInputFormat, allowedConversionFormat;
 
@@ -309,27 +344,7 @@ if (allowedFormats.length === 1) {
   }
      
 
-  if (selectedFormat === '...') {
-    var Toast = Swal.mixin({
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-            toast.addEventListener('mouseenter', Swal.stopTimer)
-            toast.addEventListener('mouseleave', Swal.resumeTimer)
-        }
-    })
-    Toast.fire({
-        icon: 'error',
-        title: "Oops! Please select a format first"
-    })
-        var beepSound = new Audio('assets/sounds/error.mp3'); 
-        beepSound.play();
-        $(this).val('');
-        return;
-  }
+  
 
     // If conversion is not in progress, handle the files immediately
     if (!conversionInProgress) {
@@ -372,28 +387,6 @@ if (allowedFormats.length === 1) {
   $('body').on('drop', function(e) {
     e.preventDefault();
     $(this).removeClass('dragover');
-    var selectedFormat = $('#selectedConvertTo').text();
-    console.log(selectedFormat);
-    if (selectedFormat === '...') {
-      var Toast = Swal.mixin({
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-            toast.addEventListener('mouseenter', Swal.stopTimer)
-            toast.addEventListener('mouseleave', Swal.resumeTimer)
-        }
-    })
-    Toast.fire({
-        icon: 'error',
-        title: "Oops! Please select a format first"
-    })
-        var beepSound = new Audio('assets/sounds/error.mp3'); 
-        beepSound.play();
-      return;
-    }
     handleFiles(e.originalEvent.dataTransfer.files);
   });
 
@@ -412,12 +405,36 @@ if (allowedFormats.length === 1) {
   // Convert image on button click
   $('.convert-file').click(function() {
     var selectedFormat = $('.selectedConvertFrom').text();
-  if (selectedFormat === '...') {
-    // Show toaster or error message indicating the need to select a format
-    alert('Please select a format first.');
-    return;
-  }
+    console.log(selectedFormat);
+  if (/^\.{2,}$/.test(selectedFormat)) {
+        showErrorToast()
+        return;
+  }else{
     convertImages(files);
+
+  }
+
+  function showErrorToast() {
+  Swal.fire({
+    icon: 'error',
+    title: 'Oops...',
+    text: 'Please select conversion format first!',
+    footer: '<a href="/">Why do I have this issue?</a>',
+    customClass: {
+      popup: 'swal2-toast-error', // Add the custom CSS class
+    },
+    showConfirmButton: false, // Remove the default "Ok" button
+  // Auto-close after 3 seconds
+    timerProgressBar: true, // Show progress bar
+    allowOutsideClick: true, // Prevent dismissing by clicking outside the toast
+    allowEscapeKey: true, // Prevent dismissing by pressing the escape key
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer);
+      toast.addEventListener('mouseleave', Swal.resumeTimer);
+    }
+  });
+}
+
 
   });
 
@@ -775,31 +792,3 @@ function updateConvertButtonState() {
 </script>
 
 @endsection
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                    @auth
-                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif -->
