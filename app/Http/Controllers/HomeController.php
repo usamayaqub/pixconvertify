@@ -186,6 +186,10 @@ class HomeController extends Controller
         return view('auth.register');
     }
 
+    public function adminHome(){
+        return view('admin.home');
+    }
+
     
  
 }
