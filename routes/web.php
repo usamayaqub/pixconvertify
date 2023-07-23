@@ -24,6 +24,8 @@ Route::get('register', 'App\Http\Controllers\Auth\RegisterController@showRegistr
 Route::post('register', 'App\Http\Controllers\Auth\RegisterController@register');
 
 Route::get('/compress', [HomeController::class, 'justcompress'])->name('get-justcompress');
+Route::get('/blogs', [HomeController::class, 'blogs'])->name('get-blogs');
+
 
 Route::get('/checkresponsivness', [HomeController::class, 'checkresponsiveness'])->name('get-checkrespo');
 

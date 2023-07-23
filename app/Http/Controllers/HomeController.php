@@ -177,6 +177,10 @@ class HomeController extends Controller
     {
         return view('compress');
     }
+    public function blogs()
+    {
+        return view('convertify-blogs.blog');
+    }
     public function login()
     {
         return view('auth.login');

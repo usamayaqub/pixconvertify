@@ -9,42 +9,6 @@
 <meta property="og:image" content="" />
 <meta name="twitter:image" content="" />
 @section('content')
-
-<style>
-.swal2-toast.swal2-error {
-  background-color: #ff4d4d;
-  color: #fff;
-  font-family: Arial, sans-serif;
-  font-size: 16px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  text-align: center;
-}
-
-.swal2-toast.swal2-error .swal2-title {
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-.swal2-toast.swal2-error .swal2-content {
-  margin-top: 10px;
-}
-
-/* Footer link styling */
-.swal2-toast.swal2-error .swal2-footer {
-  margin-top: 10px;
-  text-align: center;
-}
-
-.swal2-toast.swal2-error .swal2-footer a {
-  color: #fff;
-  text-decoration: underline;
-}
-
-.swal2-toast.swal2-error .swal2-footer a:hover {
-  text-decoration: none;
-}
-</style>
 <main id="main">
     <!-- BANNER SECTION -->
     <section class="site-banner">
@@ -93,7 +57,7 @@
                     <div class="converter_section_wrap_selection">
                         <div class="converter_section_left">
                             <div class="converter_dropbox">
-                                <img src="./assets/images/drop-icon.svg" alt="">
+                                <img src="{{asset('./assets/images/drop-icon.svg')}}" alt="">
                                 <h2 class="drop_file-text mt-0">Drag or Drop file here</h2>
                                 <p class="restriction-text">Up to 20 files at a single time, max 20 MB each.</p>
                                 <input title="" type="file" name="image" id="image" accept="image/*" multiple>
@@ -280,169 +244,166 @@
 
 
 <script>
-$(document).ready(function() {
-  var files = []; // Store the selected files
-  var convertedFiles = []; // Store the converted files
-  var conversionInProgress = false;
+  $(document).ready(function() {
+    var files = []; // Store the selected files
+    var convertedFiles = []; // Store the converted files
+    var conversionInProgress = false;
 
-  var urlPath = window.location.pathname;
-  var allowedFormats = urlPath.split('/').filter(function(segment) {
-    return segment !== '';
-  });
+    var urlPath = window.location.pathname;
+    var allowedFormats = urlPath.split('/').filter(function(segment) {
+      return segment !== '';
+    });
 
-var allowedInputFormat, allowedConversionFormat;
+  var allowedInputFormat, allowedConversionFormat;
 
-if (allowedFormats.length === 1) {
-  var formatParts = allowedFormats[0].split('-to-');
-  if (formatParts.length === 2) {
-    var allowedInputFormat = formatParts[0];
-    var allowedConversionFormat = formatParts[1];
-    console.log('Allowed Input Format:', allowedInputFormat);
-    console.log('Allowed Conversion Format:', allowedConversionFormat);
-    $('#selectedConvertTo').text(allowedConversionFormat);
-    $("#selectedConvertTo").addClass('disabled-dropdown');
+  if (allowedFormats.length === 1) {
+    var formatParts = allowedFormats[0].split('-to-');
+    if (formatParts.length === 2) {
+      var allowedInputFormat = formatParts[0];
+      var allowedConversionFormat = formatParts[1];
+      console.log('Allowed Input Format:', allowedInputFormat);
+      console.log('Allowed Conversion Format:', allowedConversionFormat);
+      $('#selectedConvertTo').text(allowedConversionFormat);
+      $("#selectedConvertTo").addClass('disabled-dropdown');
+    } else {
+      console.log('Invalid URL format');
+    }
   } else {
     console.log('Invalid URL format');
   }
-} else {
-  console.log('Invalid URL format');
-}
 
-  // Handle file selection
-  $('input[type=file]').change(function(e) {
-     var selectedFormat = $('#selectedConvertTo').text();
+    // Handle file selection
+    $('input[type=file]').change(function(e) {
+      var selectedFormat = $('#selectedConvertTo').text();
 
-     if(allowedInputFormat && allowedConversionFormat){
-      var selectedFiles = e.target.files;
-      for (var i = 0; i < selectedFiles.length; i++) {
-      var file = selectedFiles[i];
-      var selectedExtension = file.name.split('.').pop();
+      if(allowedInputFormat && allowedConversionFormat){
+        var selectedFiles = e.target.files;
+        for (var i = 0; i < selectedFiles.length; i++) {
+        var file = selectedFiles[i];
+        var selectedExtension = file.name.split('.').pop();
 
-    if (allowedInputFormat && selectedExtension.toLowerCase() !== allowedInputFormat.toLowerCase()) {  
-        // Show an error message indicating the allowed input format
-        var Toast = Swal.mixin({
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-            toast.addEventListener('mouseenter', Swal.stopTimer)
-            toast.addEventListener('mouseleave', Swal.resumeTimer)
+      if (allowedInputFormat && selectedExtension.toLowerCase() !== allowedInputFormat.toLowerCase()) {  
+          // Show an error message indicating the allowed input format
+          var Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
+          }
+      })
+      Toast.fire({
+          icon: 'error',
+          title: 'Please select files in ' + allowedInputFormat + ' format only.'
+      })
+          var beepSound = new Audio('assets/sounds/error.mp3'); 
+          beepSound.play();
+          $(this).val('');
+          return;
         }
-    })
-    Toast.fire({
-        icon: 'error',
-        title: 'Please select files in ' + allowedInputFormat + ' format only.'
-    })
-        var beepSound = new Audio('assets/sounds/error.mp3'); 
-        beepSound.play();
-        $(this).val('');
-        return;
       }
     }
-  }
-     
+      
 
-  
-
-    // If conversion is not in progress, handle the files immediately
-    if (!conversionInProgress) {
-      handleFiles(e.target.files);
-    } else {
-        var newFiles = Array.from(e.target.files).filter(function(file) {
-      return !convertedFiles.some(function(convertedFile) {
-        return convertedFile.filename === file.name;
-      });
-    });
-    files = files.concat(newFiles);
-    }
-  });
-
-  // Handle file drag and drop
-  var isDragging = false; // Track dragging state
-
-  $('body').on('dragover', function(e) {
-    e.preventDefault();
-    if (!isDragging) {
-      $(this).addClass('dragover');
-      isDragging = true;
-    }
-  });
-
-  $('body').on('dragleave', function(e) {
-    e.preventDefault();
-    var target = e.target;
-    var rect = target.getBoundingClientRect();
-    var x = e.clientX;
-    var y = e.clientY;
     
-    // Check if the mouse cursor is outside the target element
-    if (x < rect.left || x >= rect.right || y < rect.top || y >= rect.bottom) {
+
+      // If conversion is not in progress, handle the files immediately
+      if (!conversionInProgress) {
+        handleFiles(e.target.files);
+      } else {
+          var newFiles = Array.from(e.target.files).filter(function(file) {
+        return !convertedFiles.some(function(convertedFile) {
+          return convertedFile.filename === file.name;
+        });
+      });
+      files = files.concat(newFiles);
+      }
+    });
+
+    // Handle file drag and drop
+    var isDragging = false; // Track dragging state
+
+    $('body').on('dragover', function(e) {
+      e.preventDefault();
+      if (!isDragging) {
+        $(this).addClass('dragover');
+        isDragging = true;
+      }
+    });
+
+    $('body').on('dragleave', function(e) {
+      e.preventDefault();
+      var target = e.target;
+      var rect = target.getBoundingClientRect();
+      var x = e.clientX;
+      var y = e.clientY;
+      
+      // Check if the mouse cursor is outside the target element
+      if (x < rect.left || x >= rect.right || y < rect.top || y >= rect.bottom) {
+        $(this).removeClass('dragover');
+        isDragging = false;
+      }
+    });
+
+    $('body').on('drop', function(e) {
+      e.preventDefault();
       $(this).removeClass('dragover');
-      isDragging = false;
+      handleFiles(e.originalEvent.dataTransfer.files);
+    });
+
+    // Add overlay when dragging starts
+    $('body').on('dragenter', function(e) {
+      e.preventDefault();
+      $(this).addClass('dragover');
+    });
+
+    // Remove overlay when dragging ends
+    $('body').on('dragend', function(e) {
+      e.preventDefault();
+      $(this).removeClass('dragover');
+    });
+
+    // Convert image on button click
+    $('.convert-file').click(function() {
+      var selectedFormat = $('.selectedConvertFrom').text();
+      console.log(selectedFormat);
+    if (/^\.{2,}$/.test(selectedFormat)) {
+          showErrorToast()
+          return;
+    }else{
+      convertImages(files);
+
     }
-  });
 
-  $('body').on('drop', function(e) {
-    e.preventDefault();
-    $(this).removeClass('dragover');
-    handleFiles(e.originalEvent.dataTransfer.files);
-  });
-
-  // Add overlay when dragging starts
-  $('body').on('dragenter', function(e) {
-    e.preventDefault();
-    $(this).addClass('dragover');
-  });
-
-  // Remove overlay when dragging ends
-  $('body').on('dragend', function(e) {
-    e.preventDefault();
-    $(this).removeClass('dragover');
-  });
-
-  // Convert image on button click
-  $('.convert-file').click(function() {
-    var selectedFormat = $('.selectedConvertFrom').text();
-    console.log(selectedFormat);
-  if (/^\.{2,}$/.test(selectedFormat)) {
-        showErrorToast()
-        return;
-  }else{
-    convertImages(files);
-
+    function showErrorToast() {
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Please select conversion format first!',
+      footer: '<a href="/">Why do I have this issue?</a>',
+      customClass: {
+        popup: 'swal2-toast-error', // Add the custom CSS class
+      },
+      showConfirmButton: false, // Remove the default "Ok" button
+    // Auto-close after 3 seconds
+      timerProgressBar: true, // Show progress bar
+      allowOutsideClick: true, // Prevent dismissing by clicking outside the toast
+      allowEscapeKey: true, // Prevent dismissing by pressing the escape key
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer);
+        toast.addEventListener('mouseleave', Swal.resumeTimer);
+      }
+    });
   }
-
-  function showErrorToast() {
-  Swal.fire({
-    icon: 'error',
-    title: 'Oops...',
-    text: 'Please select conversion format first!',
-    footer: '<a href="/">Why do I have this issue?</a>',
-    customClass: {
-      popup: 'swal2-toast-error', // Add the custom CSS class
-    },
-    showConfirmButton: false, // Remove the default "Ok" button
-  // Auto-close after 3 seconds
-    timerProgressBar: true, // Show progress bar
-    allowOutsideClick: true, // Prevent dismissing by clicking outside the toast
-    allowEscapeKey: true, // Prevent dismissing by pressing the escape key
-    didOpen: (toast) => {
-      toast.addEventListener('mouseenter', Swal.stopTimer);
-      toast.addEventListener('mouseleave', Swal.resumeTimer);
-    }
   });
-}
-
-
-  });
-
   // Download all converted images as a zip file
   $('.download-all-files').click(function() {
-    if (convertedFiles.length > 0) {
-      downloadAsZip(convertedFiles);
-    }
+      if (convertedFiles.length > 0) {
+        downloadAsZip(convertedFiles);
+      }
   });
 
   $('.converter-dropdown-wrap').on('click', '.format_wrap span', function() {
@@ -464,228 +425,228 @@ if (allowedFormats.length === 1) {
       fileSize = fileSizeKB.toFixed(2) + ' KB';
     }
 
-console.log(fileSize);
+  console.log(fileSize);
 
-    var reader = new FileReader();
+  var reader = new FileReader();
 
-    reader.onload = (function(file) {
-      return function(e) {
-        var $item = $('<div class="converter_item">');
-        var $itemContent = $('<div class="converter_item_name_size">');
-        var $img = $('<img class="defualt-img" alt="">');
-        var $fileName = $('<p class="file-name">').text(file.name);
-        var $fileSize = $('<span class="file-size">').text(fileSize);
-        var $progressWrap = $('<div class="progress_wrap d-none">');
-        var $progressBar = $('<div class="progress-bar d-none">');
-        var $progress = $('<div class="progress d-none" style="width: 0%;">');
-        var $processPercentage = $('<p class="process-percentage d-none">');
-        var $processingBtn = $('<button class="processing waves-effect waves-light d-none">Processing</button>');
-        var $downloadBtn = $('<button class="downloading-btn waves-effect waves-light d-none">').append($('<img src="./assets/images/download-arrow.svg" alt="">')).append($('<span>').text('Download File'));
-        var $deleteBtn = $('<button class="delete-button">').append($('<img src="./assets/images/dustbin.svg" alt="">'));
-        var $checkBtn = $('<div class="check-button d-none">').append($('<img src="./assets/images/checkbox-icon.svg" alt="">'));
-        var $dropdown = $('<div class="converter-section-selection">')
-                        .append($('<p class="converter-text converter-text-listed">Convert To</p>'))
-                        .append($('<div class="converter-dropdown-wrap">')
-                        .append($('<div class="converter-selection_box">')
-                        .append($('<p class="convert-from">')
-                        .append($('<span class="selectedConvertFrom">').text('...'))
-                        .append($('<img src="./assets/images/arrow-down.svg" alt="">')))
-                        .append($('<div class="selection-dropdown">')
-                        .append($('<div class="selection-dropdown_inner">')
-                        .append($('<div class="format_wrap">')
-                        .append($('<span>').text('PNG'))
-                        .append($('<span>').text('JPEG'))
-                        .append($('<span>').text('JPG'))
-                        .append($('<span>').text('WEBP'))
-                        .append($('<span>').text('GIF'))
-                        .append($('<span>').text('BMP'))
-                        .append($('<span>').text('AVIF'))
-                        .append($('<span>').text('TIF')))
-                        )
-                        )
-                        )
-                        );
+      reader.onload = (function(file) {
+        return function(e) {
+          var $item = $('<div class="converter_item">');
+          var $itemContent = $('<div class="converter_item_name_size">');
+          var $img = $('<img class="defualt-img" alt="">');
+          var $fileName = $('<p class="file-name">').text(file.name);
+          var $fileSize = $('<span class="file-size">').text(fileSize);
+          var $progressWrap = $('<div class="progress_wrap d-none">');
+          var $progressBar = $('<div class="progress-bar d-none">');
+          var $progress = $('<div class="progress d-none" style="width: 0%;">');
+          var $processPercentage = $('<p class="process-percentage d-none">');
+          var $processingBtn = $('<button class="processing waves-effect waves-light d-none">Processing</button>');
+          var $downloadBtn = $('<button class="downloading-btn waves-effect waves-light d-none">').append($('<img src="./assets/images/download-arrow.svg" alt="">')).append($('<span>').text('Download File'));
+          var $deleteBtn = $('<button class="delete-button">').append($('<img src="./assets/images/dustbin.svg" alt="">'));
+          var $checkBtn = $('<div class="check-button d-none">').append($('<img src="./assets/images/checkbox-icon.svg" alt="">'));
+          var $dropdown = $('<div class="converter-section-selection">')
+                          .append($('<p class="converter-text converter-text-listed">Convert To</p>'))
+                          .append($('<div class="converter-dropdown-wrap">')
+                          .append($('<div class="converter-selection_box">')
+                          .append($('<p class="convert-from">')
+                          .append($('<span class="selectedConvertFrom">').text('...'))
+                          .append($('<img src="./assets/images/arrow-down.svg" alt="">')))
+                          .append($('<div class="selection-dropdown">')
+                          .append($('<div class="selection-dropdown_inner">')
+                          .append($('<div class="format_wrap">')
+                          .append($('<span>').text('PNG'))
+                          .append($('<span>').text('JPEG'))
+                          .append($('<span>').text('JPG'))
+                          .append($('<span>').text('WEBP'))
+                          .append($('<span>').text('GIF'))
+                          .append($('<span>').text('BMP'))
+                          .append($('<span>').text('AVIF'))
+                          .append($('<span>').text('TIF')))
+                          )
+                          )
+                          )
+                          );
 
-        $img.attr('src','./assets/images/defualt-img-icon.svg');
-        $itemContent.append($img).append($('<div>').append($fileName).append($fileSize));
-        $progressBar.append($progress);
-        $progressWrap.append($progressBar).append($processPercentage);
-        $item.append($itemContent).append($progressWrap).append($dropdown).append($('<div class="processing-and-download-and-delete">').append($processingBtn).append($downloadBtn).append($deleteBtn).append($checkBtn));
-        
-        // Append the new converter item
-        $('.converter_section_listing ul').append($item);
-        $('.converter_section_bottom').show();
+          $img.attr('src','./assets/images/defualt-img-icon.svg');
+          $itemContent.append($img).append($('<div>').append($fileName).append($fileSize));
+          $progressBar.append($progress);
+          $progressWrap.append($progressBar).append($processPercentage);
+          $item.append($itemContent).append($progressWrap).append($dropdown).append($('<div class="processing-and-download-and-delete">').append($processingBtn).append($downloadBtn).append($deleteBtn).append($checkBtn));
+          
+          // Append the new converter item
+          $('.converter_section_listing ul').append($item);
+          $('.converter_section_bottom').show();
 
-        $dropdown.on('click', function() {
-        if(!allowedInputFormat && !allowedConversionFormat){
-        $(this).find('.selection-dropdown').toggleClass('open');
-        }
-        });
-
-    $deleteBtn.on('click', function() {
-    var index = $('.delete-button').index(this);
-    files.splice(index, 1); 
-    $(this).closest('.converter_item').remove(); 
-    });
-
-    $dropdown.find('.format_wrap span').on('click', function() {
-      var selectedFormat = $(this).text();
-      $dropdown.find('.selectedConvertFrom').text(selectedFormat);
-    });
-
-    // Pre-select the format based on the value of selectedConvertTo
-    var preselectedFormat = $('#selectedConvertTo').text();
-      $dropdown.find('.selectedConvertFrom').text(preselectedFormat);
-
-
-        files.push(file); // Add the file to the files array
-      };
-    })(file);
-
-    reader.readAsDataURL(file);
-  }
-}
-
-
-
-function convertImages(files) {
-  conversionInProgress = true;
-
-  $('.convert-file').attr('disabled', 'disabled'); // Disable convert button
-  $('.delete-button').attr('disabled', 'disabled'); // Disable delete buttons
-  $('.delete-button').addClass('d-none');
-
-  var totalFiles = files.length;
-  var successfulConversions = 0; 
-//   var format = $('#selectedConvertTo').text(); // Get the selected format
-  $.each(files, function(index, file) {
-
-    var $item = $('.converter_item').eq(index);
-    var $dropdown = $item.find('.converter-section-selection');
-    var selectedFormat = $dropdown.find('.selectedConvertFrom').text(); 
-    console.log(selectedFormat);
-    $dropdown.addClass('d-none');
-
-    // Check if the file has already been converted
-    if (convertedFiles.some(function(convertedFile) {
-      return convertedFile.data === file;
-    })) {
-      // Skip the conversion for already converted files
-      if (index === files.length - 1) {
-        // Enable delete buttons
-        $('.delete-button').removeAttr('disabled');
-      }
-      updateConvertButtonState();
-      return true;
-    }
-
-    var formData = new FormData();
-    formData.append('image', file);
-    formData.append('format', selectedFormat);
-
-    // Find the corresponding item in the list
-    var $item = $('.converter_item').eq(index);
-    var $progressWrap = $item.find('.progress_wrap');
-    var $progressBar = $item.find('.progress-bar');
-    var $progress = $item.find('.progress');
-    var $processPercentage = $item.find('.process-percentage');
-    var $processingBtn = $item.find('.processing');
-    var $downloadBtn = $item.find('.downloading-btn');
-    $progress.css('width', '0%');
-    $processPercentage.text('0%');
-    $progressWrap.removeClass('d-none');
-    $progressBar.removeClass('d-none');
-    $progress.removeClass('d-none');
-    $processPercentage.removeClass('d-none');
-
-    $processingBtn.removeClass('d-none');
-    $downloadBtn.addClass('d-none');
-
-    // Simulated progress increase
-    var progress = 0;
-    var progressInterval = setInterval(function() {
-      if (progress < 80) {
-        progress += 5;
-        $progress.css('width', progress + '%');
-        $processPercentage.text(progress + '%');
-      }
-    }, 500); // Adjust the interval as needed
-
-    $.ajax({
-      url: '/api/convert-image', // Replace with the actual URL for your Laravel route
-      type: 'POST',
-      data: formData,
-      processData: false,
-      contentType: false,
-      success: function(response) {
-        clearInterval(progressInterval);
-        if (response.success) {
-          console.log('Conversion success:', response);
-          $progress.css('width', '100%');
-          $processPercentage.text('100%');
-          successfulConversions++;
-
-          $downloadBtn.attr('href', response.url);
-          $downloadBtn.attr('download', response.filename); // Set the download attribute
-          $downloadBtn.removeClass('d-none');
-          $processingBtn.addClass('d-none');
-          $item.find('.check-button').removeClass('d-none');
-
-          convertedFiles.push({
-            data: file,
-            url: response.url,
-            filename: response.filename
-          });
-
-          if (successfulConversions === totalFiles) {
-            // If all files have been successfully converted
-            $('.download-all-files').removeClass('d-none');
-              showShareButton();
-             // Show the "Download All" button
+          $dropdown.on('click', function() {
+          if(!allowedInputFormat && !allowedConversionFormat){
+          $(this).find('.selection-dropdown').toggleClass('open');
           }
-
-          $downloadBtn.on('click', function(e) {
-            e.preventDefault();
-            var downloadUrl = $(this).attr('href');
-            var downloadFilename = $(this).attr('download');
-
-            // Create a temporary link element and set its attributes
-            var link = document.createElement('a');
-            link.href = downloadUrl;
-            link.download = downloadFilename;
-
-            // Programmatically trigger the download
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
           });
-        }
-      },
 
-      error: function(xhr, status, error) {
-        console.error(xhr.responseText);
-      },
-      complete: function() {
-        console.log(successfulConversions);
-        console.log(files.length);
+      $deleteBtn.on('click', function() {
+      var index = $('.delete-button').index(this);
+      files.splice(index, 1); 
+      $(this).closest('.converter_item').remove(); 
+      });
 
+      $dropdown.find('.format_wrap span').on('click', function() {
+        var selectedFormat = $(this).text();
+        $dropdown.find('.selectedConvertFrom').text(selectedFormat);
+      });
+
+      // Pre-select the format based on the value of selectedConvertTo
+      var preselectedFormat = $('#selectedConvertTo').text();
+        $dropdown.find('.selectedConvertFrom').text(preselectedFormat);
+
+
+          files.push(file); // Add the file to the files array
+        };
+      })(file);
+
+      reader.readAsDataURL(file);
+    }
+  }
+
+
+
+  function convertImages(files) {
+    conversionInProgress = true;
+
+    $('.convert-file').attr('disabled', 'disabled'); // Disable convert button
+    $('.delete-button').attr('disabled', 'disabled'); // Disable delete buttons
+    $('.delete-button').addClass('d-none');
+
+    var totalFiles = files.length;
+    var successfulConversions = 0; 
+  //   var format = $('#selectedConvertTo').text(); // Get the selected format
+    $.each(files, function(index, file) {
+
+      var $item = $('.converter_item').eq(index);
+      var $dropdown = $item.find('.converter-section-selection');
+      var selectedFormat = $dropdown.find('.selectedConvertFrom').text(); 
+      console.log(selectedFormat);
+      $dropdown.addClass('d-none');
+
+      // Check if the file has already been converted
+      if (convertedFiles.some(function(convertedFile) {
+        return convertedFile.data === file;
+      })) {
+        // Skip the conversion for already converted files
         if (index === files.length - 1) {
+          // Enable delete buttons
           $('.delete-button').removeAttr('disabled');
-         
         }
         updateConvertButtonState();
-        conversionInProgress = false;
-        files = [];
+        return true;
       }
+
+      var formData = new FormData();
+      formData.append('image', file);
+      formData.append('format', selectedFormat);
+
+      // Find the corresponding item in the list
+      var $item = $('.converter_item').eq(index);
+      var $progressWrap = $item.find('.progress_wrap');
+      var $progressBar = $item.find('.progress-bar');
+      var $progress = $item.find('.progress');
+      var $processPercentage = $item.find('.process-percentage');
+      var $processingBtn = $item.find('.processing');
+      var $downloadBtn = $item.find('.downloading-btn');
+      $progress.css('width', '0%');
+      $processPercentage.text('0%');
+      $progressWrap.removeClass('d-none');
+      $progressBar.removeClass('d-none');
+      $progress.removeClass('d-none');
+      $processPercentage.removeClass('d-none');
+
+      $processingBtn.removeClass('d-none');
+      $downloadBtn.addClass('d-none');
+
+      // Simulated progress increase
+      var progress = 0;
+      var progressInterval = setInterval(function() {
+        if (progress < 80) {
+          progress += 5;
+          $progress.css('width', progress + '%');
+          $processPercentage.text(progress + '%');
+        }
+      }, 500); // Adjust the interval as needed
+
+      $.ajax({
+        url: '/api/convert-image', // Replace with the actual URL for your Laravel route
+        type: 'POST',
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function(response) {
+          clearInterval(progressInterval);
+          if (response.success) {
+            console.log('Conversion success:', response);
+            $progress.css('width', '100%');
+            $processPercentage.text('100%');
+            successfulConversions++;
+
+            $downloadBtn.attr('href', response.url);
+            $downloadBtn.attr('download', response.filename); // Set the download attribute
+            $downloadBtn.removeClass('d-none');
+            $processingBtn.addClass('d-none');
+            $item.find('.check-button').removeClass('d-none');
+
+            convertedFiles.push({
+              data: file,
+              url: response.url,
+              filename: response.filename
+            });
+
+            if (successfulConversions === totalFiles) {
+              // If all files have been successfully converted
+              $('.download-all-files').removeClass('d-none');
+                showShareButton();
+              // Show the "Download All" button
+            }
+
+            $downloadBtn.on('click', function(e) {
+              e.preventDefault();
+              var downloadUrl = $(this).attr('href');
+              var downloadFilename = $(this).attr('download');
+
+              // Create a temporary link element and set its attributes
+              var link = document.createElement('a');
+              link.href = downloadUrl;
+              link.download = downloadFilename;
+
+              // Programmatically trigger the download
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+            });
+          }
+        },
+
+        error: function(xhr, status, error) {
+          console.error(xhr.responseText);
+        },
+        complete: function() {
+          console.log(successfulConversions);
+          console.log(files.length);
+
+          if (index === files.length - 1) {
+            $('.delete-button').removeAttr('disabled');
+          
+          }
+          updateConvertButtonState();
+          conversionInProgress = false;
+          files = [];
+        }
+      });
     });
-  });
-}
+  }
   
-function validateEmail(email) {
-  // Regular expression pattern to validate email format
-  var pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return pattern.test(email);
-}
+  function validateEmail(email) {
+    // Regular expression pattern to validate email format
+    var pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return pattern.test(email);
+  }
 
   function showShareButton() {
     var $shareButton = $('<div> <button class="share-button waves-effect waves-light">Share</button> </div>');
@@ -695,52 +656,52 @@ function validateEmail(email) {
     });
   }
 
-function updateConvertButtonState() {
-    if (files.length > 0) {
-      $('.convert-file').removeAttr('disabled'); // Enable convert button
-    } else {
-      $('.convert-file').attr('disabled', 'disabled'); // Disable convert button
-    }
-  }
-
-
-  function showSharePopup() {
-  Swal.fire({
-    title: 'Share Converted Images',
-    html: '<input type="email" id="email-input" class="swal2-input" placeholder="Enter your email address">',
-    showCancelButton: true,
-    confirmButtonText: 'Share',
-    allowOutsideClick: true,
-    didOpen: function() {
-      var emailInput = document.getElementById('email-input');
-      emailInput.addEventListener('input', function(event) {
-        Swal.enableButtons(); // Enable confirm and cancel buttons
-        Swal.resetValidationMessage();
-      });
-    },
-    preConfirm: function() {
-      var email = document.getElementById('email-input').value;
-      if (validateEmail(email)) {
-        return email;
+  function updateConvertButtonState() {
+      if (files.length > 0) {
+        $('.convert-file').removeAttr('disabled'); // Enable convert button
       } else {
-        Swal.showValidationMessage('Invalid email address');
-        return false;
+        $('.convert-file').attr('disabled', 'disabled'); // Disable convert button
       }
     }
-  }).then(function(result) {
-    if (result.isConfirmed && result.value) {
-      sendEmailWithImages(result.value);
-    }
-  });
-}
+
+
+    function showSharePopup() {
+    Swal.fire({
+      title: 'Share Converted Images',
+      html: '<input type="email" id="email-input" class="swal2-input" placeholder="Enter your email address">',
+      showCancelButton: true,
+      confirmButtonText: 'Share',
+      allowOutsideClick: true,
+      didOpen: function() {
+        var emailInput = document.getElementById('email-input');
+        emailInput.addEventListener('input', function(event) {
+          Swal.enableButtons(); // Enable confirm and cancel buttons
+          Swal.resetValidationMessage();
+        });
+      },
+      preConfirm: function() {
+        var email = document.getElementById('email-input').value;
+        if (validateEmail(email)) {
+          return email;
+        } else {
+          Swal.showValidationMessage('Invalid email address');
+          return false;
+        }
+      }
+    }).then(function(result) {
+      if (result.isConfirmed && result.value) {
+        sendEmailWithImages(result.value);
+      }
+    });
+  }
 
 
 
   function sendEmailWithImages(email) {
     var convertedImagePaths = [];
-  convertedFiles.forEach(function(convertedFile) {
-    convertedImagePaths.push(convertedFile.url); // Assuming each converted file has a 'url' property storing the file path or URL
-  });
+    convertedFiles.forEach(function(convertedFile) {
+      convertedImagePaths.push(convertedFile.url); // Assuming each converted file has a 'url' property storing the file path or URL
+    });
 
     $.ajax({
       url: '/api/send-email-with-images', // Replace with the actual URL for your Laravel route
@@ -760,8 +721,6 @@ function updateConvertButtonState() {
       }
     });
   }
-
-
   function downloadAsZip(convertedFiles) {
     var zip = new JSZip();
 
@@ -787,7 +746,7 @@ function updateConvertButtonState() {
       });
     });
   }
-});
+  });
 
 </script>
 
