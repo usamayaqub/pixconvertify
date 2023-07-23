@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\BlogController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -61,7 +63,7 @@ Route::post('logout', 'App\Http\Controllers\Auth\LoginController@logout')->name(
     //FAQS 
 
     // BLOGS
-    Route::get('blogs', [BlogController::class, 'index'])->name('blogs.index');
+    Route::get('blogss', [BlogController::class, 'index'])->name('blogs.index');
     Route::get('add-blog', [BlogController::class, 'addBlog'])->name('add.blog');
     Route::post('add-blog', [BlogController::class, 'store'])->name('insert.blog');
     Route::get('edit-blog/{id}', [BlogController::class, 'editBlog'])->name('edit.blog');

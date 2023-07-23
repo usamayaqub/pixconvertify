@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
-    use FileUploadTrait, GlobalTrait;
+    // use FileUploadTrait, GlobalTrait;
     
 
     public function index(Request $request)
