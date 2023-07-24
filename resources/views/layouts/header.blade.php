@@ -45,7 +45,7 @@
                         @endauth
                     </div>
                 @endif
-                <img class="site-menu" src="./assets/images/toggle.svg" alt="toggle menu">
+                <img class="site-menu" src="{{asset('assets/images/toggle.svg')}}" alt="toggle menu">
             </div>
         </div>
     </nav>

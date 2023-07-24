@@ -33,6 +33,10 @@ Route::get('/blog-detail', [HomeController::class, 'blogsdetail'])->name('get-bl
 
 
 Route::get('/checkresponsivness', [HomeController::class, 'checkresponsiveness'])->name('get-checkrespo');
+Route::get('/about-us', [HomeController::class, 'aboutUs'])->name('get-about');
+Route::get('/privacy-Policies', [HomeController::class, 'privacyPolicies'])->name('get-privacy-policies');
+Route::get('/support', [HomeController::class, 'support'])->name('get-support');
+Route::get('/contact-us', [HomeController::class, 'contact'])->name('get-contact');
 
 Route::get('/{format?}', function ($format = null) {
     return view('index',compact('format'));

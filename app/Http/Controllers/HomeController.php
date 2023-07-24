@@ -198,6 +198,24 @@ class HomeController extends Controller
         return view('admin.home');
     }
 
+
+    public function aboutUs()
+    {
+        return view('about-us');
+    }
+    public function privacyPolicies()
+    {
+        return view('privacy-Policies');
+    }
+    public function support()
+    {
+        return view('support');
+    }
+    public function contact()
+    {
+        return view('contact-us');
+    }
+
     
  
 }

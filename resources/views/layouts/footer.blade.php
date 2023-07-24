@@ -28,21 +28,14 @@
                     </div>
                 </div>
                 <div class="site-footer_right_links">
-                    <p class="links_title">Images Conversation</p>
+                    <p class="links_title">Quick Links</p>
                     <div class="links_wrap">
                         <ul>
-                            <li><a href="#">WORD to PDF</a></li>
-                            <li><a href="#">PDF to CSV</a></li>
-                            <li><a href="#">EXCEL to WORD</a></li>
-                            <li><a href="#">DOC to EXCEL</a></li>
-                            <li><a href="#">CSV to PDF </a></li>
-                        </ul>
-                        <ul>
-                            <li><a href="#">CSV to WORD</a></li>
-                            <li><a href="#">DOC to PDF</a></li>
-                            <li><a href="#">WORD to CSV</a></li>
-                            <li><a href="#">PDF to EXCEL</a></li>
-                            <li><a href="#">DOC to WORD</a></li>
+                            <li><a href="{{route('get-about')}}">About</a></li>
+                            <li><a href="{{route('get-blogs')}}">Blogs</a></li>
+                            <li><a href="{{route('get-privacy-policies')}}">Privacy Policy</a></li>
+                            <li><a href="{{route('get-contact')}}">Contact Us</a></li>
+                            <li><a href="{{route('get-support')}}">Support</a></li>
                         </ul>
                     </div>
                 </div>
