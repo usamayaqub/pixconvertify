@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;300;500;700;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@100;300;400;500;700;900&display=swap');
 
 * {
     padding: 0;
@@ -44,7 +45,8 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Nunito", sans-serif;
+    /* font-family: "Nunito", sans-serif; */
+    font-family: 'Noto Sans HK', sans-serif;
 }
 nav a,
 nav ul a {
@@ -349,6 +351,11 @@ p {
     width: 100%;
     height: 100%;
     object-fit: contain;
+}
+.obj_fit {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 .blur {
     width: 342px;
@@ -839,7 +846,8 @@ p {
 }
 .how-its-work h2 {
     text-align: center;
-    font-family: "Nunito", sans-serif;
+    /* font-family: "Nunito", sans-serif; */
+    font-family:'Noto Sans HK', sans-serif;
     font-size: 40px;
     font-weight: 500;
     line-height: 70px;
@@ -858,7 +866,8 @@ p {
     flex-grow: 1;
 }
 .how-its-work_item h3 {
-    font-family: "Nunito", sans-serif;
+    /* font-family: "Nunito", sans-serif; */
+    font-family:'Noto Sans HK', sans-serif;
     font-size: 24px;
     font-weight: 700;
     line-height: 33px;
@@ -1112,7 +1121,8 @@ p {
     object-fit: contain;
 }
 .links_title {
-    font-family: "Nunito";
+    /* font-family: "Nunito"; */
+    font-family:'Noto Sans HK', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 24px;
@@ -1245,13 +1255,13 @@ p {
 .site-banner.blog-banner {
     padding-top: 40px;
     padding-bottom: 30px;
-    background-color: #161a1d;
+    /* background-color: #161a1d; */
 }
 .site-banner.blog-banner h1 {
-    color: #fff;
+    /* color: #fff; */
 }
 .site-banner.blog-banner .banner-message {
-    color: #fff;
+    /* color: #fff; */
 }
 .site-banner.blog-banner h1 span {
     display: inline-block;
@@ -1269,12 +1279,20 @@ p {
     align-items: center;
     padding: 30px 0 40px 0;
 }
+.blog-sec-title{
+    font-family: "Roboto" , sans-serif;
+    font-weight: 700;
+    text-align: center;
+    padding-bottom: 10px;
+}
 .card-item {
     display: block;
     width: 32.22222%;
     text-align: left;
     font-family: "Roboto", sans-serif;
-    margin-top: 25px;
+    margin-bottom: 25px;
+    position: relative;
+    display: block;
 }
 .card-item h3 {
     font-family: "Roboto", sans-serif;
@@ -1324,6 +1342,20 @@ p {
 }
 .card-item-bottom .btn {
     background-color: var(--btn-bg-red);
+    border-radius: 5px;
+    box-shadow: none;
+    font-weight: 500;
+}
+.waves-effect{
+    position: unset !important;
+}
+.streched-btn::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    inset: 0;
 }
 .seacrh-bar {
     position: relative;
@@ -1335,16 +1367,50 @@ p {
     font-family: "Nunito";
     height: 55px !important;
     text-indent: 25px;
-    width: calc(100% - 210px);
-    /* padding-left: 10px; */
     border: 2px solid var(--btn-bg-red) !important;
     color: var(--btn-bg-red);
     margin-bottom: 0 !important;
     border-radius: 30px !important;
+    padding-left: 20px !important;
+    margin-left: -20px !important;
+}
+.seacrh-bar input::placeholder {
+    color: var(--primary-color);
 }
 .seacrh-bar img {
     position: absolute;
-    left: 10px;
+    left: -2px;
     top: 50%;
     transform: translateY(-50%);
+}
+.site-banner-wrap nav{
+    background-color: transparent;
+    box-shadow: none;
+}
+.nav-wrapper .breadcrumb{
+    color: #333;
+}
+.nav-wrapper .breadcrumb:before{
+    color: #333;
+}
+.d-flex{
+    display: flex;
+}
+.w-100{
+    width: 100%;
+}
+.px-blog-h1{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 40px;
+    color: var(--text-color);
+    margin-bottom: 35px !important;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 15px;
+}
+.blog-wrapper .px-content{
+    width: 80%;
+    margin: 0 auto;
 }

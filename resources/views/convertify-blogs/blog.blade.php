@@ -43,6 +43,7 @@
       <input type="search" placeholder="Search Blog Here">
       <img src="{{asset('assets/images/search-icon.svg')}}" alt="">
     </div>
+    <h2 class="mb-0 blog-sec-title">All Blogs</h2>
     <div class="blog-card-wrap">
         <div class="card-item">
           <div class="card-item_img">
@@ -55,7 +56,7 @@
             </p>
           </div>
           <div class="card-item-bottom">
-            <a class="waves-effect waves-light btn readmore-btn">Read More</a>
+            <a href="{{route('get-blogs-detail')}}" class="waves-effect waves-light btn readmore-btn streched-btn">Read More</a>
             <div class="post-time">
               <img src="{{asset('assets/images/clock.svg')}}" alt="">
               <span>1 week ago</span>
@@ -73,7 +74,7 @@
             </p>
           </div>
           <div class="card-item-bottom">
-            <a class="waves-effect waves-light btn readmore-btn">Read More</a>
+            <a href="#" class="waves-effect waves-light btn readmore-btn streched-btn">Read More</a>
             <div class="post-time">
               <img src="{{asset('assets/images/clock.svg')}}" alt="">
               <span>1 week ago</span>
@@ -91,7 +92,7 @@
             </p>
           </div>
           <div class="card-item-bottom">
-            <a class="waves-effect waves-light btn readmore-btn">Read More</a>
+            <a href="#" class="waves-effect waves-light btn readmore-btn streched-btn">Read More</a>
             <div class="post-time">
               <img src="{{asset('assets/images/clock.svg')}}" alt="">
               <span>1 week ago</span>
@@ -109,7 +110,7 @@
             </p>
           </div>
           <div class="card-item-bottom">
-            <a class="waves-effect waves-light btn readmore-btn">Read More</a>
+            <a href="#" class="waves-effect waves-light btn readmore-btn streched-btn">Read More</a>
             <div class="post-time">
               <img src="{{asset('assets/images/clock.svg')}}" alt="">
               <span>1 week ago</span>

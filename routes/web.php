@@ -28,6 +28,8 @@ Route::post('register', 'App\Http\Controllers\Auth\RegisterController@register')
 
 Route::get('/compress', [HomeController::class, 'justcompress'])->name('get-justcompress');
 Route::get('/blogs', [HomeController::class, 'blogs'])->name('get-blogs');
+Route::get('/blog-detail', [HomeController::class, 'blogsdetail'])->name('get-blogs-detail');
+
 
 
 Route::get('/checkresponsivness', [HomeController::class, 'checkresponsiveness'])->name('get-checkrespo');

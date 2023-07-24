@@ -1,3 +1,8 @@
+@media only screen and (max-width:1332px){
+    .card-item{
+        width: 48%;
+    }
+}
 @media only screen and (max-width:1330px){
     .site-header_inner-wrap{
         max-width: 100%;
@@ -228,6 +233,12 @@
     }
     .add-more-file {
         width: 100%;
+    }
+    .card-item{
+        width: 100%;
+    }
+    .blog-wrapper .seacrh-bar{
+        width: 70%;
     }
 }
 @media only screen and (max-width:550px){

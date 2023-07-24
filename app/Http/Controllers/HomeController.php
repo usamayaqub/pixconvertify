@@ -181,6 +181,10 @@ class HomeController extends Controller
     {
         return view('convertify-blogs.blog');
     }
+    public function blogsdetail()
+    {
+        return view('convertify-blogs.blog-detail');
+    }
     public function login()
     {
         return view('auth.login');
