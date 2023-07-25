@@ -30,7 +30,7 @@
         </div>
     </div>
 </section>
-<div class="blog-wrapper">
+<div class="container-wrapper">
   <div class="container">
     <div class="px-content">
       <img src="{{asset('assets/images/1.jpg')}}" class="obj_fit" alt="">

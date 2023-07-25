@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;300;500;700;900&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@100;300;400;500;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@100;300;400;500;700;900&display=swap");
 
 * {
     padding: 0;
@@ -46,7 +46,7 @@ h4,
 h5,
 h6 {
     /* font-family: "Nunito", sans-serif; */
-    font-family: 'Noto Sans HK', sans-serif;
+    font-family: "Noto Sans HK", sans-serif;
 }
 nav a,
 nav ul a {
@@ -70,7 +70,15 @@ p {
     font-weight: 400;
     line-height: 19px;
     letter-spacing: 0em;
-    text-align: center;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    margin-bottom: 13px;
 }
 .d-none {
     display: none !important;
@@ -301,7 +309,7 @@ p {
     padding: 9px 11px;
     border-radius: 6px;
     background-color: var(--primary-color);
-    width: 330px;
+    width: max-content;
     display: flex;
     justify-content: center;
 }
@@ -319,7 +327,7 @@ p {
     font-style: normal;
     font-weight: 600;
     font-size: 40px;
-    line-height: 40px;
+    line-height: 50px;
     color: var(--text-color);
     margin-top: 15px;
     position: relative;
@@ -847,7 +855,7 @@ p {
 .how-its-work h2 {
     text-align: center;
     /* font-family: "Nunito", sans-serif; */
-    font-family:'Noto Sans HK', sans-serif;
+    font-family: "Noto Sans HK", sans-serif;
     font-size: 40px;
     font-weight: 500;
     line-height: 70px;
@@ -867,7 +875,7 @@ p {
 }
 .how-its-work_item h3 {
     /* font-family: "Nunito", sans-serif; */
-    font-family:'Noto Sans HK', sans-serif;
+    font-family: "Noto Sans HK", sans-serif;
     font-size: 24px;
     font-weight: 700;
     line-height: 33px;
@@ -1122,7 +1130,7 @@ p {
 }
 .links_title {
     /* font-family: "Nunito"; */
-    font-family:'Noto Sans HK', sans-serif;
+    font-family: "Noto Sans HK", sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 24px;
@@ -1266,11 +1274,11 @@ p {
 .site-banner.blog-banner h1 span {
     display: inline-block;
 }
-.blog-wrapper .container {
+.container-wrapper .container {
     width: 90%;
 }
-.blog-wrapper {
-    padding-top: 50px;
+.container-wrapper {
+    padding: 50px 0;
 }
 .blog-card-wrap {
     display: flex;
@@ -1279,8 +1287,8 @@ p {
     align-items: center;
     padding: 30px 0 40px 0;
 }
-.blog-sec-title{
-    font-family: "Roboto" , sans-serif;
+.blog-sec-title {
+    font-family: "Roboto", sans-serif;
     font-weight: 700;
     text-align: center;
     padding-bottom: 10px;
@@ -1346,10 +1354,10 @@ p {
     box-shadow: none;
     font-weight: 500;
 }
-.waves-effect{
+.waves-effect {
     position: unset !important;
 }
-.streched-btn::after{
+.streched-btn::after {
     content: "";
     position: absolute;
     width: 100%;
@@ -1383,23 +1391,23 @@ p {
     top: 50%;
     transform: translateY(-50%);
 }
-.site-banner-wrap nav{
+.site-banner-wrap nav {
     background-color: transparent;
     box-shadow: none;
 }
-.nav-wrapper .breadcrumb{
+.nav-wrapper .breadcrumb {
     color: #333;
 }
-.nav-wrapper .breadcrumb:before{
+.nav-wrapper .breadcrumb:before {
     color: #333;
 }
-.d-flex{
+.d-flex {
     display: flex;
 }
-.w-100{
+.w-100 {
     width: 100%;
 }
-.px-blog-h1{
+.px-blog-h1 {
     font-style: normal;
     font-weight: 600;
     font-size: 40px;
@@ -1410,7 +1418,60 @@ p {
     z-index: 1;
     margin-bottom: 15px;
 }
-.blog-wrapper .px-content{
+.container-wrapper .px-content {
     width: 80%;
     margin: 0 auto;
 }
+.site-banner.contact-wrapper {
+    padding-bottom: 50px;
+    padding-top: 50px;
+}
+
+.contact-us-form {
+    background-color: #fff;
+    padding: 20px 40px 20px 40px;
+    border-radius: 10px;
+}
+.contact-us-form h2 {
+    font-size: 30px;
+    line-height: 39px;
+    text-align: start;
+    font-weight: 500;
+    margin-top: 20px;
+}
+.contact-us-form h2 span {
+    background-color: var(--primary-color);
+    color: #fff;
+    border-radius: 7px;
+    padding: 0 10px 8px 10px;
+}
+.contact-us-form form label {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+.px-content h2 {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 45px;
+}
+.px-content h3 {
+    font-weight: 700;
+    font-size: 35px;
+    line-height: 40px;
+    margin-top: 20px;
+}
+.px-content p,
+.px-content li {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 10px;
+}
+.px-content ul{
+    padding-left: 20px;
+}
+.px-content ul li{
+    list-style-type: circle;
+}
+.px-content p{
+    line-height: 28px;
+}   

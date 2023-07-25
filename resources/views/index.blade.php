@@ -70,13 +70,13 @@
                                     <div class="converter-selection_box">
                                         <p class="convert-from d-none">
                                             <span id="selectedConvertFrom">...</span>
-                                            <img src="./assets/images/arrow-down.svg" alt="">
+                                            <img src="{{asset('./assets/images/arrow-down.svg')}}" alt="">
                                         </p>
                                         <div class="selection-dropdown">
                                             <div class="selection-dropdown_inner">
                                                 <div class="search-format-bar">
                                                     <div>
-                                                        <img src="./assets/images/search-icon.svg" alt="">
+                                                        <img src="{{asset('./assets/images/search-icon.svg')}}" alt="">
                                                     </div>
                                                     <input type="search" class="search-format">
                                                 </div>

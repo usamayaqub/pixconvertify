@@ -28,13 +28,13 @@
                         supported.
                     </p>
                     <div class="shape">
-                        <img src="./assets/images/shape.svg" class="obj_fit_contain" alt="">
+                        <img src="{{asset('./assets/images/shape.svg')}}" class="obj_fit_contain" alt="">
                     </div>
                 </div>
                 <div class="site-banner-right">
-                    <img src="./assets/images/banner-imag.svg" class="banner_img" alt="">
+                    <img src="{{asset('./assets/images/banner-imag.svg')}}" class="banner_img" alt="">
                     <div class="blur">
-                        <img src="./assets/images/shape.svg" class="obj_fit_contain" alt="">
+                        <img src="{{asset('./assets/images/shape.svg')}}" class="obj_fit_contain" alt="">
                     </div>
                 </div>
             </div>
@@ -48,7 +48,7 @@
                 <div class="converter_section_wrap_selection">
                     <div class="converter_section_left">
                         <div class="converter_dropbox">
-                            <img src="./assets/images/drop-icon.svg" alt="">
+                            <img src="{{asset('./assets/images/drop-icon.svg')}}" alt="">
                             <h2 class="drop_file-text mt-0">Drag or Drop file here</h2>
                             <p class="restriction-text">Up to 20 files at a single time, max 20 MB each.</p>
                             <input type="file">
