@@ -2,25 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Traits\FileUploadTrait;
 use Illuminate\Http\Request;
+use App\Models\Blog;
+use App\Models\BlogImage;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
+use Yajra\DataTables\Facades\DataTables;
 
 class BlogController extends Controller
 {
-    // use FileUploadTrait, GlobalTrait;
+    use FileUploadTrait;
     
-
     public function index(Request $request)
     {
-        $data = Blog::with('images','category')->orderBy('created_at', 'desc')->get();
+        $data = Blog::with('images')->orderBy('created_at', 'desc')->get();
         if ($request->ajax()) {
             return DataTables::of($data)
-            ->addColumn('category', function ($data) {
-                $category = 'general';
-                if(!empty($data->category->name)){
-                $category = $data->category->name;
-                }
-                return $category;       
-            })
             ->addColumn('image', function ($data) {
                 $firstImage = $data->images->first(); // Get the first image from the blog's images
                 if ($firstImage) {
@@ -40,17 +38,16 @@ class BlogController extends Controller
                     </div>';
                     return $actions;
                 })
-                ->rawColumns(['image','status','category','actions'])
+                ->rawColumns(['image','status','actions'])
                 ->make(true);
         }
 
-        return view('blogs.index');
+        return view('admin.blogs.index');
     }
 
     public function addBlog(Request $request)
-    {
-        $categories = Category::where('is_active',1)->get();  
-        return view('blogs.edit',compact('categories'));
+    { 
+        return view('admin.blogs.edit');
     }
 
     public function store(Request $request)
@@ -58,7 +55,7 @@ class BlogController extends Controller
         $validator = Validator::make($request->all(), [
             'title' => 'required',
             'content' => 'required',
-            'image' => 'required',
+            'banner' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -66,25 +63,22 @@ class BlogController extends Controller
         }
 
         $blog = new Blog();
-        $blog->cat_id = $request->cat_id;
         $blog->title = $request->title;
         $blog->content = $request->content;
         $blog->save();
 
-        // Upload Image for the blog
-        if(isset($request->image)){
-        $images = $this->uploadMultipleFiles($request->image);
-        $images_arr = [];
-        if (count($images) > 0) {
-            foreach ($images as $key => $i) {
-                $images_arr[$key]['blog_id'] = $blog->id;
-                $images_arr[$key]['url'] = $i;
-                $images_arr[$key]['type'] = 'media';
-                $images_arr[$key]['created_at'] = now();
-                $images_arr[$key]['updated_at'] = now();
-            }
-        }
-        $blog->images()->insert($images_arr);
+        if ($request->banner) {
+            $file = $request->banner;
+            $url =  $this->uploadSingleFile($file);
+            if (!empty($url)) {
+                $blog->images()->create([
+                'blog_id' => $blog->id,
+                'url' => $url,
+                'type' => 'media',
+                'created_at' => now(),
+                'updated_at' => now(),
+                ]);
+            } 
         }
         // Upload Image for the blog
         return redirect()->route('blogs.index')->with('success', 'Blog saved successfully.');
@@ -94,15 +88,12 @@ class BlogController extends Controller
     public function editBlog(Request $request,$id)
     {
         $type = Blog::find($id);
-        $categories = Category::where('is_active',1)->get();  
-        return view('blogs.edit',compact('type','categories'));
+        return view('admin.blogs.edit',compact('type'));
     }
 
     public function update(Request $request, $id)
     {
         $blog = Blog::find($id);
-
-        $blog->cat_id = $request->cat_id;
         $blog->title = $request->title;
         $blog->content = $request->content;
         if($request->status == 'on')
@@ -113,24 +104,21 @@ class BlogController extends Controller
         }
         $blog->save();
         // Update Image for the blog
-        if(isset($request->image)){
-            $images = $this->uploadMultipleFiles($request->image);
-            $images_arr = [];
-
-            if (count($images) > 0) {
-                foreach ($images as $key => $i) {
-                    $images_arr[$key]['blog_id'] = $blog->id;
-                    $images_arr[$key]['url'] = $i;
-                    $images_arr[$key]['type'] = 'media';
-                    $images_arr[$key]['created_at'] = now();
-                    $images_arr[$key]['updated_at'] = now();
-                }
-            }
+        if (isset($request->banner)) {
             $blog->images()->delete();
-            $blog->images()->insert($images_arr);
-            }
+            $file = $request->banner;
+            $url =  $this->uploadSingleFile($file);
+            if (!empty($url)) {
+                $blog->images()->create([
+                'blog_id' => $blog->id,
+                'url' => $url,
+                'type' => 'media',
+                'created_at' => now(),
+                'updated_at' => now(),
+                ]);
+            } 
+        }
         // Update Image for the blog
-
         return redirect()->route('blogs.index')->with('success', 'Blog updated successfully.');
     }
 
@@ -147,4 +135,20 @@ class BlogController extends Controller
         $image->delete();
         return response()->json(['message' => 'Image deleted successfully']);
     }
+
+    public function uploadImage(Request $request)
+    {
+        if ($request->upload) {
+            $file = $request->upload;
+            $url =  $this->uploadSingleFile($file);
+            if (!empty($url)) {
+                return response()->json(['image_url' => $url]);
+            } else {
+                return response()->json(['error' => 'Image upload failed. Please try again.'], 400);
+            }
+        }
+        return response()->json(['error' => 'No image uploaded'], 400);
+    }
+
+
 }

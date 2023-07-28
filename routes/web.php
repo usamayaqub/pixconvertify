@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
@@ -16,11 +17,19 @@ use App\Http\Controllers\BlogController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/admin', [HomeController::class, 'adminHome'])->name('admin.home');
 
 // Auth
 Route::get('login', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'App\Http\Controllers\Auth\LoginController@login');
+
+// Email Verification & Resend OTP
+Route::post('/verify', [RegisterController::class, 'verficationCodeCheck'])->name('verify.email.code');
+Route::post('store/resend/email/otp', [RegisterController::class, 'resendEmailOtp'])->name('resend.code');
+//   Email Verification & Resend OTP
+
+Route::get('otp-verification', function () {
+    return view('auth.verify');
+});
 
 
 Route::get('register', 'App\Http\Controllers\Auth\RegisterController@showRegistrationForm')->name('register');
@@ -31,33 +40,29 @@ Route::get('/blogs', [HomeController::class, 'blogs'])->name('get-blogs');
 Route::get('/blog-detail', [HomeController::class, 'blogsdetail'])->name('get-blogs-detail');
 
 
-
 Route::get('/checkresponsivness', [HomeController::class, 'checkresponsiveness'])->name('get-checkrespo');
 Route::get('/about-us', [HomeController::class, 'aboutUs'])->name('get-about');
 Route::get('/privacy-Policies', [HomeController::class, 'privacyPolicies'])->name('get-privacy-policies');
 Route::get('/support', [HomeController::class, 'support'])->name('get-support');
 Route::get('/contact-us', [HomeController::class, 'contact'])->name('get-contact');
 
-Route::get('/{format?}', function ($format = null) {
-    return view('index',compact('format'));
-})->name('base');
 
 
-
-Auth::routes(['verify' => true]);
+Route::middleware(['auth','isVerified'])->group(function () {
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('logout', 'App\Http\Controllers\Auth\LoginController@logout')->name('logout');
 
-
+});
 
 
 
 // Super Admin Dashboard
 
-// Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth','isAdmin'])->group(function () {
 
-   
+Route::get('/admin', [HomeController::class, 'adminHome'])->name('admin.home');
+
     Route::get('settings', [HomeController::class, 'dailyQuotaView'])->name('index.dailyquota');
 
     //FAQS 
@@ -69,7 +74,7 @@ Route::post('logout', 'App\Http\Controllers\Auth\LoginController@logout')->name(
     //FAQS 
 
     // BLOGS
-    Route::get('blogss', [BlogController::class, 'index'])->name('blogs.index');
+    Route::get('all-blogs', [BlogController::class, 'index'])->name('blogs.index');
     Route::get('add-blog', [BlogController::class, 'addBlog'])->name('add.blog');
     Route::post('add-blog', [BlogController::class, 'store'])->name('insert.blog');
     Route::get('edit-blog/{id}', [BlogController::class, 'editBlog'])->name('edit.blog');
@@ -77,4 +82,9 @@ Route::post('logout', 'App\Http\Controllers\Auth\LoginController@logout')->name(
     Route::delete('delete-blog-image/{id}', [BlogController::class, 'deleteBlogImage'])->name('delete_blog_image');
     // BLOGS
 
-// });
+});
+
+
+Route::get('/{format?}', function ($format = null) {
+    return view('index',compact('format'));
+})->name('base');
