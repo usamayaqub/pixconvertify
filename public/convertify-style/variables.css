@@ -9,3 +9,11 @@
     --primary-hover-color:#ba181bb7;
     --banner-bg-color:#F5F5F5;
   }
+:root {
+	--hue: 223;
+	--bg: hsl(0,0%,100%);
+	--fg: hsl(var(--hue),10%,10%);
+	--primary: hsl(var(--hue),90%,50%);
+	--trans-dur: 0.3s;
+	font-size: calc(16px + (24 - 16) * (100vw - 320px) / (2560 - 320));
+}

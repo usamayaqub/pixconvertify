@@ -31,11 +31,11 @@
                     <p class="links_title">Quick Links</p>
                     <div class="links_wrap">
                         <ul>
-                            <li><a href="{{route('get-about')}}">About</a></li>
+                            <li><a href="{{route('get-how-works')}}">How its Work</a></li>
                             <li><a href="{{route('get-blogs')}}">Blogs</a></li>
                             <li><a href="{{route('get-privacy-policies')}}">Privacy Policy</a></li>
                             <li><a href="{{route('get-contact')}}">Contact Us</a></li>
-                            <li><a href="{{route('get-support')}}">Support</a></li>
+                            <li><a href="{{route('get-support')}}">Buy us Coffee</a></li>
                         </ul>
                     </div>
                 </div>

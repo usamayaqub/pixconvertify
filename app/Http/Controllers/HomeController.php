@@ -199,9 +199,9 @@ class HomeController extends Controller
     }
 
 
-    public function aboutUs()
+    public function howWorks()
     {
-        return view('about-us');
+        return view('how-its-work');
     }
     public function privacyPolicies()
     {
