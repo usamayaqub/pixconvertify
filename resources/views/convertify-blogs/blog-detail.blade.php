@@ -1,5 +1,4 @@
 @extends('layouts.master')
-
 @section('meta_title', 'Blogs | Convertify')
 @section('meta_description', '')
 @section('canonical',"")
@@ -14,7 +13,7 @@
     <div class="site-banner_container">
         <div class="site-banner-wrap">
           <div class="shape">
-            <img src="{{asset('./assets/images/shape.svg')}}" class="obj_fit_contain" alt="">
+            <img src="{{asset('assets/images/shape.svg')}}" class="obj_fit_contain" alt="">
           </div>
           <div class="w-100">
             <h1 class="px-blog-h1">PixConvertify Blog</h1>
@@ -22,7 +21,7 @@
               <div class="nav-wrapper">
                 <div class="col s12 d-flex">
                   <a href="{{route('get-blogs')}}" class="breadcrumb">ALL BLOGS</a>
-                  <a href="#!" class="breadcrumb">Second</a>
+                  <a href="#!" class="breadcrumb">{{$blog->title}}</a>
                 </div>
               </div>
             </nav>
@@ -33,8 +32,13 @@
 <div class="container-wrapper">
   <div class="container">
     <div class="px-content">
-      <img src="{{asset('assets/images/1.jpg')}}" class="obj_fit" alt="">
+    @if(isset($blog->images->first()->url))
+      <img src="{{$blog->images->first()->url}}" class="obj_fit" alt="">
+      @endif
       <!-- BLOG DETAILS HERE -->
+      <div>
+        {!!$blog->content!!}
+      </div>
     </div>
   </div>
 </div>

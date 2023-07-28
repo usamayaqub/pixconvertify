@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -18,6 +19,8 @@ Route::post('/convert-image', [HomeController::class, 'convertImage'])->name('co
 Route::post('/compress-image', [HomeController::class, 'compressImage'])->name('compress.image');
 Route::post('/send-email-with-images', [HomeController::class, 'sendEmail'])->name('send.email');
 Route::get('/yt', [HomeController::class, 'download']);
+
+Route::post('upload-image', [BlogController::class, 'uploadImage']);
 
 
 

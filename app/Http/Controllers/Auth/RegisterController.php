@@ -3,10 +3,15 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Mail\SendOtp;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request as HttpRequest;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -69,10 +74,14 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $otp = mt_rand(1000, 9999);
+        Mail::to($data['email'])->send(new SendOtp($otp,$data));
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'otp' => $otp,
         ]);
     }
+
 }

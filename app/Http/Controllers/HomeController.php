@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\ConvertedImagesEmail;
+use App\Models\Blog;
 use Intervention\Image\Facades\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -177,13 +178,23 @@ class HomeController extends Controller
     {
         return view('compress');
     }
-    public function blogs()
+    public function blogs(Request $request)
     {
-        return view('convertify-blogs.blog');
+        $searchTerm = $request->input('search');
+        // Retrieve all blog posts or search results based on the search term
+        $blogs = Blog::with('images')
+            ->when($searchTerm, function ($query, $searchTerm) {
+                return $query->where('title', 'like', "%$searchTerm%")
+                    ->orWhere('content', 'like', "%$searchTerm%");
+            });
+        $blogs = $blogs->latest()->paginate(12);
+        return view('convertify-blogs.blog',['blogs' => $blogs, 'searchTerm' => $searchTerm]);
     }
-    public function blogsdetail()
+    public function blogsdetail(Request $request,$slug)
     {
-        return view('convertify-blogs.blog-detail');
+        $blog = Blog::where('slug', $slug)->with('images')->first();
+        $latestPosts = Blog::with('images')->where('id', '!=', $blog->id)->where('status', 1)->latest()->take(5)->get();
+        return view('convertify-blogs.blog-detail',['blog' => $blog, 'latestPosts' => $latestPosts]);
     }
     public function login()
     {
