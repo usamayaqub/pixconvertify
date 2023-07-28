@@ -17,7 +17,7 @@ trait FileUploadTrait
         if ($ext == 'jpeg' || $ext == 'png' || $ext == 'jpg' || $ext == 'webp') {
         $url = url('blogs') . '/' . $img_name;
         $image = Image::make($file->getRealPath());
-        $image->save('blogs' .'/'. $img_name, Config::get('custom.image_quality'), Config::get('custom.image_encode'));
+        $image->save('blog' .'/'. $img_name, Config::get('custom.image_quality'), Config::get('custom.image_encode'));
         }
         // if ($ext == 'pdf' || $ext == 'docx') {
         //     $path = 'documents/' . $img_name;
@@ -40,7 +40,7 @@ trait FileUploadTrait
             if ($ext == 'jpeg' || $ext == 'png' || $ext == 'jpg' || $ext == 'webp') {
           $url[$key] = url('blogs') . '/' . $img_name;
           $image = Image::make($image->getRealPath());
-          $image->save('blogs/' . $img_name, Config::get('custom.image_quality'), Config::get('custom.image_encode'));
+          $image->save('blog/' . $img_name, Config::get('custom.image_quality'), Config::get('custom.image_encode'));
             }        
             // if ($ext == 'pdf' || $ext == 'docx') {
             // $path = 'documents/' . $img_name;
