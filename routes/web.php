@@ -5,7 +5,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\BlogController;
-
+use App\Mail\SendOtp;
+use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,8 +26,36 @@ Route::get('login', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->
 Route::post('login', 'App\Http\Controllers\Auth\LoginController@login');
 
 // Email Verification & Resend OTP
-Route::post('/verify', [RegisterController::class, 'verficationCodeCheck'])->name('verify.email.code');
-Route::post('store/resend/email/otp', [RegisterController::class, 'resendEmailOtp'])->name('resend.code');
+Route::post('/verify',function(Request $request){
+        $otp = implode('', $request->input('otp'));
+        info($otp);
+        $user = User::where('otp', $otp)->first();
+        if (isset($user) && $user->email_verified_at < now()->addHour() && (!is_null($user))) {
+            User::where('id', $user->id)
+                ->update([
+                    'email_verified_at' => now()
+                ]);
+            return redirect()->route('base');
+        } elseif (!$user) {
+            return back()->with('error', 'Invalid OTP');
+        } else {
+            return back()->with('error', 'Verification code is expired');
+        }
+})->name('verify.email.code');
+
+Route::get('resend/email/otp',function(){
+
+    $data = User::where('email', Auth::user()->email)->first();
+    $otp = mt_rand(1000, 9999);
+    $data->update([
+    'otp' => $otp,
+    ]);
+    Mail::to($data->email)->send(new SendOtp($otp,$data));
+    if (isset($data) && (!is_null($data))) {
+    return back()->with('success', 'OTP verification code has been sent to you email. Please Verify');
+    }
+
+})->name('resend.code');
 //   Email Verification & Resend OTP
 
 Route::get('otp-verification', function () {

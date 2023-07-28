@@ -63,7 +63,6 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'otp' => ['required', 'string', 'size:4'],
         ]);
     }
 
@@ -84,43 +83,5 @@ class RegisterController extends Controller
             'otp' => $otp,
         ]);
     }
-
-
-    public function storeVerficationCodeCheck(HttpRequest $request)
-    {
-        $request->validate([
-            'verification_code' => 'required|string',
-        ]);
-        // find the code
-        $user = User::where('otp', $request->verification_code)->first();
-
-        if (isset($user) && $user->email_verified_at < now()->addHour() && (!is_null($user))) {
-            User::where('id', $user->id)
-                ->update([
-                    'email_verified_at' => now()
-                ]);
-            return redirect()->route('base');
-        } elseif (!$user) {
-            return back()->with('success', 'Invalid OTP');
-        } else {
-            return back()->with('success', 'Verification code is expired');
-        }
-    }
-
-
-    public function resendEmailOtp()
-    {
-        $data = User::where('email', Auth::user()->email)->first();
-        $otp = mt_rand(1000, 9999);
-        $data->update([
-            'otp' => $otp,
-        ]);
-        Mail::to($data->email)->send(new SendOtp($otp,$data));
-        if (isset($data) && (!is_null($data))) {
-            return back()->with('success', 'OTP verification code has been sent to you email. Please Verify');
-        }
-    }
-
-
 
 }
