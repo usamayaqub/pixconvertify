@@ -1,7 +1,17 @@
 @extends('layouts.app')
-
+<style>
+ body {
+	background-color: var(--bg);
+	display: flex;
+	height: 100vh;
+	overflow: hidden;
+	transition:
+		background-color var(--trans-dur),
+		color var(--trans-dur);
+}
+</style>
 @section('content')
-<div class="container">
+<!-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -24,5 +34,42 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
+<main class="login">
+	<div class="login__col">
+    <form class="login__form" method="POST" action="">
+      @csrf
+			<div class="login__form-wrapper">
+				<h1>Please Enter 4 Digit Code</h1>
+				<p class="mb-2">Verify Its you</p>
+                <div class="inputs_wrapper">
+                    <div class="login__field-group">
+                        <input id="name" type="number" class="login__field" name="name" value="" required autocomplete="name" autofocus>
+                    </div>
+                    <div class="login__field-group">
+                        <input id="name" type="number" class="login__field" name="name" value="" required autocomplete="name" autofocus>
+                    </div>
+                    <div class="login__field-group">
+                        <input id="name" type="number" class="login__field" name="name" value="" required autocomplete="name" autofocus>
+                    </div>
+                    <div class="login__field-group">
+                        <input id="name" type="number" class="login__field" name="name" value="" required autocomplete="name" autofocus>
+                    </div>
+                    <div class="login__field-group">
+                        <input id="name" type="number" class="login__field" name="name" value="" required autocomplete="name" autofocus>
+                    </div>
+                    <div class="login__field-group">
+                        <input id="name" type="number" class="login__field" name="name" value="" required autocomplete="name" autofocus>
+                    </div>
+                </div>
+                <div class="resend-wrap">
+                    <a href="" class="resend-btn">Resend</a>
+                </div>
+				<button class="login__btn" type="submit">
+					Submit
+				</button>
+			</div>
+		</form>
+	</div>
+</main>
 @endsection

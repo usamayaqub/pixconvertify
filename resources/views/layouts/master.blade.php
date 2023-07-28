@@ -39,6 +39,8 @@
     <link rel="shortcut icon" type="image/png" href="{{asset('./img/fav-icon.png')}}" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="{{asset('owl/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{asset('owl/owl.theme.default.min.css')}}">
     <link rel="stylesheet" href="{{asset('convertify-style/variables.css')}}">
     <link rel="stylesheet" href="{{asset('convertify-style/main-style.css')}}">
     <link rel="stylesheet" href="{{asset('convertify-style/responsivness.css')}}">
@@ -62,6 +64,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- MATERIZE SCRIPT -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="{{asset('owl/owl.carousel.min.js')}}"></script>
     <script src="{{asset('js/main-js.js')}}"></script>
 </body>
 

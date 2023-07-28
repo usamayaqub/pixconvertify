@@ -51,158 +51,167 @@
     </section>
 
     <!-- CONVERTER SECTION -->
-        <section class="converter_section">
-            <div class="container">
-                <div class="converter_section_wrap">
-                    <div class="converter_section_wrap_selection">
-                        <div class="converter_section_left">
-                            <div class="converter_dropbox">
-                                <img src="{{asset('./assets/images/drop-icon.svg')}}" alt="">
-                                <h2 class="drop_file-text mt-0">Drag or Drop file here</h2>
-                                <p class="restriction-text">Up to 20 files at a single time, max 20 MB each.</p>
-                                <input title="" type="file" name="image" id="image" accept="image/*" multiple>
-                            </div>
-                        </div>
-                        <div class="converter_section_right">
-                            <div class="converter_section_selection">
-                                <p class="converter-text">Convert To</p>
-                                <div class="converter-dropdown-wrap">
-                                    <div class="converter-selection_box">
-                                        <p class="convert-from d-none">
-                                            <span id="selectedConvertFrom">...</span>
-                                            <img src="{{asset('./assets/images/arrow-down.svg')}}" alt="">
-                                        </p>
-                                        <div class="selection-dropdown">
-                                            <div class="selection-dropdown_inner">
-                                                <div class="search-format-bar">
-                                                    <div>
-                                                        <img src="{{asset('./assets/images/search-icon.svg')}}" alt="">
-                                                    </div>
-                                                    <input type="search" class="search-format">
-                                                </div>
-                                                <div class="row format-tabs">
-                                                    <div class="col s12 px-0">
-                                                        <ul class="tabs">
-                                                            <li class="tab col s6">
-                                                                <a class="gernal-btn active" href="#images">Images</a>
-                                                            </li>
-                                                            <li class="tab col s6">
-                                                                <a class="gernal-btn" href="#documents">Document</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div id="images" class="col s12 px-0">
-                                                        <div class="format_wrap">
-                                                            <span>PNG</span>
-                                                            <span>JPEG</span>
-                                                            <span>PDF</span>
-                                                            <span>WEBP</span>
-                                                            <span>GIF</span>
-                                                            <span>DOC</span>
-                                                            <span>BMP</span>
-                                                            <span>AVIF</span>
-                                                            <span>TIF</span>
-                                                        </div>
-                                                    </div>
-                                                    <div id="documents" class="col s12 px-0">
-                                                        <div class="format_wrap">
-                                                            <span>WORD</span>
-                                                            <span>EXCEL</span>
-                                                            <span>PDF</span>
-                                                            <span>DOC</span>
-                                                            <span>CSV</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <img src="./assets/images/converter-arrow.svg" alt="">
-                                    <div class="converter-selection_box">
-                                        <p class="convert-to">
-                                            <span id="selectedConvertTo">...</span>
-                                            <img src="./assets/images/arrow-down.svg" alt="">
-                                        </p>
-                                        <div class="selection-dropdown convertTO">
-                                            <div class="selection-dropdown_inner convert_to">
-                                                <div class="search-format-bar">
-                                                    <div>
-                                                        <img src="./assets/images/search-icon.svg" alt="">
-                                                    </div>
-                                                    <input type="search" class="search-format">
-                                                </div>
-                                                <div class="row format-tabs">
-                                                    <div class="col s12 px-0">
-                                                        <ul class="tabs">
-                                                            <li class="tab col s6">
-                                                                <a class="gernal-btn active" href="#images2">Images</a>
-                                                            </li>
-                                                            <li class="tab col s6">
-                                                                <a class="gernal-btn" href="#documents2">Document</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div id="images2" class="col s12 px-0">
-                                                        <div class="format_wrap">
-                                                            <span>PNG</span>
-                                                            <span>JPEG</span>
-                                                            <span>PDF</span>
-                                                            <span>WEBP</span>
-                                                            <span>GIF</span>
-                                                            <span>DOC</span>
-                                                            <span>BMP</span>
-                                                            <span>AVIF</span>
-                                                            <span>TIF</span>
-                                                        </div>
-                                                    </div>
-                                                    <div id="documents2" class="col s12 px-0">
-                                                        <div class="format_wrap">
-                                                            <span>WORD</span>
-                                                            <span>EXCEL</span>
-                                                            <span>PDF</span>
-                                                            <span>DOC</span>
-                                                            <span>CSV</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <button class="select-file waves-effect waves-light">
-                                    <img src="./assets/images/file-icon.svg" alt="">
-                                    <span>Select File</span>
-                                    <input type="file" title="" multiple>
-                                </button>
-                            </div>
+    <section class="converter_section">
+        <div class="container">
+            <div class="converter_section_wrap">
+                <div class="converter_section_wrap_selection">
+                    <div class="converter_section_left">
+                        <div class="converter_dropbox">
+                            <img src="{{asset('./assets/images/drop-icon.svg')}}" alt="">
+                            <h2 class="drop_file-text mt-0">Drag or Drop file here</h2>
+                            <p class="restriction-text">Up to 20 files at a single time, max 5 MB each.</p>
+                            <input title="" type="file" name="image" id="image" accept="image/*" multiple>
                         </div>
                     </div>
-                    <div class="converter_section_listing">
-                        <ul class="file-item-list">
-                        </ul>
-                        <div class="converter_section_bottom">
-                            <div class="converter_section_inner">
-                                <button class="add-more-file select-file waves-effect waves-light ml-0">
-                                    <img src="./assets/images/file-icon.svg" alt="">
-                                    <span>Add More File</span>
-                                    <input type="file" title="" multiple>
-                                </button>
-                                <div class="footer_btn_wrap">
-                                    <button id="convertButton" type="submit" class="convert-file waves-effect waves-light">
-                                        <img src="./assets/images/convert-icon.svg" alt="">
-                                        <span>Convert</span>
-                                    </button>
-                                    <button class="download-all-files waves-effect waves-light d-none">
-                                        <img src="./assets/images/download-arrow.svg" alt="">
-                                        <span>Download All</span>
-                                    </button>
+                    <div class="converter_section_right">
+                        <div class="converter_section_selection">
+                            <p class="converter-text">Convert To</p>
+                            <div class="converter-dropdown-wrap">
+                                <div class="converter-selection_box">
+                                    <p class="convert-from d-none">
+                                        <span id="selectedConvertFrom">...</span>
+                                        <img src="{{asset('./assets/images/arrow-down.svg')}}" alt="">
+                                    </p>
+                                    <div class="selection-dropdown">
+                                        <div class="selection-dropdown_inner">
+                                            <div class="search-format-bar">
+                                                <div>
+                                                    <img src="{{asset('./assets/images/search-icon.svg')}}" alt="">
+                                                </div>
+                                                <input type="search" class="search-format">
+                                            </div>
+                                            <div class="row format-tabs">
+                                                <div class="col s12 px-0">
+                                                    <ul class="tabs">
+                                                        <li class="tab col s6">
+                                                            <a class="gernal-btn active" href="#images">Images</a>
+                                                        </li>
+                                                        <li class="tab col s6">
+                                                            <a class="gernal-btn" href="#documents">Document</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div id="images" class="col s12 px-0">
+                                                    <div class="format_wrap">
+                                                        <span>PNG</span>
+                                                        <span>JPEG</span>
+                                                        <span>PDF</span>
+                                                        <span>WEBP</span>
+                                                        <span>GIF</span>
+                                                        <span>DOC</span>
+                                                        <span>BMP</span>
+                                                        <span>AVIF</span>
+                                                        <span>TIF</span>
+                                                    </div>
+                                                </div>
+                                                <div id="documents" class="col s12 px-0">
+                                                    <div class="format_wrap">
+                                                        <span>WORD</span>
+                                                        <span>EXCEL</span>
+                                                        <span>PDF</span>
+                                                        <span>DOC</span>
+                                                        <span>CSV</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+                                <img src="./assets/images/converter-arrow.svg" alt="">
+                                <div class="converter-selection_box">
+                                    <p class="convert-to">
+                                        <span id="selectedConvertTo">...</span>
+                                        <img src="./assets/images/arrow-down.svg" alt="">
+                                    </p>
+                                    <div class="selection-dropdown convertTO">
+                                        <div class="selection-dropdown_inner convert_to">
+                                            <div class="search-format-bar">
+                                                <div>
+                                                    <img src="./assets/images/search-icon.svg" alt="">
+                                                </div>
+                                                <input type="search" class="search-format">
+                                            </div>
+                                            <div class="row format-tabs">
+                                                <div class="col s12 px-0">
+                                                    <ul class="tabs">
+                                                        <li class="tab col s6">
+                                                            <a class="gernal-btn active" href="#images2">Images</a>
+                                                        </li>
+                                                        <li class="tab col s6">
+                                                            <a class="gernal-btn" href="#documents2">Document</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div id="images2" class="col s12 px-0">
+                                                    <div class="format_wrap">
+                                                        <span>PNG</span>
+                                                        <span>JPEG</span>
+                                                        <span>PDF</span>
+                                                        <span>WEBP</span>
+                                                        <span>GIF</span>
+                                                        <span>DOC</span>
+                                                        <span>BMP</span>
+                                                        <span>AVIF</span>
+                                                        <span>TIF</span>
+                                                    </div>
+                                                </div>
+                                                <div id="documents2" class="col s12 px-0">
+                                                    <div class="format_wrap">
+                                                        <span>WORD</span>
+                                                        <span>EXCEL</span>
+                                                        <span>PDF</span>
+                                                        <span>DOC</span>
+                                                        <span>CSV</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="select-file waves-effect waves-light">
+                                <img src="./assets/images/file-icon.svg" alt="">
+                                <span>Select File</span>
+                                <input type="file" title="" multiple>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="converter_section_listing">
+                    <ul class="file-item-list">
+                    </ul>
+                    <div class="converter_section_bottom">
+                        <div class="converter_section_inner">
+                            <button class="add-more-file select-file waves-effect waves-light ml-0">
+                                <img src="./assets/images/file-icon.svg" alt="">
+                                <span>Add More File</span>
+                                <input type="file" title="" multiple>
+                            </button>
+                            <div class="footer_btn_wrap">
+                                <button id="convertButton" type="submit" class="convert-file waves-effect waves-light">
+                                    <img src="./assets/images/convert-icon.svg" alt="">
+                                    <span>Convert</span>
+                                </button>
+                                <button class="download-all-files waves-effect waves-light d-none">
+                                    <img src="./assets/images/download-arrow.svg" alt="">
+                                    <span>Download All</span>
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
+    <div class="pormotion_section">
+      <div class="container">
+          <div class="pormotion-slider owl-carousel owl-theme">
+              <div class="pormotion-slider_item">
+                <img src="{{asset('./assets/images/veterinary-services.jpg')}}" alt="">
+              </div>
+          </div>
+        </div>
+    </div>
 
 
     <!-- How its work -->
