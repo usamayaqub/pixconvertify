@@ -44,8 +44,8 @@
       <img src="{{asset('assets/images/search-icon.svg')}}" alt="">
     </div>
     <h2 class="mb-0 blog-sec-title">All Blogs</h2>
-    <div class="blog-card-wrap">
-        <div class="card-item">
+    <div class="blog-card-wrap row">
+        <div class="card-item col l4 m6 s12">
           <div class="card-item_img">
             <img src="{{asset('assets/images/1.jpg')}}" alt="">
           </div>
@@ -63,7 +63,7 @@
             </div>
           </div>
         </div>
-        <div class="card-item">
+        <div class="card-item col l4 m6 s12">
           <div class="card-item_img">
             <img src="{{asset('assets/images/1.jpg')}}" alt="">
           </div>
@@ -81,7 +81,7 @@
             </div>
           </div>
         </div>
-        <div class="card-item">
+        <div class="card-item col l4 m6 s12">
           <div class="card-item_img">
             <img src="{{asset('assets/images/1.jpg')}}" alt="">
           </div>
@@ -99,7 +99,7 @@
             </div>
           </div>
         </div>
-        <div class="card-item">
+        <div class="card-item col l4 m6 s12">
           <div class="card-item_img">
             <img src="{{asset('assets/images/1.jpg')}}" alt="">
           </div>

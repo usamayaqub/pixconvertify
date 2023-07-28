@@ -50,7 +50,7 @@
 </head>
 
 <body>
-
+    <div class="drag-and-drop_overlay"></div>
     @include('layouts.header')
     @yield('content')
     @include('layouts.footer')

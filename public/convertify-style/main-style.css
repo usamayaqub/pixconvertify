@@ -14,23 +14,30 @@ body {
 }
 .drag-and-drop_overlay {
     position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    inset: 0;
+    /* background-color: hsl(0, 27%, 87%); */
+    background-color: hsla(359, 77%, 41%, 0.929);
+    background-image: url(../assets/images/plus.svg);
+    background-repeat: no-repeat;
+    background-size: 130px;
+    background-position: center center;
     z-index: 1000;
-    background-color: #ba181bed;
     display: none;
 }
-.drag-and-drop_overlay div {
+.drag-and-drop_overlay span {
     width: 100px;
     height: 100px;
     position: absolute;
     top: 50%;
     left: 50%;
     width: auto;
+    /* margin: auto; */
     transform: translate(-50%, -50%);
 }
-.drag-and-drop_overlay h3 {
+.drag-and-drop_overlay span {
     font-size: 40px;
     font-weight: 900;
     font-family: "Roboto", sans-serif;
@@ -1280,11 +1287,14 @@ h6 {
 .container-wrapper {
     padding: 50px 0;
 }
+.blog-wrapper .container {
+    width: 85%;
+}
+.blog-wrapper .seacrh-bar {
+    margin-top: 40px;
+    margin-bottom: 15px;
+}
 .blog-card-wrap {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    align-items: center;
     padding: 30px 0 40px 0;
 }
 .blog-sec-title {
@@ -1295,7 +1305,7 @@ h6 {
 }
 .card-item {
     display: block;
-    width: 32.22222%;
+    /* width: 32.22222%; */
     text-align: left;
     font-family: "Roboto", sans-serif;
     margin-bottom: 25px;
@@ -1348,14 +1358,14 @@ h6 {
     gap: 10px;
     align-items: center;
 }
+.card-item-bottom .waves-effect{
+    position: unset;
+}
 .card-item-bottom .btn {
     background-color: var(--btn-bg-red);
     border-radius: 5px;
     box-shadow: none;
     font-weight: 500;
-}
-.waves-effect {
-    position: unset !important;
 }
 .streched-btn::after {
     content: "";
@@ -1466,12 +1476,12 @@ h6 {
     line-height: 24px;
     margin-bottom: 10px;
 }
-.px-content ul{
+.px-content ul {
     padding-left: 20px;
 }
-.px-content ul li{
+.px-content ul li {
     list-style-type: circle;
 }
-.px-content p{
+.px-content p {
     line-height: 28px;
-}   
+}
