@@ -1456,9 +1456,6 @@ h6 {
     width: 100%;
     margin: 0 auto;
 }
-.how_its_work h3 span {
-    color: var(--primary-color);
-}
 .site-banner.contact-wrapper {
     padding-bottom: 50px;
     padding-top: 50px;
@@ -1739,25 +1736,47 @@ h6 {
     margin: 0 auto;
     text-align: center;
 }
+
+.how_its_work .flex-wrap h3 {
+    margin: 0 0 20px 0;
+}
 .flex-wrap {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     flex-wrap: wrap;
-    padding: 40px 0;
+    padding: 0px 0;
     gap: 15px;
 }
 .flex-50 {
     width: 49%;
 }
-.swal2-styled.swal2-confirm{
+.swal2-styled.swal2-confirm {
     background-color: var(--btn-bg-red);
 }
-.img-wrap{
+.img-wrap {
     width: 100%;
     height: 400px;
 }
-.img-wrap img{
+.img-wrap img {
     width: 100%;
     height: 100%;
     object-fit: contain;
+}
+
+span.kicker {
+    color: var(--primary-color);
+    font-weight: 700;
+    position: relative;
+    text-transform: uppercase;
+}
+
+span.kicker::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+    bottom: 0;
+    left: 0;
 }

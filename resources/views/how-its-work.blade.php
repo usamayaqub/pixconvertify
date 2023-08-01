@@ -50,7 +50,8 @@
       <div class="flex-wrap">
         <div class="flex-50">
           <div>
-            <h3><span>Step 1:</span> Upload Your File</h3>
+            <span class="kicker">Step 1</span> 
+            <h3>Upload Your File</h3>
             <p>
             The journey begins with a seamless file upload process. Click on the "Upload" button, and you'll be presented with a window to select your image file from your computer, phone, or cloud storage. Our platform supports various image formats like JPG, PNG, GIF, BMP, and more.
             </p>
@@ -58,7 +59,7 @@
         </div>
         <div class="flex-50">
             <div class="img-wrap">
-                <img src="{{asset('./assets/images/Capture.PNG')}}" alt="">
+                <img src="{{asset('./assets/images/Capture1.png')}}" alt="">
             </div>
         </div>
       </div>
@@ -70,7 +71,8 @@
         </div>
         <div class="flex-50">
           <div>
-            <h3><span>Step 2:</span> Select Output Format</h3>
+            <span class="kicker">Step 2</span>
+            <h3>Select Output Format</h3>
             <p>
               Once your image is uploaded, it's time to choose the output format. We offer an extensive range of format options to suit your specific needs. Whether you want to convert your image to JPG for high-quality photographs, PNG for transparent images, or any other format, simply select the desired option from the drop-down menu.
             </p>
@@ -80,7 +82,8 @@
       <div class="flex-wrap">
         <div class="flex-50">
           <div>
-            <h3><span>Step 3:</span> Download Your Converted Image</h3>
+            <span class="kicker">Step 3</span> 
+            <h3>Download Your Converted Image</h3>
             <p>
               Congratulations! Your image has been successfully converted. Now, click the "Download" button to save the converted image to your device or preferred location. Feel free to share the newly converted image with your friends, colleagues, or use it for your personal or professional projects.
             </p>
@@ -88,23 +91,8 @@
         </div>
         <div class="flex-50">
             <div class="img-wrap">
-                <img src="{{asset('./assets/images/Capture3.PNG')}}" alt="">
+                <img src="{{asset('./assets/images/Captured3.png')}}" alt="">
             </div>
-        </div>
-      </div>
-      <div class="flex-wrap">
-        <div class="flex-50">
-            <div class="img-wrap">
-                <img src="{{asset('./assets/images/Capture4.PNG')}}" alt="">
-            </div>
-        </div>
-        <div class="flex-50">
-          <div>
-            <h3><span>Step 3:</span> Download Your Converted Image</h3>
-            <p>
-              Congratulations! Your image has been successfully converted. Now, click the "Download" button to save the converted image to your device or preferred location. Feel free to share the newly converted image with your friends, colleagues, or use it for your personal or professional projects.
-            </p>
-          </div>
         </div>
       </div>
     </div>
