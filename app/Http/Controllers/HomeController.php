@@ -204,7 +204,6 @@ class HomeController extends Controller
     {
         return view('auth.register');
     }
-
     public function adminHome(){
         return view('admin.home');
     }
@@ -217,6 +216,10 @@ class HomeController extends Controller
     public function privacyPolicies()
     {
         return view('privacy-Policies');
+    }
+    public function term()
+    {
+        return view('term-and-condition');
     }
     public function support()
     {

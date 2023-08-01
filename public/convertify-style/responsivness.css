@@ -24,6 +24,9 @@
     .converter_section .container {
         width: 95%;
     }
+    .pormotion_section .container{
+        width: 90%;
+    }
 }
 @media only screen and (max-width: 1270px) {
     .converter_section_wrap_selection {
@@ -245,6 +248,10 @@
     .container-wrapper .seacrh-bar {
         width: 70%;
     }
+    .selection-dropdown {
+        left: -120px;
+        width: 264px;
+    }
 }
 @media only screen and (max-width: 550px) {
     .site-footer_right {
@@ -327,6 +334,11 @@
 @media only screen and (max-width: 450px) {
     .site-banner-right .banner_img {
         width: 150px;
+    }
+}
+@media only screen and (max-width: 422px) {
+    .selection-dropdown {
+        left: -163px;
     }
 }
 
