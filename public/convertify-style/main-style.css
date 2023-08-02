@@ -125,7 +125,7 @@ h6 {
     padding-left: 0 !important;
     padding-right: 0 !important;
 }
-.mb-2{
+.mb-2 {
     margin-bottom: 14px;
 }
 .gernal-btn {
@@ -786,6 +786,7 @@ h6 {
     border-radius: 6px !important;
     display: flex;
     align-items: center;
+    display: none;
 }
 .search-format-bar input {
     width: 100% !important;
@@ -804,10 +805,12 @@ h6 {
 }
 .format-tabs {
     margin-top: 16px;
+    margin:0;
 }
 .format-tabs .tabs {
     gap: 10px;
     display: flex;
+    display: none;
 }
 .format-tabs .tab-nav {
     gap: 10px;
@@ -844,6 +847,7 @@ h6 {
     gap: 8px;
     flex-wrap: wrap;
     margin-top: 16px;
+    margin: 0;
 }
 .format_wrap span {
     font-family: "Roboto", sans-serif;
@@ -1452,10 +1456,7 @@ h6 {
     width: 80%;
     margin: 0 auto;
 }
-.how_its_work .container{
-    width: 100%;
-}
-.how_its_work .px-content{
+.how_its_work .px-content {
     width: 100%;
     margin: 0 auto;
 }
@@ -1595,7 +1596,7 @@ h6 {
 }
 .login__btn:not(:disabled):focus-visible,
 .login__btn:not(:disabled):hover {
-    opacity: .8;
+    opacity: 0.8;
 }
 .login__btn-spinner,
 .login__btn-spinner:before,
@@ -1728,14 +1729,61 @@ h6 {
     margin: 0;
     text-align: center;
 }
-.login__field-group input{
+.login__field-group input {
     height: 35px !important;
 }
 
 /* how_its_work */
 
-.how_its_work .section-heading p{
+.how_its_work .section-heading p {
     max-width: 90%;
     margin: 0 auto;
     text-align: center;
+}
+
+.how_its_work .flex-wrap h3 {
+    margin: 0 0 20px 0;
+}
+.flex-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0px 0;
+    gap: 15px;
+}
+.flex-50 {
+    width: 49%;
+}
+.swal2-styled.swal2-confirm {
+    background-color: var(--btn-bg-red);
+}
+.img-wrap {
+    width: 100%;
+    height: 400px;
+}
+.img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+span.kicker {
+    color: var(--primary-color);
+    font-weight: 700;
+    position: relative;
+    text-transform: uppercase;
+}
+span.kicker::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+    bottom: 0;
+    left: 0;
+}
+.invalid-feedback {
+    color: #BB1B1E;
+    font-size: 13px;
 }

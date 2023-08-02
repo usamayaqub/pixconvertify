@@ -50,7 +50,7 @@
                 </p>
             </div>
             <div class="copywrite_right">
-                <a href="#">Privacy Policy | Term of use</a>
+                <a href="{{route('get-term')}}">Privacy Policy | Term of use</a>
             </div>
         </div>
     </div>

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
-@section('meta_title', 'PixConvertify Privacy Policies | Image Conversion Website')
-@section('meta_description', 'Learn about PixConvertify's commitment to your privacy and data protection. Our Privacy Policies outline how we collect, use, and safeguard your personal information while providing top-notch image conversion services. Trust us with your pictures and rest assured that your data is handled responsibly and securely.')
+@section('meta_title', 'PixConvertify Terms and Conditions | Image Conversion Services')
+@section('meta_description', 'Read and understand the terms and conditions of PixConvertify, your one-stop image conversion website. Explore our policies and guidelines to ensure a seamless experience while converting your pictures to various formats. Protect your rights and make the most out of our reliable and efficient image conversion services.')
 @section('canonical',"")
 @section('script_css')
 <meta itemprop="image" content="">
@@ -13,11 +13,11 @@
         <div class="site-banner-wrap">
             <div class="site-banner-left">
                 <div class="banner-badge">
-                    <p>PixConvertify Privacy</p>
+                    <p>PixConvertify Terms</p>
                 </div>
                 <h1>
                     Our
-                  <span>Privacy Policy</span>
+                  <span>Terms and Conditions</span>
                 </h1>
                 <p class="banner-message">
                     Discover More Insights Dive Deeper into Our Informative Blog Articles
@@ -27,7 +27,7 @@
                 </div>
             </div>
             <div class="site-banner-right">
-                <img src="{{asset('./assets/images/privacy-policy.svg')}}" class="banner_img" alt="">
+                <img src="{{asset('./assets/images/contract-approved.svg')}}" class="banner_img" alt="">
                 <div class="blur">
                     <img src="{{asset('./assets/images/shape.svg')}}" class="obj_fit_contain" alt="">
                 </div>

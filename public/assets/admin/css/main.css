@@ -1534,18 +1534,18 @@ body[data-layout-mode="dark"] .bg-dark {
   
 body[data-sidebar=dark] .menu-title,
 .text-primary{
-    color:#BA181B !important;
+    color:#fff !important;
 }
 
 body[data-sidebar=dark] .navbar-brand-box,
 body[data-sidebar=dark] .vertical-menu,
 .bg-primary.bg-soft{
-    background-color: #dac9c9 !important;
+    background-color: #BB1B1E !important;
 }
 
 body[data-sidebar=dark] #sidebar-menu ul li a,
 body[data-sidebar=dark] #sidebar-menu ul li a i{
-    color:#333 !important;
+    color:#fff !important;
 }
 
 #page-topbar{

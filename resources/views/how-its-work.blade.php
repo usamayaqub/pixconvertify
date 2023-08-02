@@ -47,16 +47,51 @@
           Welcome to our PixConvertify, the ultimate tool that allows you to effortlessly convert your images from one format to another with just a few simple steps. Whether you need to resize, compress, or transform your pictures, our user-friendly platform has got you covered. Below, we've outlined a step-by-step guide on how to use our Picture Converter effectively.
         </p>
       </div>
-      <div class="row">
-        <div class="col l6">
-          <h3>Step 1: Upload Your File</h3>
-          <p>
-           The journey begins with a seamless file upload process. Click on the "Upload" button, and you'll be presented with a window to select your image file from your computer, phone, or cloud storage. Our platform supports various image formats like JPG, PNG, GIF, BMP, and more.
-          </p>
+      <div class="flex-wrap">
+        <div class="flex-50">
+          <div>
+            <span class="kicker">Step 1</span> 
+            <h3>Upload Your File</h3>
+            <p>
+            The journey begins with a seamless file upload process. Click on the "Upload" button, and you'll be presented with a window to select your image file from your computer, phone, or cloud storage. Our platform supports various image formats like JPG, PNG, GIF, BMP, and more.
+            </p>
+          </div>
         </div>
-        <div class="col l6">
+        <div class="flex-50">
             <div class="img-wrap">
-                <img src="{{asset('./assets/images/file.svg')}}" alt="">
+                <img src="{{asset('./assets/images/Capture1.png')}}" alt="">
+            </div>
+        </div>
+      </div>
+      <div class="flex-wrap">
+        <div class="flex-50">
+            <div class="img-wrap">
+                <img src="{{asset('./assets/images/Capture2.PNG')}}" alt="">
+            </div>
+        </div>
+        <div class="flex-50">
+          <div>
+            <span class="kicker">Step 2</span>
+            <h3>Select Output Format</h3>
+            <p>
+              Once your image is uploaded, it's time to choose the output format. We offer an extensive range of format options to suit your specific needs. Whether you want to convert your image to JPG for high-quality photographs, PNG for transparent images, or any other format, simply select the desired option from the drop-down menu.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="flex-wrap">
+        <div class="flex-50">
+          <div>
+            <span class="kicker">Step 3</span> 
+            <h3>Download Your Converted Image</h3>
+            <p>
+              Congratulations! Your image has been successfully converted. Now, click the "Download" button to save the converted image to your device or preferred location. Feel free to share the newly converted image with your friends, colleagues, or use it for your personal or professional projects.
+            </p>
+          </div>
+        </div>
+        <div class="flex-50">
+            <div class="img-wrap">
+                <img src="{{asset('./assets/images/Captured3.png')}}" alt="">
             </div>
         </div>
       </div>
