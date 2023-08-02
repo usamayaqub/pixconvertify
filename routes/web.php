@@ -25,6 +25,9 @@ use Illuminate\Support\Facades\Mail;
 Route::get('login', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'App\Http\Controllers\Auth\LoginController@login');
 
+Route::get('auth/{provider}', 'App\Http\Controllers\SocialController@redirectToProvider');
+Route::get('auth/{provider}/callback', 'App\Http\Controllers\SocialController@handleProviderCallback');
+
 // Email Verification & Resend OTP
 Route::post('/verify',function(Request $request){
         $otp = implode('', $request->input('otp'));

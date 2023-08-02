@@ -57,6 +57,7 @@
 					<span class="login__btn-label">{{ __('Login') }}</span>
 					<span class="login__btn-spinner"></span>
 				</button>
+				<a href="{{ url('auth/google') }}">Login with Google</a>
 				<p class="login__sign-up">Don’t have an account? <a href="{{ route('register') }}">Sign up</a></p>
 			</div>
 		</form>

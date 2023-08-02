@@ -23,6 +23,8 @@ class User extends Authenticatable
         'password',
         'id_admin',
         'otp',
+        'login_with',
+        'email_verified_at',
     ];
 
     /**
