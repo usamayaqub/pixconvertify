@@ -47,6 +47,7 @@
 
       <!-- Include toastr CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
     <title>{{ config('app.name', 'Pixconvertify') }}</title>
 </head>
@@ -62,10 +63,29 @@
     <!-- JQUERY CDN -->
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>   
     <!-- MATERIZE SCRIPT -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="{{asset('owl/owl.carousel.min.js')}}"></script>
     <script src="{{asset('js/main-js.js')}}"></script>
+
+
+   
+<script>
+$(document).ready(function() {
+    // Check if a success or error message is present in the session
+    var successMessage = '{{ Session::get("success") }}';
+    var errorMessage = '{{ Session::get("error") }}';
+
+    if (successMessage !== '') {
+        toastr.success(successMessage, 'Success');
+    }
+
+    if (errorMessage !== '') {
+        toastr.error(errorMessage, 'Error');
+    }
+});
+</script>
 </body>
 
 </html>

@@ -32,26 +32,39 @@
                 <div class="site-banner-right">
                   <div class="contact-us-form">
                     <h2>Send us a <span>message</span></h2>
-                    <form class="col s12">
+                    <form class="col s12" action="{{route('contact.send')}}" method="POST">
+                      @csrf
                       <div class="row">
                         <div class="input-field col s12">
-                          <input id="full_name" value="" type="text" class="validate">
+                          <input id="full_name" value="" type="text" class="validate" name="name">
+                          @error('name')
+                                <span class="error">{{ $message }}</span>
+                                @enderror
                           <label for="full_name">Full Name</label>
                         </div>
                         <div class="input-field col s12">
-                          <input id="email" type="email" value="" class="validate">
+                          <input id="email" type="email" value="" class="validate" name="email">
+                          @error('email')
+                                <span class="error">{{ $message }}</span>
+                                @enderror
                           <label for="email">Email</label>
                         </div>
                       </div>
                       <div class="row">
                         <div class="input-field col s12">
-                          <input value="" id="subject" type="text" class="validate">
+                          <input value="" id="subject" type="text" class="validate" name="title">
+                          @error('title')
+                            <span class="error">{{ $message }}</span>
+                                @enderror
                           <label for="subject">Subject</label>
                         </div>
                       </div>
                       <div class="row">
                         <div class="input-field col s12">
-                          <textarea id="message" class="materialize-textarea"></textarea>
+                          <textarea id="message" class="materialize-textarea" name="message"></textarea>
+                          @error('message')
+                                <span class="error">{{ $message }}</span>
+                                @enderror
                           <label for="message">Message</label>
                         </div>
                       </div>
@@ -61,7 +74,7 @@
                     </form>
                   </div>
                   <div class="blur">
-                      <img src="{{asset('./assets/images/shape.svg')}}" class="obj_fit_contain" alt="">
+                      <img src="{{asset('assets/images/shape.svg')}}" class="obj_fit_contain" alt="">
                   </div>
                 </div>
             </div>

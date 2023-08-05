@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactMail;
 use App\Mail\ConvertedImagesEmail;
 use App\Models\Blog;
+use App\Models\ContactUs;
 use Intervention\Image\Facades\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -230,6 +232,31 @@ class HomeController extends Controller
         return view('contact-us');
     }
 
+    public function contactUs(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'title' => 'required',
+            'message' => 'required',
+        ]);
+
+        ContactUs::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'title' => $request->title,
+            'message' => $request->message,
+        ]);
+
+        $data = [
+            'name' => $request->name,
+            'email' => $request->email,
+            'title' => $request->title,
+            'message' => $request->message,
+        ];
+        Mail::to('usamayaqub302@gmail.com')->bcc('danishkhurshid333@gmail.com')->send(new ContactMail($data));
+        return redirect()->back()->with('success','Contact message submitted succssfully');
+    }
     
  
 }
