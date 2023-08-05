@@ -38,7 +38,7 @@ body {
                     @enderror
 				</div>
 
-                <div class="login__field-group">
+        <div class="login__field-group">
 					<label class="login__label" for="user-email">Password</label>
                     <input id="password" type="password" class="login__field @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
                     @error('password')
@@ -48,7 +48,7 @@ body {
                     @enderror
 				</div>
 
-                <div class="login__field-group">
+        <div class="login__field-group">
 					<label class="login__label" for="user-email">Confirm Password</label>
                     <input id="password-confirm" type="password" class="login__field" name="password_confirmation" required autocomplete="new-password">
 				</div>
@@ -58,6 +58,13 @@ body {
 					<span class="login__btn-label">{{ __('Register') }}</span>
 					<span class="login__btn-spinner"></span>
 				</button>
+				<span class="or">or</span>
+				<div class="sign-up-with-google">
+					<a href="{{ url('auth/google') }}">
+						<img src="{{asset('./assets/images/google-icon.svg')}}" alt="">
+						<span>Login with Google</span>
+					</a>
+				</div>
 				<p class="login__sign-up">Already have an account? <a href="{{ route('login') }}">Log In</a></p>
 			</div>
 		</form>

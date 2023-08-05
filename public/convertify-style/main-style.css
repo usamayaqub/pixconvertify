@@ -805,7 +805,7 @@ h6 {
 }
 .format-tabs {
     margin-top: 16px;
-    margin:0;
+    margin: 0;
 }
 .format-tabs .tabs {
     gap: 10px;
@@ -1581,7 +1581,7 @@ h6 {
     color: hsl(0, 0%, 100%) !important;
     cursor: pointer;
     display: block;
-    margin-bottom: 1.5em;
+    margin-bottom: 10px;
     outline: transparent;
     padding: 0.5em 1.5em;
     position: relative;
@@ -1784,6 +1784,56 @@ span.kicker::after {
     left: 0;
 }
 .invalid-feedback {
-    color: #BB1B1E;
+    color: #bb1b1e;
     font-size: 13px;
+}
+.sign-up-with-google a {
+    border: 1px solid #c2c8d0;
+    color: #2d333a;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    position: relative;
+    padding: 0.5em 1.5em;
+    /* font: 1em/1.5 Nunito, sans-serif; */
+    border-radius: 4px;
+    margin-bottom: 12px;
+}
+.sign-up-with-google img {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.or {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+.or::after {
+    content: "";
+    height: 1px;
+    width: 45%;
+    left: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #c2c8d0;
+}
+.or::before {
+    content: "";
+    height: 1px;
+    width: 45%;
+    right: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #c2c8d0;
 }

@@ -57,7 +57,13 @@
 					<span class="login__btn-label">{{ __('Login') }}</span>
 					<span class="login__btn-spinner"></span>
 				</button>
-				<a href="{{ url('auth/google') }}">Login with Google</a>
+				<span class="or">or</span>
+				<div class="sign-up-with-google">
+					<a href="{{ url('auth/google') }}">
+						<img src="{{asset('./assets/images/google-icon.svg')}}" alt="">
+						<span>Login with Google</span>
+					</a>
+				</div>
 				<p class="login__sign-up">Don’t have an account? <a href="{{ route('register') }}">Sign up</a></p>
 			</div>
 		</form>
