@@ -80,6 +80,7 @@ Route::get('/how-its-work', [HomeController::class, 'howWorks'])->name('get-how-
 Route::get('/privacy-Policies', [HomeController::class, 'privacyPolicies'])->name('get-privacy-policies');
 Route::get('/buy-us-coffee', [HomeController::class, 'support'])->name('get-support');
 Route::get('/contact-us', [HomeController::class, 'contact'])->name('get-contact');
+Route::post('/contact', [HomeController::class, 'contactUs'])->name('contact.send');
 Route::get('/term-and-condition', [HomeController::class, 'term'])->name('get-term');
 
 
