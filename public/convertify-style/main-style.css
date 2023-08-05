@@ -1845,3 +1845,25 @@ span.kicker::after {
     transform: translateY(-50%);
     background-color: #c2c8d0;
 }
+.pagination {
+    text-align: center;
+}
+.pagination .page-item {
+    display: inline-block;
+    margin-right: 5px;
+}
+.pagination .page-link {
+    color: #3366cc;
+    border: 1px solid #3366cc;
+    padding: 5px 10px;
+    text-decoration: none;
+}
+.pagination .page-link:hover {
+    background-color: #3366cc;
+    color: #fff;
+}
+.pagination .page-item.active .page-link {
+    background-color: #3366cc;
+    color: #fff;
+    border-color: #3366cc;
+}

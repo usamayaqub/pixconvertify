@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
-@section('meta_title', 'compress')
-@section('meta_description', '')
+@section('meta_title', 'Image Compression | Compress PNG, WebP, JPEG, JPG, GIF | PixConvertify')
+@section('meta_description', 'Compress your images effortlessly at PixConvertify! Reduce file sizes of PNG, WebP, JPEG, JPG, and GIF images without compromising quality. Optimize your visual content for faster loading times and improved web performance. Try our user-friendly image compression tools and enjoy smaller, lighter, and faster images. Enhance your website or projects today!')
 @section('canonical',"")
 
 @section('script_css')

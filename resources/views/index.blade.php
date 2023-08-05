@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
-@section('meta_title', 'Home')
-@section('meta_description', '')
+@section('meta_title', 'PixConvertify | Fast and Reliable Picture Conversion Services')
+@section('meta_description', 'Welcome to PixConvertify, your go-to platform for quick and dependable picture conversion. Convert images to various formats effortlessly and enjoy high-quality results. Experience the convenience of our user-friendly interface and make your pictures shine in just a few clicks. Try PixConvertify today and unleash the potential of your images!')
 @section('canonical',"")
 
 @section('script_css')
@@ -19,11 +19,11 @@
                         <p>Convert your files to any format</p>
                     </div>
                     @if(!empty($format))
-<?php
-$words = explode('-', $format);
-$first_word = strtoupper($words[0]);
-$last_word = strtoupper($words[count($words) - 1]);
-?>
+                      <?php
+                      $words = explode('-', $format);
+                      $first_word = strtoupper($words[0]);
+                      $last_word = strtoupper($words[count($words) - 1]);
+                      ?>
                     <h1>
                        {{$first_word}} TO {{$last_word}}
                         <span>converter</span>
