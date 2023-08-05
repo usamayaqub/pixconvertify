@@ -18,13 +18,18 @@
                     <div class="banner-badge">
                         <p>Convert your files to any format</p>
                     </div>
-                    @if(!empty($format) && $format == 'png-to-webp')
+                    @if(!empty($format))
+<?php
+$words = explode('-', $format);
+$first_word = strtoupper($words[0]);
+$last_word = strtoupper($words[count($words) - 1]);
+?>
                     <h1>
-                       PNG TO WEBP
+                       {{$first_word}} TO {{$last_word}}
                         <span>converter</span>
                     </h1>
                     <p class="banner-message">
-                        Securely convert Up to 20 files from PNG to WEBP at a single time.
+                        Securely convert Up to 20 files from {{$first_word}} to {{$last_word}} at a single time.
                     </p>
                     @else
                     <h1>
