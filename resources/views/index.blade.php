@@ -154,10 +154,6 @@
                                                         <span>PDF</span>
                                                         <span>WEBP</span>
                                                         <span>GIF</span>
-                                                        <span>DOC</span>
-                                                        <span>BMP</span>
-                                                        <span>AVIF</span>
-                                                        <span>TIF</span>
                                                     </div>
                                                 </div>
                                                 <div id="documents2" class="col s12 px-0">
@@ -212,7 +208,12 @@
       <div class="container">
           <div class="pormotion-slider owl-carousel owl-theme">
               <div class="pormotion-slider_item">
-                <img src="{{asset('./assets/images/veterinary-services.jpg')}}" alt="">
+                <img src="{{asset('./assets/images/home-flyer.png')}}" alt="">
+              </div>
+              <div class="pormotion-slider_item">
+                <a href="{{route('get-justcompress')}}">
+                  <img src="{{asset('./assets/images/home-flyer2.png')}}" alt="">
+                </a>
               </div>
           </div>
         </div>
@@ -467,9 +468,10 @@
                           .append($('<span>').text('JPG'))
                           .append($('<span>').text('WEBP'))
                           .append($('<span>').text('GIF'))
-                          .append($('<span>').text('BMP'))
-                          .append($('<span>').text('AVIF'))
-                          .append($('<span>').text('TIF')))
+                          // .append($('<span>').text('BMP'))
+                          // .append($('<span>').text('AVIF'))
+                          // .append($('<span>').text('TIF'))
+                            )
                           )
                           )
                           )

@@ -29,7 +29,7 @@
                 </div>
             </div>
             <div class="site-banner-right">
-                <img src="{{asset('./assets/images/blog.svg')}}" class="banner_img" alt="">
+                <img src="{{asset('./assets/images/hiw-image.svg')}}" class="banner_img" alt="">
                 <div class="blur">
                     <img src="{{asset('./assets/images/shape.svg')}}" class="obj_fit_contain" alt="">
                 </div>

@@ -768,13 +768,14 @@ h6 {
 
 .selection-dropdown {
     position: absolute;
-    width: 322px;
-    top: 66px;
+    width: 146px;
+    top: 58px;
     background: #ffffff;
     border: 1px solid rgba(22, 26, 29, 0.2);
     border-radius: 12px;
-    padding: 20px;
+    padding: 13px;
     z-index: 10;
+    left: -12px;
     display: none;
 }
 .selection-dropdown.open {
@@ -866,6 +867,7 @@ h6 {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    width: 100%;
     transition: all 0.2s ease;
 }
 .format_wrap span:hover {

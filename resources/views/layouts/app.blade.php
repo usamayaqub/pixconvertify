@@ -3,6 +3,22 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@yield('meta_title')</title>
+    <meta name="description" content="@yield('meta_description')" />
+    <link rel="canonical" href="@yield('canonical')">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta itemprop="name" content="@yield('meta_title')">
+    <meta itemprop="description" content="@yield('meta_description')">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="@yield('meta_title')" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@Site Title" />
+    <meta name="twitter:title" content="@yield('meta_title')" />
+    <meta property="og:description" content="@yield('meta_description')" />
+    <meta name="twitter:description" content="@yield('meta_description')" />
+    <meta property="og:url" content="@yield('canonical')" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">

@@ -13,7 +13,7 @@
                     <li>
                         <a href="{{route('get-checkrespo')}}">Check Responsiveness</a>
                     </li>
-                    <li>
+                    <li class="d-none">
                         <a href="#">Support</a>
                     </li>
                 </ul>

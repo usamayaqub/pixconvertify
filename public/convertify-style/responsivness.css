@@ -270,10 +270,6 @@
     .container-wrapper .seacrh-bar {
         width: 70%;
     }
-    .selection-dropdown {
-        left: -120px;
-        width: 264px;
-    }
     .site-footer_right {
         flex-direction: column;
     }
@@ -371,9 +367,9 @@
         width: 150px;
     }
 }
-@media only screen and (max-width: 422px) {
+@media only screen and (max-width: 400px) {
     .selection-dropdown {
-        left: -163px;
+        left: -36px;
     }
 }
 

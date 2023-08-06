@@ -212,10 +212,11 @@ $(document).ready(function () {
     $(".pormotion-slider").owlCarousel({
         loop: true,
         margin: 10,
-        nav: true,
-        autoplay:false,
+        nav: false,
+        dots:false,
+        autoplay:true,
         autoplayTimeout:5000,
-        autoplayHoverPause:false,
+        autoplayHoverPause:true,
         responsive: {
             0: {
                 items: 1,
