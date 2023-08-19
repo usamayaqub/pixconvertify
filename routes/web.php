@@ -101,13 +101,6 @@ Route::get('/admin', [HomeController::class, 'adminHome'])->name('admin.home');
 
     Route::get('settings', [HomeController::class, 'dailyQuotaView'])->name('index.dailyquota');
 
-    //FAQS 
-    Route::get('faqs', [HomeController::class, 'faqs'])->name('faqs.index');
-    Route::get('add-faqs', [HomeController::class, 'addFaqs'])->name('add.faqs');
-    Route::post('add-faqs', [HomeController::class, 'insertFaqs'])->name('insert.faqs');
-    Route::get('edit-faqs/{id}', [HomeController::class, 'editFaqs'])->name('edit.faqs');
-    Route::post('update-faqs/{id}', [HomeController::class, 'updateFaqs'])->name('update.faqs');
-    //FAQS 
 
     // BLOGS
     Route::get('all-blogs', [BlogController::class, 'index'])->name('blogs.index');

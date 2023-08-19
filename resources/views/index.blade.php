@@ -246,15 +246,19 @@
 
     <section class="sec_check_responsiveness">
       <div class="container">
-        <h2 class="h2">Your Check your Website Rsponsivness</h2>
+        <h2 class="h2">Introducing Our Responsive Website Checker! </h2>
         <div class="sec_check_row">
         <div class="sec_check">
           <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt, consequatur quia voluptatum pariatur, aliquam voluptatem inventore maxime officia provident cum alias! Placeat numquam quasi quibusdam nulla veritatis, ipsam molestias vero consequatur reprehenderit ipsa ex eos consectetur eligendi accusantium aspernatur asperiores quaerat, vel, amet earum. Beatae dolorum veniam consectetur similique laboriosam hic reiciendis, quas sequi laborum. Incidunt perferendis, saepe omnis nihil porro
+            Is your website prepared to dazzle users on any device? Discover the secret to captivating cross-device experiences with our cutting-edge Responsive Website Checker! 🚀
           </p>
+          <p>
+            Gone are the days of pixelated screens and awkward scrolling. Our tool empowers you to effortlessly gauge your site's responsiveness across smartphones, tablets, laptops, and more. Unleash the potential of a seamless browsing journey that adapts flawlessly to every screen size.
+          </p>
+          <a href="{{route('get-checkrespo')}}" class="theme-btn site_signin waves-effect waves-light mt-2">Check Responsiveness</a>
         </div>
         <div class="sec_check">
-          <img src="{{asset('assets/images/test.png')}}" class="obj_fit" alt="">
+          <img src="{{asset('assets/images/ccc.png')}}" class="obj_fit" alt="">
         </div>
       </div>
       </div>
