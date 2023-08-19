@@ -305,6 +305,41 @@
     $('input[type=file]').change(function(e) {
       var selectedFormat = $('#selectedConvertTo').text();
 
+
+
+      var selectedFiles = e.target.files;
+
+  for (var i = 0; i < selectedFiles.length; i++) {
+    var file = selectedFiles[i];
+    var selectedExtension = file.name.split('.').pop().toLowerCase();
+    
+    // Allowed image formats
+    var allowedFormats = ['png', 'webp', 'gif', 'jpg', 'jpeg'];
+
+    if (allowedFormats.indexOf(selectedExtension) === -1) {
+      // Show an error message indicating the allowed formats
+      var Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer);
+          toast.addEventListener('mouseleave', Swal.resumeTimer);
+        }
+      });
+      Toast.fire({
+        icon: 'error',
+        title: 'Please select files in PNG, WEBP, GIF, JPG, or JPEG format only.'
+      });
+      $(this).val('');
+      return;
+    }
+  }
+
+
+
       if(allowedInputFormat && allowedConversionFormat){
         var selectedFiles = e.target.files;
         for (var i = 0; i < selectedFiles.length; i++) {
@@ -328,8 +363,8 @@
           icon: 'error',
           title: 'Please select files in ' + allowedInputFormat + ' format only.'
       })
-          var beepSound = new Audio('assets/sounds/error.mp3'); 
-          beepSound.play();
+          // var beepSound = new Audio('assets/sounds/error.mp3'); 
+          // beepSound.play();
           $(this).val('');
           return;
         }
@@ -397,6 +432,26 @@
 
     // Convert image on button click
     $('.convert-file').click(function() {
+
+      if (files.length > 10) {
+    var Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer);
+        toast.addEventListener('mouseleave', Swal.resumeTimer);
+      }
+    });
+    Toast.fire({
+      icon: 'error',
+      title: 'You can only convert 10 images at a time.'
+    });
+    return;
+  }
+
       var selectedFormat = $('.selectedConvertFrom').text();
       console.log(selectedFormat);
     if (/^\.{2,}$/.test(selectedFormat)) {
@@ -453,6 +508,31 @@
     } else {
       fileSize = fileSizeKB.toFixed(2) + ' KB';
     }
+
+    var selectedExtension = file.name.split('.').pop().toLowerCase();    
+    var allowedFormats = ['png', 'webp', 'gif', 'jpg', 'jpeg'];
+
+    if (allowedFormats.indexOf(selectedExtension) === -1) {
+      // Show an error message indicating the allowed formats
+      var Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer);
+          toast.addEventListener('mouseleave', Swal.resumeTimer);
+        }
+      });
+      Toast.fire({
+        icon: 'error',
+        title: 'Please select files in PNG, WEBP, GIF, JPG, or JPEG format only.'
+      });
+      $(this).val('');
+      return;
+  }
+
 
   console.log(fileSize);
 

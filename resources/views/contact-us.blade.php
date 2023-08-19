@@ -26,7 +26,7 @@
                         Welcome to our platform! We're thrilled to connect with you and have meaningful conversations.
                     </p>
                     <div class="shape">
-                        <img src="{{asset('./assets/images/shape.svg')}}" class="obj_fit_contain" alt="">
+                        <img src="{{asset('assets/images/shape.svg')}}" class="obj_fit_contain" alt="">
                     </div>
                 </div>
                 <div class="site-banner-right">
@@ -68,6 +68,9 @@
                           <label for="message">Message</label>
                         </div>
                       </div>
+                    <div class="row">
+                    <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div>
+                    </div>
                       <div class="row">
                         <button type="submit" class="theme-btn site_signin waves-effect waves-light">Send Message</button>
                       </div>
