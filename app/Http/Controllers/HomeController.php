@@ -16,6 +16,8 @@ use TCPDF;
 use GuzzleHttp\Client;
 use FFMpeg\FFMpeg;
 use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator as FacadesValidator;
 
 class HomeController extends Controller
@@ -262,6 +264,26 @@ class HomeController extends Controller
         ];
         Mail::to('usamayaqub302@gmail.com')->bcc('danishkhurshid333@gmail.com')->send(new ContactMail($data));
         return redirect()->back()->with('success','Contact message submitted succssfully');
+    }
+
+
+    public function runCleanup()
+    {
+        $convertedFolderPath = public_path('converted');
+
+        $files = File::allFiles($convertedFolderPath);
+
+        $currentTimestamp = Carbon::now();
+
+        foreach ($files as $file) {
+            $fileTimestamp = Carbon::createFromTimestamp($file->getMTime());
+
+            if ($currentTimestamp->diffInMinutes($fileTimestamp) > 30) {
+                File::delete($file->getPathname());
+            }
+        }
+
+        return response()->json(['message' => 'Cleanup process completed.']);
     }
     
  

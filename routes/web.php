@@ -65,6 +65,7 @@ Route::get('otp-verification', function () {
     return view('auth.verify');
 });
 
+Route::get('/run-cleanup',  [HomeController::class, 'runCleanup'])->name('run-cleanup');
 
 
 Route::get('register', 'App\Http\Controllers\Auth\RegisterController@showRegistrationForm')->name('register');
