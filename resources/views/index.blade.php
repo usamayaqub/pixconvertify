@@ -467,7 +467,6 @@
       icon: 'error',
       title: 'Oops...',
       text: 'Please select conversion format first!',
-      footer: '<a href="/">Why do I have this issue?</a>',
       customClass: {
         popup: 'swal2-toast-error', // Add the custom CSS class
       },

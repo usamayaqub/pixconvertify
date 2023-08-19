@@ -51,7 +51,7 @@
                             <img src="{{asset('./assets/images/drop-icon.svg')}}" alt="">
                             <h2 class="drop_file-text mt-0">Drag or Drop file here</h2>
                             <p class="restriction-text">Up to 20 files at a single time, max 20 MB each.</p>
-                            <input type="file">
+                            <input type="file" title="">
                         </div>
                     </div>
                     <div class="converter_section_right">
@@ -59,7 +59,7 @@
                             <button class="select-file waves-effect waves-light">
                                 <img src="./assets/images/file-icon.svg" alt="">
                                 <span>Select File</span>
-                                <input type="file">
+                                <input type="file" title="">
                             </button>
                         </div>
                     </div>
@@ -164,12 +164,12 @@
                 <div class="how-its-work_item">
                     <img src="./assets/images/format.svg" class="icons-image" alt="">
                     <h3>Step 2</h3>
-                    <p>Choose a destination format.</p>
+                    <p>Click on the Compress button.</p>
                 </div>
                 <div class="how-its-work_item">
                     <img src="./assets/images/download.svg" alt="">
                     <h3>Step 3</h3>
-                    <p>Download your converted file immediately.</p>
+                    <p>Download your compressed file immediately.</p>
                 </div>
             </div>
         </div>

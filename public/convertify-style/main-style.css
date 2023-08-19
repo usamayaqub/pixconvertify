@@ -1936,3 +1936,10 @@ span.kicker::after {
 .sec_check img{
     margin-left: 60px;
 }
+.swal2-styled.swal2-confirm{
+    background-color: var(--btn-bg-red);
+}
+.swal2-styled.swal2-confirm:focus{
+    box-shadow: none !important;
+    outline: 0 !important;
+}
