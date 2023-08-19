@@ -19,7 +19,7 @@
             <h1 class="px-blog-h1">PixConvertify Blog</h1>
             <nav>
               <div class="nav-wrapper">
-                <div class="col s12 d-flex">
+                <div class="col s12 d-flex bread_crump-wrap-md">
                   <a href="{{route('get-blogs')}}" class="breadcrumb">ALL BLOGS</a>
                   <a href="#!" class="breadcrumb">{{$blog->title}}</a>
                 </div>

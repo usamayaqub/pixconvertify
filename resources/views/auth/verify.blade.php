@@ -21,16 +21,16 @@
 				<p class="mb-2">Verify Its you</p>
                 <div class="inputs_wrapper">
                     <div class="login__field-group">
-                        <input id="name" type="number" class="login__field" name="otp[]" value="" required autocomplete="name" autofocus>
+                        <input id="name" type="number" class="login__field" name="otp[]" value="" required oninput="this.value = this.value.slice(0, 1);" autocomplete="name" autofocus>
                     </div>
                     <div class="login__field-group">
-                        <input id="name" type="number" class="login__field" name="otp[]" value="" required autocomplete="name" autofocus>
+                        <input id="name" type="number" class="login__field" name="otp[]" value="" required oninput="this.value = this.value.slice(0, 1);" autocomplete="name" autofocus>
                     </div>
                     <div class="login__field-group">
-                        <input id="name" type="number" class="login__field" name="otp[]" value="" required autocomplete="name" autofocus>
+                        <input id="name" type="number" class="login__field" name="otp[]" value="" required oninput="this.value = this.value.slice(0, 1);" autocomplete="name" autofocus>
                     </div>
                     <div class="login__field-group">
-                        <input id="name" type="number" class="login__field" name="otp[]" value="" required autocomplete="name" autofocus>
+                        <input id="name" type="number" class="login__field" name="otp[]" value="" required oninput="this.value = this.value.slice(0, 1);" autocomplete="name" autofocus>
                     </div>
                 </div>
                 <div class="resend-wrap">
@@ -76,5 +76,30 @@
         });
     </script>
 @endif
+
+<script>
+    $(document).ready(function() {
+        $('.login__field').on('input', function(e) {
+            var maxLength = 1;
+            var currentLength = $(this).val().length;
+
+            if (currentLength === maxLength) {
+                var $nextInput = $(this).closest('.login__field-group').next().find('.login__field');
+                if ($nextInput.length) {
+                    $nextInput.focus();
+                }
+            }
+        });
+
+        $('.login__field').on('keydown', function(e) {
+            if (e.keyCode === 8 && $(this).val().length === 0) {
+                var $prevInput = $(this).closest('.login__field-group').prev().find('.login__field');
+                if ($prevInput.length) {
+                    $prevInput.focus();
+                }
+            }
+        });
+    });
+</script>
 
 @endsection

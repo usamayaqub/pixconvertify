@@ -40,6 +40,7 @@
             @yield('content')
 
 
+
 </body>
 
 

@@ -1951,3 +1951,9 @@ span.kicker::after {
 .blog_image_wrap img{
     border-radius: 4px;
 }
+.no_result_found{
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 20px 0;
+    margin: auto;
+}

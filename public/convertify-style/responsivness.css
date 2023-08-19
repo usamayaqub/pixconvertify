@@ -488,6 +488,21 @@
         height: 450px;
         transform: scale(0.55);
     }
+    .container-wrapper .px-content{
+        width: 100%;
+    }
+    .blog_image_wrap{
+        height: 350px;
+    }
+    .breadcrumb{
+        font-size: 12px;
+    }
+    .bread_crump-wrap-md{
+        flex-direction: column;
+    }
+    .nav-wrapper .breadcrumb:before{
+        display: none;
+    }
 }
 @media (max-width: 670px) {
     .display {
@@ -500,6 +515,9 @@
         height: 270px;
         top: -65px;
         transform: scale(0.37);
+    }
+    .px-blog-h1{
+        font-size: 30px;
     }
 }
 @media (max-width: 440px) {

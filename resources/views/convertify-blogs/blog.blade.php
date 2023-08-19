@@ -47,7 +47,10 @@
     </div>
     <h2 class="mb-0 blog-sec-title">All Blogs</h2>
     <div class="blog-card-wrap row">
-    @foreach($blogs as $blog)
+        @if ($blogs->isEmpty())
+            <P class="no_result_found">No Results Found</P>
+        @endif
+        @foreach($blogs as $blog)
         <div class="card-item col l4 m6 s12">          
           <div class="card-item_img">
           @if(isset($blog->images->first()->url))
