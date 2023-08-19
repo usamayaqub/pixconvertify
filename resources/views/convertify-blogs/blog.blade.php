@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
-@section('meta_title', 'Blogs | Convertify')
-@section('meta_description', '')
+@section('meta_title', 'PixConvertify Blog | Expert Tips and Insights on Picture Conversion')
+@section('meta_description', 'Explore the PixConvertify blog for expert tips, and insights on picture conversion. Stay updated with the latest trends and techniques to optimize your images and make the most out of our conversion services. Our blog is your go-to resource for enhancing your visual content and unleashing the full potential of your pictures. Join the conversation and transform your images today')
 @section('canonical',"")
 
 @section('script_css')
@@ -9,36 +9,6 @@
 <meta property="og:image" content="" />
 <meta name="twitter:image" content="" />
 @section('content')
-
-<style>
-   .pagination{
-    text-align: center;
-   }
-   .pagination .page-item {
-    display: inline-block;
-    margin-right: 5px;
-}
-
-.pagination .page-link {
-    color: #3366CC;
-    border: 1px solid #3366CC;
-    padding: 5px 10px;
-    text-decoration: none;
-}
-
-.pagination .page-link:hover {
-    background-color: #3366CC;
-    color: #fff;
-}
-
-.pagination .page-item.active .page-link {
-    background-color: #3366CC;
-    color: #fff;
-    border-color: #3366CC;
-}
-
-</style>
-
 <!-- BANNER SECTION -->
 <section class="site-banner blog-banner">
     <div class="site-banner_container">

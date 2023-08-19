@@ -20,7 +20,7 @@
                   <span>Terms and Conditions</span>
                 </h1>
                 <p class="banner-message">
-                    Discover More Insights Dive Deeper into Our Informative Blog Articles
+                    Fast and Reliable Picture Conversion Services
                 </p>
                 <div class="shape">
                     <img src="{{asset('./assets/images/shape.svg')}}" class="obj_fit_contain" alt="">
@@ -39,61 +39,47 @@
 <div class="container-wrapper">
   <div class="container">
     <div class="px-content">
-        <h2>Introduction</h2>
+        <h2>Terms and Conditions</h2>
         <p>
-          Welcome to PixConvertify. This Privacy Policy is intended to inform you about how we collect, use, disclose, and protect the information you provide when using our image conversion and compression services. By accessing or using our website, you agree to the terms and practices described in this policy. Please read it carefully.
+          Welcome to PixConvertify! By accessing and using our website <a href="www.pixconvertify.com">(www.pixconvertify.com)</a> and its services, you agree to be bound by the following Terms and Conditions. Please read them carefully before proceeding with any image conversion activities on our platform.
         </p>
-        <h2>Information We Collect</h2>
-        <br>
-        <h3>1. Information You Provide</h3>
+        <h3>1. Acceptance of Terms</h3>
         <p>
-          When you use our website to convert or compress images, we may collect the following types of information:
+         By accessing or using PixConvertify, you acknowledge that you have read, understood, and agreed to abide by these Terms and Conditions, as well as our Privacy Policy. If you do not agree with any part of these terms, we kindly request that you refrain from using our services.
         </p>
-        <ul>
-          <li><strong>Personal Information:</strong> When you register an account or use our services, we may collect</li>
-          <li><strong>Image Data:</strong> We collect the images you upload for conversion or compression.</li>
-          <li><strong>Usage Data:</strong> We may collect information about how you use our website, such as the pages you visit, the features you use, and your interactions with the site.</li>
-        </ul>
-        <h3>2. Cookies and Similar Technologies</h3>
+
+        <h3>2. Image Conversion Services</h3>
         <p>
-          We may use cookies and similar technologies to collect information about your browsing activities on our website. Cookies are small files stored on your device that help us improve user experience and track usage patterns. You can control the use of cookies through your browser settings.
+          PixConvertify offers a simple and efficient platform for converting images to various formats, including PNG, WebP, JPEG, JPG, and GIF. While we strive to provide accurate and reliable conversion services, we cannot guarantee the quality or integrity of the images you upload.
         </p>
-        <h3>How We Use Your Information</h3>
+        <h3>3. User Conduct</h3>
         <p>
-          We use the information we collect for the following purposes:
+          You agree to use PixConvertify responsibly and refrain from:
           </p>
         <ul>
-          <li>To provide and improve our image conversion and compression services.</li>
-          <li>To personalize your experience on our website.</li>
-          <li>To communicate with you, respond to your inquiries, and provide customer support.</li>
-          <li>To analyze website usage and gather insights to enhance our services.</li>
-          <li>To comply with legal obligations and enforce our website's terms of use.</li>
+          <li>Uploading or sharing any images that violate copyright or intellectual property rights.</li>
+          <li> Engaging in any activity that may harm, disrupt, or damage our website or services.</li>
+          <li>Attempting to access, modify, or interfere with other users' data without their permission.</li>
         </ul>
-        <h3>Data Security</h3>
+        <h3>4. Privacy and Data Protection</h3>
         <p>
-          We take reasonable measures to protect your information from unauthorized access, alteration, disclosure, or destruction. However, no data transmission over the internet or storage system can be guaranteed as 100% secure. Therefore, while we strive to protect your information, we cannot guarantee its absolute security.
+          We value your privacy and handle your personal information in accordance with our Privacy Policy. By using our services, you consent to the collection, use, and storage of your data as outlined in our Privacy Policy.
         </p>
-        <h3>Your Choices and Rights</h3>
-        <ul>
-          <li>You can update or correct your account information by logging into your account settings.</li>
-          <li>
-            You can request the deletion of your account and associated data by contacting us through the provided contact information.
-          </li>
-          <li>
-            You may choose not to provide certain information, but this may limit your access to certain features of our website.
-          </li>
-        </ul>
-        <h3>Third-Party Links</h3>
+        <h3>5. Copyright and Intellectual Property</h3>
+          <p>
+            PixConvertify respects the intellectual property rights of others, and we expect our users to do the same. You must only upload images that you have the right to use or are in the public domain. We reserve the right to remove any content that infringes upon copyright or violates intellectual property rights.
+          </p>
+        <h3>6. Disclaimer of Warranties</h3>
         <p>
-          Our website may contain links to third-party websites or services. Please be aware that we are not responsible for their privacy practices. We encourage you to read the privacy policies of these third-party sites.
+          PixConvertify provides its services on an "as is" and "as available" basis. We make no warranties or representations regarding the accuracy, reliability, or completeness of our services. While we strive to maintain a secure and reliable platform, we cannot guarantee that our services will be error-free or uninterrupted.
         </p>
-        <h3>Children's Privacy</h3>
+        <h3>7. Limitation of Liability</h3>
         <p>
-          Our services are not intended for use by individuals under the age of [insert age in years]. We do not knowingly collect personal information from children under this age. If you believe we have unintentionally collected information from a child, please contact us to have it removed.
+          In no event shall PixConvertify be liable for any direct, indirect, incidental, special, consequential, or punitive damages arising out of or related to the use or inability to use our website or services.
         </p>
-        <h3>Changes to this Privacy Policy</h3>
+        <h3>8. Changes to Terms and Conditions</h3>
         <p>
-          We reserve the right to modify this Privacy Policy at any time. Any changes will be effective immediately upon posting the revised policy on our website. We encourage you to review this policy periodically to stay informed about how we collect, use, and protect your information
+          PixConvertify reserves the right to modify or update these Terms and Conditions at any time without prior notice. It is your responsibility to regularly review this page for any changes. Continued use of our services after such changes constitute your acceptance of the modified Terms and Conditions.
         </p>
     </div>
   </div>

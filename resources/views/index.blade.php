@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
-@section('meta_title', 'Home')
-@section('meta_description', '')
+@section('meta_title', 'PixConvertify | Fast and Reliable Picture Conversion Services')
+@section('meta_description', 'Welcome to PixConvertify, your go-to platform for quick and dependable picture conversion. Convert images to various formats effortlessly and enjoy high-quality results. Experience the convenience of our user-friendly interface and make your pictures shine in just a few clicks. Try PixConvertify today and unleash the potential of your images!')
 @section('canonical',"")
 
 @section('script_css')
@@ -19,11 +19,11 @@
                         <p>Convert your files to any format</p>
                     </div>
                     @if(!empty($format))
-<?php
-$words = explode('-', $format);
-$first_word = strtoupper($words[0]);
-$last_word = strtoupper($words[count($words) - 1]);
-?>
+                      <?php
+                      $words = explode('-', $format);
+                      $first_word = strtoupper($words[0]);
+                      $last_word = strtoupper($words[count($words) - 1]);
+                      ?>
                     <h1>
                        {{$first_word}} TO {{$last_word}}
                         <span>converter</span>
@@ -154,10 +154,6 @@ $last_word = strtoupper($words[count($words) - 1]);
                                                         <span>PDF</span>
                                                         <span>WEBP</span>
                                                         <span>GIF</span>
-                                                        <span>DOC</span>
-                                                        <span>BMP</span>
-                                                        <span>AVIF</span>
-                                                        <span>TIF</span>
                                                     </div>
                                                 </div>
                                                 <div id="documents2" class="col s12 px-0">
@@ -212,7 +208,12 @@ $last_word = strtoupper($words[count($words) - 1]);
       <div class="container">
           <div class="pormotion-slider owl-carousel owl-theme">
               <div class="pormotion-slider_item">
-                <img src="{{asset('./assets/images/veterinary-services.jpg')}}" alt="">
+                <img src="{{asset('./assets/images/home-flyer.png')}}" alt="">
+              </div>
+              <div class="pormotion-slider_item">
+                <a href="{{route('get-justcompress')}}">
+                  <img src="{{asset('./assets/images/home-flyer2.png')}}" alt="">
+                </a>
               </div>
           </div>
         </div>
@@ -227,20 +228,36 @@ $last_word = strtoupper($words[count($words) - 1]);
                 <div class="how-its-work_item">
                     <img src="{{asset('./assets/images/file.svg')}}" alt="">
                     <h3>Step 1</h3>
-                    <p>Select a file from your devices.</p>
+                    <p>Upload Your File</p>
                 </div>
                 <div class="how-its-work_item">
                     <img src="{{asset('./assets/images/format.svg')}}" class="icons-image" alt="">
                     <h3>Step 2</h3>
-                    <p>Choose a destination format.</p>
+                    <p>Select Output Format</p>
                 </div>
                 <div class="how-its-work_item">
                     <img src="{{asset('./assets/images/download.svg')}}" alt="">
                     <h3>Step 3</h3>
-                    <p>Download your converted file immediately.</p>
+                    <p>Download Your Converted Image</p>
                 </div>
             </div>
         </div>
+    </section>
+
+    <section class="sec_check_responsiveness">
+      <div class="container">
+        <h2 class="h2">Your Check your Website Rsponsivness</h2>
+        <div class="sec_check_row">
+        <div class="sec_check">
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt, consequatur quia voluptatum pariatur, aliquam voluptatem inventore maxime officia provident cum alias! Placeat numquam quasi quibusdam nulla veritatis, ipsam molestias vero consequatur reprehenderit ipsa ex eos consectetur eligendi accusantium aspernatur asperiores quaerat, vel, amet earum. Beatae dolorum veniam consectetur similique laboriosam hic reiciendis, quas sequi laborum. Incidunt perferendis, saepe omnis nihil porro
+          </p>
+        </div>
+        <div class="sec_check">
+          <img src="{{asset('assets/images/test.png')}}" class="obj_fit" alt="">
+        </div>
+      </div>
+      </div>
     </section>
 
 </main>
@@ -547,9 +564,10 @@ $last_word = strtoupper($words[count($words) - 1]);
                           .append($('<span>').text('JPG'))
                           .append($('<span>').text('WEBP'))
                           .append($('<span>').text('GIF'))
-                          .append($('<span>').text('BMP'))
-                          .append($('<span>').text('AVIF'))
-                          .append($('<span>').text('TIF')))
+                          // .append($('<span>').text('BMP'))
+                          // .append($('<span>').text('AVIF'))
+                          // .append($('<span>').text('TIF'))
+                            )
                           )
                           )
                           )

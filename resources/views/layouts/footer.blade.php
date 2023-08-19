@@ -8,26 +8,33 @@
                 </div>
             </div>
             <div class="site-footer_right">
-                <div class="site-footer_right_links">
+                <div class="site-footer_right_links left">
                     <p class="links_title">Images Conversation</p>
                     <div class="links_wrap">
                         <ul>
+                            <li><a href="{{ route('base', ['format' => 'png-to-webp']) }}">PNG to WEBP</a></li>
+                            <li><a href="{{ route('base', ['format' => 'jpeg-to-webp']) }}">JPEG to WEBP</a></li>
+                            <li><a href="{{ route('base', ['format' => 'jpg-to-webp']) }}">JPG to WEBP</a></li>
                             <li><a href="{{ route('base', ['format' => 'jpeg-to-pdf']) }}">JPEG to PDF</a></li>
-                            <li><a href="{{ route('base', ['format' => 'gif-to-png']) }}">GIF to PNG</a></li>
-                            <li><a href="{{ route('base', ['format' => 'png-to-tiff']) }}">PNG to TIFF</a></li>
-                            <li><a href="{{ route('base', ['format' => 'bmp-to-ico']) }}">BMP to ICO</a></li>
-                            <li><a href="{{ route('base', ['format' => 'tiff-to-png']) }}">TIFF to PNG</a></li>
+                            <li><a href="{{ route('base', ['format' => 'png-to-pdf']) }}">PNG to PDF</a></li>
                         </ul>
                         <ul>
-                            <li><a href="{{ route('base', ['format' => 'bmp-to-gif']) }}">BMP to GIF</a></li>
-                            <li><a href="{{ route('base', ['format' => 'ico-to-png']) }}">ICO to PNG</a></li>
-                            <li><a href="{{ route('base', ['format' => 'webp-to-tiff']) }}">WEBP to TIFF</a></li>
-                            <li><a href="{{ route('base', ['format' => 'jpeg-to-webp']) }}">JPEG to WEBP</a></li>
-                            <li><a href="{{ route('base', ['format' => 'png-to-webp']) }}">PNG to WEBP</a></li>
+                            <li><a href="{{ route('base', ['format' => 'png-to-gif']) }}">PNG to GIF</a></li>
+                            <li><a href="{{ route('base', ['format' => 'png-to-tiff']) }}">JPEG to GIF</a></li>
+                            <li><a href="{{ route('base', ['format' => 'jpg-to-GIF']) }}">JPG to GIF</a></li>
+                            <li><a href="{{ route('base', ['format' => 'webp-to-gif']) }}">WEBP to GIF</a></li>
+                            <li><a href="{{ route('base', ['format' => 'gif-to-pdf']) }}">GIF to PDF</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="{{ route('base', ['format' => 'webp-to-png']) }}">WEBP to PNG</a></li>
+                            <li><a href="{{ route('base', ['format' => 'webp-to-jpg']) }}">WEBP to JPG</a></li>
+                            <li><a href="{{ route('base', ['format' => 'webp-to-jpeg']) }}">WEB to JPEG</a></li>
+                            <li><a href="{{ route('base', ['format' => 'webp-to-pdf']) }}">WEBP to PDF</a></li>
+                            <li><a href="{{ route('base', ['format' => 'gif-to-webp']) }}">GIF to WEBP</a></li>
                         </ul>
                     </div>
                 </div>
-                <div class="site-footer_right_links">
+                <div class="site-footer_right_links right">
                     <p class="links_title">Quick Links</p>
                     <div class="links_wrap">
                         <ul>
@@ -35,7 +42,7 @@
                             <li><a href="{{route('get-blogs')}}">Blogs</a></li>
                             <li><a href="{{route('get-privacy-policies')}}">Privacy Policy</a></li>
                             <li><a href="{{route('get-contact')}}">Contact Us</a></li>
-                            <li><a href="{{route('get-support')}}">Buy us Coffee</a></li>
+                            <li><a href="{{route('get-justcompress')}}">Compress Image</a></li>
                         </ul>
                     </div>
                 </div>
@@ -55,3 +62,5 @@
         </div>
     </div>
 </footer>
+
+

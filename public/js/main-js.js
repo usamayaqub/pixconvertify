@@ -141,12 +141,12 @@ $(document).ready(function () {
     $(".site-menu").click(function () {
         $(".sidebar").toggleClass("appear");
         $(".sidebar_overlay").show();
-        $("body").css("position", "fixed");
+        $("body").addClass('fixed');
     });
     $(".sidebar_overlay").click(function () {
         $(".sidebar").removeClass("appear");
         $(this).hide();
-        $("body").css("position", "unset");
+        $("body").removeClass('fixed');
     });
 });
 
@@ -212,10 +212,11 @@ $(document).ready(function () {
     $(".pormotion-slider").owlCarousel({
         loop: true,
         margin: 10,
-        nav: true,
-        autoplay:false,
+        nav: false,
+        dots:false,
+        autoplay:true,
         autoplayTimeout:5000,
-        autoplayHoverPause:false,
+        autoplayHoverPause:true,
         responsive: {
             0: {
                 items: 1,

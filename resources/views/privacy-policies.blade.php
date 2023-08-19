@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('meta_title', 'PixConvertify Privacy Policies | Image Conversion Website')
-@section('meta_description', 'Learn about PixConvertify's commitment to your privacy and data protection. Our Privacy Policies outline how we collect, use, and safeguard your personal information while providing top-notch image conversion services. Trust us with your pictures and rest assured that your data is handled responsibly and securely.')
+@section('meta_description', 'Learn about PixConvertify commitment to your privacy and data protection. Our Privacy Policies outline how we collect, use, and safeguard your personal information while providing top-notch image conversion services. Trust us with your pictures and rest assured that your data is handled responsibly and securely.')
 @section('canonical',"")
 @section('script_css')
 <meta itemprop="image" content="">

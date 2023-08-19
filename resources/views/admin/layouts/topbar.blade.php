@@ -11,7 +11,7 @@
                                 <p class='small_logo_e'>P</p>
                             </span>
                             <span class="logo-lg">
-                                <img src="{{ URL::asset('assets/images/site-logo.svg') }}" style="height:50px;margin:auto;padding-top:10px;" />
+                                <img src="{{ URL::asset('assets/images/Pixconvertify-2.svg') }}" style="height:50px;margin:auto;padding-top:10px;" />
                             </span>
                         </div>
                         <div class='logo logo-light'>
@@ -19,7 +19,7 @@
                                 <p class='small_logo_e'>P.</p>
                             </span>
                             <span class="logo-lg">
-                                <img src="{{ URL::asset('assets/images/site-logo.svg') }}" style="height:50px;margin:auto;padding-top:10px;" />
+                                <img src="{{ URL::asset('assets/images/Pixconvertify-2.svg') }}" style="height:50px;margin:auto;padding-top:10px;" />
                             </span>
                         </div>
                     </div>
@@ -78,27 +78,31 @@
                                             <li class="mm-active">
                                                 <a class="waves-effect"
                                                     href="{{ route('home') }}" id="topnav-dashboard" role="button">
-                                                    <i class="bx bx-home-circle me-2"></i><span key="t-dashboards">Dashboard</span>
+                                                    <img src="{{asset('assets/images/write.svg')}}" alt="">
+                                                    <span key="t-dashboards">Dashboard</span>
                                                 </a>
                                             </li>
                                             <li class="mm-active">
                                                 <a class="waves-effect"
                                                     href="{{ route('blogs.index') }}" id="topnav-dashboard"
                                                     role="button">
-                                                    <i class="bx bxs-book-content me-2"></i><span key="t-dashboards">Blogs</span>
+                                                    <img src="{{asset('assets/images/write.svg')}}" alt="">
+                                                    <span key="t-dashboards">Blogs</span>
                                                 </a>
                                             </li>
                                             <li class="mm-active">
                                                 <a class="waves-effect"
                                                     href="{{ route('faqs.index') }}" id="topnav-dashboard"
                                                     role="button">
-                                                    <i class="bx bx-question-mark me-2"></i><span key="t-dashboards">FAQS</span>
+                                                    <img src="{{asset('assets/images/write.svg')}}" alt="">
+                                                    <span key="t-dashboards">FAQS</span>
                                                 </a>
                                             </li>
                                     <li>
                                     <a class="waves-effect" href="javascript:void();"
-                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
-                                    class="bx bxs-log-out me-2"></i> <span
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <img src="{{asset('assets/images/write.svg')}}" alt="">
+                                    <span
                                     key="t-logout">Logout</span></a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                     style="display: none;">

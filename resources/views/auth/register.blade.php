@@ -1,4 +1,16 @@
 @extends('layouts.app')
+
+
+@section('meta_title', 'Sign Up for PixConvertify | Start Converting Images Today')
+@section('meta_description', "Join PixConvertify and create your account to access powerful image conversion tools. Sign up now to convert images to various formats, compress files, and optimize your visual content. Experience the ease and efficiency of PixConvertify's platform for enhancing your pictures. Get started with image conversion and unlock a world of possibilities!")
+@section('canonical',"")
+
+@section('script_css')
+<meta itemprop="image" content="">
+<meta property="og:image" content="" />
+<meta name="twitter:image" content="" />
+@section('content')
+
 <style>
 body {
 	background-color: var(--bg);

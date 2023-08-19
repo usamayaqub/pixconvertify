@@ -13,14 +13,15 @@
                     <li>
                         <a href="{{route('get-checkrespo')}}">Check Responsiveness</a>
                     </li>
-                    <li>
+                    <li class="d-none">
                         <a href="#">Support</a>
                     </li>
                 </ul>
             </div>
-            <div>
+            <div class="menu-wrap">
                 @if (Route::has('login'))
-                    <ul class="site-header-signup">
+                <div>
+                    <ul class="site-header-signup pt-0">
                         @auth
                             <a class='dropdown-trigger user-profile-dropdown' href="{{ url('/home') }}" data-target='dropdown1'>
                                 <img src="{{asset('assets/images/user-circle.svg')}}" alt="">
@@ -47,6 +48,7 @@
                 @endif
                 <img class="site-menu" src="{{asset('assets/images/toggle.svg')}}" alt="toggle menu">
             </div>
+            </div>
         </div>
     </nav>
 </header>
@@ -54,13 +56,17 @@
 <!-- Sidebar -->
 <aside class="sidebar">
     <div class="sidebar_logo">
-        <img src="./assets/images/Pixconvertify.svg" alt="">
+        <img src="./assets/images/site-logo.svg" alt="">
     </div>
     <div class="sidebar_menu">
         <ul>
             <li><a href="{{route('get-justcompress')}}">Compress files</a></li>
             <li><a href="{{route('get-checkrespo')}}">Check Responsiveness</a></li>
-            <li><a href="#">Support</a></li>
+            <li><a href="{{ route('base', ['format' => 'png-to-webp']) }}">PNG to WEBP</a></li>
+            <li><a href="{{ route('base', ['format' => 'jpeg-to-webp']) }}">JPEG to WEBP</a></li>
+            <li><a href="{{ route('base', ['format' => 'jpg-to-webp']) }}">JPG to WEBP</a></li>
+            <li><a href="{{ route('base', ['format' => 'jpeg-to-pdf']) }}">JPEG to PDF</a></li>
+            <li><a href="{{ route('base', ['format' => 'png-to-pdf']) }}">PNG to PDF</a></li>
         </ul>
         <li class="logout">
             <a href="#">
