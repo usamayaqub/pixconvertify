@@ -1562,7 +1562,7 @@ body[data-sidebar="dark"].vertical-collpsed
     > li:hover
     > a,
 .bg-success {
-    background-color: #75bb8f !important;
+    background-color: #000 !important;
 }
 .waves-effect.active span,
 .waves-effect.active i {

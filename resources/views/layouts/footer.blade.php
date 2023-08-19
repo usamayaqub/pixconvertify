@@ -42,7 +42,7 @@
                             <li><a href="{{route('get-blogs')}}">Blogs</a></li>
                             <li><a href="{{route('get-privacy-policies')}}">Privacy Policy</a></li>
                             <li><a href="{{route('get-contact')}}">Contact Us</a></li>
-                            <li><a href="{{route('get-support')}}">Buy us Coffee</a></li>
+                            <li><a href="{{route('get-justcompress')}}">Compress Image</a></li>
                         </ul>
                     </div>
                 </div>
@@ -62,3 +62,5 @@
         </div>
     </div>
 </footer>
+
+

@@ -141,12 +141,12 @@ $(document).ready(function () {
     $(".site-menu").click(function () {
         $(".sidebar").toggleClass("appear");
         $(".sidebar_overlay").show();
-        $("body").css("position", "fixed");
+        $("body").addClass('fixed');
     });
     $(".sidebar_overlay").click(function () {
         $(".sidebar").removeClass("appear");
         $(this).hide();
-        $("body").css("position", "unset");
+        $("body").removeClass('fixed');
     });
 });
 

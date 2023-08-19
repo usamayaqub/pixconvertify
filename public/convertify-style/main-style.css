@@ -225,12 +225,12 @@ h6 {
 }
 /* SIDEBAR */
 .sidebar {
-    width: 240px;
+    width: 300px;
     position: fixed;
     z-index: 20;
     top: 0;
     height: 100%;
-    background-color: var(--header-bg-dark);
+    background-color: #f4f4f4;
     left: -100%;
     transition: all 0.3s ease;
     z-index: 101;
@@ -245,6 +245,7 @@ h6 {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 100;
+    cursor: pointer;
     display: none;
 }
 .sidebar .sidebar_logo {
@@ -253,7 +254,7 @@ h6 {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--header-bg-dark);
+    background-color: #f4f4f4;
 }
 .sidebar .sidebar_logo img {
     width: 200px;
@@ -279,6 +280,7 @@ h6 {
     font-size: 18px;
     color: var(--primary-color);
 }
+
 .logout {
     background-color: #fafafa;
 }
@@ -286,6 +288,13 @@ h6 {
     display: flex;
     gap: 10px;
     align-items: center;
+}
+body.fixed{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
 }
 /* SITE BANNER */
 .site-banner {
@@ -1305,6 +1314,7 @@ h6 {
     padding-top: 40px;
     padding-bottom: 30px;
     /* background-color: #161a1d; */
+    overflow: hidden;
 }
 .site-banner.blog-banner h1 {
     /* color: #fff; */
@@ -1868,4 +1878,43 @@ span.kicker::after {
     background-color: #3366cc;
     color: #fff;
     border-color: #3366cc;
+}
+.blog-card-wrap.row{
+    display: flex;
+    flex-wrap: wrap;
+}
+.blog-card-wrap.row .col.s12{
+    margin-right: auto;
+    margin-left: 0;
+}
+.menu-wrap{
+    display: flex;
+    align-items: center;
+}
+.sec_check_responsiveness{
+    padding-bottom: 40px;
+}
+.sec_check_row{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    gap: 15px;
+    text-align: center;
+}
+.sec_check{
+    width: 100%;
+}
+.sec_check p{
+    line-height: 28px;
+    max-width: 80%;
+    margin: 0 auto;
+}
+.h2{
+    font-family: "Noto Sans HK", sans-serif;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 70px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: var(--text-color);
 }

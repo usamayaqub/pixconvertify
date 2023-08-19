@@ -228,20 +228,36 @@
                 <div class="how-its-work_item">
                     <img src="{{asset('./assets/images/file.svg')}}" alt="">
                     <h3>Step 1</h3>
-                    <p>Select a file from your devices.</p>
+                    <p>Upload Your File</p>
                 </div>
                 <div class="how-its-work_item">
                     <img src="{{asset('./assets/images/format.svg')}}" class="icons-image" alt="">
                     <h3>Step 2</h3>
-                    <p>Choose a destination format.</p>
+                    <p>Select Output Format</p>
                 </div>
                 <div class="how-its-work_item">
                     <img src="{{asset('./assets/images/download.svg')}}" alt="">
                     <h3>Step 3</h3>
-                    <p>Download your converted file immediately.</p>
+                    <p>Download Your Converted Image</p>
                 </div>
             </div>
         </div>
+    </section>
+
+    <section class="sec_check_responsiveness">
+      <div class="container">
+        <h2 class="h2">Your Check your Website Rsponsivness</h2>
+        <div class="sec_check_row">
+        <div class="sec_check">
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt, consequatur quia voluptatum pariatur, aliquam voluptatem inventore maxime officia provident cum alias! Placeat numquam quasi quibusdam nulla veritatis, ipsam molestias vero consequatur reprehenderit ipsa ex eos consectetur eligendi accusantium aspernatur asperiores quaerat, vel, amet earum. Beatae dolorum veniam consectetur similique laboriosam hic reiciendis, quas sequi laborum. Incidunt perferendis, saepe omnis nihil porro
+          </p>
+        </div>
+        <div class="sec_check">
+          <img src="{{asset('assets/images/test.png')}}" class="obj_fit" alt="">
+        </div>
+      </div>
+      </div>
     </section>
 
 </main>
