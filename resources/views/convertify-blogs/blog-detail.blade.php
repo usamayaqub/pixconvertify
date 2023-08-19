@@ -33,7 +33,9 @@
   <div class="container">
     <div class="px-content">
     @if(isset($blog->images->first()->url))
+    <div class="blog_image_wrap">
       <img src="{{$blog->images->first()->url}}" class="obj_fit" alt="">
+    </div>
       @endif
       <!-- BLOG DETAILS HERE -->
       <div>

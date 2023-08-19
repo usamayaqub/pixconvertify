@@ -31,7 +31,7 @@
                         <div class="d-flex align-items-center mb-3">
                             <div class="avatar-xs me-3">
                                 <span class="avatar-title rounded-circle bg-primary bg-soft text-primary font-size-18">
-                                    <i class="bx bx-copy-alt"></i>
+                                    <img src="{{asset('assets/images/write.svg')}}" alt="">
                                 </span>
                             </div>
                             <h5 class="font-size-14 mb-0">Total Users</h5>
@@ -49,7 +49,7 @@
                         <div class="d-flex align-items-center mb-3">
                             <div class="avatar-xs me-3">
                                 <span class="avatar-title rounded-circle bg-primary bg-soft text-primary font-size-18">
-                                    <i class="bx bx-archive-in"></i>
+                                    <img src="{{asset('assets/images/write.svg')}}" alt="">
                                 </span>
                             </div>
                             <h5 class="font-size-14 mb-0">Total Conversions</h5>
@@ -67,7 +67,7 @@
                         <div class="d-flex align-items-center mb-3">
                             <div class="avatar-xs me-3">
                                 <span class="avatar-title rounded-circle bg-primary bg-soft text-primary font-size-18">
-                                    <i class="bx bx-purchase-tag-alt"></i>
+                                    <img src="{{asset('assets/images/write.svg')}}" alt="">
                                 </span>
                             </div>
                             <h5 class="font-size-14 mb-0">Total Compressions</h5>

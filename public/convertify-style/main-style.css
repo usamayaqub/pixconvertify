@@ -1943,3 +1943,11 @@ span.kicker::after {
     box-shadow: none !important;
     outline: 0 !important;
 }
+.blog_image_wrap{
+    width: 100%;
+    height: 500px;
+    margin-bottom: 20px;
+}
+.blog_image_wrap img{
+    border-radius: 4px;
+}
