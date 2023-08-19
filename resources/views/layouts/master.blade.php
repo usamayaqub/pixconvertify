@@ -86,6 +86,22 @@ $(document).ready(function() {
     }
 });
 </script>
+
+<script>
+    // Make an AJAX request to trigger the cleanup process
+    window.addEventListener('DOMContentLoaded', function() {
+        fetch("{{ route('run-cleanup') }}", {
+            method: 'GET',
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data.message);
+        })
+        .catch(error => {
+            console.error('An error occurred:', error);
+        });
+    });
+</script>
 </body>
 
 </html>
