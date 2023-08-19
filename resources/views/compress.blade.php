@@ -226,6 +226,24 @@ $(document).ready(function() {
 
   // Convert image on button click
   $('.convert-file').click(function() {
+    if (files.length > 10) {
+    var Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer);
+        toast.addEventListener('mouseleave', Swal.resumeTimer);
+      }
+    });
+    Toast.fire({
+      icon: 'error',
+      title: 'You can only convert 10 images at a time.'
+    });
+    return;
+  }
     var selectedFormat = $('.selectedConvertFrom').text();
     convertImages(files);
 
@@ -252,6 +270,30 @@ $(document).ready(function() {
     } else {
       fileSize = fileSizeKB.toFixed(2) + ' KB';
     }
+
+    var selectedExtension = file.name.split('.').pop().toLowerCase();    
+    var allowedFormats = ['png', 'webp', 'gif', 'jpg', 'jpeg'];
+
+    if (allowedFormats.indexOf(selectedExtension) === -1) {
+      // Show an error message indicating the allowed formats
+      var Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer);
+          toast.addEventListener('mouseleave', Swal.resumeTimer);
+        }
+      });
+      Toast.fire({
+        icon: 'error',
+        title: 'Please select files in PNG, WEBP, GIF, JPG, or JPEG format only.'
+      });
+      $(this).val('');
+      return;
+  }
 
 
     var reader = new FileReader();

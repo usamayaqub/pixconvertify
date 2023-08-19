@@ -15,7 +15,8 @@ use Symfony\Component\Process\Process;
 use TCPDF;
 use GuzzleHttp\Client;
 use FFMpeg\FFMpeg;
-
+use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Support\Facades\Validator as FacadesValidator;
 
 class HomeController extends Controller
 {
@@ -234,12 +235,17 @@ class HomeController extends Controller
 
     public function contactUs(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-            'title' => 'required',
-            'message' => 'required',
+        $validator = FacadesValidator::make($request->all(), [
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'title' => 'required|string|max:255',
+            'message' => 'required|string',
+            // 'g-recaptcha-response' => 'required|recaptcha',
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
 
         ContactUs::create([
             'name' => $request->name,
