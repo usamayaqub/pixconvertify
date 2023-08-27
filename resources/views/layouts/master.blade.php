@@ -49,6 +49,9 @@
       <!-- Include toastr CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/node-snackbar@latest/src/js/snackbar.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/node-snackbar@latest/dist/snackbar.min.css" />
     <title>{{ config('app.name', 'Pixconvertify') }}</title>
 </head>
 
@@ -78,11 +81,21 @@ $(document).ready(function() {
     var errorMessage = '{{ Session::get("error") }}';
 
     if (successMessage !== '') {
-        toastr.success(successMessage, 'Success');
+        Snackbar.show({
+            pos: 'bottom-center',
+            text: successMessage,
+            backgroundColor: '#8bd2a4',
+            actionTextColor: '#fff'
+        });
     }
 
     if (errorMessage !== '') {
-        toastr.error(errorMessage, 'Error');
+        Snackbar.show({
+            pos: 'bottom-center',
+            text: errorMessage,
+            backgroundColor: '#ba181b',
+            actionTextColor: '#fff'
+        });
     }
 });
 </script>
