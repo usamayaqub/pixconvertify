@@ -112,6 +112,8 @@ Route::get('/admin', [HomeController::class, 'adminHome'])->name('admin.home');
     Route::delete('delete-blog-image/{id}', [BlogController::class, 'deleteBlogImage'])->name('delete_blog_image');
     // BLOGS
 
+    Route::get('all_contact', [HomeController::class, 'indexContact'])->name('contact.index');
+
 });
 
 

@@ -90,6 +90,16 @@
                                                     <span key="t-dashboards">Blogs</span>
                                                 </a>
                                             </li>
+
+                                            <li class="mm-active">
+                                                <a class="waves-effect"
+                                                    href="{{ route('contact.index') }}" id="topnav-dashboard"
+                                                    role="button">
+                                                    <img src="{{asset('assets/images/write.svg')}}" alt="">
+                                                    <span key="t-dashboards">Contact Us</span>
+                                                </a>
+                                            </li>
+
                                     <li>
                                     <a class="waves-effect" href="javascript:void();"
                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

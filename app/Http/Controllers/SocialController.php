@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Laravel\Socialite\Facades\Socialite;
 
 
@@ -38,7 +39,7 @@ class SocialController extends Controller
                 'login_with' => 'google',
                 'name' => $user->name,
                 'email' => $user->email,
-                'password' => 'pixconvertify' . '-' . $user->email,
+                'password' =>  Hash::make('pixconvertify' . '-' . $user->email),
             ]);
 
             Auth::login($newUser);
