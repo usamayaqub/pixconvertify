@@ -546,6 +546,9 @@
           var $img = $('<img class="defualt-img" alt="">');
           var $fileName = $('<p class="file-name">').text(file.name);
           var $fileSize = $('<span class="file-size">').text(fileSize);
+          // Calculate the file size in KB
+          var fileSizeInKB = Math.round(file.size / 1024);
+          $fileSize.text(fileSizeInKB + " KB"); // Display the calculated size
           var $progressWrap = $('<div class="progress_wrap d-none">');
           var $progressBar = $('<div class="progress-bar d-none">');
           var $progress = $('<div class="progress d-none" style="width: 0%;">');
@@ -589,31 +592,32 @@
           $('.converter_section_bottom').show();
 
           $dropdown.on('click', function() {
-          if(!allowedInputFormat && !allowedConversionFormat){
-          $(this).find('.selection-dropdown').toggleClass('open');
-          }
+            if(!allowedInputFormat && !allowedConversionFormat){
+            $(this).find('.selection-dropdown').toggleClass('open');
+            }
           });
 
-      $deleteBtn.on('click', function() {
-      var index = $('.delete-button').index(this);
-      files.splice(index, 1); 
-      $(this).closest('.converter_item').remove(); 
-      });
+          $deleteBtn.on('click', function() {
+          var index = $('.delete-button').index(this);
+          files.splice(index, 1); 
+          $(this).closest('.converter_item').remove(); 
+          });
 
-      $dropdown.find('.format_wrap span').on('click', function() {
-        var selectedFormat = $(this).text();
-        $dropdown.find('.selectedConvertFrom').text(selectedFormat);
-      });
+          $dropdown.find('.format_wrap span').on('click', function() {
+            var selectedFormat = $(this).text();
+            $dropdown.find('.selectedConvertFrom').text(selectedFormat);
+          });
 
-      // Pre-select the format based on the value of selectedConvertTo
-      var preselectedFormat = $('#selectedConvertTo').text();
-        $dropdown.find('.selectedConvertFrom').text(preselectedFormat);
+            // Pre-select the format based on the value of selectedConvertTo
+          var preselectedFormat = $('#selectedConvertTo').text();
+          $dropdown.find('.selectedConvertFrom').text(preselectedFormat);
 
 
-          files.push(file); // Add the file to the files array
-        };
-      })(file);
+            files.push(file); // Add the file to the files array
+          };
+        })(file);
 
+        
       reader.readAsDataURL(file);
     }
   }

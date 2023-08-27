@@ -62,11 +62,11 @@
         <ul>
             <li><a href="{{route('get-justcompress')}}">Compress files</a></li>
             <li><a href="{{route('get-checkrespo')}}">Check Responsiveness</a></li>
-            <li><a href="{{ route('base', ['format' => 'png-to-webp']) }}">PNG to WEBP</a></li>
-            <li><a href="{{ route('base', ['format' => 'jpeg-to-webp']) }}">JPEG to WEBP</a></li>
-            <li><a href="{{ route('base', ['format' => 'jpg-to-webp']) }}">JPG to WEBP</a></li>
-            <li><a href="{{ route('base', ['format' => 'jpeg-to-pdf']) }}">JPEG to PDF</a></li>
-            <li><a href="{{ route('base', ['format' => 'png-to-pdf']) }}">PNG to PDF</a></li>
+            <li><a href="{{route('get-how-works')}}">How its Works</a></li>
+            <li><a href="{{route('get-blogs')}}">Blogs</a></li>
+            <li><a href="{{route('get-privacy-policies')}}">Privacy Policy</a></li>
+            <li><a href="{{route('get-contact')}}">Contact Us</a></li>
+            <li><a href="{{route('get-term')}}">Term</a></li>
         </ul>
         <li class="logout">
             <a href="#">
