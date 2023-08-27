@@ -292,6 +292,19 @@
     .copywrite p, .copywrite a{
         text-align: center;
     }
+    .show-on-web{
+        display: none;
+    }
+    .show-on-mbl{
+        display: block;
+    }
+    .pormotion-slider_item img{
+        height: auto;
+        object-fit: contain;
+    }
+    .pormotion-slider_item{
+        height: auto;
+    }
 }
 @media only screen and (max-width: 550px) {
     .site-footer_right {

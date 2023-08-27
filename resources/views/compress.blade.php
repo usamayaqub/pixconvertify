@@ -66,66 +66,6 @@
                 </div>
                 <div class="converter_section_listing">
                     <ul>
-                        <!-- <div class="converter_item">
-                            <div class="converter_item_name_size">
-                                <img src="./assets/images/defualt-img-icon.svg" class="defualt-img" alt="">
-                                <div>
-                                    <p class="file-name">Tech design requirements.jpeg</p>
-                                    <span class="file-size">200 KB</span>
-                                </div>
-                            </div>
-                            <div class="progress_wrap">
-                                <div class="progress-bar">
-                                    <div class="progress" style="width: 0%;"></div>
-                                </div>
-                                <p class="process-percentage">100%</p>
-                            </div>
-                            <div class="processing-and-download-and-delete">
-                                <button class="processing waves-effect waves-light">DOne</button>
-                                <button class="downloading-btn waves-effect waves-light d-none">
-                                    <img src="./assets/images/download-arrow.svg" alt="">
-                                    <span>
-                                        Download File
-                                    </span>
-                                </button>
-                                <button class="delete-button">
-                                    <img src="./assets/images/dustbin.svg" alt="">
-                                </button>
-                                <div class="check-button d-none">
-                                    <img src="./assets/images/checkbox-icon.svg" alt="">
-                                </div>
-                            </div>
-                        </div> -->
-                        <!-- <div class="converter_item">
-                            <div class="converter_item_name_size">
-                                <img src="./assets/images/defualt-img-icon.svg" class="defualt-img" alt="">
-                                <div>
-                                    <p class="file-name">Tech design requirements.jpeg</p>
-                                    <span class="file-size">200 KB</span>
-                                </div>
-                            </div>
-                            <div class="progress_wrap">
-                                <div class="progress-bar">
-                                    <div class="progress" style="width: 70%;"></div>
-                                </div>
-                                <p class="process-percentage">100%</p>
-                            </div>
-                            <div class="processing-and-download-and-delete">
-                                <button class="processing waves-effect waves-light d-none">Processed</button>
-                                <button class="downloading-btn waves-effect waves-light">
-                                    <img src="./assets/images/download-arrow.svg" alt="">
-                                    <span>
-                                        Download File
-                                    </span>
-                                </button>
-                                <button class="delete-button d-none">
-                                    <img src="./assets/images/dustbin.svg" alt="">
-                                </button>
-                                <div class="check-button">
-                                    <img src="./assets/images/checkbox-icon.svg" alt="">
-                                </div>
-                            </div>
-                        </div> -->
                     </ul>
                     <div class="converter_section_bottom">
                         <div class="converter_section_inner">
@@ -207,22 +147,48 @@ $(document).ready(function() {
     }
   });
 
-  // Handle file drag and drop
-  $('.converter_section').on('dragover', function(e) {
-    e.preventDefault();
-    $(this).addClass('dragover');
-  });
+    // Handle file drag and drop
+    var isDragging = false; // Track dragging state
 
-  $('.converter_section').on('dragleave', function(e) {
-    e.preventDefault();
-    $(this).removeClass('dragover');
-  });
+    $('body').on('dragover', function(e) {
+      e.preventDefault();
+      if (!isDragging) {
+        $(this).addClass('dragover');
+        isDragging = true;
+      }
+    });
 
-  $('.converter_section').on('drop', function(e) {
-    e.preventDefault();
-    $(this).removeClass('dragover');
-    handleFiles(e.originalEvent.dataTransfer.files);
-  });
+    $('body').on('dragleave', function(e) {
+      e.preventDefault();
+      var target = e.target;
+      var rect = target.getBoundingClientRect();
+      var x = e.clientX;
+      var y = e.clientY;
+      
+      // Check if the mouse cursor is outside the target element
+      if (x < rect.left || x >= rect.right || y < rect.top || y >= rect.bottom) {
+        $(this).removeClass('dragover');
+        isDragging = false;
+      }
+    });
+
+    $('body').on('drop', function(e) {
+      e.preventDefault();
+      $(this).removeClass('dragover');
+      handleFiles(e.originalEvent.dataTransfer.files);
+    });
+
+    // Add overlay when dragging starts
+    $('body').on('dragenter', function(e) {
+      e.preventDefault();
+      $(this).addClass('dragover');
+    });
+
+    // Remove overlay when dragging ends
+    $('body').on('dragend', function(e) {
+      e.preventDefault();
+      $(this).removeClass('dragover');
+    });
 
   // Convert image on button click
   $('.convert-file').click(function() {
@@ -304,7 +270,12 @@ $(document).ready(function() {
         var $itemContent = $('<div class="converter_item_name_size">');
         var $img = $('<img class="defualt-img" alt="">');
         var $fileName = $('<p class="file-name">').text(file.name);
-        var $fileSize = $('<span class="file-size">').text(fileSize);
+        var $fileSize = $('<span class="file-size">'); // Create a span for file size
+
+        // Calculate the file size in KB
+        var fileSizeInKB = Math.round(file.size / 1024);
+        $fileSize.text(fileSizeInKB + " KB"); // Display the calculated size
+
         var $progressWrap = $('<div class="progress_wrap d-none">');
         var $progressBar = $('<div class="progress-bar d-none">');
         var $progress = $('<div class="progress d-none" style="width: 0%;">');
@@ -314,24 +285,25 @@ $(document).ready(function() {
         var $deleteBtn = $('<button class="delete-button">').append($('<img src="./assets/images/dustbin.svg" alt="">'));
         var $checkBtn = $('<div class="check-button d-none">').append($('<img src="./assets/images/checkbox-icon.svg" alt="">'));
 
-        $img.attr('src','./assets/images/defualt-img-icon.svg');
+        $img.attr('src', './assets/images/defualt-img-icon.svg');
         $itemContent.append($img).append($('<div>').append($fileName).append($fileSize));
         $progressBar.append($progress);
         $progressWrap.append($progressBar).append($processPercentage);
         $item.append($itemContent).append($progressWrap).append($('<div class="processing-and-download-and-delete">').append($processingBtn).append($downloadBtn).append($deleteBtn).append($checkBtn));
-        
+
         // Append the new converter item
         $('.converter_section_listing ul').append($item);
         $('.converter_section_bottom').show();
 
-    $deleteBtn.on('click', function() {
-    var index = $('.delete-button').index(this);
-    files.splice(index, 1); 
-    $(this).closest('.converter_item').remove(); 
-    });
+        $deleteBtn.on('click', function() {
+          var index = $('.delete-button').index(this);
+          files.splice(index, 1);
+          $(this).closest('.converter_item').remove();
+        });
         files.push(file); // Add the file to the files array
       };
     })(file);
+
 
     reader.readAsDataURL(file);
   }

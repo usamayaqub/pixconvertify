@@ -208,13 +208,15 @@
       <div class="container">
           <div class="pormotion-slider owl-carousel owl-theme">
               <div class="pormotion-slider_item">
-                <img src="{{asset('./assets/images/home-flyer.png')}}" alt="">
+                <img src="{{asset('./assets/images/home-flyer.png')}}" class="show-on-web" alt="">
+                <img src="{{asset('./assets/images/home-flyer-mbl.png')}}" class="show-on-mbl" alt="">
+
               </div>
-              <div class="pormotion-slider_item">
+              {{-- <div class="pormotion-slider_item">
                 <a href="{{route('get-justcompress')}}">
                   <img src="{{asset('./assets/images/home-flyer2.png')}}" alt="">
                 </a>
-              </div>
+              </div> --}}
           </div>
         </div>
     </div>

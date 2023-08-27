@@ -28,7 +28,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-    <link rel="shortcut icon" type="image/png" href="{{asset('./img/fav-icon.png')}}" />
+    <link rel="shortcut icon" type="image/png" href="{{asset('./img/fav.png')}}" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="{{asset('convertify-style/variables.css')}}">

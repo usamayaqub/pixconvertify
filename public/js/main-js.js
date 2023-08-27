@@ -210,13 +210,13 @@ $(document).ready(function () {
 
 $(document).ready(function () {
     $(".pormotion-slider").owlCarousel({
-        loop: true,
+        // loop: true,
         margin: 10,
         nav: false,
         dots:false,
-        autoplay:true,
-        autoplayTimeout:5000,
-        autoplayHoverPause:true,
+        // autoplay:true,
+        // autoplayTimeout:5000,
+        // autoplayHoverPause:true,
         responsive: {
             0: {
                 items: 1,

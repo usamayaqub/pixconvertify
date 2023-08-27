@@ -1957,3 +1957,6 @@ span.kicker::after {
     padding: 20px 0;
     margin: auto;
 }
+.show-on-mbl{
+    display: none;
+}
