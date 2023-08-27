@@ -28,23 +28,25 @@
                                 {{ucfirst(Str::before(auth()->user()->name, ' ') )}}
                                 <img src="{{asset('assets/images/arrow-down.svg')}}" alt="">
                             </a>
-                            <ul id='dropdown1' class='dropdown-content'>
+                        <ul id='dropdown1' class='dropdown-content'>
                             <li>
                                 <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     <img src="{{asset('assets/images/sign_out.svg')}}" alt="">
                                     Logout
                                 </a>
                             </li>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
-                        @else
-                            <li><a class="theme-btn site_login" href="{{ route('login') }}">Login</a></li>
-                            @if (Route::has('register'))
-                            <li><a class="theme-btn site_signin waves-effect waves-light" href="{{ route('register') }}">Sign Up</a></li>
-                            @endif
-                        @endauth
-                    </div>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                            @else
+                                <li><a class="theme-btn site_login" href="{{ route('login') }}">Login</a></li>
+                                @if (Route::has('register'))
+                                <li><a class="theme-btn site_signin waves-effect waves-light" href="{{ route('register') }}">Sign Up</a></li>
+                                @endif
+                            @endauth
+                        </ul>
+                    </ul>
+                </div>
                 @endif
                 <img class="site-menu" src="{{asset('assets/images/toggle.svg')}}" alt="toggle menu">
             </div>
@@ -70,15 +72,40 @@
         </ul>
         @if(Auth::check())
         <li class="logout">
-        <a class="dropdown-item text-danger" href="javascript:void();"
-                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
-                                    class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span
-                                    key="t-logout">Logout</span></a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                style="display: none;">
-                                @csrf
-                            </form>
+            <a class="dropdown-item text-danger" href="javascript:void();" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                <i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> 
+                <span key="t-logout">Logout</span></a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                    style="display: none;">
+                    @csrf
+                </form>
         </li>
+        @else
+        <ul class="pt-0">
+            @auth
+                <a class='dropdown-trigger user-profile-dropdown' href="{{ url('/home') }}" data-target='dropdown1'>
+                    <img src="{{asset('assets/images/user-circle.svg')}}" alt="">
+                    {{ucfirst(Str::before(auth()->user()->name, ' ') )}}
+                    <img src="{{asset('assets/images/arrow-down.svg')}}" alt="">
+                </a>
+            <ul id='dropdown1' class='dropdown-content'>
+                <li>
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <img src="{{asset('assets/images/sign_out.svg')}}" alt="">
+                        Logout
+                    </a>
+                </li>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+                @else
+                    <li class="mb-1"><a class="theme-btn site_login w-100" href="{{ route('login') }}">Login</a></li>
+                    @if (Route::has('register'))
+                    <li><a class="theme-btn site_login w-100 bg-theme text-white" href="{{ route('register') }}">Sign Up</a></li>
+                    @endif
+                @endauth
+            </ul>
+        </ul>
         @endif
     </div>
 </aside>

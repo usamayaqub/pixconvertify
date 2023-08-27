@@ -1960,3 +1960,12 @@ span.kicker::after {
 .show-on-mbl{
     display: none;
 }
+.bg-theme{
+    background-color: var(--primary-color);
+}
+.text-white{
+    color: #fff !important;
+}
+.mb-1{
+    margin-bottom: 10px !important;
+}
