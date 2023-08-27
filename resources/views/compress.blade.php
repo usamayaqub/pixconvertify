@@ -193,21 +193,12 @@ $(document).ready(function() {
   // Convert image on button click
   $('.convert-file').click(function() {
     if (files.length > 10) {
-    var Toast = Swal.mixin({
-      toast: true,
-      position: 'top-end',
-      showConfirmButton: false,
-      timer: 3000,
-      timerProgressBar: true,
-      didOpen: (toast) => {
-        toast.addEventListener('mouseenter', Swal.stopTimer);
-        toast.addEventListener('mouseleave', Swal.resumeTimer);
-      }
-    });
-    Toast.fire({
-      icon: 'error',
-      title: 'You can only convert 10 images at a time.'
-    });
+      Snackbar.show({
+            pos: 'bottom-center',
+            text: 'You can only compress 10 images at a time.',
+            backgroundColor: '#ba181b',
+            actionTextColor: '#fff'
+        });
     return;
   }
     var selectedFormat = $('.selectedConvertFrom').text();
@@ -242,21 +233,12 @@ $(document).ready(function() {
 
     if (allowedFormats.indexOf(selectedExtension) === -1) {
       // Show an error message indicating the allowed formats
-      var Toast = Swal.mixin({
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-          toast.addEventListener('mouseenter', Swal.stopTimer);
-          toast.addEventListener('mouseleave', Swal.resumeTimer);
-        }
-      });
-      Toast.fire({
-        icon: 'error',
-        title: 'Please select files in PNG, WEBP, GIF, JPG, or JPEG format only.'
-      });
+      Snackbar.show({
+            pos: 'bottom-center',
+            text: 'Please select files in PNG, WEBP, GIF, JPG, or JPEG format only.',
+            backgroundColor: '#ba181b',
+            actionTextColor: '#fff'
+        });
       $(this).val('');
       return;
   }

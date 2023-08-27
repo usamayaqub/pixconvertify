@@ -320,21 +320,13 @@
 
     if (allowedFormats.indexOf(selectedExtension) === -1) {
       // Show an error message indicating the allowed formats
-      var Toast = Swal.mixin({
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-          toast.addEventListener('mouseenter', Swal.stopTimer);
-          toast.addEventListener('mouseleave', Swal.resumeTimer);
-        }
-      });
-      Toast.fire({
-        icon: 'error',
-        title: 'Please select files in PNG, WEBP, GIF, JPG, or JPEG format only.'
-      });
+      Snackbar.show({
+            pos: 'bottom-center',
+            text: 'Please select files in PNG, WEBP, GIF, JPG, or JPEG format only.',
+            backgroundColor: '#ba181b',
+            actionTextColor: '#fff'
+        });
+
       $(this).val('');
       return;
     }
@@ -350,21 +342,12 @@
 
       if (allowedInputFormat && selectedExtension.toLowerCase() !== allowedInputFormat.toLowerCase()) {  
           // Show an error message indicating the allowed input format
-          var Toast = Swal.mixin({
-          toast: true,
-          position: 'top-end',
-          showConfirmButton: false,
-          timer: 3000,
-          timerProgressBar: true,
-          didOpen: (toast) => {
-              toast.addEventListener('mouseenter', Swal.stopTimer)
-              toast.addEventListener('mouseleave', Swal.resumeTimer)
-          }
-      })
-      Toast.fire({
-          icon: 'error',
-          title: 'Please select files in ' + allowedInputFormat + ' format only.'
-      })
+          Snackbar.show({
+            pos: 'bottom-center',
+            text: 'Please select files in ' + allowedInputFormat + ' format only.',
+            backgroundColor: '#ba181b',
+            actionTextColor: '#fff'
+        });
           // var beepSound = new Audio('assets/sounds/error.mp3'); 
           // beepSound.play();
           $(this).val('');
@@ -436,21 +419,14 @@
     $('.convert-file').click(function() {
 
       if (files.length > 10) {
-    var Toast = Swal.mixin({
-      toast: true,
-      position: 'top-end',
-      showConfirmButton: false,
-      timer: 3000,
-      timerProgressBar: true,
-      didOpen: (toast) => {
-        toast.addEventListener('mouseenter', Swal.stopTimer);
-        toast.addEventListener('mouseleave', Swal.resumeTimer);
-      }
-    });
-    Toast.fire({
-      icon: 'error',
-      title: 'You can only convert 10 images at a time.'
-    });
+
+        Snackbar.show({
+            pos: 'bottom-center',
+            text: 'You can only convert 10 images at a time.',
+            backgroundColor: '#ba181b',
+            actionTextColor: '#fff'
+        });
+        
     return;
   }
 
@@ -465,23 +441,13 @@
     }
 
     function showErrorToast() {
-    Swal.fire({
-      icon: 'error',
-      title: 'Oops...',
-      text: 'Please select conversion format first!',
-      customClass: {
-        popup: 'swal2-toast-error', // Add the custom CSS class
-      },
-      showConfirmButton: false, // Remove the default "Ok" button
-    // Auto-close after 3 seconds
-      timerProgressBar: true, // Show progress bar
-      allowOutsideClick: true, // Prevent dismissing by clicking outside the toast
-      allowEscapeKey: true, // Prevent dismissing by pressing the escape key
-      didOpen: (toast) => {
-        toast.addEventListener('mouseenter', Swal.stopTimer);
-        toast.addEventListener('mouseleave', Swal.resumeTimer);
-      }
-    });
+
+      Snackbar.show({
+            pos: 'bottom-center',
+            text: 'Please select conversion format first!',
+            backgroundColor: '#ba181b',
+            actionTextColor: '#fff'
+        });
   }
   });
   // Download all converted images as a zip file
@@ -515,21 +481,13 @@
 
     if (allowedFormats.indexOf(selectedExtension) === -1) {
       // Show an error message indicating the allowed formats
-      var Toast = Swal.mixin({
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-          toast.addEventListener('mouseenter', Swal.stopTimer);
-          toast.addEventListener('mouseleave', Swal.resumeTimer);
-        }
-      });
-      Toast.fire({
-        icon: 'error',
-        title: 'Please select files in PNG, WEBP, GIF, JPG, or JPEG format only.'
-      });
+      Snackbar.show({
+            pos: 'bottom-center',
+            text: 'Please select files in PNG, WEBP, GIF, JPG, or JPEG format only.',
+            backgroundColor: '#ba181b',
+            actionTextColor: '#fff'
+        });
+        
       $(this).val('');
       return;
   }
