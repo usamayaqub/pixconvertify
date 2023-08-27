@@ -68,12 +68,18 @@
             <li><a href="{{route('get-contact')}}">Contact Us</a></li>
             <li><a href="{{route('get-term')}}">Term</a></li>
         </ul>
+        @if(Auth::check())
         <li class="logout">
-            <a href="#">
-                <img src="./assets/images/sign_out.svg" alt="">
-                <span>Logout</span>
-            </a>
+        <a class="dropdown-item text-danger" href="javascript:void();"
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
+                                    class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span
+                                    key="t-logout">Logout</span></a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                style="display: none;">
+                                @csrf
+                            </form>
         </li>
+        @endif
     </div>
 </aside>
 <div class="sidebar_overlay"></div>

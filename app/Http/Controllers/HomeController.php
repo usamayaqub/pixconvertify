@@ -19,6 +19,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator as FacadesValidator;
+use Yajra\DataTables\Facades\DataTables;
 
 class HomeController extends Controller
 {
@@ -286,5 +287,25 @@ class HomeController extends Controller
         return response()->json(['message' => 'Cleanup process completed.']);
     }
     
+
+    public function indexContact(Request $request)
+    {
+        $data = ContactUs::latest()->get();
+        if ($request->ajax()) {
+            return DataTables::of($data)
+                ->editColumn('created_at', function ($item) {
+                    return Carbon::parse($item->created_at)->format('d-m-Y, h:i A');
+                })
+                ->addColumn('message', function ($item) {
+                    $trimmedMessage = strlen($item->message) > 100 ? substr($item->message, 0, 100) . '...' : $item->message;
+                    $showMoreButton = strlen($item->message) > 100 ? '<button class="btn btn-link show-more-btn" data-full-message="' . htmlspecialchars($item->message, ENT_QUOTES) . '">Show More</button>' : '';
+                    return '<div class="message">' . $trimmedMessage . '</div>' . $showMoreButton;
+                })
+                ->rawColumns(['created_at','message'])
+                ->make(true);
+        }
+        return view('admin.contact.index');
+    }
+
  
 }
