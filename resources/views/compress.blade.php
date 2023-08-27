@@ -79,7 +79,7 @@
                                     <img src="./assets/images/convert-icon.svg" alt="">
                                     <span>Compress</span>
                                 </button>
-                                <button class="download-all-files waves-effect waves-light">
+                                <button class="download-all-files waves-effect waves-light d-none">
                                     <img src="./assets/images/download-arrow.svg" alt="">
                                     <span>Download All</span>
                                 </button>
