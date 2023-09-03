@@ -79,7 +79,7 @@ Route::get('/blog/{slug}', [HomeController::class, 'blogsdetail'])->name('get-bl
 
 Route::get('/check-responsiveness', [HomeController::class, 'checkresponsiveness'])->name('get-checkrespo');
 Route::get('/how-its-work', [HomeController::class, 'howWorks'])->name('get-how-works');
-Route::get('/privacy-Policies', [HomeController::class, 'privacyPolicies'])->name('get-privacy-policies');
+Route::get('/privacy-policy', [HomeController::class, 'privacyPolicies'])->name('get-privacy-policies');
 Route::get('/buy-us-coffee', [HomeController::class, 'support'])->name('get-support');
 Route::get('/contact-us', [HomeController::class, 'contact'])->name('get-contact');
 Route::post('/contact', [HomeController::class, 'contactUs'])->name('contact.send');

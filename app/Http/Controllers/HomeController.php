@@ -221,7 +221,7 @@ class HomeController extends Controller
     }
     public function privacyPolicies()
     {
-        return view('privacy-Policies');
+        return view('privacy-policies');
     }
     public function term()
     {
