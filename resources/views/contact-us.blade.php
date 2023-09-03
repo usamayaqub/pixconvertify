@@ -32,7 +32,7 @@
                 <div class="site-banner-right">
                   <div class="contact-us-form">
                     <h2>Send us a <span>message</span></h2>
-                    <form class="col s12" action="{{route('contact.send')}}" method="POST">
+                    <form class="col s12" action="{{route('contact.send')}}" method="POST" id="contact"> 
                       @csrf
                       <div class="row">
                         <div class="input-field col s12">
@@ -72,7 +72,7 @@
                     <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div>
                     </div>
                       <div class="row">
-                        <button type="submit" class="theme-btn site_signin waves-effect waves-light">Send Message</button>
+                        <button data-sitekey="6LehzfcnAAAAAHb3VQafolr1jlknRs-dmM9myOQY" data-callback='onSubmit' data-action='submit' class="theme-btn site_signin waves-effect waves-light g-recaptcha">Send Message</button>
                       </div>
                     </form>
                   </div>
@@ -83,4 +83,11 @@
             </div>
         </div>
     </section>
+
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script>
+   function onSubmit(token) {
+     document.getElementById("contact").submit();
+   }
+ </script>
 @endsection
