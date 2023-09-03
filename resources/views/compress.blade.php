@@ -408,6 +408,8 @@ function convertImages(files) {
         updateConvertButtonState();
         conversionInProgress = false;
         files = [];
+        $('.download-all-files').removeClass('d-none');
+
       }
     });
   });
