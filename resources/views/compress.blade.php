@@ -24,7 +24,7 @@
                         <span>compresser</span>
                     </h1>
                     <p class="banner-message">
-                        Easily Compress Up to 20 files at a single time. Lots of media and document formats are
+                        Easily Compress Up to 10 files at a single time. Lots of media and document formats are
                         supported.
                     </p>
                     <div class="shape">
