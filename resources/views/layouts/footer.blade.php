@@ -28,7 +28,7 @@
                         <ul>
                             <li><a href="{{ route('base', ['format' => 'webp-to-png']) }}">WEBP to PNG</a></li>
                             <li><a href="{{ route('base', ['format' => 'webp-to-jpg']) }}">WEBP to JPG</a></li>
-                            <li><a href="{{ route('base', ['format' => 'webp-to-jpeg']) }}">WEB to JPEG</a></li>
+                            <li><a href="{{ route('base', ['format' => 'webp-to-jpeg']) }}">WEBP to JPEG</a></li>
                             <li><a href="{{ route('base', ['format' => 'webp-to-pdf']) }}">WEBP to PDF</a></li>
                             <li><a href="{{ route('base', ['format' => 'gif-to-webp']) }}">GIF to WEBP</a></li>
                         </ul>
