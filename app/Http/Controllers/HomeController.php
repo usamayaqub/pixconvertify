@@ -40,7 +40,7 @@ class HomeController extends Controller
         $format = strtolower($request->input('format'));
          // Generate a unique filename
          $img_name = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
-         $filename = $img_name . '-' . time() . '.' . $format;
+         $filename = $img_name . '.' . $format;
 
          $allowedImageFormats = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp','docx'];
          $fileExtension = strtolower($imageFile->getClientOriginalExtension());
@@ -120,7 +120,7 @@ class HomeController extends Controller
 
          // Generate a unique filename
          $img_name = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
-         $filename = $img_name . '-' . time() . '.' . $ext;
+         $filename = $img_name .'.' . $ext;
 
          $convertedImagePath = public_path('compressed/'.$filename);
 
