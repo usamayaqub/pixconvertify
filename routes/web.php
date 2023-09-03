@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\SitemapController;
 use App\Mail\SendOtp;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -76,9 +77,9 @@ Route::get('/blogs', [HomeController::class, 'blogs'])->name('get-blogs');
 Route::get('/blog/{slug}', [HomeController::class, 'blogsdetail'])->name('get-blogs-detail');
 
 
-Route::get('/checkresponsivness', [HomeController::class, 'checkresponsiveness'])->name('get-checkrespo');
+Route::get('/check-responsiveness', [HomeController::class, 'checkresponsiveness'])->name('get-checkrespo');
 Route::get('/how-its-work', [HomeController::class, 'howWorks'])->name('get-how-works');
-Route::get('/privacy-Policies', [HomeController::class, 'privacyPolicies'])->name('get-privacy-policies');
+Route::get('/privacy-policy', [HomeController::class, 'privacyPolicies'])->name('get-privacy-policies');
 Route::get('/buy-us-coffee', [HomeController::class, 'support'])->name('get-support');
 Route::get('/contact-us', [HomeController::class, 'contact'])->name('get-contact');
 Route::post('/contact', [HomeController::class, 'contactUs'])->name('contact.send');
@@ -92,6 +93,10 @@ Route::post('logout', 'App\Http\Controllers\Auth\LoginController@logout')->name(
 
 });
 
+
+// Sitemap
+Route::get('/sitemap.xml', [SitemapController::class, 'index']);
+// Sitemap
 
 
 // Super Admin Dashboard
