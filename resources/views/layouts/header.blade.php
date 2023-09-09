@@ -4,7 +4,7 @@
         <div class="site-header_inner-wrap">
             <div class="site-header_link-wrap">
                 <a href="{{route('base')}}" class="site_logo">
-                    <img src="{{asset('assets/images/site-logo.svg')}}" alt="">
+                    <img src="{{asset('assets/images/site-logo.svg')}}" alt="Pixconvertify">
                 </a>
                 <ul class="site-header-links">
                     <li>

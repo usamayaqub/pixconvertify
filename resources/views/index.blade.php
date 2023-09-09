@@ -26,18 +26,18 @@
                       ?>
                     <h1>
                        {{$first_word}} TO {{$last_word}}
-                        <span>converter</span>
+                        <span>converter by Pixconvertify</span>
                     </h1>
                     <p class="banner-message">
-                        Securely convert Up to 20 files from {{$first_word}} to {{$last_word}} at a single time.
+                        Securely Convert Up to 10 Files from {{$first_word}} to {{$last_word}} with pix convertify.
                     </p>
                     @else
                     <h1>
-                        Free online file
-                        <span>converter</span>
+                        Free Online File Converter by 
+                        <span>Pixconvertify</span>
                     </h1>
                     <p class="banner-message">
-                        Securely convert Up to 10 files at a single time. Lots of media and document formats are
+                        Securely Convert Up to 10 Files at a Single Time with Pix convertify. Lots of media and document formats are
                         supported.
                     </p>
                     @endif
@@ -208,8 +208,8 @@
       <div class="container">
           <div class="pormotion-slider owl-carousel owl-theme">
               <div class="pormotion-slider_item">
-                <img src="{{asset('./assets/images/home-flyer.png')}}" class="show-on-web" alt="">
-                <img src="{{asset('./assets/images/home-flyer-mbl.png')}}" class="show-on-mbl" alt="">
+                <img src="{{asset('./assets/images/home-flyer.png')}}" class="show-on-web" alt="Image Convertion Made Effortless with Pixconvertify">
+                <img src="{{asset('./assets/images/home-flyer-mbl.png')}}" class="show-on-mbl" alt="Image Convertion Made Effortless with Pixconvertify">
 
               </div>
               {{-- <div class="pormotion-slider_item">
@@ -249,14 +249,17 @@
 
     <section class="sec_check_responsiveness">
       <div class="container">
-        <h2 class="h2">Introducing Our Responsive Website Checker! </h2>
+        <h2 class="h2">Pixconvertify Introduces Our Responsive Website Checker! </h2>
         <div class="sec_check_row">
         <div class="sec_check">
           <p>
-            Is your website prepared to dazzle users on any device? Discover the secret to captivating cross-device experiences with our cutting-edge Responsive Website Checker! 🚀
+              Is your website ready to impress users on any device? Find out the secret to creating amazing experiences across different screens with our advanced Responsive Website Checker! 🚀
           </p>
           <p>
-            Gone are the days of pixelated screens and awkward scrolling. Our tool empowers you to effortlessly gauge your site's responsiveness across smartphones, tablets, laptops, and more. Unleash the potential of a seamless browsing journey that adapts flawlessly to every screen size.
+              Forget about blurry screens and frustrating scrolling. Our tool makes it easy for you to check how well your website adapts to smartphones, tablets, laptops, and more. Unlock the potential of a seamless browsing experience that works perfectly on every screen size.
+          </p>
+          <p>
+              But that's not all! At Pixconvertify, we're excited to introduce two more fantastic tools to enhance your website: our Image Compression and Image Conversion tools. With us, you can now optimize your images and convert them effortlessly. Stay tuned for more ways to improve your website!"
           </p>
           <a href="{{route('get-checkrespo')}}" class="theme-btn site_signin waves-effect waves-light mt-2">Check Responsiveness</a>
         </div>

@@ -379,7 +379,7 @@ body.fixed {
     font-size: 16px;
     line-height: 24px;
     text-align: left;
-    max-width: 440px;
+    max-width: 397px;
 }
 .shape {
     width: 342px;
@@ -1983,7 +1983,7 @@ span.kicker::after {
 }
 .h2 {
     font-family: "Noto Sans HK", sans-serif;
-    font-size: 40px;
+    font-size: 38px;
     font-weight: 500;
     line-height: 70px;
     letter-spacing: 0em;
