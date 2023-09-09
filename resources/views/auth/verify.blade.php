@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('canonical',"https://pixconvertify.com/otp-verification")
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css">
 <style>
  body {

@@ -2,7 +2,7 @@
 
 @section('meta_title', 'PixConvertify | Fast and Reliable Picture Conversion Services')
 @section('meta_description', 'Welcome to PixConvertify, your go-to platform for quick and dependable picture conversion. Convert images to various formats effortlessly and enjoy high-quality results. Experience the convenience of our user-friendly interface and make your pictures shine in just a few clicks. Try PixConvertify today and unleash the potential of your images!')
-@section('canonical',"")
+@section('canonical',"https://pixconvertify.com/")
 
 @section('script_css')
 <meta itemprop="image" content="">
@@ -222,6 +222,7 @@
     </div>
 
 
+    </div>
     <!-- How its work -->
     <section class="how-its-work">
         <div class="container">
@@ -508,7 +509,7 @@
           var fileSizeInKB = Math.round(file.size / 1024);
           $fileSize.text(fileSizeInKB + " KB"); // Display the calculated size
           var $progressWrap = $('<div class="progress_wrap d-none">');
-          var $progressBar = $('<div class="progress-bar d-none">');
+          var $progressBar = $('<div class="progress-bar progress-bar-success progress-bar-striped active d-none">');
           var $progress = $('<div class="progress d-none" style="width: 0%;">');
           var $processPercentage = $('<p class="process-percentage d-none">');
           var $processingBtn = $('<button class="processing waves-effect waves-light d-none">Processing</button>');

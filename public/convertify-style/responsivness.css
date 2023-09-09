@@ -165,26 +165,18 @@
         display: none;
     }
 }
-@media only screen and (max-width: 700px) {
-    .converter_section_selection .select-file {
+@media only screen and (max-width: 831px) {
+    .flex-wrap {
+        flex-wrap: wrap;
+    }
+    .flex-wrap .flex-50 {
         width: 100%;
     }
-    .converter-selection_box p {
-        width: 80px;
+    .flex-wrap.col-reserve-md {
+        flex-direction: column-reverse;
     }
-    .footer_btn_wrap {
-        display: flex;
-        justify-content: end;
-        gap: 7px;
-    }
-    .search_wrap input {
-        width: calc(100% - 280px);
-    }
-    .search_wrap button {
-        width: 280px;
-    }
-    .converter_item .selection-dropdown {
-        left: -63px;
+    .how_its_work .section-heading p {
+        max-width: 100%;
     }
 }
 @media only screen and (max-width: 768px) {
@@ -252,6 +244,39 @@
     }
     .sec_check p {
         max-width: 100%;
+    }
+    .px-content h2 {
+        font-size: 30px;
+        line-height: 40px;
+    }
+    .how_its_work .flex-wrap h3 {
+        font-size: 25px;
+        line-height: 30px;
+    }
+    .flex-wrap .img-wrap {
+        height: 350px;
+    }
+}
+@media only screen and (max-width: 700px) {
+    .converter_section_selection .select-file {
+        width: 100%;
+    }
+    .converter-selection_box p {
+        width: 80px;
+    }
+    .footer_btn_wrap {
+        display: flex;
+        justify-content: end;
+        gap: 7px;
+    }
+    .search_wrap input {
+        width: calc(100% - 280px);
+    }
+    .search_wrap button {
+        width: 280px;
+    }
+    .converter_item .selection-dropdown {
+        left: -63px;
     }
 }
 @media only screen and (max-width: 600px) {

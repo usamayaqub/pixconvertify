@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('meta_title', "Website Responsiveness Checker | Test Your Site's Adaptability | PixConvertify")
 @section('meta_description', "Check your website's responsiveness with PixConvertify Website Responsiveness Checker. Ensure your site adapts seamlessly to different devices and screen sizes. Test mobile-friendliness and optimize your user experience. Make your website shine on every platform with our user-friendly tool. Try it now for free!")
-@section('canonical',"")
+@section('canonical',"https://pixconvertify.com/check-responsiveness")
 
 @section('script_css')
 <meta itemprop="image" content="">
