@@ -32,7 +32,7 @@
                 <div class="site-banner-right">
                   <div class="contact-us-form">
                     <h2>Send us a <span>message</span></h2>
-                    <form class="col s12" action="{{route('contact.send')}}" method="POST" id="contact"> 
+                    <form class="col s12" action="{{route('contact.send')}}" method="POST" id="contact-form"> 
                       @csrf
                       <div class="row">
                         <div class="input-field col s12">
@@ -70,9 +70,10 @@
                       </div>
                       <div class="form-group">
                       <div class="g-recaptcha" data-sitekey="{{ env('NOCAPTCHA_SITEKEY') }}"></div>
+                      <div class="recaptcha-error" style="color: red;"></div>
                       </div>
                       <div class="row">
-                        <button class="theme-btn site_signin waves-effect waves-light g-recaptcha" type="submit">Send Message</button>
+                        <button id="submit-button" class="theme-btn site_signin waves-effect waves-light g-recaptcha" type="submit">Send Message</button>
                       </div>
                     </form>
                   </div>
@@ -85,4 +86,25 @@
     </section>
 
     <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var recaptcha = document.querySelector(".g-recaptcha");
+
+        var submitButton = document.querySelector("#submit-button");
+
+        submitButton.addEventListener("click", function (event) {
+            event.preventDefault(); 
+
+            // Check if reCAPTCHA is checked
+            if (grecaptcha.getResponse().length === 0) {
+                // If reCAPTCHA is not checked, display an error message
+                var recaptchaError = document.querySelector(".recaptcha-error");
+                recaptchaError.textContent = "Please complete the reCAPTCHA.";
+            } else {
+                // If reCAPTCHA is checked, submit the form
+                document.querySelector("#contact-form").submit();
+            }
+        });
+    });
+</script>
 @endsection
