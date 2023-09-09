@@ -68,11 +68,11 @@
                           <label for="message">Message</label>
                         </div>
                       </div>
-                    <div class="row">
-                    <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div>
-                    </div>
+                      <div class="form-group">
+                      <div class="g-recaptcha" data-sitekey="{{ env('NOCAPTCHA_SITEKEY') }}"></div>
+                      </div>
                       <div class="row">
-                        <button data-sitekey="6LehzfcnAAAAAHb3VQafolr1jlknRs-dmM9myOQY" data-callback='onSubmit' data-action='submit' class="theme-btn site_signin waves-effect waves-light g-recaptcha">Send Message</button>
+                        <button class="theme-btn site_signin waves-effect waves-light g-recaptcha" type="submit">Send Message</button>
                       </div>
                     </form>
                   </div>
@@ -85,9 +85,4 @@
     </section>
 
     <script src="https://www.google.com/recaptcha/api.js"></script>
-    <script>
-   function onSubmit(token) {
-     document.getElementById("contact").submit();
-   }
- </script>
 @endsection
