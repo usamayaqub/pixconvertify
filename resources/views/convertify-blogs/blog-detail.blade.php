@@ -1,6 +1,6 @@
 @extends('layouts.master')
-@section('meta_title', 'Blogs | Convertify')
-@section('meta_description', '')
+@section('meta_title', $blog->meta_title)
+@section('meta_description', $blog->meta_description)
 @section('canonical',"")
 
 @section('script_css')
