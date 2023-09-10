@@ -16,7 +16,7 @@
             <div class="site-banner-wrap">
                 <div class="site-banner-left">
                     <div class="banner-badge">
-                        <p>Convert your files to any format</p>
+                        <p>Convert Bulk Images at once</p>
                     </div>
                     @if(!empty($format))
                       <?php
@@ -33,12 +33,11 @@
                     </p>
                     @else
                     <h1>
-                        Free Online File Converter by 
+                        File Converter by 
                         <span>Pixconvertify</span>
                     </h1>
                     <p class="banner-message">
-                        Securely Convert Up to 10 Files at a Single Time with Pix convertify. Lots of media and document formats are
-                        supported.
+                        Pixconvertify Unlock the power of our versatile image format converter tool. Optimize your site with smaller, top-quality images effortlessly. We support WebP, PNG, JPG, JPEG, GIF, and PDF conversions, simplifying your web image management.
                     </p>
                     @endif
                     <div class="shape">
@@ -204,6 +203,7 @@
             </div>
         </div>
     </section>
+    
     <div class="pormotion_section">
       <div class="container">
           <div class="pormotion-slider owl-carousel owl-theme">
@@ -221,15 +221,66 @@
         </div>
     </div>
 
+    <section class="section-convertion-and-format">
+      <div class="container">
+        <h2 class="h1 center mb-5">Converting and Compressing <span class="theme-color">PNG</span>, <span class="theme-color">JPG</span>, <span class="theme-color">WebP</span>, <span class="theme-color">PDF</span>, and <span class="theme-color">GIF</span></h2>
 
-    </div>
+        <div class="flex-wrap">
+          <div class="flex-50 bg-white">
+            <div class="flex-inner">              
+              <div>
+                  <h3 class="heading-md">What is the Best Compressed Image Format?</h3>
+                  <p class="content-p">
+                    We all understand the need to make our websites load quickly without sacrificing image quality. So, let's dive into the search for the best compressed image format together. When it comes to finding the most compressed image format, we're all on the same mission: to discover the top picture format for high resolution with minimal compression. In this journey, we're not just looking into PNG compression; we're also exploring the conversion of PNG to WebP.
+                  <p>
+                </div>
+                <img src="{{asset('./assets/images/file-format.svg')}}" alt="">
+              </div>
+          </div>
+          <div class="flex-50 bg-white">
+            <div class="flex-inner">              
+              <div>
+            <h3 class="heading-md"> Is JPG and JPEG the Same?</h3>
+              <p class="content-p">
+                  Are JPG and JPEG interchangeable? Absolutely! In the world of image formats, JPG (or JPEG, as it's often called) is the go-to choice. It's perfect for photos and images on the web, offering a good balance between quality and size. On the other hand, formats like WebP and PNG have their strengths, excelling in different scenarios. So, while JPG and JPEG are practically twins, don't hesitate to explore other formats like WebP and PNG based on your project's unique needs.
+              <p>
+              </div>
+                <img src="{{asset('./assets/images/question.svg')}}" alt="">
+              </div>
+          </div>
+          <div class="flex-50 bg-white">
+            <div class="flex-inner">              
+              <div>
+                  <h3 class="heading-md"> Is WebP Better Than JPG?</h3>
+                  <p class="content-p">
+                    For those seeking efficient image conversion online, WebP emerges as a top choice. Its ability to compress images while preserving quality surpasses JPG. You can easily convert WebP to JPG, PNG, or GIF using online converters. These tools ensure your website benefits from smaller, high-quality images. When optimizing your site, consider the advantages of WebP, making it a preferred option over JPG for achieving top-notch performance without compromising visual appeal.
+                  <p>
+              </div>
+                <img src="{{asset('./assets/images/image-file.svg')}}" alt="">
+            </div>
+          </div>
+          <div class="flex-50 bg-white">
+            <div class="flex-inner">              
+              <div>
+                <h3 class="heading-md">Compress images for website speed</h3>
+                  <p class="content-p">
+                    Enhance your website's performance by reducing load times with image compression. Our smooth compression process effectively reduces image sizes, supercharging your site's load times for a quicker, more efficient user experience. Benefit from faster loading speeds, improved SEO rankings, and seamless website optimization without any fuss. <a class="theme-color" href="{{route('get-justcompress')}}">Try our file compressor</a>
+                  <p>
+                  </div>
+                  <img src="{{asset('./assets/images/speed.svg')}}" alt="">
+              </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- How its work -->
     <section class="how-its-work">
         <div class="container">
             <h2>How does it work?</h2>
             <div class="how-its-work_wrap">
                 <div class="how-its-work_item">
-                    <img src="{{asset('./assets/images/file.svg')}}" alt="">
+                    <img class="icons-image" src="{{asset('./assets/images/file.svg')}}" alt="">
                     <h3>Step 1</h3>
                     <p>Upload Your File</p>
                 </div>
@@ -239,7 +290,7 @@
                     <p>Select Output Format</p>
                 </div>
                 <div class="how-its-work_item">
-                    <img src="{{asset('./assets/images/download.svg')}}" alt="">
+                    <img class="icons-image" src="{{asset('./assets/images/download.svg')}}" alt="">
                     <h3>Step 3</h3>
                     <p>Download Your Converted Image</p>
                 </div>

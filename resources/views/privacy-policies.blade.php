@@ -87,10 +87,6 @@
         <p>
           Our website may contain links to third-party websites or services. Please be aware that we are not responsible for their privacy practices. We encourage you to read the privacy policies of these third-party sites.
         </p>
-        <h3>Children's Privacy</h3>
-        <p>
-          Our services are not intended for use by individuals under the age of [insert age in years]. We do not knowingly collect personal information from children under this age. If you believe we have unintentionally collected information from a child, please contact us to have it removed.
-        </p>
         <h3>Changes to this Privacy Policy</h3>
         <p>
           We reserve the right to modify this Privacy Policy at any time. Any changes will be effective immediately upon posting the revised policy on our website. We encourage you to review this policy periodically to stay informed about how we collect, use, and protect your information

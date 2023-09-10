@@ -71,6 +71,30 @@
                     @enderror
                 </div>  
 
+                 <div class="form-group col-sm-7 mb-2">
+                    <label for="">Meta Title<span class="text-danger">*</span></label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="meta_title" @isset($type)value="{{$type->meta_title}}" @endisset placeholder="Enter Meta Title">
+                    </div>
+                    @error('meta_title')
+                    <span class="invalid-feedback mt-0" @error('meta_title')style="display: block" @enderror role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>  
+
+                 <div class="form-group col-sm-7 mb-2">
+                    <label for="">Meta Description<span class="text-danger">*</span></label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="meta_description" @isset($type)value="{{$type->meta_description}}" @endisset placeholder="Enter meta description">
+                    </div>
+                    @error('meta_description')
+                    <span class="invalid-feedback mt-0" @error('meta_description')style="display: block" @enderror role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>  
+
                 <div class="form-group col-sm-7 mb-2">
                     <label for="">Content<span class="text-danger">*</span></label>
                     <div class="">

@@ -16,9 +16,11 @@ class Blog extends Model
         'content',
         'slug',
         'status',
-     ];
+        'meta_title',
+        'meta_description',
+    ];
 
-     public static function generateSlug(string $title): string
+    public static function generateSlug(string $title): string
     {
         $baseSlug = Str::slug($title);
         $slug = $baseSlug;
@@ -36,14 +38,14 @@ class Blog extends Model
     public function setTitleAttribute($value)
     {
         $this->attributes['title'] = $value;
-        
+
         if (!isset($this->attributes['slug']) || empty($this->attributes['slug'])) {
             $this->attributes['slug'] = static::generateSlug($value);
         }
     }
 
-     public function images()
-     {
-         return $this->hasMany(BlogImage::class);
-     }
+    public function images()
+    {
+        return $this->hasMany(BlogImage::class);
+    }
 }

@@ -143,6 +143,9 @@ h6 {
 .mb-2 {
     margin-bottom: 14px;
 }
+.mb-5 {
+    margin-bottom: 25px;
+}
 .gernal-btn {
     border-radius: 6px;
     font-family: "Roboto", sans-serif;
@@ -379,7 +382,7 @@ body.fixed {
     font-size: 16px;
     line-height: 24px;
     text-align: left;
-    max-width: 397px;
+    max-width: 476px;
 }
 .shape {
     width: 342px;
@@ -1985,7 +1988,7 @@ span.kicker::after {
     font-family: "Noto Sans HK", sans-serif;
     font-size: 38px;
     font-weight: 500;
-    line-height: 70px;
+    line-height: 50px;
     letter-spacing: 0em;
     text-align: center;
     color: var(--text-color);
@@ -2025,4 +2028,50 @@ span.kicker::after {
 }
 .mb-1 {
     margin-bottom: 10px !important;
+}
+
+/* section-convertion-and-format */
+.section-convertion-and-format {
+    padding: 50px 0;
+    margin: 60px 0;
+    background-color: #f4f4f4;
+}
+.section-convertion-and-format .container {
+    width: 100%;
+}
+.section-convertion-and-format .flex-50 {
+    border-radius: 4px;
+}
+.section-convertion-and-format .flex-wrap {
+    padding-top: 30px;
+}
+.section-convertion-and-format .flex-wrap .content-p {
+    min-height: 189px;
+}
+.h1 {
+    font-size: 43px;
+    line-height: 54px;
+    font-weight: 600;
+    color: #161a1d;
+}
+.heading-md {
+    font-size: 23px;
+    font-weight: 500;
+    line-height: 30px;
+    color: #161a1d;
+}
+.theme-color {
+    color: var(--btn-bg-red);
+}
+.content-p {
+    line-height: 27px;
+}
+
+/* .bg-white {
+    background-color: #fff;
+} */
+
+.flex-inner {
+    display: flex;
+    align-items: flex-start;
 }

@@ -13,18 +13,18 @@ use Yajra\DataTables\Facades\DataTables;
 class BlogController extends Controller
 {
     use FileUploadTrait;
-    
+
     public function index(Request $request)
     {
         $data = Blog::with('images')->orderBy('created_at', 'desc')->get();
         if ($request->ajax()) {
             return DataTables::of($data)
-            ->addColumn('image', function ($data) {
-                $firstImage = $data->images->first(); // Get the first image from the blog's images
-                if ($firstImage) {
-                    return '<img src="' . $firstImage->url . '" height="40px"/>';
-                }
-            })
+                ->addColumn('image', function ($data) {
+                    $firstImage = $data->images->first(); // Get the first image from the blog's images
+                    if ($firstImage) {
+                        return '<img src="' . $firstImage->url . '" height="40px"/>';
+                    }
+                })
                 ->addColumn('status', function ($data) {
                     $status = '<span class="badge badge-pill badge-soft-danger font-size-11">InActive</span>';
                     if ($data->status == 1) {
@@ -38,7 +38,7 @@ class BlogController extends Controller
                     </div>';
                     return $actions;
                 })
-                ->rawColumns(['image','status','actions'])
+                ->rawColumns(['image', 'status', 'actions'])
                 ->make(true);
         }
 
@@ -46,7 +46,7 @@ class BlogController extends Controller
     }
 
     public function addBlog(Request $request)
-    { 
+    {
         return view('admin.blogs.edit');
     }
 
@@ -59,12 +59,14 @@ class BlogController extends Controller
         ]);
 
         if ($validator->fails()) {
-        return redirect()->back()->withErrors($validator)->withInput();
+            return redirect()->back()->withErrors($validator)->withInput();
         }
 
         $blog = new Blog();
         $blog->title = $request->title;
         $blog->content = $request->content;
+        $blog->meta_title = $request->meta_title;
+        $blog->meta_description = $request->meta_description;
         $blog->save();
 
         if ($request->banner) {
@@ -72,23 +74,22 @@ class BlogController extends Controller
             $url =  $this->uploadSingleFile($file);
             if (!empty($url)) {
                 $blog->images()->create([
-                'blog_id' => $blog->id,
-                'url' => $url,
-                'type' => 'media',
-                'created_at' => now(),
-                'updated_at' => now(),
+                    'blog_id' => $blog->id,
+                    'url' => $url,
+                    'type' => 'media',
+                    'created_at' => now(),
+                    'updated_at' => now(),
                 ]);
-            } 
+            }
         }
         // Upload Image for the blog
         return redirect()->route('blogs.index')->with('success', 'Blog saved successfully.');
-        
     }
 
-    public function editBlog(Request $request,$id)
+    public function editBlog(Request $request, $id)
     {
         $type = Blog::find($id);
-        return view('admin.blogs.edit',compact('type'));
+        return view('admin.blogs.edit', compact('type'));
     }
 
     public function update(Request $request, $id)
@@ -96,10 +97,11 @@ class BlogController extends Controller
         $blog = Blog::find($id);
         $blog->title = $request->title;
         $blog->content = $request->content;
-        if($request->status == 'on')
-        {
+        $blog->meta_title = $request->meta_title;
+        $blog->meta_description = $request->meta_description;
+        if ($request->status == 'on') {
             $blog->status = 1;
-        }else{
+        } else {
             $blog->status = 0;
         }
         $blog->save();
@@ -110,13 +112,13 @@ class BlogController extends Controller
             $url =  $this->uploadSingleFile($file);
             if (!empty($url)) {
                 $blog->images()->create([
-                'blog_id' => $blog->id,
-                'url' => $url,
-                'type' => 'media',
-                'created_at' => now(),
-                'updated_at' => now(),
+                    'blog_id' => $blog->id,
+                    'url' => $url,
+                    'type' => 'media',
+                    'created_at' => now(),
+                    'updated_at' => now(),
                 ]);
-            } 
+            }
         }
         // Update Image for the blog
         return redirect()->route('blogs.index')->with('success', 'Blog updated successfully.');
@@ -149,6 +151,4 @@ class BlogController extends Controller
         }
         return response()->json(['error' => 'No image uploaded'], 400);
     }
-
-
 }
