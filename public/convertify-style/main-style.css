@@ -2076,6 +2076,18 @@ span.kicker::after {
     align-items: flex-start;
 }
 
-.iframe-error-modal .modal_content{
-    
+#iframe-error-modal{
+    width: 38%;
+}
+#iframe-error-modal .btn-flat{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+#iframe-error-modal .modal-content{
+    padding: 45px 20px;
+}
+#iframe-error-modal .modal-content h3{
+    font-size: 30px;
+    color: var(--btn-bg-red);
 }
