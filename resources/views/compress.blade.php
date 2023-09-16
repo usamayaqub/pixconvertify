@@ -192,7 +192,7 @@ $(document).ready(function() {
 
   // Convert image on button click
   $('.convert-file').click(function() {
-    if (files.length > 20) {
+    if (files.length > 40) {
       Snackbar.show({
             pos: 'bottom-center',
             text: 'You can only compress 10 images at a time.',
