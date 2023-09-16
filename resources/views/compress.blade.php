@@ -20,12 +20,11 @@
                         <p>Compress your file</p>
                     </div>
                     <h1>
-                        Free online file
-                        <span>compresser</span>
+                        Free Online Image
+                        <span>Compresser</span>
                     </h1>
                     <p class="banner-message">
-                        Easily Compress Up to 10 files at a single time. Lots of media and document formats are
-                        supported.
+                        Looking for free online image compress online? With our user-friendly tool, you can easily optimize up to 40 files at once.
                     </p>
                     <div class="shape">
                         <img src="{{asset('./assets/images/shape.svg')}}" class="obj_fit_contain" alt="">
@@ -50,7 +49,7 @@
                         <div class="converter_dropbox">
                             <img src="{{asset('./assets/images/drop-icon.svg')}}" alt="">
                             <h2 class="drop_file-text mt-0">Drag or Drop file here</h2>
-                            <p class="restriction-text">Up to 20 files at a single time, max 20 MB each.</p>
+                            <p class="restriction-text">Compress up to 40 images at a single time, max 20 MB each.</p>
                             <input type="file" title="">
                         </div>
                     </div>
@@ -91,6 +90,79 @@
         </div>
     </section>
 
+
+
+        <section class="section-convertion-and-format">
+      <div class="container">
+        <h2 class="h1 center mb-5">Compressing <span class="theme-color">PNG</span>, <span class="theme-color">JPG</span>, <span class="theme-color">WebP</span> and <span class="theme-color">GIF</span></h2>
+
+        <div class="flex-wrap align-items-start">
+          <div class="flex-50 bg-white">
+            <div class="flex-inner">              
+              <div>
+                  <h3 class="heading-md">Shrink Images Online for Easy Storage</h3>
+                  <p class="content-p">
+                    Do you find your image files taking up way too much space on your device? No worries! You can easily shrink images online using our convenient tool. Whether you're managing a website, sharing pictures on social media, or just trying to save storage, we've got you covered.
+                    
+                    With our user-friendly platform, you can quickly and effortlessly compress your images. Plus, you can process up to 40 images at once, making it a breeze to optimize your visual content. So, if you're tired of bulky image files eating up your storage, give our Shrink Images Online tool a try today. Streamline your images and free up space effortlessly!
+                    
+                    So, if you're tired of bulky image files eating up your storage, give our Shrink Images Online tool a try today. Streamline your images and free up space effortlessly!
+                  <p>
+                </div>
+                <img src="{{asset('./assets/images/shrink.svg')}}" alt="Shrink Images Online">
+              </div>
+          </div>
+          <div class="flex-50 bg-white">
+            <div class="flex-inner">              
+              <div>
+              <h3 class="heading-md">The Benefits of Online Picture Compression in Web Design</h3>
+                <p class="content-p">
+                  In the ever-evolving field of web design, where speed and performance are key, online picture compression proves to be a valuable tool. It's not just about making your website look polished; it's about making your site work better.
+                  Online picture compression simplifies the process of reducing the file size of your images, which, in turn, ensures that your web pages load swiftly. This significantly improves the user experience, especially for those accessing your site on mobile devices.
+                  Moreover, online picture compression helps you save on bandwidth, which can be quite helpful if you're working within budget constraints or expecting heavy website traffic.
+                  In the world of web design, remember this simple truth Embrace online picture compression for a faster, more efficient, and budget-friendly website.
+                <p>
+              </div>
+                <img src="{{asset('./assets/images/layer-ui-web.svg')}}" alt="Online Picture Compression">
+              </div>
+          </div>
+          <div class="flex-50 bg-white">
+            <div class="flex-inner">              
+              <div>
+                  <h3 class="heading-md"><b>Optimizing Load Times</b> The Significance of Compressing Online Images</h3>
+                  <p class="content-p">
+                    When it comes to speeding up your website, think about image compression as your secret weapon. By compressing images online, you're not just making them smaller; you're making your web pages load faster.
+
+                    When visitors come to your site, and because you decided to compress online images, your pages load quickly. No more frustrating waiting times; it's nearly instant.
+
+                    By using simple methods to compress online images, you're not only improving the user experience but also saving valuable bandwidth. Whether you have a portfolio or an online store, this approach ensures that your web content is easily accessible to more people without sacrificing quality.
+
+                    So, if you want to maximize page load speed, keep this in mind compress online images is the key to a faster, smoother online experience. Compress an image now and reduce size while preserving quality and resolution
+                  <p>
+              </div>
+                <img src="{{asset('./assets/images/setting.svg')}}" alt="compress online images">
+            </div>
+          </div>
+          <div class="flex-50 bg-white">
+            <div class="flex-inner">              
+              <div>
+                <h3 class="heading-md">Simplifying Your Website Online Compress Size of Image Explained</h3>
+                  <p class="content-p">
+                    When it comes to boosting your website's performance, understanding the online compress size of image process is like having a friendly conversation. By applying online compress size of image techniques, you're ensuring your website loads swiftly and efficiently.
+
+                    Your website, optimized with online compress size of image methods, welcomes visitors with lightning-fast page loading. Waiting around is a thing of the past, thanks to efficient image compression.
+
+                    Incorporating the practice of online compress size of image is a wise choice. It not only enhances user experience but also conserves valuable bandwidth. Whether you're running a blog or an e-commerce site, it's a win-win situation – your website remains accessible and performs at its peak.
+
+                    So, keep in mind the key phrase online compress size of image to keep your website running efficiently and user-friendly.      
+                  <p>
+              </div>
+                  <img src="{{asset('./assets/images/speed.svg')}}" alt="Online Compress Size of Image">
+              </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- How its work -->
     <section class="how-its-work">
         <div class="container">

@@ -616,6 +616,10 @@ body.fixed {
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid rgba(22, 26, 29, 0.2);
+    transition: all .1s ease;
+}
+.converter_item:hover{
+    background-color: #f4f4f4;
 }
 .converter_section_listing .converter_item:first-child {
     border-top: 1px solid rgba(22, 26, 29, 0.2);
@@ -2074,6 +2078,7 @@ span.kicker::after {
 .flex-inner {
     display: flex;
     align-items: flex-start;
+    gap: 12px;
 }
 
 #iframe-error-modal{
@@ -2091,3 +2096,11 @@ span.kicker::after {
     font-size: 30px;
     color: var(--btn-bg-red);
 }
+.align-items-start{
+    align-items: flex-start;
+}
+
+/* .file-item-list{
+    max-height: 600px;
+    overflow-y: auto;
+} */
