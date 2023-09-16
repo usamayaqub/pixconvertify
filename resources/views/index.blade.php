@@ -476,7 +476,7 @@
     // Convert image on button click
     $('.convert-file').click(function() {
 
-      if (files.length > 10) {
+      if (files.length > 40) {
 
         Snackbar.show({
             pos: 'bottom-center',
