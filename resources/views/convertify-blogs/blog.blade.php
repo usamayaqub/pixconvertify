@@ -2,7 +2,7 @@
 
 @section('meta_title', 'PixConvertify Blog | Expert Tips and Insights on Picture Conversion')
 @section('meta_description', 'Explore the PixConvertify blog for expert tips, and insights on picture conversion. Stay updated with the latest trends and techniques to optimize your images and make the most out of our conversion services. Our blog is your go-to resource for enhancing your visual content and unleashing the full potential of your pictures. Join the conversation and transform your images today')
-@section('canonical',"")
+@section('canonical',"https://pixconvertify.com/blogs")
 
 @section('script_css')
 <meta itemprop="image" content="">

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('meta_title', "Website Responsiveness Checker | Test Your Site's Adaptability | PixConvertify")
 @section('meta_description', "Check your website's responsiveness with PixConvertify Website Responsiveness Checker. Ensure your site adapts seamlessly to different devices and screen sizes. Test mobile-friendliness and optimize your user experience. Make your website shine on every platform with our user-friendly tool. Try it now for free!")
-@section('canonical',"")
+@section('canonical',"https://pixconvertify.com/check-responsiveness")
 
 @section('script_css')
 <meta itemprop="image" content="">
@@ -23,12 +23,12 @@
             Check you site Responsiveness in all devices at one time
           </p>
           <div class="shape">
-            <img src="./assets/images/shape.svg" class="obj_fit_contain" alt="">
+            <img src="{{asset('assets/images/shape.svg')}}" class="obj_fit_contain" alt="">
           </div>
-<div class="search_wrap">
-  <input id="site-url-input-field" type="url" class="form-control" placeholder="https://pixconvertify.com" required>
-  <button id="submit-btn" class="theme-btn waves-effect waves-light">Check Now</button>
-</div>
+          <div class="search_wrap">
+            <input id="site-url-input-field" type="url" class="form-control" placeholder="xyz.com" required>
+            <button id="submit-btn" class="theme-btn waves-effect waves-light">Check Now</button>
+          </div>
 
       </div>
     </div>
@@ -59,4 +59,17 @@
       </div>
   </div>
 
+
+
+  <div id="iframe-error-modal" class="modal">
+    <div class="modal_content">
+      <div class="modal-content p-4">
+          <h3 class="h2">Website Embedding Error</h3>
+          <p class="center">This website does not allow embedding in iframes.</p>
+          <a href="#!" class="modal-close waves-effect waves-green btn-flat">
+            <img src="{{asset('assets/images/cancel.svg')}}" alt="">
+          </a>
+      </div>
+    </div>
+</div>
 @endsection

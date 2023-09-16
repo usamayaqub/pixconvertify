@@ -2,7 +2,7 @@
 
 @section('meta_title', "Contact PixConvertify | Get in Touch for Image Conversion Support")
 @section('meta_description', "Have questions or need assistance with image conversion? Contact PixConvertify today! Our friendly support team is here to help you with any queries or concerns you may have. Reach out to us through our contact form or email, and we'll ensure a prompt and helpful response. Let us enhance your image conversion experience at PixConvertify")
-@section('canonical',"")
+@section('canonical',"https://pixconvertify.com/contact-us")
 
 @section('script_css')
 <meta itemprop="image" content="">

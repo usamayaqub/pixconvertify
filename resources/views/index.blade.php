@@ -2,8 +2,11 @@
 
 @section('meta_title', 'PixConvertify | Fast and Reliable Picture Conversion Services')
 @section('meta_description', 'Welcome to PixConvertify, your go-to platform for quick and dependable picture conversion. Convert images to various formats effortlessly and enjoy high-quality results. Experience the convenience of our user-friendly interface and make your pictures shine in just a few clicks. Try PixConvertify today and unleash the potential of your images!')
-@section('canonical',"")
-
+@isset($format)
+@section('canonical',"https://pixconvertify.com/" . $format)
+@else
+@section('canonical',"https://pixconvertify.com/")
+@endisset 
 @section('script_css')
 <meta itemprop="image" content="">
 <meta property="og:image" content="" />
@@ -16,7 +19,7 @@
             <div class="site-banner-wrap">
                 <div class="site-banner-left">
                     <div class="banner-badge">
-                        <p>Convert your files to any format</p>
+                        <p>Convert Bulk Images at once</p>
                     </div>
                     @if(!empty($format))
                       <?php
@@ -26,19 +29,18 @@
                       ?>
                     <h1>
                        {{$first_word}} TO {{$last_word}}
-                        <span>converter</span>
+                        <span>converter by Pixconvertify</span>
                     </h1>
                     <p class="banner-message">
-                        Securely convert Up to 20 files from {{$first_word}} to {{$last_word}} at a single time.
+                        Securely Convert Up to 10 Files from {{$first_word}} to {{$last_word}} with pix convertify.
                     </p>
                     @else
                     <h1>
-                        Free online file
-                        <span>converter</span>
+                        File Converter by 
+                        <span>Pixconvertify</span>
                     </h1>
                     <p class="banner-message">
-                        Securely convert Up to 10 files at a single time. Lots of media and document formats are
-                        supported.
+                        Pixconvertify Unlock the power of our versatile image format converter tool. Optimize your site with smaller, top-quality images effortlessly. We support WebP, PNG, JPG, JPEG, GIF, and PDF conversions, simplifying your web image management.
                     </p>
                     @endif
                     <div class="shape">
@@ -204,12 +206,13 @@
             </div>
         </div>
     </section>
+    
     <div class="pormotion_section">
       <div class="container">
           <div class="pormotion-slider owl-carousel owl-theme">
               <div class="pormotion-slider_item">
-                <img src="{{asset('./assets/images/home-flyer.png')}}" class="show-on-web" alt="">
-                <img src="{{asset('./assets/images/home-flyer-mbl.png')}}" class="show-on-mbl" alt="">
+                <img src="{{asset('./assets/images/home-flyer.png')}}" class="show-on-web" alt="Image Convertion Made Effortless with Pixconvertify">
+                <img src="{{asset('./assets/images/home-flyer-mbl.png')}}" class="show-on-mbl" alt="Image Convertion Made Effortless with Pixconvertify">
 
               </div>
               {{-- <div class="pormotion-slider_item">
@@ -221,6 +224,58 @@
         </div>
     </div>
 
+    <section class="section-convertion-and-format">
+      <div class="container">
+        <h2 class="h1 center mb-5">Converting and Compressing <span class="theme-color">PNG</span>, <span class="theme-color">JPG</span>, <span class="theme-color">WebP</span>, <span class="theme-color">PDF</span>, and <span class="theme-color">GIF</span></h2>
+
+        <div class="flex-wrap">
+          <div class="flex-50 bg-white">
+            <div class="flex-inner">              
+              <div>
+                  <h3 class="heading-md">What is the Best Compressed Image Format?</h3>
+                  <p class="content-p">
+                    We all understand the need to make our websites load quickly without sacrificing image quality. So, let's dive into the search for the best compressed image format together. When it comes to finding the most compressed image format, we're all on the same mission: to discover the top picture format for high resolution with minimal compression. In this journey, we're not just looking into PNG compression; we're also exploring the conversion of PNG to WebP.
+                  <p>
+                </div>
+                <img src="{{asset('./assets/images/file-format.svg')}}" alt="">
+              </div>
+          </div>
+          <div class="flex-50 bg-white">
+            <div class="flex-inner">              
+              <div>
+            <h3 class="heading-md"> Is JPG and JPEG the Same?</h3>
+              <p class="content-p">
+                  Are JPG and JPEG interchangeable? Absolutely! In the world of image formats, JPG (or JPEG, as it's often called) is the go-to choice. It's perfect for photos and images on the web, offering a good balance between quality and size. On the other hand, formats like WebP and PNG have their strengths, excelling in different scenarios. So, while JPG and JPEG are practically twins, don't hesitate to explore other formats like WebP and PNG based on your project's unique needs.
+              <p>
+              </div>
+                <img src="{{asset('./assets/images/question.svg')}}" alt="">
+              </div>
+          </div>
+          <div class="flex-50 bg-white">
+            <div class="flex-inner">              
+              <div>
+                  <h3 class="heading-md"> Is WebP Better Than JPG?</h3>
+                  <p class="content-p">
+                    For those seeking efficient image conversion online, WebP emerges as a top choice. Its ability to compress images while preserving quality surpasses JPG. You can easily convert WebP to JPG, PNG, or GIF using online converters. These tools ensure your website benefits from smaller, high-quality images. When optimizing your site, consider the advantages of WebP, making it a preferred option over JPG for achieving top-notch performance without compromising visual appeal.
+                  <p>
+              </div>
+                <img src="{{asset('./assets/images/image-file.svg')}}" alt="">
+            </div>
+          </div>
+          <div class="flex-50 bg-white">
+            <div class="flex-inner">              
+              <div>
+                <h3 class="heading-md">Compress images for website speed</h3>
+                  <p class="content-p">
+                    Enhance your website's performance by reducing load times with image compression. Our smooth compression process effectively reduces image sizes, supercharging your site's load times for a quicker, more efficient user experience. Benefit from faster loading speeds, improved SEO rankings, and seamless website optimization without any fuss. <a class="theme-color" href="{{route('get-justcompress')}}">Try our file compressor</a>
+                  <p>
+                  </div>
+                  <img src="{{asset('./assets/images/speed.svg')}}" alt="">
+              </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- How its work -->
     <section class="how-its-work">
@@ -228,7 +283,7 @@
             <h2>How does it work?</h2>
             <div class="how-its-work_wrap">
                 <div class="how-its-work_item">
-                    <img src="{{asset('./assets/images/file.svg')}}" alt="">
+                    <img class="icons-image" src="{{asset('./assets/images/file.svg')}}" alt="">
                     <h3>Step 1</h3>
                     <p>Upload Your File</p>
                 </div>
@@ -238,7 +293,7 @@
                     <p>Select Output Format</p>
                 </div>
                 <div class="how-its-work_item">
-                    <img src="{{asset('./assets/images/download.svg')}}" alt="">
+                    <img class="icons-image" src="{{asset('./assets/images/download.svg')}}" alt="">
                     <h3>Step 3</h3>
                     <p>Download Your Converted Image</p>
                 </div>
@@ -248,14 +303,17 @@
 
     <section class="sec_check_responsiveness">
       <div class="container">
-        <h2 class="h2">Introducing Our Responsive Website Checker! </h2>
+        <h2 class="h2">Pixconvertify Introduces Our Responsive Website Checker! </h2>
         <div class="sec_check_row">
         <div class="sec_check">
           <p>
-            Is your website prepared to dazzle users on any device? Discover the secret to captivating cross-device experiences with our cutting-edge Responsive Website Checker! 🚀
+              Is your website ready to impress users on any device? Find out the secret to creating amazing experiences across different screens with our advanced Responsive Website Checker! 🚀
           </p>
           <p>
-            Gone are the days of pixelated screens and awkward scrolling. Our tool empowers you to effortlessly gauge your site's responsiveness across smartphones, tablets, laptops, and more. Unleash the potential of a seamless browsing journey that adapts flawlessly to every screen size.
+              Forget about blurry screens and frustrating scrolling. Our tool makes it easy for you to check how well your website adapts to smartphones, tablets, laptops, and more. Unlock the potential of a seamless browsing experience that works perfectly on every screen size.
+          </p>
+          <p>
+              But that's not all! At Pixconvertify, we're excited to introduce two more fantastic tools to enhance your website: our Image Compression and Image Conversion tools. With us, you can now optimize your images and convert them effortlessly. Stay tuned for more ways to improve your website!"
           </p>
           <a href="{{route('get-checkrespo')}}" class="theme-btn site_signin waves-effect waves-light mt-2">Check Responsiveness</a>
         </div>
@@ -508,7 +566,7 @@
           var fileSizeInKB = Math.round(file.size / 1024);
           $fileSize.text(fileSizeInKB + " KB"); // Display the calculated size
           var $progressWrap = $('<div class="progress_wrap d-none">');
-          var $progressBar = $('<div class="progress-bar d-none">');
+          var $progressBar = $('<div class="progress-bar progress-bar-success progress-bar-striped active d-none">');
           var $progress = $('<div class="progress d-none" style="width: 0%;">');
           var $processPercentage = $('<p class="process-percentage d-none">');
           var $processingBtn = $('<button class="processing waves-effect waves-light d-none">Processing</button>');

@@ -2,7 +2,7 @@
 
 @section('meta_title', 'How Its Work | Convertify')
 @section('meta_description', '')
-@section('canonical',"")
+@section('canonical',"https://pixconvertify.com/how-its-work")
 
 @section('script_css')
 <meta itemprop="image" content="">
@@ -47,7 +47,7 @@
           Welcome to our PixConvertify, the ultimate tool that allows you to effortlessly convert your images from one format to another with just a few simple steps. Whether you need to resize, compress, or transform your pictures, our user-friendly platform has got you covered. Below, we've outlined a step-by-step guide on how to use our Picture Converter effectively.
         </p>
       </div>
-      <div class="flex-wrap">
+      <div class="flex-wrap mt-5">
         <div class="flex-50">
           <div>
             <span class="kicker">Step 1</span> 
@@ -63,7 +63,7 @@
             </div>
         </div>
       </div>
-      <div class="flex-wrap">
+      <div class="flex-wrap col-reserve-md">
         <div class="flex-50">
             <div class="img-wrap">
                 <img src="{{asset('./assets/images/Capture2.PNG')}}" alt="">

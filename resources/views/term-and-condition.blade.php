@@ -2,7 +2,7 @@
 
 @section('meta_title', 'PixConvertify Terms and Conditions | Image Conversion Services')
 @section('meta_description', 'Read and understand the terms and conditions of PixConvertify, your one-stop image conversion website. Explore our policies and guidelines to ensure a seamless experience while converting your pictures to various formats. Protect your rights and make the most out of our reliable and efficient image conversion services.')
-@section('canonical',"")
+@section('canonical',"https://pixconvertify.com/term-and-condition")
 @section('script_css')
 <meta itemprop="image" content="">
 <meta property="og:image" content="" />

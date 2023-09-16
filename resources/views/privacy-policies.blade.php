@@ -2,7 +2,7 @@
 
 @section('meta_title', 'PixConvertify Privacy Policies | Image Conversion Website')
 @section('meta_description', 'Learn about PixConvertify commitment to your privacy and data protection. Our Privacy Policies outline how we collect, use, and safeguard your personal information while providing top-notch image conversion services. Trust us with your pictures and rest assured that your data is handled responsibly and securely.')
-@section('canonical',"")
+@section('canonical',"https://pixconvertify.com/privacy-policy")
 @section('script_css')
 <meta itemprop="image" content="">
 <meta property="og:image" content="" />
@@ -86,10 +86,6 @@
         <h3>Third-Party Links</h3>
         <p>
           Our website may contain links to third-party websites or services. Please be aware that we are not responsible for their privacy practices. We encourage you to read the privacy policies of these third-party sites.
-        </p>
-        <h3>Children's Privacy</h3>
-        <p>
-          Our services are not intended for use by individuals under the age of [insert age in years]. We do not knowingly collect personal information from children under this age. If you believe we have unintentionally collected information from a child, please contact us to have it removed.
         </p>
         <h3>Changes to this Privacy Policy</h3>
         <p>

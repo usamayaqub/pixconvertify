@@ -30,35 +30,34 @@ Route::get('auth/{provider}', 'App\Http\Controllers\SocialController@redirectToP
 Route::get('auth/{provider}/callback', 'App\Http\Controllers\SocialController@handleProviderCallback');
 
 // Email Verification & Resend OTP
-Route::post('/verify',function(Request $request){
-        $otp = implode('', $request->input('otp'));
-        info($otp);
-        $user = User::where('otp', $otp)->first();
-        if (isset($user) && $user->email_verified_at < now()->addHour() && (!is_null($user))) {
-            User::where('id', $user->id)
-                ->update([
-                    'email_verified_at' => now()
-                ]);
-            return redirect()->route('base');
-        } elseif (!$user) {
-            return back()->with('error', 'Invalid OTP');
-        } else {
-            return back()->with('error', 'Verification code is expired');
-        }
+Route::post('/verify', function (Request $request) {
+    $otp = implode('', $request->input('otp'));
+    info($otp);
+    $user = User::where('otp', $otp)->first();
+    if (isset($user) && $user->email_verified_at < now()->addHour() && (!is_null($user))) {
+        User::where('id', $user->id)
+            ->update([
+                'email_verified_at' => now()
+            ]);
+        return redirect()->route('base');
+    } elseif (!$user) {
+        return back()->with('error', 'Invalid OTP');
+    } else {
+        return back()->with('error', 'Verification code is expired');
+    }
 })->name('verify.email.code');
 
-Route::get('resend/email/otp',function(){
+Route::get('resend/email/otp', function () {
 
     $data = User::where('email', Auth::user()->email)->first();
     $otp = mt_rand(1000, 9999);
     $data->update([
-    'otp' => $otp,
+        'otp' => $otp,
     ]);
-    Mail::to($data->email)->send(new SendOtp($otp,$data));
+    Mail::to($data->email)->send(new SendOtp($otp, $data));
     if (isset($data) && (!is_null($data))) {
-    return back()->with('success', 'OTP verification code has been sent to you email. Please Verify');
+        return back()->with('success', 'OTP verification code has been sent to you email. Please Verify');
     }
-
 })->name('resend.code');
 //   Email Verification & Resend OTP
 
@@ -86,11 +85,10 @@ Route::post('/contact', [HomeController::class, 'contactUs'])->name('contact.sen
 Route::get('/term-and-condition', [HomeController::class, 'term'])->name('get-term');
 
 
-Route::middleware(['auth','isVerified'])->group(function () {
+Route::middleware(['auth', 'isVerified'])->group(function () {
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::post('logout', 'App\Http\Controllers\Auth\LoginController@logout')->name('logout');
-
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::post('logout', 'App\Http\Controllers\Auth\LoginController@logout')->name('logout');
 });
 
 
@@ -101,9 +99,9 @@ Route::get('/sitemap.xml', [SitemapController::class, 'index']);
 
 // Super Admin Dashboard
 
-Route::middleware(['auth','isAdmin'])->group(function () {
+Route::middleware(['auth', 'isAdmin'])->group(function () {
 
-Route::get('/admin', [HomeController::class, 'adminHome'])->name('admin.home');
+    Route::get('/admin', [HomeController::class, 'adminHome'])->name('admin.home');
 
     Route::get('settings', [HomeController::class, 'dailyQuotaView'])->name('index.dailyquota');
 
@@ -118,10 +116,9 @@ Route::get('/admin', [HomeController::class, 'adminHome'])->name('admin.home');
     // BLOGS
 
     Route::get('all_contact', [HomeController::class, 'indexContact'])->name('contact.index');
-
 });
 
 
 Route::get('/{format?}', function ($format = null) {
-    return view('index',compact('format'));
+    return view('index', compact('format'));
 })->name('base');
