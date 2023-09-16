@@ -1,7 +1,17 @@
 @extends('layouts.master')
-
+@isset($format)
+<?php
+  $words = explode('-', $format);
+  $first_word = strtoupper($words[0]);
+  $last_word = strtoupper($words[count($words) - 1]);
+?>
+@section('meta_title', 'Free Onine '.$first_word.' to '.$last_word.' Converter | PixConvertify')
+@section('meta_description', 'Welcome to PixConvertify, your go-to platform for quick and dependable picture conversion. Convert '.$first_word.' to '.$last_word.' formats effortlessly and enjoy high-quality results. Experience the convenience of our user-friendly interface and make your pictures shine in just a few clicks. Try PixConvertify today and unleash the potential of your images!')
+@else
 @section('meta_title', 'PixConvertify | Fast and Reliable Picture Conversion Services')
 @section('meta_description', 'Welcome to PixConvertify, your go-to platform for quick and dependable picture conversion. Convert images to various formats effortlessly and enjoy high-quality results. Experience the convenience of our user-friendly interface and make your pictures shine in just a few clicks. Try PixConvertify today and unleash the potential of your images!')
+@endisset
+
 @isset($format)
 @section('canonical',"https://pixconvertify.com/" . $format)
 @else
