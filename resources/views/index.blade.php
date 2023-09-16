@@ -2,8 +2,11 @@
 
 @section('meta_title', 'PixConvertify | Fast and Reliable Picture Conversion Services')
 @section('meta_description', 'Welcome to PixConvertify, your go-to platform for quick and dependable picture conversion. Convert images to various formats effortlessly and enjoy high-quality results. Experience the convenience of our user-friendly interface and make your pictures shine in just a few clicks. Try PixConvertify today and unleash the potential of your images!')
+@isset($format)
+@section('canonical',"https://pixconvertify.com/" . $format)
+@else
 @section('canonical',"https://pixconvertify.com/")
-
+@endisset 
 @section('script_css')
 <meta itemprop="image" content="">
 <meta property="og:image" content="" />

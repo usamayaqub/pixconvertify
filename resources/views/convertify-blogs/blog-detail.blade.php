@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('meta_title', $blog->meta_title)
 @section('meta_description', $blog->meta_description)
-@section('canonical',"")
+@section('canonical',"https://pixconvertify.com/blog/".$blog->slug)
 
 @section('script_css')
 <meta itemprop="image" content="">

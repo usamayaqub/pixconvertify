@@ -3,6 +3,9 @@ $(document).ready(function () {
     $(".dropdown-trigger").dropdown();
 });
 
+
+
+
 // RESPONSIVENESS JS
 $(document).ready(function () {
     // Function to check if the URL input field is empty
@@ -30,6 +33,66 @@ $(document).ready(function () {
         submitForm();
     });
 
+    // Function to clear iframe src attributes
+    function clearIframes() {
+        $("#iframe_large_screen").attr("src", "");
+        $("#iframe_laptop_screen").attr("src", "");
+        $("#iframe_tablet_screen").attr("src", "");
+        $("#iframe_mobile_screen").attr("src", "");
+    }
+
+    // Event listener for changes in the URL input field
+    $("#site-url-input-field").on("input", function () {
+        checkInputField(); // Check if the input field is empty
+
+        // If the input field is empty, clear the iframes
+        if ($(this).val() === "") {
+            clearIframes();
+        }
+    });
+
+    // Function to display an alert when iframe loading fails
+    function handleIframeLoadError() {
+        var site_url_input_field = $("#site-url-input-field").val();
+        var iframe_large_screen = $("#iframe_large_screen");
+        var iframe_laptop_screen = $("#iframe_laptop_screen");
+        var iframe_tablet_screen = $("#iframe_tablet_screen");
+        var iframe_mobile_screen = $("#iframe_mobile_screen");
+
+        // Handle iframe load error for each iframe
+        iframe_large_screen.on("load", function () {
+            if (!iframe_large_screen[0].contentDocument) {
+                // Content cannot be loaded, indicating the website doesn't allow iframing
+                $("#iframe-error-modal").modal("open");
+                clearIframes(); // Clear iframes to remove any previous content
+            }
+        });
+
+        iframe_laptop_screen.on("load", function () {
+            if (!iframe_laptop_screen[0].contentDocument) {
+                // Content cannot be loaded, indicating the website doesn't allow iframing
+                $("#iframe-error-modal").modal("open");
+                clearIframes(); // Clear iframes to remove any previous content
+            }
+        });
+
+        iframe_tablet_screen.on("load", function () {
+            if (!iframe_tablet_screen[0].contentDocument) {
+                // Content cannot be loaded, indicating the website doesn't allow iframing
+                $("#iframe-error-modal").modal("open");
+                clearIframes(); // Clear iframes to remove any previous content
+            }
+        });
+
+        iframe_mobile_screen.on("load", function () {
+            if (!iframe_mobile_screen[0].contentDocument) {
+                // Content cannot be loaded, indicating the website doesn't allow iframing
+                $("#iframe-error-modal").modal("open");
+                clearIframes(); // Clear iframes to remove any previous content
+            }
+        });
+    }
+
     // Function to submit the form
     function submitForm() {
         var iframe_large_screen = $("#iframe_large_screen");
@@ -45,6 +108,9 @@ $(document).ready(function () {
         iframe_tablet_screen.attr("src", site_url_input_field);
         iframe_mobile_screen.attr("src", site_url_input_field);
 
+        // Handle iframe load error for each iframe
+        handleIframeLoadError();
+
         // Scroll to the next section
         var nextSection = $(".responsiveness_container-wrap");
         $("html, body").animate(
@@ -54,6 +120,8 @@ $(document).ready(function () {
             1000
         );
     }
+    // Initialize the modal
+    $("#iframe-error-modal").modal();
 
     // Submit the form when Enter key is pressed in the URL input field
     $("#site-url-input-field").on("keydown", function (event) {
@@ -65,6 +133,12 @@ $(document).ready(function () {
         }
     });
 });
+
+
+
+
+
+
 
 // Convert from
 $(document).ready(function () {
