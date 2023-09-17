@@ -154,6 +154,7 @@
                                                         <span>PNG</span>
                                                         <span>JPEG</span>
                                                         <span>PDF</span>
+                                                        <span>DOCX</span>
                                                         <span>WEBP</span>
                                                         <span>GIF</span>
                                                     </div>
@@ -588,6 +589,8 @@
                           .append($('<span>').text('JPG'))
                           .append($('<span>').text('WEBP'))
                           .append($('<span>').text('GIF'))
+                          .append($('<span>').text('PDF'))
+                          .append($('<span>').text('DOCX'))
                           // .append($('<span>').text('BMP'))
                           // .append($('<span>').text('AVIF'))
                           // .append($('<span>').text('TIF'))
