@@ -290,7 +290,7 @@
                 <h3 class="heading-md">Effortless Conversion of doc to pdf with PixConvertify</h3>
                   <p class="content-p">
                     Discover the convenience of PixConvertify's document conversion services. Our doc converter can easily convert PDF to Word, while also offering doc to pdf conversion. Need image to doc conversion? No problem! PixConvertify's versatile tools handle it all. With our doc file converter, format changes are a breeze. Experience the simplicity of doc conversion to pdf and more, all in one place. <a href="{{ route('base', ['format' => 'docx-to-pdf']) }}">Try it Now for Free</a>
-                  <p>
+                  </p>
                   </div>
                   <img src="{{asset('./assets/images/speed.svg')}}" alt="">
               </div>
@@ -949,7 +949,6 @@
       });
     }
   });
-
 </script>
 
 @endsection
