@@ -396,6 +396,33 @@
         var file = selectedFiles[i];
         var selectedExtension = file.name.split('.').pop().toLowerCase();
         
+      var allowedFormats = ['png', 'webp', 'gif', 'jpg', 'jpeg'];
+        if (formatParts && formatParts.length === 2) {
+          var allowedFormats = ['png', 'webp', 'gif', 'jpg', 'jpeg',formatParts[0],formatParts[1]];
+        }
+
+        if (allowedFormats.indexOf(selectedExtension) === -1) {
+          // Show an error message indicating the allowed formats
+          Snackbar.show({
+                pos: 'bottom-center',
+                text: 'Please select files in PNG, WEBP, GIF, JPG, or JPEG format only.',
+                backgroundColor: '#ba181b',
+                actionTextColor: '#fff'
+            });
+
+          $(this).val('');
+          return;
+        }
+      }
+
+
+
+      if(allowedInputFormat && allowedConversionFormat){
+        var selectedFiles = e.target.files;
+        for (var i = 0; i < selectedFiles.length; i++) {
+        var file = selectedFiles[i];
+        var selectedExtension = file.name.split('.').pop().toLowerCase();
+        
         // Allowed image formats
         var allowedFormats = ['png', 'webp', 'gif', 'jpg', 'jpeg','docx'];
 
@@ -572,6 +599,26 @@
         return;
     }
 
+    var selectedExtension = file.name.split('.').pop().toLowerCase();  
+    
+      var allowedFormats = ['png', 'webp', 'gif', 'jpg', 'jpeg'];
+
+        if (formatParts && formatParts.length === 2) {
+          var allowedFormats = ['png', 'webp', 'gif', 'jpg', 'jpeg',formatParts[0],formatParts[1]];
+        }
+
+        if (allowedFormats.indexOf(selectedExtension) === -1) {
+          // Show an error message indicating the allowed formats
+          Snackbar.show({
+                pos: 'bottom-center',
+                text: 'Please select files in PNG, WEBP, GIF, JPG, or JPEG format only.',
+                backgroundColor: '#ba181b',
+                actionTextColor: '#fff'
+            });
+            
+          $(this).val('');
+          return;
+      }
 
     console.log(fileSize);
 
