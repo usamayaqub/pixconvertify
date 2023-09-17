@@ -555,7 +555,7 @@
       var allowedFormats = ['png', 'webp', 'gif', 'jpg', 'jpeg',formatParts[0],formatParts[1]];
     }
 
-    if (allowedFormats.indexOf(selectedExtension) === -1) {
+     if (allowedFormats.indexOf(selectedExtension) === -1) {
       // Show an error message indicating the allowed formats
       Snackbar.show({
             pos: 'bottom-center',
