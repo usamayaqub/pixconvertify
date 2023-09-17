@@ -167,7 +167,7 @@
                                                         <span>DOCX</span>
                                                         <span>WEBP</span>
                                                         <span>GIF</span>
-                                                        <span>SVG</span>
+                                                        <span>GIF</span>
 
                                                     </div>
                                                 </div>

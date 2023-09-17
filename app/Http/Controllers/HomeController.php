@@ -68,14 +68,6 @@ class HomeController extends Controller
                 $convertedImage->save($convertedImagePath);
             }
          }
-         elseif($format == 'svg' && (in_array($fileExtension,$allowedImageFormats))){
-
-            $imagick = new Imagick();
-            $imagick->readImageBlob(file_get_contents($imageFile->getRealPath()));
-            $imagick->setImageFormat($format);
-            $imagick->writeImage($convertedImagePath);
-            $imagick->destroy();
-         }
          elseif ($format == 'pdf' && (in_array($fileExtension,$allowedImageFormats))){
                     // Create a new TCPDF instance
                     $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
