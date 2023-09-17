@@ -23,6 +23,7 @@ use Yajra\DataTables\Facades\DataTables;
 use PhpOffice\PhpWord\IOFactory;
 use PhpOffice\PhpWord\PhpWord;
 use Dompdf\Dompdf;
+use Smalot\PdfParser\Parser;
 
 class HomeController extends Controller
 {
@@ -155,6 +156,19 @@ class HomeController extends Controller
 
             unlink($tempHtmlFilePath );
 
+        }
+        elseif ($format == 'docx' && $fileExtension === 'pdf'){ 
+
+            $pdfParser = new Parser();
+            $pdf = $pdfParser->parseFile($imageFile->getRealPath());
+            $text = $pdf->getText();
+            $phpWord = new PhpWord();
+
+            $section = $phpWord->addSection();
+            $section->addText($text);
+            
+            $docxFilePath = public_path('converted/' . $filename);
+            $phpWord->save($docxFilePath, 'Word2007');
         }
      
         return response()->json([

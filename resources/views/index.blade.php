@@ -384,8 +384,10 @@
     var file = selectedFiles[i];
     var selectedExtension = file.name.split('.').pop().toLowerCase();
     
-    // Allowed image formats
-    var allowedFormats = ['png', 'webp', 'gif', 'jpg', 'jpeg','docx'];
+  var allowedFormats = ['png', 'webp', 'gif', 'jpg', 'jpeg'];
+    if (formatParts && formatParts.length === 2) {
+      var allowedFormats = ['png', 'webp', 'gif', 'jpg', 'jpeg',formatParts[0],formatParts[1]];
+    }
 
     if (allowedFormats.indexOf(selectedExtension) === -1) {
       // Show an error message indicating the allowed formats
@@ -545,8 +547,14 @@
       fileSize = fileSizeKB.toFixed(2) + ' KB';
     }
 
-    var selectedExtension = file.name.split('.').pop().toLowerCase();    
-    var allowedFormats = ['png', 'webp', 'gif', 'jpg', 'jpeg','docx'];
+    var selectedExtension = file.name.split('.').pop().toLowerCase();  
+    
+  var allowedFormats = ['png', 'webp', 'gif', 'jpg', 'jpeg'];
+
+    if (formatParts && formatParts.length === 2) {
+      var allowedFormats = ['png', 'webp', 'gif', 'jpg', 'jpeg',formatParts[0],formatParts[1]];
+    }
+
     if (allowedFormats.indexOf(selectedExtension) === -1) {
       // Show an error message indicating the allowed formats
       Snackbar.show({
