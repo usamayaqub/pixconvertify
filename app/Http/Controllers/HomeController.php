@@ -24,6 +24,9 @@ use PhpOffice\PhpWord\IOFactory;
 use PhpOffice\PhpWord\PhpWord;
 use Dompdf\Dompdf;
 use Smalot\PdfParser\Parser;
+use Imagick;
+use ImagickPixel;
+
 
 class HomeController extends Controller
 {
