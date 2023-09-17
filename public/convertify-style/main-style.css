@@ -250,7 +250,7 @@ h6 {
     height: 100%;
     background-color: #f4f4f4;
     left: -100%;
-    transition: all 0.2s ease-in;
+    transition: all 0.1s ease;
     z-index: 101;
 }
 .sidebar.appear {
@@ -296,6 +296,8 @@ h6 {
 }
 .sidebar_menu li a {
     font-size: 18px;
+    display: block;
+    width: 100%;
     color: var(--primary-color);
 }
 
@@ -949,8 +951,7 @@ body.fixed {
     background: rgba(22, 26, 29, 0.1);
     border-radius: 6px;
     width: 49px;
-    height: 40px;
-    height: 40px;
+    height: 33px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -2052,7 +2053,7 @@ span.kicker::after {
     min-height: 189px;
 }
 .h1 {
-    font-size: 43px;
+    font-size: 38px;
     line-height: 54px;
     font-weight: 600;
     color: #161a1d;

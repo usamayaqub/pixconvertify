@@ -223,6 +223,9 @@ $(document).ready(function () {
         $("body").removeClass('fixed');
     });
 });
+  $(document).ready(function () {
+      $(".sidenav").sidenav();
+  });
 
 //
 // $(document).ready(function() {

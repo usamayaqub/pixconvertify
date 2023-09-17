@@ -237,7 +237,7 @@
 
     <section class="section-convertion-and-format">
       <div class="container">
-        <h2 class="h1 center mb-5">Converting and Compressing <span class="theme-color">PNG</span>, <span class="theme-color">JPG</span>, <span class="theme-color">WebP</span>, <span class="theme-color">PDF</span>, and <span class="theme-color">GIF</span></h2>
+        <h2 class="h1 center mb-5">Converting and Compressing <span class="theme-color">PNG</span>/<span class="theme-color">JPG</span>/<span class="theme-color">GIF</span>/<span class="theme-color">WebP</span>/<span class="theme-color">PDF</span>/ and <span class="theme-color">DOCX</span></h2>
 
         <div class="flex-wrap">
           <div class="flex-50">
