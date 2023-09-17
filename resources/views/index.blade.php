@@ -385,7 +385,7 @@
     var selectedExtension = file.name.split('.').pop().toLowerCase();
     
     // Allowed image formats
-    var allowedFormats = ['png', 'webp', 'gif', 'jpg', 'jpeg'];
+    var allowedFormats = ['png', 'webp', 'gif', 'jpg', 'jpeg','docx'];
 
     if (allowedFormats.indexOf(selectedExtension) === -1) {
       // Show an error message indicating the allowed formats
@@ -546,8 +546,7 @@
     }
 
     var selectedExtension = file.name.split('.').pop().toLowerCase();    
-    var allowedFormats = ['png', 'webp', 'gif', 'jpg', 'jpeg'];
-
+    var allowedFormats = ['png', 'webp', 'gif', 'jpg', 'jpeg','docx'];
     if (allowedFormats.indexOf(selectedExtension) === -1) {
       // Show an error message indicating the allowed formats
       Snackbar.show({

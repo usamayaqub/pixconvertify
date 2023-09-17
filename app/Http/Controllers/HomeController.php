@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Validator as FacadesValidator;
 use Yajra\DataTables\Facades\DataTables;
 use PhpOffice\PhpWord\IOFactory;
 use PhpOffice\PhpWord\PhpWord;
+use Dompdf\Dompdf;
 
 class HomeController extends Controller
 {
@@ -63,7 +64,7 @@ class HomeController extends Controller
                 $convertedImage->save($convertedImagePath);
             }
          }
-         elseif ($format == 'pdf' && (in_array($fileExtension,$allowedImageFormats)) || $fileExtension == 'docx'){
+         elseif ($format == 'pdf' && (in_array($fileExtension,$allowedImageFormats))){
                     // Create a new TCPDF instance
                     $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
                     // Set document information
@@ -105,7 +106,7 @@ class HomeController extends Controller
                     $pdf->Output($pdfFilePath, 'F');
          } elseif ($format == 'docx' && (in_array($fileExtension,$allowedImageFormats))){
 
-            if ($imageFile->getClientOriginalExtension() === 'webp') {
+            if ($imageFile->getClientOriginalExtension() != 'jpg') {
                 $convertedImage = Image::make($imageFile)->encode('jpg');
                 $imagePath = public_path('converted/') . uniqid() . '.jpg';
                 $convertedImage->save($imagePath);
@@ -134,6 +135,26 @@ class HomeController extends Controller
             $img_name = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
             $docxFilePath = public_path('converted/' . $filename);
             $phpWord->save($docxFilePath, 'Word2007');
+        }
+        elseif ($format == 'pdf' && $fileExtension === 'docx'){
+
+            $dompdf = new Dompdf();
+            $phpWord = new PhpWord();
+            $phpWord = IOFactory::load($imageFile->getPathname());
+            $tempDir = 'temp'; // Define your temporary directory name here
+            $tempHtmlFilePath = storage_path('app/' . $tempDir . '/' . uniqid() . '.html');
+            $phpWord->save($tempHtmlFilePath , 'HTML');
+
+            $htmlContent = file_get_contents($tempHtmlFilePath );
+            $dompdf->loadHtml($htmlContent);
+            $dompdf->setPaper('A4', 'portrait');
+            $dompdf->render();
+
+            $pdfFilePath = public_path('converted/' . $filename);
+            file_put_contents($pdfFilePath, $dompdf->output());
+
+            unlink($tempHtmlFilePath );
+
         }
      
         return response()->json([
