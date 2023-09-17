@@ -11,7 +11,7 @@
                         <a href="{{route('base')}}">Convert files</a>
                     </li>
                     <li>
-                        <a href="{{route('get-justcompress')}}">Compress files</a>
+                        <a href="{{route('get-justcompress')}}">Compress Images</a>
                     </li>
                     <li>
                         <a href="{{route('get-checkrespo')}}">Check Responsiveness</a>
@@ -65,7 +65,8 @@
     </div>
     <div class="sidebar_menu">
         <ul>
-            <li><a href="{{route('get-justcompress')}}">Compress files</a></li>
+            <li><a href="{{route('base')}}">Convert files</a></li>
+            <li><a href="{{route('get-justcompress')}}">Compress Images</a></li>
             <li><a href="{{route('get-checkrespo')}}">Check Responsiveness</a></li>
             <li><a href="{{route('get-how-works')}}">How its Works</a></li>
             <li><a href="{{route('get-blogs')}}">Blogs</a></li>

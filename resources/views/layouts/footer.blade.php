@@ -13,9 +13,9 @@
                     <div class="links_wrap">
                         <ul>
                             <li><a href="{{ route('base', ['format' => 'png-to-webp']) }}">PNG to WEBP</a></li>
-                            <li><a href="{{ route('base', ['format' => 'jpeg-to-webp']) }}">JPEG to WEBP</a></li>
+                            <li><a href="{{ route('base', ['format' => 'jpeg-to-docx']) }}">JPEG to DOCX</a></li>
                             <li><a href="{{ route('base', ['format' => 'jpg-to-webp']) }}">JPG to WEBP</a></li>
-                            <li><a href="{{ route('base', ['format' => 'jpeg-to-pdf']) }}">JPEG to PDF</a></li>
+                            <li><a href="{{ route('base', ['format' => 'docx-to-pdf']) }}">DOCX to PDF</a></li>
                             <li><a href="{{ route('base', ['format' => 'png-to-pdf']) }}">PNG to PDF</a></li>
                         </ul>
                         <ul>
