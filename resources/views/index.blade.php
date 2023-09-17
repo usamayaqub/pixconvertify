@@ -1,7 +1,17 @@
 @extends('layouts.master')
-
+@isset($format)
+<?php
+  $words = explode('-', $format);
+  $first_word = strtoupper($words[0]);
+  $last_word = strtoupper($words[count($words) - 1]);
+?>
+@section('meta_title', 'Free Onine '.$first_word.' to '.$last_word.' Converter | PixConvertify')
+@section('meta_description', 'Welcome to PixConvertify, your go-to platform for quick and dependable picture conversion. Convert '.$first_word.' to '.$last_word.' formats effortlessly and enjoy high-quality results. Experience the convenience of our user-friendly interface and make your pictures shine in just a few clicks. Try PixConvertify today and unleash the potential of your images!')
+@else
 @section('meta_title', 'PixConvertify | Fast and Reliable Picture Conversion Services')
 @section('meta_description', 'Welcome to PixConvertify, your go-to platform for quick and dependable picture conversion. Convert images to various formats effortlessly and enjoy high-quality results. Experience the convenience of our user-friendly interface and make your pictures shine in just a few clicks. Try PixConvertify today and unleash the potential of your images!')
+@endisset
+
 @isset($format)
 @section('canonical',"https://pixconvertify.com/" . $format)
 @else
@@ -66,7 +76,7 @@
                         <div class="converter_dropbox">
                             <img src="{{asset('./assets/images/drop-icon.svg')}}" alt="">
                             <h2 class="drop_file-text mt-0">Drag or Drop file here</h2>
-                            <p class="restriction-text">Up to 10 files at a single time, max 5 MB each.</p>
+                            <p class="restriction-text">Up to 40 files at a single time, max 5 MB each.</p>
                             <input title="" type="file" name="image" id="image" accept="image/*" multiple>
                         </div>
                     </div>
@@ -230,7 +240,7 @@
         <h2 class="h1 center mb-5">Converting and Compressing <span class="theme-color">PNG</span>, <span class="theme-color">JPG</span>, <span class="theme-color">WebP</span>, <span class="theme-color">PDF</span>, and <span class="theme-color">GIF</span></h2>
 
         <div class="flex-wrap">
-          <div class="flex-50 bg-white">
+          <div class="flex-50">
             <div class="flex-inner">              
               <div>
                   <h3 class="heading-md">What is the Best Compressed Image Format?</h3>
@@ -241,7 +251,7 @@
                 <img src="{{asset('./assets/images/file-format.svg')}}" alt="">
               </div>
           </div>
-          <div class="flex-50 bg-white">
+          <div class="flex-50">
             <div class="flex-inner">              
               <div>
             <h3 class="heading-md"> Is JPG and JPEG the Same?</h3>
@@ -252,7 +262,7 @@
                 <img src="{{asset('./assets/images/question.svg')}}" alt="">
               </div>
           </div>
-          <div class="flex-50 bg-white">
+          <div class="flex-50">
             <div class="flex-inner">              
               <div>
                   <h3 class="heading-md"> Is WebP Better Than JPG?</h3>
@@ -263,7 +273,7 @@
                 <img src="{{asset('./assets/images/image-file.svg')}}" alt="">
             </div>
           </div>
-          <div class="flex-50 bg-white">
+          <div class="flex-50">
             <div class="flex-inner">              
               <div>
                 <h3 class="heading-md">Compress images for website speed</h3>
