@@ -239,7 +239,7 @@
         <h2 class="h1 center mb-5">Converting and Compressing <span class="theme-color">PNG</span>, <span class="theme-color">JPG</span>, <span class="theme-color">WebP</span>, <span class="theme-color">PDF</span>, and <span class="theme-color">GIF</span></h2>
 
         <div class="flex-wrap">
-          <div class="flex-50 bg-white">
+          <div class="flex-50">
             <div class="flex-inner">              
               <div>
                   <h3 class="heading-md">What is the Best Compressed Image Format?</h3>
@@ -250,7 +250,7 @@
                 <img src="{{asset('./assets/images/file-format.svg')}}" alt="">
               </div>
           </div>
-          <div class="flex-50 bg-white">
+          <div class="flex-50">
             <div class="flex-inner">              
               <div>
             <h3 class="heading-md"> Is JPG and JPEG the Same?</h3>
@@ -261,7 +261,7 @@
                 <img src="{{asset('./assets/images/question.svg')}}" alt="">
               </div>
           </div>
-          <div class="flex-50 bg-white">
+          <div class="flex-50">
             <div class="flex-inner">              
               <div>
                   <h3 class="heading-md"> Is WebP Better Than JPG?</h3>
@@ -272,7 +272,7 @@
                 <img src="{{asset('./assets/images/image-file.svg')}}" alt="">
             </div>
           </div>
-          <div class="flex-50 bg-white">
+          <div class="flex-50">
             <div class="flex-inner">              
               <div>
                 <h3 class="heading-md">Compress images for website speed</h3>

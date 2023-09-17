@@ -92,7 +92,7 @@
 
 
 
-        <section class="section-convertion-and-format">
+    <section class="section-convertion-and-format">
       <div class="container">
         <h2 class="h1 center mb-5">Compressing <span class="theme-color">PNG</span>, <span class="theme-color">JPG</span>, <span class="theme-color">WebP</span> and <span class="theme-color">GIF</span></h2>
 
