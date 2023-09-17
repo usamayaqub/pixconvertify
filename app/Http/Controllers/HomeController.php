@@ -20,6 +20,8 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator as FacadesValidator;
 use Yajra\DataTables\Facades\DataTables;
+use PhpOffice\PhpWord\IOFactory;
+use PhpOffice\PhpWord\PhpWord;
 
 class HomeController extends Controller
 {
@@ -42,7 +44,7 @@ class HomeController extends Controller
          $img_name = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
          $filename = $img_name . '.' . $format;
 
-         $allowedImageFormats = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp','docx'];
+         $allowedImageFormats = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
          $fileExtension = strtolower($imageFile->getClientOriginalExtension());
          $convertedImagePath = public_path('converted/'.$filename);
 
@@ -101,7 +103,38 @@ class HomeController extends Controller
                     // Save the converted PDF to the public disk
                     $pdfFilePath = public_path('converted/' . $filename);
                     $pdf->Output($pdfFilePath, 'F');
-         }
+         } elseif ($format == 'docx' && (in_array($fileExtension,$allowedImageFormats))){
+
+            if ($imageFile->getClientOriginalExtension() === 'webp') {
+                $convertedImage = Image::make($imageFile)->encode('jpg');
+                $imagePath = public_path('converted/') . uniqid() . '.jpg';
+                $convertedImage->save($imagePath);
+            } else {
+                $imagePath = $imageFile->getPathname();
+            }
+
+            $phpWord = new PhpWord();
+            $section = $phpWord->addSection();
+
+            $maxWidth = 540; 
+            $maxHeight = 720;
+            list($imgWidth, $imgHeight) = getimagesize($imagePath);
+            $aspectRatio = $imgWidth / $imgHeight;
+            $newWidth = $maxWidth;
+            $newHeight = $newWidth / $aspectRatio;
+
+            if ($newHeight > $maxHeight) {
+                $newHeight = $maxHeight;
+                $newWidth = $newHeight * $aspectRatio;
+            }
+
+
+            $section->addImage($imagePath, ['width' => $newWidth, 'height' => $newHeight]);
+
+            $img_name = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+            $docxFilePath = public_path('converted/' . $filename);
+            $phpWord->save($docxFilePath, 'Word2007');
+        }
      
         return response()->json([
             'success' => true,
