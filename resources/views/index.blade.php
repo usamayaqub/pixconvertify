@@ -167,6 +167,8 @@
                                                         <span>DOCX</span>
                                                         <span>WEBP</span>
                                                         <span>GIF</span>
+                                                        <span>SVG</span>
+
                                                     </div>
                                                 </div>
                                                 <div id="documents2" class="col s12 px-0">

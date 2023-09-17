@@ -24,6 +24,9 @@ use PhpOffice\PhpWord\IOFactory;
 use PhpOffice\PhpWord\PhpWord;
 use Dompdf\Dompdf;
 use Smalot\PdfParser\Parser;
+use Imagick;
+use ImagickPixel;
+
 
 class HomeController extends Controller
 {
@@ -64,6 +67,14 @@ class HomeController extends Controller
                 // // Save the converted image to the public disk
                 $convertedImage->save($convertedImagePath);
             }
+         }
+         elseif($format == 'svg' && (in_array($fileExtension,$allowedImageFormats))){
+
+            $imagick = new Imagick();
+            $imagick->readImageBlob(file_get_contents($imageFile->getRealPath()));
+            $imagick->setImageFormat($format);
+            $imagick->writeImage($convertedImagePath);
+            $imagick->destroy();
          }
          elseif ($format == 'pdf' && (in_array($fileExtension,$allowedImageFormats))){
                     // Create a new TCPDF instance
