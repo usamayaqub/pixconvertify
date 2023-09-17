@@ -20,8 +20,8 @@
                         </ul>
                         <ul>
                             <li><a href="{{ route('base', ['format' => 'png-to-gif']) }}">PNG to GIF</a></li>
-                            <li><a href="{{ route('base', ['format' => 'png-to-tiff']) }}">JPEG to GIF</a></li>
-                            <li><a href="{{ route('base', ['format' => 'jpg-to-GIF']) }}">JPG to GIF</a></li>
+                            <li><a href="{{ route('base', ['format' => 'png-to-gif']) }}">JPEG to GIF</a></li>
+                            <li><a href="{{ route('base', ['format' => 'jpg-to-gif']) }}">JPG to GIF</a></li>
                             <li><a href="{{ route('base', ['format' => 'webp-to-gif']) }}">WEBP to GIF</a></li>
                             <li><a href="{{ route('base', ['format' => 'gif-to-pdf']) }}">GIF to PDF</a></li>
                         </ul>

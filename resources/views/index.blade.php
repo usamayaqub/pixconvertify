@@ -163,10 +163,10 @@
                                                     <div class="format_wrap">
                                                         <span>PNG</span>
                                                         <span>JPEG</span>
+                                                        <span>JPG</span>
                                                         <span>PDF</span>
                                                         <span>DOCX</span>
                                                         <span>WEBP</span>
-                                                        <span>GIF</span>
                                                         <span>GIF</span>
 
                                                     </div>
