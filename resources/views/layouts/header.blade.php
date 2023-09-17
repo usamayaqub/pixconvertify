@@ -8,6 +8,9 @@
                 </a>
                 <ul class="site-header-links">
                     <li>
+                        <a href="{{route('base')}}">Convert files</a>
+                    </li>
+                    <li>
                         <a href="{{route('get-justcompress')}}">Compress files</a>
                     </li>
                     <li>
