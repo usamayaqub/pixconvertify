@@ -8,7 +8,7 @@
                 </a>
                 <ul class="site-header-links">
                     <li>
-                        <a href="{{route('base')}}">Convert files</a>
+                        <a href="{{route('base')}}">Convert Images</a>
                     </li>
                     <li>
                         <a href="{{route('get-justcompress')}}">Compress Images</a>
@@ -65,7 +65,7 @@
     </div>
     <div class="sidebar_menu">
         <ul>
-            <li><a href="{{route('base')}}">Convert files</a></li>
+            <li><a href="{{route('base')}}">Convert Images</a></li>
             <li><a href="{{route('get-justcompress')}}">Compress Images</a></li>
             <li><a href="{{route('get-checkrespo')}}">Check Responsiveness</a></li>
             <li><a href="{{route('get-how-works')}}">How its Works</a></li>
