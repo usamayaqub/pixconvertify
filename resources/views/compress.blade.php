@@ -97,7 +97,7 @@
         <h2 class="h1 center mb-5">Compressing <span class="theme-color">PNG</span>, <span class="theme-color">JPG</span>, <span class="theme-color">WebP</span> and <span class="theme-color">GIF</span></h2>
 
         <div class="flex-wrap align-items-start">
-          <div class="flex-50 bg-white">
+          <div class="flex-50">
             <div class="flex-inner">              
               <div>
                   <h3 class="heading-md">Shrink Images Online for Easy Storage</h3>
@@ -112,7 +112,7 @@
                 <img src="{{asset('./assets/images/shrink.svg')}}" alt="Shrink Images Online">
               </div>
           </div>
-          <div class="flex-50 bg-white">
+          <div class="flex-50">
             <div class="flex-inner">              
               <div>
               <h3 class="heading-md">The Benefits of Online Picture Compression in Web Design</h3>
@@ -126,7 +126,7 @@
                 <img src="{{asset('./assets/images/layer-ui-web.svg')}}" alt="Online Picture Compression">
               </div>
           </div>
-          <div class="flex-50 bg-white">
+          <div class="flex-50">
             <div class="flex-inner">              
               <div>
                   <h3 class="heading-md"><b>Optimizing Load Times</b> The Significance of Compressing Online Images</h3>
@@ -143,7 +143,7 @@
                 <img src="{{asset('./assets/images/setting.svg')}}" alt="compress online images">
             </div>
           </div>
-          <div class="flex-50 bg-white">
+          <div class="flex-50">
             <div class="flex-inner">              
               <div>
                 <h3 class="heading-md">Simplifying Your Website Online Compress Size of Image Explained</h3>
