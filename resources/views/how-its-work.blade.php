@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
-@section('meta_title', 'How Its Work | Convertify')
-@section('meta_description', '')
+@section('meta_title', 'Learn How PixConvertify Works - Image Conversion & Compression Guide')
+@section('meta_description', 'Explore PixConvertify image conversion and compression process in detail. Discover how we transform and compress your images effortlessly while preserving quality. Step-by-step guide to efficient image optimization')
 @section('canonical',"https://pixconvertify.com/how-its-work")
 
 @section('script_css')

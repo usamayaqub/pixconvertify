@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
@@ -75,29 +75,29 @@
 
    
 <script>
-$(document).ready(function() {
-    // Check if a success or error message is present in the session
-    var successMessage = '{{ Session::get("success") }}';
-    var errorMessage = '{{ Session::get("error") }}';
+    $(document).ready(function() {
+        // Check if a success or error message is present in the session
+        var successMessage = '{{ Session::get("success") }}';
+        var errorMessage = '{{ Session::get("error") }}';
 
-    if (successMessage !== '') {
-        Snackbar.show({
-            pos: 'bottom-center',
-            text: successMessage,
-            backgroundColor: '#8bd2a4',
-            actionTextColor: '#fff'
-        });
-    }
+        if (successMessage !== '') {
+            Snackbar.show({
+                pos: 'bottom-center',
+                text: successMessage,
+                backgroundColor: '#8bd2a4',
+                actionTextColor: '#fff'
+            });
+        }
 
-    if (errorMessage !== '') {
-        Snackbar.show({
-            pos: 'bottom-center',
-            text: errorMessage,
-            backgroundColor: '#ba181b',
-            actionTextColor: '#fff'
-        });
-    }
-});
+        if (errorMessage !== '') {
+            Snackbar.show({
+                pos: 'bottom-center',
+                text: errorMessage,
+                backgroundColor: '#ba181b',
+                actionTextColor: '#fff'
+            });
+        }
+    });
 </script>
 
 <script>
