@@ -76,7 +76,7 @@
                         <div class="converter_dropbox">
                             <img src="{{asset('./assets/images/drop-icon.svg')}}" alt="">
                             <h2 class="drop_file-text mt-0">Drag or Drop file here</h2>
-                            <p class="restriction-text">Up to 40 files at a single time, max 5 MB each.</p>
+                            <p class="restriction-text">Up to 40 files at a single time, max 20 MB each.</p>
                             <input title="" type="file" name="image" id="image" accept="image/*" multiple>
                         </div>
                     </div>
