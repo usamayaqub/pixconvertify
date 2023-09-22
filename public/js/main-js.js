@@ -3,9 +3,6 @@ $(document).ready(function () {
     $(".dropdown-trigger").dropdown();
 });
 
-
-
-
 // RESPONSIVENESS JS
 $(document).ready(function () {
     // Function to check if the URL input field is empty
@@ -103,6 +100,10 @@ $(document).ready(function () {
 
         console.log("URL", site_url_input_field);
 
+        // Clear iframes first
+        clearIframes();
+
+        // Set the src attribute for each iframe
         iframe_large_screen.attr("src", site_url_input_field);
         iframe_laptop_screen.attr("src", site_url_input_field);
         iframe_tablet_screen.attr("src", site_url_input_field);
@@ -120,25 +121,7 @@ $(document).ready(function () {
             1000
         );
     }
-    // Initialize the modal
-    $("#iframe-error-modal").modal();
-
-    // Submit the form when Enter key is pressed in the URL input field
-    $("#site-url-input-field").on("keydown", function (event) {
-        if (event.keyCode === 13) {
-            event.preventDefault();
-            if (!$("#submit-btn").prop("disabled")) {
-                submitForm();
-            }
-        }
-    });
 });
-
-
-
-
-
-
 
 // Convert from
 $(document).ready(function () {
@@ -215,17 +198,17 @@ $(document).ready(function () {
     $(".site-menu").click(function () {
         $(".sidebar").toggleClass("appear");
         $(".sidebar_overlay").show();
-        $("body").addClass('fixed');
+        $("body").addClass("fixed");
     });
     $(".sidebar_overlay").click(function () {
         $(".sidebar").removeClass("appear");
         $(this).hide();
-        $("body").removeClass('fixed');
+        $("body").removeClass("fixed");
     });
 });
-  $(document).ready(function () {
-      $(".sidenav").sidenav();
-  });
+$(document).ready(function () {
+    $(".sidenav").sidenav();
+});
 
 //
 // $(document).ready(function() {
@@ -290,7 +273,7 @@ $(document).ready(function () {
         // loop: true,
         margin: 10,
         nav: false,
-        dots:false,
+        dots: false,
         // autoplay:true,
         // autoplayTimeout:5000,
         // autoplayHoverPause:true,
@@ -306,4 +289,4 @@ $(document).ready(function () {
             },
         },
     });
-})
+});

@@ -2116,6 +2116,16 @@ span.kicker::after {
     padding: 20px;
     border-radius: 4px;
 }
+.responsiveness_ul{
+    display: flex;
+    gap: 10px;
+}
+.responsiveness_ul>div{
+    background-color: #fff;
+    padding: 20px 15px;
+    border-radius: 5px;
+    width: 24%;
+}
 .responsiveness_ul p{
     margin-bottom: 10px;
 }

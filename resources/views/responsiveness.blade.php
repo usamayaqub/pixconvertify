@@ -66,32 +66,39 @@
           <div class="flex-100 0 bg-f4">
             <div class="flex-inner">              
               <div>
-              <h3 class="heading-md">PixConvertify's Online Responsive Testing Tool</h3>
+                <h3 class="heading-md">PixConvertify's Online Responsive Testing Tool</h3>
                 <p class="">
                   Are you concerned about your website's mobile responsiveness? Ensuring your website adapts gracefully to different screens is crucial in today's digital landscape. PixConvertify is here to assist you in evaluating your website's quick responsiveness online. We understand the significance of a website being mobile-responsive, whether it's an HTML website or built with any other technology. 
-
                   <br>
                   <br>
                   PixConvertify simplifies the process of checking responsive online. Our online responsiveness testing tool enables you to input your website's URL and view it simultaneously on four different screens
                 </p>
                 <br>
                 <ul class="responsiveness_ul">
-                  <h4>Desktop:</h4>
+                  <div>
+                    <h4>Desktop:</h4>
                     <p>
                       See how your site appears on a standard computer monitor.
                     </p>
-                  <h4>Laptop:</h4>
+                  </div>
+                  <div>
+                    <h4>Laptop:</h4>
                     <p> 
                       Evaluate its responsiveness on a typical laptop screen.
                     </p>
-                  <h4>iPad:</h4>
+                  </div>
+                  <div>
+                    <h4>iPad:</h4>
                     <p>
                       Examine how your site performs on a tablet.
                     </p>
+                  </div>
+                  <div>
                     <h4>Mobile:</h4>
                     <p>
                       Ensure that your website is mobile-friendly and offers a great user experience.
                     </p>
+                  </div>
                   </ul>
               </div>
             </div>
