@@ -25,14 +25,6 @@
                     <p class="banner-message">
                         Welcome to our platform! We're thrilled to connect with you and have meaningful conversations.
                     </p>
-                    <div class="shape">
-                        <img src="{{asset('assets/images/shape.svg')}}" class="obj_fit_contain" alt="">
-                    </div>
-                </div>
-                <div class="site-banner-right">
-                  <div class="blur">
-                      <img src="{{asset('assets/images/shape.svg')}}" class="obj_fit_contain" alt="">
-                  </div>
                 </div>
             </div>
         </div>

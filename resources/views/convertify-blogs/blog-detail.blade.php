@@ -12,9 +12,6 @@
 <section class="site-banner blog-banner">
     <div class="site-banner_container">
         <div class="site-banner-wrap">
-          <div class="shape">
-            <img src="{{asset('assets/images/shape.svg')}}" class="obj_fit_contain" alt="">
-          </div>
           <div class="w-100">
             <h1 class="px-blog-h1">PixConvertify Blog</h1>
             <nav>

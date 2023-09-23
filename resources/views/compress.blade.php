@@ -26,15 +26,9 @@
                     <p class="banner-message">
                         Looking for free online image compress online? With our user-friendly tool, you can easily optimize up to 40 files at once.
                     </p>
-                    <div class="shape">
-                        <img src="{{asset('./assets/images/shape.svg')}}" class="obj_fit_contain" alt="">
-                    </div>
                 </div>
                 <div class="site-banner-right">
                     <img src="{{asset('./assets/images/banner-imag.svg')}}" class="banner_img" alt="">
-                    <div class="blur">
-                        <img src="{{asset('./assets/images/shape.svg')}}" class="obj_fit_contain" alt="">
-                    </div>
                 </div>
             </div>
         </div>

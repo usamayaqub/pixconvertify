@@ -22,14 +22,10 @@
           <p class="banner-message">
             Check you site Responsiveness in all devices at one time
           </p>
-          <div class="shape">
-            <img src="{{asset('assets/images/shape.svg')}}" class="obj_fit_contain" alt="">
-          </div>
           <div class="search_wrap">
             <input id="site-url-input-field" type="url" class="form-control" placeholder="xyz.com" required>
             <button id="submit-btn" class="theme-btn waves-effect waves-light">Check Now</button>
           </div>
-
       </div>
     </div>
   </div>

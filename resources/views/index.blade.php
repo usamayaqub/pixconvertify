@@ -53,15 +53,9 @@
                         Unlock the magic of Pixconvertify's image converter! <strong>File converter PNG to JPG</strong> and more. Make your website faster with smaller, high-quality images. We help with WebP, PNG, JPG, JPEG, GIF, and PDF conversions. Managing web images has never been simpler.
                     </p>
                     @endif
-                    <div class="shape">
-                        <img src="{{asset('./assets/images/shape.svg')}}" class="obj_fit_contain" alt="">
-                    </div>
                 </div>
                 <div class="site-banner-right">
                     <img src="{{asset('./assets/images/banner-imag.svg')}}" class="banner_img" alt="">
-                    <div class="blur">
-                        <img src="{{asset('./assets/images/shape.svg')}}" class="obj_fit_contain" alt="">
-                    </div>
                 </div>
             </div>
         </div>

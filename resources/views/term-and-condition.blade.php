@@ -22,15 +22,9 @@
                 <p class="banner-message">
                     Fast and Reliable Picture Conversion Services
                 </p>
-                <div class="shape">
-                    <img src="{{asset('./assets/images/shape.svg')}}" class="obj_fit_contain" alt="">
-                </div>
             </div>
             <div class="site-banner-right">
                 <img src="{{asset('./assets/images/contract-approved.svg')}}" class="banner_img" alt="">
-                <div class="blur">
-                    <img src="{{asset('./assets/images/shape.svg')}}" class="obj_fit_contain" alt="">
-                </div>
             </div>
         </div>
     </div>
