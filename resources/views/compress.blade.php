@@ -331,7 +331,7 @@ $(document).ready(function() {
         $fileSize.text(fileSizeInKB + " KB"); // Display the calculated size
 
         var $progressWrap = $('<div class="progress_wrap d-none">');
-        var $progressBar = $('<div class="progress-bar d-none">');
+        var $progressBar = $('<div class="progress-bar progress-bar-success progress-bar-striped active d-none">');
         var $progress = $('<div class="progress d-none" style="width: 0%;">');
         var $processPercentage = $('<p class="process-percentage d-none">');
         var $processingBtn = $('<button class="processing waves-effect waves-light d-none">Processing</button>');
