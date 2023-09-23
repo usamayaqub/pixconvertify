@@ -46,11 +46,11 @@
                     </p>
                     @else
                     <h1>
-                        File Converter by 
+                        File Converter <span style="display: inline;">png to jpg</span> by
                         <span>Pixconvertify</span>
                     </h1>
                     <p class="banner-message">
-                        Pixconvertify Unlock the power of our versatile image format converter tool. Optimize your site with smaller, top-quality images effortlessly. We support WebP, PNG, JPG, JPEG, GIF, and PDF conversions, simplifying your web image management.
+                        Unlock the magic of Pixconvertify's image converter! <strong>File converter PNG to JPG</strong> and more. Make your website faster with smaller, high-quality images. We help with WebP, PNG, JPG, JPEG, GIF, and PDF conversions. Managing web images has never been simpler.
                     </p>
                     @endif
                     <div class="shape">
@@ -239,15 +239,16 @@
 
     <section class="section-convertion-and-format">
       <div class="container">
-        <h2 class="h1 center mb-5">Converting and Compressing <span class="theme-color">PNG</span>/<span class="theme-color">JPG</span>/<span class="theme-color">GIF</span>/<span class="theme-color">WebP</span>/<span class="theme-color">PDF</span>/ and <span class="theme-color">DOCX</span></h2>
+        <h2 class="h1 center mb-5">Compressing and Converting <span class="theme-color">PNG</span>/<span class="theme-color">JPG</span>/<span class="theme-color">GIF</span>/<span class="theme-color">WebP</span>/<span class="theme-color">PDF</span>/ and <span class="theme-color">DOCX</span></h2>
 
-        <div class="flex-wrap">
+        <div class="flex-wrap align-items-start">
           <div class="flex-50">
             <div class="flex-inner">              
               <div>
-                  <h3 class="heading-md">What is the Best Compressed Image Format?</h3>
+                  <h3 class="heading-md">Why we are Best file converter png to jpg?</h3>
                   <p class="content-p">
-                    We all understand the need to make our websites load quickly without sacrificing image quality. So, let's dive into the search for the best compressed image format together. When it comes to finding the most compressed image format, we're all on the same mission: to discover the top picture format for high resolution with minimal compression. In this journey, we're not just looking into PNG compression; we're also exploring the conversion of PNG to WebP.
+                    Discover why Pixconvertify reigns supreme as the first-rate
+                    file converter png conversions. With our user-friendly interface, you can effortlessly transform your images in just a few clicks. Pixconvertify simplifies the process, ensuring you get the best quality while saving time. Say goodbye to complicated converters and experience seamless file converter PNG to JPG transformations with us.
                   <p>
                 </div>
                 <img src="{{asset('./assets/images/file-format.svg')}}" alt="">
@@ -286,18 +287,29 @@
                   <img src="{{asset('./assets/images/speed.svg')}}" alt="">
               </div>
           </div>
-          <div class="flex-100">
+          <div class="flex-50">
             <div class="flex-inner">              
               <div>
-                <h3 class="heading-md">Conversion of doc to pdf with PixConvertify</h3>
+                <h3 class="heading-md">File converter to pdf online with PixConvertify</h3>
                   <p class="content-p">
-                    Discover the convenience of PixConvertify's document conversion services. Our doc converter can easily convert PDF to Word, while also offering doc to pdf conversion. Need image to doc conversion? No problem! PixConvertify's versatile tools handle it all. With our doc file converter, format changes are a breeze. Experience the simplicity of doc conversion to pdf and more, all in one place.
-                     <a href="{{ route('base', ['format' => 'docx-to-pdf']) }}">Try it Now for Free</a>
+                    Experience the ease of using PixConvertify's file converter to PDF online. Our flexible tool not only converts PDF to Word 
+                    but also offers png, webp, jpg to PDF conversion. Need image to docx conversion? PixConvertify handles it seamlessly. Our file converter to PDF online simplifies format changes. Discover the simplicity of File converter to pdf online and more, all in one convenient platform. <a href="{{ route('base', ['format' => 'docx-to-pdf']) }}">Try it Now for Free</a>
                   </p>
               </div>
               <img src="{{asset('./assets/images/pdf.svg')}}" alt="">
             </div>
           </div>
+          <div class="flex-50">
+            <div class="flex-inner">              
+              <div>
+                  <h3 class="heading-md">The Easy Way to Convert Images – File Converter PNG</h3>
+                  <p class="content-p">
+                    Looking for a straightforward way to convert your images? Look no further than PixConvertify's file converter PNG. With our user-friendly tool, changing image formats to PNG is a breeze. Whether you're dealing with JPEGs, GIFs, or more, our file converter PNG simplifies the process. Say goodbye to complexity and hello to seamless image conversions with PixConvertify's file converter PNG.
+                  <p>
+                </div>
+                <img src="{{asset('./assets/images/file-format.svg')}}" alt="">
+              </div>
+          </div>
         </div>
       </div>
     </section>
