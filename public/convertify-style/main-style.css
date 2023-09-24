@@ -328,27 +328,27 @@ body.fixed {
     max-width: 1275px;
     margin: 0 auto;
 }
-.site-banner::after{
+.site-banner::after {
     content: "";
     position: absolute;
     background-image: url(../assets/images/shape.svg);
     background-repeat: no-repeat;
     background-size: contain;
-       width: 342px;
+    width: 342px;
     height: 372px;
     left: 0;
     z-index: 0;
     top: 0;
 }
-.site-banner::before{
+.site-banner::before {
     content: "";
     position: absolute;
     background-image: url(../assets/images/shape.svg);
     background-repeat: no-repeat;
     background-size: contain;
-       width: 342px;
+    width: 342px;
     height: 372px;
-    right:0;
+    right: 0;
     transform: rotate(-180deg);
     z-index: 0;
     bottom: 0;
@@ -643,9 +643,9 @@ body.fixed {
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid rgba(22, 26, 29, 0.2);
-    transition: all .1s ease;
+    transition: all 0.1s ease;
 }
-.converter_item:hover{
+.converter_item:hover {
     background-color: #f4f4f4;
 }
 .converter_section_listing .converter_item:first-child {
@@ -2106,55 +2106,55 @@ span.kicker::after {
     gap: 12px;
 }
 
-#iframe-error-modal{
+#iframe-error-modal {
     width: 38%;
 }
-#iframe-error-modal .btn-flat{
+#iframe-error-modal .btn-flat {
     position: absolute;
     right: 20px;
     top: 20px;
 }
-#iframe-error-modal .modal-content{
+#iframe-error-modal .modal-content {
     padding: 45px 20px;
 }
-#iframe-error-modal .modal-content h3{
+#iframe-error-modal .modal-content h3 {
     font-size: 30px;
     color: var(--btn-bg-red);
 }
-.align-items-start{
+.align-items-start {
     align-items: flex-start;
 }
 
-.bg-white{
+.bg-white {
     background-color: #fff;
 }
 
-.contact_content p{
+.contact_content p {
     line-height: 30px;
 }
-.contact_content .heading-md{
+.contact_content .heading-md {
     font-size: 33px;
     font-weight: 500;
 }
-.bg-f4{
+.bg-f4 {
     background-color: #f4f4f4;
     padding: 20px;
     border-radius: 4px;
 }
-.responsiveness_ul{
+.responsiveness_ul {
     display: flex;
     gap: 10px;
 }
-.responsiveness_ul>div{
+.responsiveness_ul > div {
     background-color: #fff;
     padding: 20px 15px;
     border-radius: 5px;
     width: 24%;
 }
-.responsiveness_ul p{
+.responsiveness_ul p {
     margin-bottom: 10px;
 }
-.responsiveness_ul h4{
+.responsiveness_ul h4 {
     background-color: var(--btn-bg-red);
     color: #fff;
     padding: 4px;

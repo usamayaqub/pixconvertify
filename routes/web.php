@@ -10,6 +10,7 @@ use App\Mail\SendOtp;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use App\Http\Controllers\FormatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -114,6 +115,15 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::post('update-blog/{id}', [BlogController::class, 'update'])->name('update.blog');
     Route::delete('delete-blog-image/{id}', [BlogController::class, 'deleteBlogImage'])->name('delete_blog_image');
     // BLOGS
+
+    
+    // Formats
+    Route::get('formats', [FormatController::class, 'index'])->name('formats.index');
+    Route::get('add-format', [FormatController::class, 'add'])->name('add.format');
+    Route::post('add-format', [FormatController::class, 'store'])->name('insert.format');
+    Route::get('edit-format/{id}', [FormatController::class, 'edit'])->name('edit.format');
+    Route::post('update-format/{id}', [FormatController::class, 'update'])->name('update.format');
+    // Formats
 
     Route::get('all_contact', [HomeController::class, 'indexContact'])->name('contact.index');
 });
