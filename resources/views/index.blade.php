@@ -31,15 +31,15 @@
                     <div class="banner-badge">
                         <p>Convert Bulk Images at once</p>
                     </div>
-                    @if(!empty($format))
+                    @if(!empty($format))  
                       <?php
                       $words = explode('-', $format);
                       $first_word = strtoupper($words[0]);
                       $last_word = strtoupper($words[count($words) - 1]);
                       ?>
                     <h1>
-                       {{$first_word}} TO {{$last_word}}
-                        <span>converter by Pixconvertify</span>
+                       File Converter {{$first_word}} TO {{$last_word}}
+                        <span> by Pixconvertify</span>
                     </h1>
                     <p class="banner-message">
                         Securely Convert Up to 10 Files from {{$first_word}} to {{$last_word}} with pix convertify.
@@ -220,13 +220,7 @@
               <div class="pormotion-slider_item">
                 <img src="{{asset('./assets/images/home-flyer.png')}}" class="show-on-web" alt="Image Convertion Made Effortless with Pixconvertify">
                 <img src="{{asset('./assets/images/home-flyer-mbl.png')}}" class="show-on-mbl" alt="Image Convertion Made Effortless with Pixconvertify">
-
               </div>
-              {{-- <div class="pormotion-slider_item">
-                <a href="{{route('get-justcompress')}}">
-                  <img src="{{asset('./assets/images/home-flyer2.png')}}" alt="">
-                </a>
-              </div> --}}
           </div>
         </div>
     </div>
@@ -234,7 +228,6 @@
     <section class="section-convertion-and-format">
       <div class="container">
         <h2 class="h1 center mb-5">Compressing and Converting <span class="theme-color">PNG</span>/<span class="theme-color">JPG</span>/<span class="theme-color">GIF</span>/<span class="theme-color">WebP</span>/<span class="theme-color">PDF</span>/ and <span class="theme-color">DOCX</span></h2>
-
         <div class="flex-wrap align-items-start">
           <div class="flex-50">
             <div class="flex-inner">              
@@ -292,7 +285,7 @@
               </div>
               <img src="{{asset('./assets/images/pdf.svg')}}" alt="">
             </div>
-          </div>
+          </div>
           <div class="flex-50">
             <div class="flex-inner">              
               <div>
@@ -332,6 +325,7 @@
         </div>
     </section>
 
+    @if(empty($format))
     <section class="sec_check_responsiveness">
       <div class="container">
         <h2 class="h2">Pixconvertify Introduces Our Responsive Website Checker! </h2>
@@ -354,6 +348,7 @@
       </div>
       </div>
     </section>
+    @endif
 
 </main>
 
