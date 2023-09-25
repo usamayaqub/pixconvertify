@@ -197,6 +197,12 @@
                                     </div>
                                     <button class="btn btn-danger delete-block mt-2">x</button>
                                 </div>
+                                <div class="file mb-2">
+                                    <label for="">Content Image<span class="text-danger">*</span></label>
+                                    <div class="input-group">
+                                        <input type="file" class="form-control" name="" value="">
+                                    </div>
+                                </div>
                             </div>
                         </div> 
                         @endforeach
@@ -216,6 +222,12 @@
                                         <input type="text" class="form-control" name="content[0][content]" @isset($type)value="{{$type->section_content}}" @endisset placeholder="Enter section_content">
                                     </div>
                                     <button class="btn btn-danger delete-block mt-2">x</button>
+                                </div>
+                                <div class="file mt-2">
+                                    <label for="">Content Image<span class="text-danger">*</span></label>
+                                    <div class="input-group">
+                                        <input type="file" class="form-control" name="" value="">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -285,6 +297,12 @@
                                 <input type="text" class="form-control" name="content[${contentCounter}][content]" placeholder="Enter section_content">
                             </div>
                             <button class="btn btn-danger delete-block mt-2">x</button>
+                        </div>
+                        <div class="file mt-2">
+                            <label for="">Content Image<span class="text-danger">*</span></label>
+                            <div class="input-group">
+                                <input type="file" class="form-control" name="" value="">
+                            </div>
                         </div>
                     </div>
                 </div>
