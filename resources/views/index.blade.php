@@ -8,8 +8,8 @@
 @section('meta_title', 'Free Onine file converter '.$first_word.' to '.$last_word.' Converter | PixConvertify')
 @section('meta_description', 'Welcome to PixConvertify, your go-to platform for quick and dependable picture conversion. Convert '.$first_word.' to '.$last_word.' formats effortlessly and enjoy high-quality results. Experience the convenience of our user-friendly interface and make your pictures shine in just a few clicks. Try PixConvertify today and unleash the potential of your images!')
 @else
-@section('meta_title', 'PixConvertify | Fast and Reliable Picture File Converter ')
-@section('meta_description', 'Welcome to PixConvertify, your go-to platform for quick and dependable picture conversion. Convert images to various formats effortlessly and enjoy high-quality results. Experience the convenience of our user-friendly interface and make your pictures shine in just a few clicks. Try PixConvertify today and unleash the potential of your images!')
+@section('meta_title', 'Free File Conversion Online | Convert PNG, JPG, DOCX, GIF, PDF')
+@section('meta_description', 'Experience the ease and convenience of our free file conversion tool! Convert your files effortlessly to various formats, including PNG, JPG, DOCX, GIF, and PDF. Try out our user-friendly free file conversion service today with Pixconvertify!')
 @endisset
 
 @isset($format)
@@ -46,8 +46,8 @@
                     </p>
                     @else
                     <h1>
-                        File Converter <span style="display: inline;">png to jpg</span> by
-                        <span>Pixconvertify</span>
+                        Effortless <span style="display: inline;">Online File Conversion</span>
+                         with Pixconvertify
                     </h1>
                     <p class="banner-message">
                         Unlock the magic of Pixconvertify's image converter! <strong>File converter PNG to JPG</strong> and more. Make your website faster with smaller, high-quality images. We help with WebP, PNG, JPG, JPEG, GIF, and PDF conversions. Managing web images has never been simpler.
