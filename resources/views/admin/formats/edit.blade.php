@@ -200,7 +200,9 @@
                                 <div class="file mb-2">
                                     <label for="">Content Image<span class="text-danger">*</span></label>
                                     <div class="input-group">
-                                        <input type="file" class="form-control" name="" value="">
+                                        <input type="file" class="form-control" name="content[{{$index}}][image]" value="">
+                                        <input type="hidden" name="content[{{$index}}][old_image]" value="{{$contentItem->image}}">
+                                        <a href="{{$contentItem->image}}" target="_blank">View File</a>
                                     </div>
                                 </div>
                             </div>
@@ -226,7 +228,7 @@
                                 <div class="file mt-2">
                                     <label for="">Content Image<span class="text-danger">*</span></label>
                                     <div class="input-group">
-                                        <input type="file" class="form-control" name="" value="">
+                                        <input type="file" class="form-control" name="content[0][image]" value="">
                                     </div>
                                 </div>
                             </div>
@@ -301,7 +303,7 @@
                         <div class="file mt-2">
                             <label for="">Content Image<span class="text-danger">*</span></label>
                             <div class="input-group">
-                                <input type="file" class="form-control" name="" value="">
+                                <input type="file" class="form-control" name="content[${contentCounter}][image]" value="">
                             </div>
                         </div>
                     </div>

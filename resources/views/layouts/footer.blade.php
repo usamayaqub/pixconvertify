@@ -11,27 +11,38 @@
                 <div class="site-footer_right_links left">
                     <p class="links_title">Images Conversation</p>
                     <div class="links_wrap">
-                        <ul>
-                            <li><a href="{{ route('base', ['format' => 'png-to-webp']) }}">PNG to WEBP</a></li>
-                            <li><a href="{{ route('base', ['format' => 'jpeg-to-docx']) }}">JPEG to DOCX</a></li>
-                            <li><a href="{{ route('base', ['format' => 'jpg-to-webp']) }}">JPG to WEBP</a></li>
-                            <li><a href="{{ route('base', ['format' => 'docx-to-pdf']) }}">DOCX to PDF</a></li>
-                            <li><a href="{{ route('base', ['format' => 'png-to-pdf']) }}">PNG to PDF</a></li>
-                        </ul>
-                        <ul>
-                            <li><a href="{{ route('base', ['format' => 'png-to-gif']) }}">PNG to GIF</a></li>
-                            <li><a href="{{ route('base', ['format' => 'png-to-gif']) }}">JPEG to GIF</a></li>
-                            <li><a href="{{ route('base', ['format' => 'jpg-to-gif']) }}">JPG to GIF</a></li>
-                            <li><a href="{{ route('base', ['format' => 'webp-to-gif']) }}">WEBP to GIF</a></li>
-                            <li><a href="{{ route('base', ['format' => 'gif-to-pdf']) }}">GIF to PDF</a></li>
-                        </ul>
-                        <ul>
-                            <li><a href="{{ route('base', ['format' => 'webp-to-png']) }}">WEBP to PNG</a></li>
-                            <li><a href="{{ route('base', ['format' => 'webp-to-jpg']) }}">WEBP to JPG</a></li>
-                            <li><a href="{{ route('base', ['format' => 'webp-to-jpeg']) }}">WEBP to JPEG</a></li>
-                            <li><a href="{{ route('base', ['format' => 'webp-to-pdf']) }}">WEBP to PDF</a></li>
-                            <li><a href="{{ route('base', ['format' => 'gif-to-webp']) }}">GIF to WEBP</a></li>
-                        </ul>
+                        @if(isset($formats) && !empty($formats) && count($formats) > 0)
+
+                        @for ($i = 0; $i < count($formats); $i +=5) <ul>
+                            @for ($j = $i; $j < min($i + 5, count($formats)); $j++) 
+                            <li><a href="{{ route('base', ['format' => $formats[$j]['slug']]) }}">{{ strtoupper($formats[$j]['from']) }}  To {{ strtoupper($formats[$j]['to']) }}</a></li>
+                                @endfor
+                                </ul>
+                                @endfor
+
+                                @else
+                                <ul>
+                                    <li><a href="{{ route('base', ['format' => 'png-to-webp']) }}">PNG to WEBP</a></li>
+                                    <li><a href="{{ route('base', ['format' => 'jpeg-to-docx']) }}">JPEG to DOCX</a></li>
+                                    <li><a href="{{ route('base', ['format' => 'jpg-to-webp']) }}">JPG to WEBP</a></li>
+                                    <li><a href="{{ route('base', ['format' => 'docx-to-pdf']) }}">DOCX to PDF</a></li>
+                                    <li><a href="{{ route('base', ['format' => 'png-to-pdf']) }}">PNG to PDF</a></li>
+                                </ul>
+                                <ul>
+                                    <li><a href="{{ route('base', ['format' => 'png-to-gif']) }}">PNG to GIF</a></li>
+                                    <li><a href="{{ route('base', ['format' => 'png-to-gif']) }}">JPEG to GIF</a></li>
+                                    <li><a href="{{ route('base', ['format' => 'jpg-to-gif']) }}">JPG to GIF</a></li>
+                                    <li><a href="{{ route('base', ['format' => 'webp-to-gif']) }}">WEBP to GIF</a></li>
+                                    <li><a href="{{ route('base', ['format' => 'gif-to-pdf']) }}">GIF to PDF</a></li>
+                                </ul>
+                                <ul>
+                                    <li><a href="{{ route('base', ['format' => 'webp-to-png']) }}">WEBP to PNG</a></li>
+                                    <li><a href="{{ route('base', ['format' => 'webp-to-jpg']) }}">WEBP to JPG</a></li>
+                                    <li><a href="{{ route('base', ['format' => 'webp-to-jpeg']) }}">WEBP to JPEG</a></li>
+                                    <li><a href="{{ route('base', ['format' => 'webp-to-pdf']) }}">WEBP to PDF</a></li>
+                                    <li><a href="{{ route('base', ['format' => 'gif-to-webp']) }}">GIF to WEBP</a></li>
+                                </ul>
+                                @endif
                     </div>
                 </div>
                 <div class="site-footer_right_links right">
@@ -62,5 +73,3 @@
         </div>
     </div>
 </footer>
-
-

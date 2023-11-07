@@ -1,19 +1,14 @@
 @extends('layouts.master')
-@isset($format)
-<?php
-  $words = explode('-', $format);
-  $first_word = strtoupper($words[0]);
-  $last_word = strtoupper($words[count($words) - 1]);
-?>
-@section('meta_title', 'Free Onine file converter '.$first_word.' to '.$last_word.' Converter | PixConvertify')
-@section('meta_description', 'Welcome to PixConvertify, your go-to platform for quick and dependable picture conversion. Convert '.$first_word.' to '.$last_word.' formats effortlessly and enjoy high-quality results. Experience the convenience of our user-friendly interface and make your pictures shine in just a few clicks. Try PixConvertify today and unleash the potential of your images!')
+@isset($type)
+@section('meta_title', $type->meta_title)
+@section('meta_description', $type->meta_desc)
 @else
 @section('meta_title', 'Free File Conversion Online | Convert PNG, JPG, DOCX, GIF, PDF')
 @section('meta_description', 'Experience the ease and convenience of our free file conversion tool! Convert your files effortlessly to various formats, including PNG, JPG, DOCX, GIF, and PDF. Try out our user-friendly free file conversion service today with Pixconvertify!')
 @endisset
 
-@isset($format)
-@section('canonical',"https://pixconvertify.com/" . $format)
+@isset($type)
+@section('canonical',"https://pixconvertify.com/" . $type->slug)
 @else
 @section('canonical',"https://pixconvertify.com/")
 @endisset 
@@ -29,20 +24,19 @@
             <div class="site-banner-wrap">
                 <div class="site-banner-left">
                     <div class="banner-badge">
+                      @isset($type)
+                      <p>{{$type->badge}}</p>
+                      @else
                         <p>Convert Bulk Images at once</p>
+                      @endisset
                     </div>
-                    @if(!empty($format))  
-                      <?php
-                      $words = explode('-', $format);
-                      $first_word = strtoupper($words[0]);
-                      $last_word = strtoupper($words[count($words) - 1]);
-                      ?>
+                    @if(isset($type) && !empty($type))  
                     <h1>
-                       File Converter {{$first_word}} TO {{$last_word}}
-                        <span> by Pixconvertify</span>
+                      {{ $type->heading }}
+                        <!-- <span> by Pixconvertify</span> -->
                     </h1>
                     <p class="banner-message">
-                        Securely Convert Up to 10 Files from {{$first_word}} to {{$last_word}} with pix convertify.
+                      {{ $type->banner_text }}
                     </p>
                     @else
                     <h1>
@@ -227,8 +221,29 @@
 
     <section class="section-convertion-and-format">
       <div class="container">
+      @if(isset($type) && !empty($type))  
+      <h2 class="h1 center mb-5">{{$type->section_heading}}</span></h2>
+      @else
         <h2 class="h1 center mb-5">Compressing and Converting <span class="theme-color">PNG</span>/<span class="theme-color">JPG</span>/<span class="theme-color">GIF</span>/<span class="theme-color">WebP</span>/<span class="theme-color">PDF</span>/ and <span class="theme-color">DOCX</span></h2>
+       @endif
         <div class="flex-wrap align-items-start">
+        @if(isset($type) && !empty($type) && isset($type->content) && !empty($type->content) && count($type->content) > 0)  
+
+        @foreach($type->content as $key => $c)
+        <div class="flex-50">
+            <div class="flex-inner">              
+              <div>
+                  <h3 class="heading-md">{{$c->heading}}</h3>
+                  <p class="content-p">
+                  {{$c->content}}
+                  <p>
+                </div>
+                <img src="{{$c->image}}" alt="" height="50px" width="50px">
+              </div>
+          </div>
+        @endforeach
+
+        @else
           <div class="flex-50">
             <div class="flex-inner">              
               <div>
@@ -297,6 +312,7 @@
                 <img src="{{asset('./assets/images/file-format.svg')}}" alt="">
               </div>
           </div>
+        @endif
         </div>
       </div>
     </section>
@@ -325,7 +341,7 @@
         </div>
     </section>
 
-    @if(empty($format))
+    @if(empty($type))
     <section class="sec_check_responsiveness">
       <div class="container">
         <h2 class="h2">Pixconvertify Introduces Our Responsive Website Checker! </h2>

@@ -11,6 +11,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\FormatController;
+use App\Models\Format;
 
 /*
 |--------------------------------------------------------------------------
@@ -130,5 +131,6 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
 
 
 Route::get('/{format?}', function ($format = null) {
-    return view('index', compact('format'));
+    $type = Format::where('slug',$format)->with('content')->first();
+    return view('index', compact('type'));
 })->name('base');
