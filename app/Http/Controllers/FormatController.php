@@ -81,11 +81,14 @@ class FormatController extends Controller
         // return $request->content;
             // $format->content()->delete();
             foreach ($contentData as $contentItem) {
-                $image = $this->uploadSingleFile($contentItem['image']);
+                if(isset($contentItem['image']) && !empty($contentItem['image']))
+                {
+                    $image = $this->uploadSingleFile($contentItem['image']);
+                }
                 $format->content()->create([
                     'heading' => $contentItem['heading'],
                     'content' => $contentItem['content'],
-                    'image' => $image,
+                    'image' => $image ?? null,
                 ]);
             }
         }
@@ -117,7 +120,7 @@ class FormatController extends Controller
         $contentData = $request->content;
         $format->content()->delete();
         foreach ($contentData as $contentItem) {
-            if(!empty($contentItem['image']))
+            if(isset($contentItem['image']) && !empty($contentItem['image']))
             {
                 $image = $this->uploadSingleFile($contentItem['image']);
             }else{
