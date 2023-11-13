@@ -13,7 +13,7 @@
                     <li>
                         <a href="{{route('get-justcompress')}}">Compress Images</a>
                     </li>
-                    <li>
+                    <li class="d-none">
                         <a href="{{route('get-checkrespo')}}">Check Responsiveness</a>
                     </li>
                     <li class="d-none">
@@ -67,7 +67,7 @@
         <ul>
             <li><a href="{{route('base')}}">Convert Images</a></li>
             <li><a href="{{route('get-justcompress')}}">Compress Images</a></li>
-            <li><a href="{{route('get-checkrespo')}}">Check Responsiveness</a></li>
+            <li class="d-none"><a href="{{route('get-checkrespo')}}">Check Responsiveness</a></li>
             <li><a href="{{route('get-how-works')}}">How its Works</a></li>
             <li><a href="{{route('get-blogs')}}">Blogs</a></li>
             <li><a href="{{route('get-privacy-policies')}}">Privacy Policy</a></li>

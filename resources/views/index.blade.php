@@ -342,7 +342,7 @@
     </section>
 
     @if(empty($type))
-    <section class="sec_check_responsiveness">
+    <section class="sec_check_responsiveness d-none">
       <div class="container">
         <h2 class="h2">Pixconvertify Introduces Our Responsive Website Checker! </h2>
         <div class="sec_check_row">
