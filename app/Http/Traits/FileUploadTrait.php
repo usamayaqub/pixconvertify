@@ -15,7 +15,7 @@ trait FileUploadTrait
             $img_name = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
             $img_name = $img_name . '-' . time() . '.' . $file->getClientOriginalExtension();
             $ext = $file->getClientOriginalExtension();
-            if ($ext == 'jpeg' || $ext == 'png' || $ext == 'jpg' || $ext == 'webp') {
+            if ($ext == 'jpeg' || $ext == 'png' || $ext == 'jpg' || $ext == 'webp' || $ext == 'svg') {
                 $url = url('blog') . '/' . $img_name;
                 $image = Image::make($file->getRealPath());
                 $image->save('blog' . '/' . $img_name, Config::get('custom.image_quality'), Config::get('custom.image_encode'));
