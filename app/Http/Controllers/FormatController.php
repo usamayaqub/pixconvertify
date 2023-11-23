@@ -114,6 +114,7 @@ class FormatController extends Controller
         $format->heading = $request->heading;
         $format->banner_text = $request->banner_text;
         $format->section_heading = $request->section_heading;
+        $format->slug = $request->slug;
 
          if ($request->has('content') && is_array($request->input('content'))) {
         $contentData = $request->content;
