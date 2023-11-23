@@ -47,11 +47,15 @@ class Format extends Model
         $baseSlug = Str::slug($from . '-to-' . $to);
         $slug = $baseSlug;
         $count = 2;
-
-        while (static::where('slug', $slug)->exists()) {
+    
+        // Get the current model's ID
+        $currentId = $this->id ?? 0;
+    
+        // Check if a record with the same slug (excluding the current model) exists
+        while (static::where('slug', $slug)->where('id', '!=', $currentId)->exists()) {
             $slug = $baseSlug . '-' . $count++;
         }
-
+    
         return $slug;
     }
 
