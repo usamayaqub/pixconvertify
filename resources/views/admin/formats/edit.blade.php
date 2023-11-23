@@ -70,20 +70,6 @@
             @endisset
             @csrf
             <div class="row">
-
-            <div class="form-group col-sm-6 mb-2">
-                    <label for="">slug<span class="text-danger">*</span></label>
-                    <div class="input-group">
-                        <input type="text" class="form-control" name="slug" @isset($type)value="{{$type->slug}}" @endisset placeholder="Enter Meta Title">
-                    </div>
-                    @error('slug')
-                    <span class="invalid-feedback mt-0" @error('slug')style="display: block" @enderror role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                </div>  
-
-
                 <div class="form-group col-sm-6 mb-2">
                     <label for="">Meta Title<span class="text-danger">*</span></label>
                     <div class="input-group">
