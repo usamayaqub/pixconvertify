@@ -30,7 +30,7 @@ class FormatServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $formats = Format::with('content')->where('status',1)->get();
+        $formats = Format::with('content')->where('status',1)->limit(15)->get();
         // Share the global formats with all views
         View::share('formats', $formats);
     }
