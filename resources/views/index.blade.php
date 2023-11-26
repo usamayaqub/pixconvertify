@@ -234,11 +234,10 @@
             <div class="flex-inner">              
               <div>
                   <h3 class="heading-md">{{$c->heading}}</h3>
-                  <p class="content-p">
-                  {{$c->content}}
-                  <p>
+                  <div class="content-p">
+                    {!!$c->content!!}
+                  </div>
                 </div>
-                <img src="{{$c->image}}" alt="" height="50px" width="50px">
               </div>
           </div>
         @endforeach

@@ -35,6 +35,9 @@
 .bg-g4{
     background-color: #f4f4f4;
 }
+.tox-tinymce{
+    width: 100% !important;
+}
 </style>
 
 <div class="container-fluid">
@@ -193,18 +196,18 @@
                                 <div class="section-Content">
                                     <label for="">Content<span class="text-danger">*</span></label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" name="content[{{$index}}][content]" value="{{ $contentItem->content }}">
+                                        <textarea type="text" class="form-control" name="content[{{$index}}][content]" value="{{ $contentItem->content }}" id="content_{{$index}}">{{  $contentItem->content }}</textarea>
                                     </div>
                                     <button class="btn btn-danger delete-block mt-2">x</button>
                                 </div>
-                                <div class="file mb-2">
+                                <!-- <div class="file mb-2">
                                     <label for="">Content Image<span class="text-danger">*</span></label>
                                     <div class="input-group">
                                         <input type="file" class="form-control" name="content[{{$index}}][image]" value="">
                                         <input type="hidden" name="content[{{$index}}][old_image]" value="{{$contentItem->image}}">
                                         <a href="{{$contentItem->image}}" target="_blank">View File</a>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div> 
                         @endforeach
@@ -221,16 +224,16 @@
                                 <div class="section-Content">
                                     <label for="">Content<span class="text-danger">*</span></label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" name="content[0][content]" @isset($type)value="{{$type->section_content}}" @endisset placeholder="Enter section_content">
+                                        <textarea class="form-control" name="content[0][content]" @isset($type)value="{{$type->section_content}}" @endisset placeholder="Enter section_content" id="content"> </textarea>
                                     </div>
                                     <button class="btn btn-danger delete-block mt-2">x</button>
                                 </div>
-                                <div class="file mt-2">
+                                <!-- <div class="file mt-2">
                                     <label for="">Content Image<span class="text-danger">*</span></label>
                                     <div class="input-group">
                                         <input type="file" class="form-control" name="content[0][image]" value="">
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         @endif
@@ -260,16 +263,38 @@
 </div>
 
 <script src="{{ asset('assets/libs/jquery/jquery.min.js') }}"></script>
+<script src="{{asset('assets/libs/tinymce/tinymce.min.js')}}"></script>
+
 <script>
-    $(document).ready(function() {
+ document.addEventListener("DOMContentLoaded", function () {
+        // Get the total number of textareas
+        var totalTextareaCount = document.querySelectorAll('textarea[id^="content_"]').length;
+
+        // Loop through each textarea and initialize TinyMCE
+        for (let i = 0; i < totalTextareaCount; i++) {
+            tinymce.init({
+                selector: `textarea#content_${i}`,
+                plugins: [
+                    "code advlist autolink lists link image charmap print preview anchor",
+                    "searchreplace visualblocks code fullscreen",
+                    "insertdatetime media table paste"
+                ],
+                toolbar: "code insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+            });
+        }
+    });
+</script>
+
+<script>
+   $(document).ready(function () {
         var contentCounter = $(".block-item-content").length - 1; // Initialize a counter for content items
 
         // Function to reindex input field names
         function reindexInputs() {
-            $(".abc .block-item-content").each(function(index) {
+            $(".abc .block-item-content").each(function (index) {
                 $(this)
                     .find('input[name^="content"]')
-                    .each(function() {
+                    .each(function () {
                         var newName = $(this)
                             .attr('name')
                             .replace(/\[\d+\]/g, '[' + index + ']');
@@ -278,8 +303,21 @@
             });
         }
 
+        // Function to initialize TinyMCE for a specific textarea
+        function initializeTinyMCE(selector) {
+            tinymce.init({
+                selector: selector,
+                plugins: [
+                    "code advlist autolink lists link image charmap print preview anchor",
+                    "searchreplace visualblocks code fullscreen",
+                    "insertdatetime media table paste"
+                ],
+                toolbar: "code insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+            });
+        }
+
         // Add click event handler to the "Add One More" button
-        $("#add-more").click(function() {
+        $("#add-more").click(function () {
             // Increment the counter to maintain unique IDs
             contentCounter++;
 
@@ -296,35 +334,36 @@
                         <div class="section-Content">
                             <label for="">Content<span class="text-danger">*</span></label>
                             <div class="input-group">
-                                <input type="text" class="form-control" name="content[${contentCounter}][content]" placeholder="Enter section_content">
+                                <textarea type="text" class="form-control" name="content[${contentCounter}][content]" placeholder="Enter section_content" id="content_${contentCounter}"></textarea>
                             </div>
                             <button class="btn btn-danger delete-block mt-2">x</button>
-                        </div>
-                        <div class="file mt-2">
-                            <label for="">Content Image<span class="text-danger">*</span></label>
-                            <div class="input-group">
-                                <input type="file" class="form-control" name="content[${contentCounter}][image]" value="">
-                            </div>
                         </div>
                     </div>
                 </div>
             `;
-
+            
             // Append the new content to the container
             $(".abc").append(newContent);
 
+            // Initialize TinyMCE for the new textarea
+            var newTextareaSelector = `.abc .block-item-content:last textarea`;
+            initializeTinyMCE(newTextareaSelector);
+
             // Add click event handler to the "Delete Block" button in the new content
-            $(`.abc .block-item-content:last .delete-block`).click(function() {
+            $(`.abc .block-item-content:last .delete-block`).click(function () {
                 $(this).closest('.block-item-content').remove();
                 reindexInputs();
             });
         });
 
         // Add click event handler to the "Delete Block" button in the initial element
-        $('.delete-block').click(function() {
+        $('.delete-block').click(function () {
             $(this).closest('.block-item-content').remove();
             reindexInputs();
         });
+
+        // Initialize TinyMCE for existing textareas on page load
+        initializeTinyMCE('.abc .block-item-content textarea');
     });
 </script>
 

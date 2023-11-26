@@ -80,14 +80,14 @@ class FormatController extends Controller
         // return $request->content;
             // $format->content()->delete();
             foreach ($contentData as $contentItem) {
-                if(isset($contentItem['image']) && !empty($contentItem['image']))
-                {
-                    $image = $this->uploadSingleFile($contentItem['image']);
-                }
+                // if(isset($contentItem['image']) && !empty($contentItem['image']))
+                // {
+                //     $image = $this->uploadSingleFile($contentItem['image']);
+                // }
                 $format->content()->create([
                     'heading' => $contentItem['heading'],
                     'content' => $contentItem['content'],
-                    'image' => $image ?? null,
+                    // 'image' => $image ?? null,
                 ]);
             }
         }
@@ -119,21 +119,22 @@ class FormatController extends Controller
         $contentData = $request->content;
         $format->content()->delete();
         foreach ($contentData as $contentItem) {
-            if(isset($contentItem['image']) && !empty($contentItem['image']))
-            {
-                $image = $this->uploadSingleFile($contentItem['image']);
-            }else{
-                $image = $contentItem['old_image'];
-            }
+            // if(isset($contentItem['image']) && !empty($contentItem['image']))
+            // {
+            //     $image = $this->uploadSingleFile($contentItem['image']);
+            // }else{
+            //     $image = $contentItem['old_image'];
+            // }
             $format->content()->create([
                 'heading' => $contentItem['heading'],
                 'content' => $contentItem['content'],
-                'image' => $image,
+                // 'image' => $image,
             ]);
         }
     }
         $format->save();
 
+        return redirect()->back()->with('success', 'Content updated successfully');
         return redirect()->route('formats.index')->with('success', 'Format updated successfully.');
     }
 }

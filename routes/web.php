@@ -131,6 +131,17 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
 
 
 Route::get('/{format?}', function ($format = null) {
+
+    if(empty($format))
+    {
+        return view('index');
+    }
+
     $type = Format::where('slug',$format)->with('content')->first();
-    return view('index', compact('type'));
+
+    if($type)
+    {
+        return view('index', compact('type'));
+    }
+    abort(404);     
 })->name('base');
