@@ -19,7 +19,7 @@
 @section('content')
 <main id="main">
     <!-- BANNER SECTION -->
-    <section class="site-banner">
+    <section class="site-banner site-banner-home">
         <div class="site-banner_container">
             <div class="site-banner-wrap">
                 <div class="site-banner-left">
@@ -40,11 +40,11 @@
                     </p>
                     @else
                     <h1>
-                        Effortless <span style="display: inline;">Online File Conversion</span>
+                        Effortless <span style="display: inline;">Online Conversion </span>
                          with Pixconvertify
                     </h1>
                     <p class="banner-message">
-                        Unlock the magic of Pixconvertify's image converter! <strong>File converter PNG to JPG</strong> and more. Make your website faster with smaller, high-quality images. We help with WebP, PNG, JPG, JPEG, GIF, and PDF conversions. Managing web images has never been simpler.
+                        Transforming images has never been easier but don’t worry you are at the right place. At Pixconvertify, we empower you to convert your images seamlessly into multiple formats, unlocking endless possibilities for your visual content. It does not matter whether you’re a professional photographer, a business owner, or an individual seeking quick and efficient image format transformations, our tool is here to simplify your workflow. 
                     </p>
                     @endif
                 </div>
@@ -246,10 +246,12 @@
           <div class="flex-50">
             <div class="flex-inner">              
               <div>
-                  <h3 class="heading-md">Why we are Best file converter png to jpg?</h3>
+                  <h3 class="heading-md">JPEG/JPG</h3>
                   <p class="content-p">
-                    Discover why Pixconvertify reigns supreme as the first-rate
-                    file converter png conversions. With our user-friendly interface, you can effortlessly transform your images in just a few clicks. Pixconvertify simplifies the process, ensuring you get the best quality while saving time. Say goodbye to complicated converters and experience seamless file converter PNG to JPG transformations with us.
+                   This format of image is mostly used. JPEG/JPG uses a lossy compression format for digital images. Its algorithm is designed so that it reduces the file size of images while maintaining a visually acceptable level of quality. 
+                   This format is ideal for complex images and also for photographs. This JPEG/JPG has a smaller file size by comparing the size with all other formats. It supports the RGB color space that's why it can represent millions of colors.
+                    JPEG/JPG allows the user to adjust the compression level when saving the image. Higher compression levels result in smaller file sizes but during this image will lose fine details.
+                    There is no inherent difference between JPG and JPEG in terms of the image format itself. Both refer to the same file format which is developed by the Joint Photographic Experts Group. The only difference which lies between them is in their file extension. 
                   <p>
                 </div>
                 <img src="{{asset('./assets/images/file-format.svg')}}" alt="">
@@ -258,9 +260,11 @@
           <div class="flex-50">
             <div class="flex-inner">              
               <div>
-            <h3 class="heading-md"> Is JPG and JPEG the Same?</h3>
+            <h3 class="heading-md">PNG</h3>
               <p class="content-p">
-                  Are JPG and JPEG interchangeable? Absolutely! In the world of image formats, JPG (or JPEG, as it's often called) is the go-to choice. It's perfect for photos and images on the web, offering a good balance between quality and size. On the other hand, formats like WebP and PNG have their strengths, excelling in different scenarios. So, while JPG and JPEG are practically twins, don't hesitate to explore other formats like WebP and PNG based on your project's unique needs.
+                PNG uses a lossless compression method, without sacrificing the quality of the image it preserves all image data.
+                PNG supports various color depths which include 24-bit RGB color and 8-bit indexed color that allow up to 256 colors. PNG is suitable for sharp transitions, graphics, text, or for those images which require transparent backgrounds. PNG also supports alpha channel transparency that allows each part of the image to be fully transparent.
+                Due to its lossless compression method, PNG maintains its high image quality even after multiple edits. This makes PNG an ideal choice for images that require multiple edits like logos, web graphics, and illustrations, and for images that require transparent backgrounds.
               <p>
               </div>
                 <img src="{{asset('./assets/images/question.svg')}}" alt="">
@@ -269,20 +273,25 @@
           <div class="flex-50">
             <div class="flex-inner">              
               <div>
-                  <h3 class="heading-md"> Is WebP Better Than JPG?</h3>
+                  <h3 class="heading-md">PDF</h3>
                   <p class="content-p">
-                    For those seeking efficient image conversion online, WebP emerges as a top choice. Its ability to compress images while preserving quality surpasses JPG. You can easily convert WebP to JPG, PNG, or GIF using online converters. These tools ensure your website benefits from smaller, high-quality images. When optimizing your site, consider the advantages of WebP, making it a preferred option over JPG for achieving top-notch performance without compromising visual appeal.
+                  PDF stands for Portable Document Format and this file format is used to present and exchange the documents reliably. PDF format is developed by Adobe. PDF files can contain text, images, hyperlinks, interactive buttons, forms, videos, and many other important elements. 
+                  PDF prevents the original formatting and layout of the file. PDF file is platform-independent. It contains a fixed layout. PDF files can be password protected, prevented from any unauthorized access, and edited. 
+                  PDF files support various compression algorithms without compromising the quality of the original file. Overall, PDF is mostly used for sharing different files in everyday applications and various industries. 
                   <p>
               </div>
-                <img src="{{asset('./assets/images/image-file.svg')}}" alt="">
+                <img src="{{asset('./assets/images/pdf.svg')}}" alt="">
             </div>
           </div>
           <div class="flex-50">
             <div class="flex-inner">              
               <div>
-                <h3 class="heading-md">Compress images for website speed</h3>
+                <h3 class="heading-md">DOCX</h3>
                   <p class="content-p">
-                    Enhance your website's performance by reducing load times with image compression. Our smooth compression process effectively reduces image sizes, supercharging your site's load times for a quicker, more efficient user experience. Benefit from faster loading speeds, improved SEO rankings, and seamless website optimization without any fuss. <a class="theme-color" href="{{route('get-justcompress')}}">Try our file compressor</a>
+                    DOCX is a famous file format developed by Microsoft. DOCX is the default format for the documents created by Microsoft Word. 
+                    DOCX is based on XML which is a file format for documents that is readable for both machines as well as humans. DOCX supports a wide array of formatting options which includes fonts, styles, headings, tables, images, hyperlinks, bullet points, and other elements. 
+                    As DOCX is primarily associated with Microsoft Word that’s why it can be opened, edited, and viewed using other word processing software. Overall, DOCX is widely used for creating and sharing documents due to its flexibility and rich features. DOCX almost replaced the older format .doc and became standard for word processing documents. 
+
                   <p>
                   </div>
                   <img src="{{asset('./assets/images/speed.svg')}}" alt="">
@@ -291,21 +300,25 @@
           <div class="flex-50">
             <div class="flex-inner">              
               <div>
-                <h3 class="heading-md">File converter to pdf online with PixConvertify</h3>
+                <h3 class="heading-md">WEBP</h3>
                   <p class="content-p">
-                    Experience the ease of using PixConvertify's file converter to PDF online. Our flexible tool not only converts PDF to Word 
-                    but also offers png, webp, jpg to PDF conversion. Need image to docx conversion? PixConvertify handles it seamlessly. Our file converter to PDF online simplifies format changes. Discover the simplicity of File converter to pdf online and more, all in one convenient platform. <a href="{{ route('base', ['format' => 'docx-to-pdf']) }}">Try it Now for Free</a>
+                    WEBP is a modern image format which is developed by Google in 2010. WEBP was developed to provide a more efficient way to store images on the internet. 
+                    WEBP provides superior compression and quality characteristics as compared to other traditional formats like JPEG, PNG, and GIF. WEBP provides both lossy and lossless compression techniques. 
+                    As compared to other traditional file formats WEBP can achieve smaller file sizes without losing that much detail. WEBP supports alpha channel transparency. Additionally, WEBP also supports animations which provide a more efficient alternative to GIF animations.
+                    Due to its ability to offer higher quality with smaller file sizes, WEBP has gained huge popularity in recent years. Especially in web development where optimizing images for faster speeds is crucial. Overall WEBP is a versatile image format. 
                   </p>
               </div>
-              <img src="{{asset('./assets/images/pdf.svg')}}" alt="">
+              <img src="{{asset('./assets/images/image-file.svg')}}" alt="">
             </div>
           </div>
           <div class="flex-50">
             <div class="flex-inner">              
               <div>
-                  <h3 class="heading-md">The Easy Way to Convert Images – File Converter PNG</h3>
+                  <h3 class="heading-md">GIF</h3>
                   <p class="content-p">
-                    Looking for a straightforward way to convert your images? Look no further than PixConvertify's file converter PNG. With our user-friendly tool, changing image formats to PNG is a breeze. Whether you're dealing with JPEGs, GIFs, or more, our file converter PNG simplifies the process. Say goodbye to complexity and hello to seamless image conversions with PixConvertify's file converter PNG.
+                    GIF stands for “ Graphics Interchange Format”. GIF format is a widely used bitmap image format which is developed by CompuServe. Initially, GIFs were primarily used for simple graphics and images. But later on, GIFs became famous for their short animations and looping sequences. 
+                    GIFs support a maximum of 256 colors from a palette of 24-bit RGB colors. This limited color range makes GIFs less suitable for higher-resolution images. GIFs are famous due to their capability to store multiple frames within a single frame. It allows to creation of simple animations. 
+                    GIF uses a lossless compression algorithm which means that it will prevent all origianlity of the image. GIFs are widely used in memes, reactions, tutorials, and as an engaging form of visual communication on social media platforms, forums, and messaging apps. 
                   <p>
                 </div>
                 <img src="{{asset('./assets/images/file-format.svg')}}" alt="">
@@ -324,43 +337,67 @@
                 <div class="how-its-work_item">
                     <img class="icons-image" src="{{asset('./assets/images/file.svg')}}" alt="">
                     <h3>Step 1</h3>
-                    <p>Upload Your File</p>
+                    <p>Simply upload your image files or drag and drop your image files directly onto our platform. </p>
                 </div>
                 <div class="how-its-work_item">
                     <img src="{{asset('./assets/images/format.svg')}}" class="icons-image" alt="">
                     <h3>Step 2</h3>
-                    <p>Select Output Format</p>
+                    <p>Choose the Desired Output Format for your converted images from our extensive list.</p>
                 </div>
                 <div class="how-its-work_item">
                     <img class="icons-image" src="{{asset('./assets/images/download.svg')}}" alt="">
                     <h3>Step 3</h3>
-                    <p>Download Your Converted Image</p>
+                    <p>Once the conversion is complete, download your converted images.</p>
                 </div>
             </div>
         </div>
     </section>
 
     @if(empty($type))
-    <section class="sec_check_responsiveness d-none">
+    <section class="sec_check_responsiveness">
       <div class="container">
-        <h2 class="h2">Pixconvertify Introduces Our Responsive Website Checker! </h2>
+        <h2 class="h2">Convert Bulk Images at Once </h2>
         <div class="sec_check_row">
-        <div class="sec_check">
+          <div class="sec_check">
+            <p>
+                Pixconvertify is a powerful and user-friendly online tool that simplifies your image conversion needs. With the help of our powerful tool Pixconvertify, you can effortlessly convert multiple images simultaneously into various formats without compromising original quality.
+            </p>
+            <p>
+                Bulk conversion refers to transforming multiple files simultaneously from one format to another. Bulk conversion saves time and effort as compared to converting each file individually. 
+            </p>
+          </div>
+          <h3 class="h3 mb-0">How Bulk Conversion Works:</h3>
+          <ul>
+            <li><strong>Step 1: </strong>Simply upload the batch of images to the tool.</li>
+            <li><strong>Step 2: </strong>Specify the desired output formats for the conversion process. </li>
+            <li><strong>Step 3: </strong>Initiate the Conversion Process and watch your images are swiftly transformed into the chosen format.</li>
+            <li><strong>Step 4: </strong>Once the conversion is complete, download the converted images.</li>
+          </ul>
+          <h3 class="h3 mb-0">Ensuring Your Data Security:</h3>
           <p>
-              Is your website ready to impress users on any device? Find out the secret to creating amazing experiences across different screens with our advanced Responsive Website Checker! 🚀
+            At Pixconvertify, we understand the importance of safeguarding your data. We employ the best security measures to protect all your uploaded data for image conversion. Our platform integrates the latest protocols to secure your files during transmission and storage, Your privacy is our priority, and we maintain strict confidentiality standards. 
           </p>
+          <h3 class="h3 mb-0">High-Quality Conversions: </h3>
           <p>
-              Forget about blurry screens and frustrating scrolling. Our tool makes it easy for you to check how well your website adapts to smartphones, tablets, laptops, and more. Unlock the potential of a seamless browsing experience that works perfectly on every screen size.
+            Experience image conversion like never before with Pixconvertify. Our cutting-edge technology ensures high-quality conversions. Our platform maintains exceptional clarity and accuracy, meeting the best quality standards from various file formats to different formats. Get ready for stunning, flawless results every time you convert with us.
           </p>
+          <h3 class="h3 mb-0">Powerful API:</h3>
           <p>
-              But that's not all! At Pixconvertify, we're excited to introduce two more fantastic tools to enhance your website: our Image Compression and Image Conversion tools. With us, you can now optimize your images and convert them effortlessly. Stay tuned for more ways to improve your website!"
+            Unlock the full potential of image conversion with pixconvertify’s powerful API. Our developer-friendly API empowers seamless integration into your applications and workflows. Providing you the coprehenseve suite of functionalities for image processing. From batch conversions to custom solutions, our AOI delivers unparalleded flexibility and scalability, allowing you to the harness the full power of the image conversion in your projects
           </p>
-          <a href="{{route('get-checkrespo')}}" class="theme-btn site_signin waves-effect waves-light mt-2">Check Responsiveness</a>
+          <h3 class="h3 mb-0">All Devices Supported:</h3>
+          <p>
+            Experience the convenience of image conversion on any device with Pixconvertify. Our platform ensures seamless usability across all devices, including desktops, laptops, tablets, and smartphones. Whether you're at home, in the office, or on the go, our user-friendly interface adapts effortlessly to your screen size and device specifications. 
+          </p>
+          <h3 class="h3 mb-0">All Conversions in the Cloud:</h3>
+          <p>
+            At Pixconvertify, all your image conversions happen seamlessly in the cloud. You can initiate and monitor conversions from any device with internet access, allowing for efficient and convenient image processing without the need for high-end hardware. Rest assured, your files remain secure and accessible throughout the conversion process, giving you peace of mind and delivering exceptional results.
+          </p>
+          <h3 class="h3 mb-0">Fast and Easy to Use:</h3>
+          <p>
+            At Pixconvertify, we prioritize speed and simplicity to ensure a fast and easy image conversion experience. Our streamlined interface is intuitively designed, enabling users to swiftly navigate through the conversion process with minimal effort. With just a few clicks, users can upload their images and seamlessly convert them into their desired formats or resolutions. Leveraging advanced technology and optimized workflows, our platform executes conversions swiftly, delivering rapid results without compromising on quality. We have eliminated unnecessary complexities, allowing users to effortlessly access our tool from any device .
+          </p>
         </div>
-        <div class="sec_check">
-          <img src="{{asset('assets/images/ccc.png')}}" class="obj_fit" alt="">
-        </div>
-      </div>
       </div>
     </section>
     @endif

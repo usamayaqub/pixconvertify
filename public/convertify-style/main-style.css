@@ -411,6 +411,10 @@ body.fixed {
     text-align: left;
     max-width: 476px;
 }
+.site-banner-home .banner-message {
+    max-width: 900px;
+    padding-bottom: 20px;
+}
 .shape {
     width: 342px;
     height: 372px;
@@ -1019,6 +1023,10 @@ body.fixed {
     text-align: center;
     width: 33%;
     flex-grow: 1;
+}
+.how-its-work_item p{
+    max-width: 286px;
+    margin: 0 auto;
 }
 .how-its-work_item h3 {
     /* font-family: "Nunito", sans-serif; */
@@ -1879,6 +1887,13 @@ body.fixed {
 .flex-50 {
     width: 49%;
 }
+.flex-50 .heading-md{
+    background: var(--btn-bg-red);
+    color: #fff;
+    width: fit-content;
+    padding: 8px;
+    border-radius: 5px;
+}
 .swal2-styled.swal2-confirm {
     background-color: var(--btn-bg-red);
 }
@@ -2003,15 +2018,15 @@ span.kicker::after {
     flex-direction: column;
     gap: 20px;
     gap: 15px;
-    text-align: center;
+    /* text-align: center; */
 }
 .sec_check {
     width: 100%;
 }
 .sec_check p {
     line-height: 28px;
-    max-width: 80%;
-    margin: 0 auto;
+    /* max-width: 80%; */
+    /* margin: 0 auto; */
 }
 .h2 {
     font-family: "Noto Sans HK", sans-serif;
@@ -2021,6 +2036,21 @@ span.kicker::after {
     letter-spacing: 0em;
     text-align: center;
     color: var(--text-color);
+}
+.h3{
+    font-family: "Noto Sans HK", sans-serif;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 44px;
+    letter-spacing: 0em;
+    color: var(--text-color);
+}
+li{
+    font-family: "Roboto";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
 }
 .sec_check img {
     margin-left: 60px;
@@ -2104,6 +2134,9 @@ span.kicker::after {
     display: flex;
     align-items: flex-start;
     gap: 12px;
+}
+.flex-inner img{
+    display: none;
 }
 
 #iframe-error-modal {
