@@ -105,19 +105,130 @@
           <div class="flex-50 bg-f4">
               <div class="flex-inner">              
                 <div>
-                  <h3 class="heading-md">PNG Conversion by PixConvertify</h3>
+                  <h3 class="heading-md">JPG/JPEG</h3>
                     <p class="">
-                      Enhance your images with PixConvertify's PNG conversion service. We transform your pictures into high-quality PNG files, perfect for web use. No technical expertise required—just upload and convert. Say hello to clear, crisp images on your website and projects. Ready to upgrade? PixConvertify has you covered!
+                      This format of image is mostly used. JPEG/JPG uses a lossy compression format for digital images. Its algorithm is designed so that it reduces the file size of images while maintaining a visually acceptable level of quality. 
+                      This format is ideal for complex images and also for photographs. This JPEG/JPG has a smaller file size by comparing the size with all other formats. It supports the RGB color space that's why it can represent millions of colors.
                     </p>
+                    <ul class="tag-list">
+                      <li>
+                        <a href="https://pixconvertify.com/jpg-to-docx"> 
+                          JPG to DOCX
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://pixconvertify.com/jpg-to-webp">
+                          JPG to WEBP
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://pixconvertify.com/jpg-to-gif">JPG to GIF</a>
+                      </li>
+                      <li>
+                        <a href="https://pixconvertify.com/jpeg-to-gif">JPEG to GIF</a>
+                      </li>
+                    </ul>
                 </div>
               </div>
           </div>
           <div class="flex-50 bg-f4">
             <div class="flex-inner">              
               <div>
-              <h3 class="heading-md">Convert WebP into JPG with PixConvertify</h3>
+              <h3 class="heading-md">WEBP</h3>
                 <p class="">
-                  Transform your WebP images into high-quality JPG files effortlessly with PixConvertify. Our user-friendly service makes the process a breeze. Say goodbye to compatibility issues and hello to versatile JPG images for your website and projects. Try it today and experience the seamless WebP to JPG conversion with PixConvertify.
+                  WEBP is a modern image format which is developed by Google in 2010. WEBP was developed to provide a more efficient way to store images on the internet. 
+                  WEBP provides superior compression and quality characteristics as compared to other traditional formats like JPEG, PNG, and GIF. WEBP provides both lossy and lossless compression techniques.
+                </p>
+                <ul class="tag-list">
+                    <li>
+                      <a href="https://pixconvertify.com/webp-to-gif"> 
+                        WEBP To GIF
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://pixconvertify.com/webp-to-png">
+                        WEBO To PNG
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://pixconvertify.com/webp-to-jpg">Webp To JPG</a>
+                    </li>
+                    <li>
+                      <a href="https://pixconvertify.com/webp-to-jpeg">Webp To JPEG</a>
+                    </li>
+                    <li>
+                      <a href="https://pixconvertify.com/webp-to-pdf">Webp To Pdf</a>
+                    </li>
+                </ul>
+              </div>
+              </div>
+          </div>
+          <div class="flex-50 bg-f4">
+            <div class="flex-inner">              
+              <div>
+              <h3 class="heading-md">GIF</h3>
+                <p class="">
+                 GIF stands for “ Graphics Interchange Format”. GIF format is a widely used bitmap image format which is developed by CompuServe. Initially, GIFs were primarily used for simple graphics and images. But later on, GIFs became famous for their short animations and looping sequences. 
+                  GIFs support a maximum of 256 colors from a palette of 24-bit RGB colors. This limited color range makes GIFs less suitable for higher-resolution images. GIFs are famous due to their capability to store multiple frames within a single frame. It allows to creation of simple animations. 
+                </p>
+                <ul class="tag-list">
+                    <li>
+                      <a href="https://pixconvertify.com/gif-to-pdf"> 
+                        GIF To PDF 
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://pixconvertify.com/gif-to-webp">
+                        GIF To WEBP
+                      </a>
+                    </li>
+                </ul>
+              </div>
+              </div>
+          </div>
+          <div class="flex-50 bg-f4">
+            <div class="flex-inner">              
+              <div>
+              <h3 class="heading-md">PNG</h3>
+                <p class="">
+                  PNG uses a lossless compression method, without sacrificing the quality of the image it preserves all image data.
+                  PNG supports various color depths which include 24-bit RGB color and 8-bit indexed color that allow up to 256 colors. PNG is suitable for sharp transitions, graphics, text, or for those images which require transparent backgrounds. PNG also supports alpha channel transparency that allows each part of the image to be fully transparent.
+                </p>
+                <ul class="tag-list">
+                  {{-- <li>
+                    <a href="">
+                      PNG to JPEG
+                    </a>
+                  </li> --}}
+                  <li>
+                    <a href="https://pixconvertify.com/png-to-pdf"> 
+                      PNG to PDF
+                    </a>
+                  </li>
+                  {{-- <li>
+                    <a href="">
+                      PNG to DOCX
+                    </a>
+                  </li> --}}
+                  <li>
+                    <a href="https://pixconvertify.com/png-to-webp">
+                      PNG to WEBP
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://pixconvertify.com/png-to-gif">PNG to GIF</a>
+                  </li>
+                </ul>
+              </div>
+              </div>
+          </div>
+          <div class="flex-50 bg-f4">
+            <div class="flex-inner">              
+              <div>
+              <h3 class="heading-md">PDF</h3>
+                <p class="">
+                  PDF stands for Portable Document Format and this file format is used to present and exchange the documents reliably. PDF format is developed by Adobe. PDF files can contain text, images, hyperlinks, interactive buttons, forms, videos, and many other important elements. 
+                  PDF prevents the original formatting and layout of the file. PDF file is platform-independent. It contains a fixed layout. PDF files can be password protected, prevented from any unauthorized access, and edited. 
                 </p>
               </div>
               </div>
@@ -125,31 +236,18 @@
           <div class="flex-50 bg-f4">
             <div class="flex-inner">              
               <div>
-              <h3 class="heading-md">Effortless PDF Conversion with PixConvertify</h3>
+              <h3 class="heading-md">DOCX</h3>
                 <p class="">
-                  Experience seamless PDF conversion with PixConvertify. Our service simplifies the process, allowing you to transform your files with ease. Convert various formats into PDF effortlessly, ensuring compatibility and professional presentation. Take advantage of PixConvertify's PDF conversion today for all your document needs.
+                  DOCX is a famous file format developed by Microsoft. DOCX is the default format for the documents created by Microsoft Word. 
+                  DOCX is based on XML which is a file format for documents that is readable for both machines as well as humans. DOCX supports a wide array of formatting options which includes fonts, styles, headings, tables, images, hyperlinks, bullet points, and other elements. 
                 </p>
-              </div>
-              </div>
-          </div>
-          <div class="flex-50 bg-f4">
-            <div class="flex-inner">              
-              <div>
-              <h3 class="heading-md">Streamlined JPG Conversion with PixConvertify</h3>
-                <p class="">
-                  At PixConvertify, we make JPG conversion a breeze. Whether you need to convert images from other formats or optimize your existing JPGs, our user-friendly service has you covered. Enjoy top-notch image quality and versatility for your website and projects. Trust PixConvertify for all your JPG conversion needs.
-                </p>
-              </div>
-              </div>
-          </div>
-          <div class="flex-100 bg-f4">
-            <div class="flex-inner">              
-              <div>
-              <h3 class="heading-md">Online Responsiveness Testing</h3>
-                <p class="">
-                  We understand the importance of a responsive website. That's why we've built a powerful tool that allows you to test the responsiveness of your site with ease. Simply visit our 
-                  <a href="{{route('get-checkrespo')}}">Responsive Testing Tool</a> to check how your website looks and behaves across various devices and screen sizes.
-                </p>
+                <ul class="tag-list">
+                    <li>
+                      <a href="https://pixconvertify.com/docx-to-pdf"> 
+                        DOCX To PDF 
+                      </a>
+                    </li>
+                </ul>
               </div>
               </div>
           </div>

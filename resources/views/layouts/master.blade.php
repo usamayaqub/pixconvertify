@@ -53,6 +53,33 @@
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/node-snackbar@latest/src/js/snackbar.min.js"></script>
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/node-snackbar@latest/dist/snackbar.min.css" />
     <title>{{ config('app.name', 'Pixconvertify') }}</title>
+
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "Organization",
+            "name": "PixConvertify",
+            "url": "https://pixconvertify.com/",
+            "logo": "https://pixconvertify.com/assets/images/site-logo.svg",
+            "description": "PixConvertify is an online image conversion service. We specialize in converting PNG to WEBP, JPG to DOCX, JPG to WEBP, DOCX to PDF, PNG to PDF, PNG to GIF, JPEG to GIF, JPG to GIF, WEBP to GIF, GIF to PDF, WEBP to PNG, WEBP to JPG, WEBP to JPEG, WEBP to PDF, GIF to WEBP.",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "63-B New Shalimar Town Gulshan Ravi",
+                "addressLocality": "Lahore",
+                "addressCountry": "Pakistan"
+            },
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "email": "info@pixconvertify.com",
+                "contactType": "customer service"
+            },
+            "sameAs": [
+                "https://www.facebook.com/PixConvertify",
+                "https://twitter.com/PixConvertify",
+                "https://www.instagram.com/PixConvertify/"
+              ]
+        }
+    </script>
 </head>
 
 <body>

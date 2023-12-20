@@ -1024,7 +1024,7 @@ body.fixed {
     width: 33%;
     flex-grow: 1;
 }
-.how-its-work_item p{
+.how-its-work_item p {
     max-width: 286px;
     margin: 0 auto;
 }
@@ -1887,7 +1887,7 @@ body.fixed {
 .flex-50 {
     width: 49%;
 }
-.flex-50 .heading-md{
+.flex-50 .heading-md {
     background: var(--btn-bg-red);
     color: #fff;
     width: fit-content;
@@ -2037,7 +2037,7 @@ span.kicker::after {
     text-align: center;
     color: var(--text-color);
 }
-.h3{
+.h3 {
     font-family: "Noto Sans HK", sans-serif;
     font-size: 28px;
     font-weight: 500;
@@ -2045,7 +2045,7 @@ span.kicker::after {
     letter-spacing: 0em;
     color: var(--text-color);
 }
-li{
+li {
     font-family: "Roboto";
     font-size: 16px;
     font-weight: 400;
@@ -2135,7 +2135,7 @@ li{
     align-items: flex-start;
     gap: 12px;
 }
-.flex-inner img{
+.flex-inner img {
     display: none;
 }
 
@@ -2195,4 +2195,19 @@ li{
     font-size: 25px;
     padding-bottom: 5px;
     display: inline-block;
+}
+.tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 11px;
+}
+.tag-list li {
+    background: var(--btn-bg-dark);
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+.tag-list li a {
+    color: #fff;
+    font-size: 12px;
 }
